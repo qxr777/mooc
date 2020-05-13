@@ -1,0 +1,44 @@
+package edu.whut.cs.jee.mooc.mclass.model;
+
+import edu.whut.cs.jee.mooc.common.persistence.BaseEntity;
+import lombok.*;
+
+import javax.persistence.*;
+import java.util.Set;
+
+/**
+ * 课程
+ */
+@Entity
+@Table(name = "mclass_course")
+@Builder
+@Data
+@ToString(callSuper = true)
+@NoArgsConstructor
+@AllArgsConstructor
+public class Course extends BaseEntity {
+
+    public static final int TYPE_ONLINE = 1;
+    public static final int TYPE_OFFLINE = 2;
+
+    /**
+     * 课程名称
+     */
+    @Column(name = "name")
+    private String name;
+
+    /**
+     * 课程类型：在线课程 | 独立线下课程
+     */
+    @Column(name = "type")
+    private Integer type;
+
+    /**
+     * 慕课堂
+     */
+    @OneToMany
+    @JoinColumn(name="course_id")
+    private Set<MoocClass> moocClasses;
+
+
+}
