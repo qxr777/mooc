@@ -69,6 +69,12 @@ public class Fill extends Subject {
                 result = answer.indexOf(textKey) >= 0;
             }
         }
+        if (result) {
+            this.setRightCount(this.getRightCount() + 1);
+        } else {
+            this.setErrorCount(this.getErrorCount() + 1);
+        }
+        calculatePercent();   // 计算百分比
         return result;
     }
 }

@@ -8,6 +8,8 @@ public class CourseDto {
 
     private Long id;
 
+    private Long teacherId;
+
     @NotNull
     private String name;
 

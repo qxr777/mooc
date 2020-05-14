@@ -69,9 +69,11 @@ public class CheckInDto {
 
     public CheckInDto convertFor(CheckIn checkIn){
         BeanUtils.copyProperties(checkIn,this);
-        for(Attendance attendance : checkIn.getAttendances()) {
-            AttendanceDto attendanceDto = new AttendanceDto();
-            attendanceDtos.add(attendanceDto.convertFor(attendance));
+        if(checkIn.getAttendances() != null) {
+            for (Attendance attendance : checkIn.getAttendances()) {
+                AttendanceDto attendanceDto = new AttendanceDto();
+                attendanceDtos.add(attendanceDto.convertFor(attendance));
+            }
         }
         this.setStatusCh(CheckIn.STATUS_STRING_CH[checkIn.getStatus()]);
         return this;

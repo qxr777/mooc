@@ -35,7 +35,7 @@ public class Option extends BaseEntity implements Cloneable{
      * 选择人数
      */
     @Column(name = "count")
-    private Integer count;
+    private Integer count = 0;
 
     /**
      *  是否正确选项

@@ -4,7 +4,7 @@ import edu.whut.cs.jee.mooc.common.persistence.BaseEntity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 /**
  * 练习库中的练习
@@ -32,5 +32,6 @@ public class Exercise extends BaseEntity {
 
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name="exercise_id")
-    private Set<Subject> subjects;
+    @OrderBy("id ASC")
+    private List<Subject> subjects;
 }

@@ -54,12 +54,14 @@ public class SubjectServiceTest {
                 .name("A")
                 .content("选项A_UNIT_TEST")
                 .correct(true)
+                .count(0)
                 .build();
         options.add(option1);
         Option option2 = Option.builder()
                 .name("B")
                 .content("选项B_UNIT_TEST")
                 .correct(true)
+                .count(0)
                 .build();
         options.add(option2);
         choice.setOptions(options);

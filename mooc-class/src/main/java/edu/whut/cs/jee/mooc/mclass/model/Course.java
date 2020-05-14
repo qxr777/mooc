@@ -1,6 +1,7 @@
 package edu.whut.cs.jee.mooc.mclass.model;
 
 import edu.whut.cs.jee.mooc.common.persistence.BaseEntity;
+import edu.whut.cs.jee.mooc.upms.model.Teacher;
 import lombok.*;
 
 import javax.persistence.*;
@@ -32,6 +33,10 @@ public class Course extends BaseEntity {
      */
     @Column(name = "type")
     private Integer type;
+
+    @ManyToOne
+    @JoinColumn(name = "teacher_id")
+    private Teacher teacher;
 
     /**
      * 慕课堂

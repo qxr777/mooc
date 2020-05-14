@@ -49,7 +49,7 @@ public abstract class Subject extends BaseEntity implements Cloneable {
      * 正确人数
      */
     @Column(name = "right_count")
-    private Integer rightCount;
+    private Integer rightCount = 0;
 
     /**
      * 正确百分比
@@ -61,7 +61,7 @@ public abstract class Subject extends BaseEntity implements Cloneable {
      * 错误人数
      */
     @Column(name = "error_count")
-    private Integer errorCount;
+    private Integer errorCount = 0;
 
     /**
      * 错误百分比
@@ -71,6 +71,12 @@ public abstract class Subject extends BaseEntity implements Cloneable {
 
 
     public abstract boolean check(String answer);
+
+    protected void calculatePercent() {
+        int sum = rightCount + errorCount;
+        this.rightPercent = 100 * rightCount / sum;
+        this.errorPercent = 100 * errorCount / sum;
+    }
 
     @Override
     public Object clone() {

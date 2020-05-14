@@ -1,9 +1,7 @@
 package edu.whut.cs.jee.mooc.mclass.dto;
 
 import edu.whut.cs.jee.mooc.mclass.model.Answer;
-import edu.whut.cs.jee.mooc.mclass.model.ExaminationRecord;
 import edu.whut.cs.jee.mooc.mclass.model.Subject;
-import edu.whut.cs.jee.mooc.upms.model.User;
 import lombok.Data;
 import org.springframework.beans.BeanUtils;
 

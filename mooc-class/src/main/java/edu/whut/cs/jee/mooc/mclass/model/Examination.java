@@ -44,13 +44,14 @@ public class Examination extends BaseEntity {
      * 提交人数
      */
     @Column(name = "submit_count")
-    private Integer submitCount;
+    private Integer submitCount = 0;
 
     /**
      * 习题
      */
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name="examination_id")
+    @OrderBy("id ASC")
     private List<Subject> subjects;
 
 }

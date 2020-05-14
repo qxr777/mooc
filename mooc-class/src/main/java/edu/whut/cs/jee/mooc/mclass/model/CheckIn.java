@@ -5,7 +5,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
 /**
  * 签到活动
@@ -79,7 +79,7 @@ public class CheckIn extends BaseEntity {
 
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name="check_in_id")
-    private Set<Attendance> attendances;
+    private List<Attendance> attendances;
 
 
 }

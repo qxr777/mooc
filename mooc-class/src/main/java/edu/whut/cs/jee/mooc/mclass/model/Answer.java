@@ -56,8 +56,8 @@ public class Answer extends BaseEntity {
     /**
      * 习题
      */
-    @ManyToOne
-    @JoinColumn(name = "subject_id", referencedColumnName = "id")
-    private Subject subject;
+//    @ManyToOne
+//    @JoinColumn(name = "subject_id", referencedColumnName = "id")
+//    private Subject subject;
 
 }

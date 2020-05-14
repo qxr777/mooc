@@ -6,6 +6,7 @@ import lombok.Data;
 import org.springframework.beans.BeanUtils;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -18,13 +19,17 @@ public class ExaminationRecordDto implements Serializable {
 
     private String userName;
 
-    private Double score;
+    private Double score = 0.0;
 
-    private Integer correctCount;
+    private Integer correctCount = 0;
 
     private Date submitTime;
 
-    private List<AnswerDto> answerDtos;
+    private List<AnswerDto> answerDtos = new ArrayList<>();
+
+    public void addAnswer(AnswerDto answerDto) {
+        answerDtos.add(answerDto);
+    }
 
     public ExaminationRecord convertTo(){
         ExaminationRecord examinationRecord = new ExaminationRecord();

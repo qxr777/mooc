@@ -30,17 +30,29 @@ public class Judgment extends Subject {
      * 选T的人数
      */
     @Column(name = "true_count")
-    private Integer trueCount;
+    private Integer trueCount = 0;
 
     /**
      * 选F的人数
      */
     @Column(name = "false_count")
-    private Integer falseCount;
+    private Integer falseCount = 0;
 
     @Override
     public boolean check(String answer) {
         boolean answerBoolean = Boolean.parseBoolean(answer);
-        return  answerBoolean == this.result;
+        if (answerBoolean) {
+            ++trueCount;
+        } else {
+            ++falseCount;
+        }
+        boolean isRight = answerBoolean == this.result;
+        if (isRight) {
+            this.setRightCount(this.getRightCount() + 1);
+        } else {
+            this.setErrorCount(this.getErrorCount() + 1);
+        }
+        calculatePercent();   // 计算百分比
+        return  isRight;
     }
 }

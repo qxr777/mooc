@@ -1,5 +1,6 @@
 package edu.whut.cs.jee.mooc.mclass.service;
 
+import edu.whut.cs.jee.mooc.common.util.BeanConvertUtils;
 import edu.whut.cs.jee.mooc.mclass.dto.JoinDto;
 import edu.whut.cs.jee.mooc.mclass.dto.LessonDto;
 import edu.whut.cs.jee.mooc.mclass.dto.MoocClassDto;
@@ -9,6 +10,7 @@ import edu.whut.cs.jee.mooc.mclass.model.MoocClass;
 import edu.whut.cs.jee.mooc.mclass.repository.CourseRepository;
 import edu.whut.cs.jee.mooc.mclass.repository.LessonRepository;
 import edu.whut.cs.jee.mooc.mclass.repository.MoocClassRepository;
+import edu.whut.cs.jee.mooc.upms.model.Teacher;
 import edu.whut.cs.jee.mooc.upms.model.User;
 import edu.whut.cs.jee.mooc.upms.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -16,6 +18,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Date;
+import java.util.List;
 
 @Slf4j
 @Service
@@ -42,9 +46,12 @@ public class MoocClassService {
     public MoocClassDto saveMoocClass(MoocClassDto moocClassDto) {
         Course course = null;
         if(moocClassDto.getOfflineCourse() != null) {
+            Teacher teacher = new Teacher();
+            teacher.setId(moocClassDto.getTeacherId());
             course = Course.builder()
                     .name(moocClassDto.getOfflineCourse())
                     .type(Course.TYPE_OFFLINE)
+                    .teacher(teacher)
                     .build();
             course = courseRepository.save(course);
         }
@@ -72,15 +79,35 @@ public class MoocClassService {
 
     /**
      * 【参考】各层命名规约: 删除的方法用 remove/delete 做前缀。
-     * @param lessonDto
+     * @param lessonId
      * @return
      */
-    public Long removeLesson(LessonDto lessonDto) {
-        Lesson lesson = lessonDto.convertTo();
-        if (lessonRepository.existsById(lessonDto.getId())) {
-            lessonRepository.delete(lesson);
+    public void removeLesson(Long lessonId) {
+        if (lessonRepository.existsById(lessonId)) {
+            lessonRepository.deleteById(lessonId);
         }
-        return lessonDto.getId();
+    }
+
+    /**
+     * 开始上课
+     * @param lessonId
+     */
+    public void startLesson(Long lessonId) {
+        Lesson lesson = lessonRepository.findById(lessonId).get();
+        lesson.setStartTime(new Date());
+        lesson.setStatus(Lesson.STATUS_SERVICING);
+        lessonRepository.save(lesson);
+    }
+
+    /**
+     * 点击下课
+     * @param lessonId
+     */
+    public void endLesson(Long lessonId) {
+        Lesson lesson = lessonRepository.findById(lessonId).get();
+        lesson.setEndTime(new Date());
+        lesson.setStatus(Lesson.STATUS_END);
+        lessonRepository.save(lesson);
     }
 
     /**
@@ -93,6 +120,16 @@ public class MoocClassService {
         MoocClass moocClass = moocClassRepository.findById(joinDto.getMoocClassId()).get();
         moocClass.getUsers().add(user);
         moocClassRepository.save(moocClass);
+    }
+
+    /**
+     * 返回慕课堂的上课记录
+     * @param moocClassId
+     * @return
+     */
+    public List<LessonDto> getLessons(Long moocClassId) {
+        List<Lesson> lessons = lessonRepository.findByMoocClassId(moocClassId);
+        return BeanConvertUtils.convertListTo(lessons, LessonDto::new, (s, t) -> { t.setCheckInCount(s.getCheckIn() != null ? 1 : 0); t.setExaminationCount(s.getExaminations().size());});
     }
 
 }

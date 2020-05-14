@@ -24,13 +24,13 @@ public class ExaminationRecord extends BaseEntity {
      * 得分
      */
     @Column(name = "score", columnDefinition = "decimal(5,2)")
-    private Double score;
+    private Double score = 0.0;
 
     /**
      * 答对数量
      */
     @Column(name = "correct_count")
-    private Integer correctCount;
+    private Integer correctCount = 0;
 
     /**
      * 完成时间
@@ -44,8 +44,8 @@ public class ExaminationRecord extends BaseEntity {
     @Column(name = "examination_id")
     private Long examinationId;
 
-    @Column(name = "user_id")
-    private Long userId;
+//    @Column(name = "user_id")
+//    private Long userId;
 
     /**
      * 参加的学生

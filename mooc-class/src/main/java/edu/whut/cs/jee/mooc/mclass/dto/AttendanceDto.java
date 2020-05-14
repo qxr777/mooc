@@ -37,6 +37,7 @@ public class AttendanceDto {
 
     public AttendanceDto convertFor(Attendance attendance){
         BeanUtils.copyProperties(attendance,this);
+        this.setUserId(attendance.getUser().getId());
         this.setUserName(attendance.getUser().getName());
         this.setStatusCh(Attendance.STATUS_STRING_CH[attendance.getStatus()]);
         return this;

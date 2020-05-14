@@ -13,7 +13,7 @@ import javax.annotation.Resource;
 public class ExerciseServiceTest {
 
     Long courseId = 1L;
-    Long exerciseId = 3L;
+    Long exerciseId = 1L;
     Exercise exercise = Exercise.builder()
             .courseId(courseId)
             .name("课程引论练习")

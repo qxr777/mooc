@@ -30,6 +30,10 @@ public class LessonDto {
     @NotNull
     private Date serviceDate;
 
+    private Date startTime;
+
+    private Date endTime;
+
     public Lesson convertTo(){
         Lesson lesson = new Lesson();
         BeanUtils.copyProperties(this, lesson);

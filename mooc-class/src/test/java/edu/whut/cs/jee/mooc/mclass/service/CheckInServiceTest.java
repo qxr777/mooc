@@ -3,6 +3,7 @@ package edu.whut.cs.jee.mooc.mclass.service;
 import edu.whut.cs.jee.mooc.common.exception.OverDueException;
 import edu.whut.cs.jee.mooc.mclass.dto.AttendanceDto;
 import edu.whut.cs.jee.mooc.mclass.dto.CheckInDto;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,13 +17,18 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
 
+@Slf4j
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CheckInServiceTest {
 
+    Long lessonId = 1L;
+    Long studentId1 = 2L;
+    Long studentId2 = 3L;
+    Long checkInId = 1L;
     LocalDate today = LocalDate.now();
     LocalDateTime dateTime = LocalDateTime.now();
-    Instant instant = dateTime.plusMinutes(10).atZone(ZoneId.systemDefault()).toInstant();
+    Instant instant = dateTime.plusMinutes(30).atZone(ZoneId.systemDefault()).toInstant();
     Date deadline = Date.from(instant);
 
     CheckInDto checkInDto = CheckInDto.builder()
@@ -30,7 +36,7 @@ public class CheckInServiceTest {
             .longitude(100.0)
             .latitude(100.0)
             .deadline(deadline)
-            .lessonId(1L)
+            .lessonId(lessonId)
             .build();
 
     @Resource
@@ -48,11 +54,16 @@ public class CheckInServiceTest {
 
     @Test
     public void testSaveAttendance() throws ParseException, OverDueException {
-        testSaveCheckIn();
+//        testSaveCheckIn();
 
         AttendanceDto attendanceDto = AttendanceDto.builder()
-                .userId(1L)
-                .checkInId(checkInDto.getId())
+                .userId(studentId1)
+                .checkInId(checkInId)
+                .build();
+        checkInService.saveAttendance(attendanceDto);
+        attendanceDto = AttendanceDto.builder()
+                .userId(studentId2)
+                .checkInId(checkInId)
                 .build();
         checkInService.saveAttendance(attendanceDto);
 
@@ -60,15 +71,17 @@ public class CheckInServiceTest {
 
     @Test
     public void testCloseCheckIn() throws ParseException, OverDueException {
-        testSaveAttendance();
+//        testSaveAttendance();
 
-        checkInService.closeCheckIn(checkInDto);
+        checkInService.closeCheckIn(checkInId);
     }
 
     @Test
     public void testGetCheckInDto() {
-        checkInDto = checkInService.getCheckInDto(1L);
+        checkInDto = checkInService.getCheckInDto(checkInId);
+        log.info(checkInDto.toString());
     }
+
 
     public void dummy() {
     }

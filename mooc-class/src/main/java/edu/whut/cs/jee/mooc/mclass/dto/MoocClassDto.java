@@ -1,7 +1,6 @@
 package edu.whut.cs.jee.mooc.mclass.dto;
 
 import com.sun.istack.internal.NotNull;
-import edu.whut.cs.jee.mooc.common.persistence.Converter;
 import edu.whut.cs.jee.mooc.mclass.model.MoocClass;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,6 +15,8 @@ import org.springframework.beans.BeanUtils;
 public class MoocClassDto {
 
     private Long id;
+
+    private Long teacherId;
     /**
      * 名称
      */
@@ -45,29 +46,32 @@ public class MoocClassDto {
     private String offlineCourse;
 
     public MoocClass convertTo(){
-        MoocClassDTOConvert moocClassDTOConvert = new MoocClassDTOConvert();
-        MoocClass convert = moocClassDTOConvert.doForward(this);
-        return convert;
+//        MoocClassDTOConvert moocClassDTOConvert = new MoocClassDTOConvert();
+//        MoocClass convert = moocClassDTOConvert.doForward(this);
+        MoocClass moocClass = new MoocClass();
+        BeanUtils.copyProperties(this,moocClass);
+        return moocClass;
     }
 
     public MoocClassDto convertFor(MoocClass moocClass){
-        MoocClassDTOConvert moocClassDTOConvert = new MoocClassDTOConvert();
-        MoocClassDto convert = moocClassDTOConvert.doBackward(moocClass);
-        return convert;
+//        MoocClassDTOConvert moocClassDTOConvert = new MoocClassDTOConvert();
+//        MoocClassDto convert = moocClassDTOConvert.doBackward(moocClass);
+        BeanUtils.copyProperties(moocClass,this);
+        return this;
     }
 
-    private static class MoocClassDTOConvert implements Converter<MoocClassDto, MoocClass> {
-
-        public MoocClass doForward(MoocClassDto moocClassDto) {
-            MoocClass moocClass = new MoocClass();
-            BeanUtils.copyProperties(moocClassDto,moocClass);
-            return moocClass;
-        }
-
-        public MoocClassDto doBackward(MoocClass moocClass) {
-            MoocClassDto moocClassDto = new MoocClassDto();
-            BeanUtils.copyProperties(moocClass,moocClassDto);
-            return moocClassDto;
-        }
-    }
+//    private static class MoocClassDTOConvert implements Converter<MoocClassDto, MoocClass> {
+//
+//        public MoocClass doForward(MoocClassDto moocClassDto) {
+//            MoocClass moocClass = new MoocClass();
+//            BeanUtils.copyProperties(moocClassDto,moocClass);
+//            return moocClass;
+//        }
+//
+//        public MoocClassDto doBackward(MoocClass moocClass) {
+//            MoocClassDto moocClassDto = new MoocClassDto();
+//            BeanUtils.copyProperties(moocClass,moocClassDto);
+//            return moocClassDto;
+//        }
+//    }
 }

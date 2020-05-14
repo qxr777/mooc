@@ -35,6 +35,7 @@ public class ExerciseService {
      * @return
      */
     public void removeExcercise(Long exerciseId) {
+
         List<Subject> subjects = subjectRepository.findByExerciseId(exerciseId);
         subjectRepository.deleteAll(subjects);
         exerciseRepository.deleteById(exerciseId);

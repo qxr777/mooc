@@ -78,11 +78,11 @@ public class CheckInService {
 
     /**
      * 关闭签到
-     * @param checkInDto
+     * @param checkInId
      * @return
      */
-    public CheckInDto  closeCheckIn(CheckInDto checkInDto) {
-        CheckIn checkIn = checkInDto.convertTo();
+    public void closeCheckIn(Long checkInId) {
+        CheckIn checkIn = checkInRepository.findById(checkInId).get();
         checkIn.setStatus(CheckIn.STATUS_CLOSED);
 
         Lesson lesson = lessonRepository.findById(checkIn.getLessonId()).get();
@@ -90,7 +90,7 @@ public class CheckInService {
         List<User> users = new ArrayList<User>(moocClass.getUsers());
 
         // 正常签到
-        List<Attendance> checkedAttendances = attendanceRepository.findByCheckInIdAndStatus(checkInDto.getId(), Attendance.STATUS_CHECKED);
+        List<Attendance> checkedAttendances = attendanceRepository.findByCheckInIdAndStatus(checkInId, Attendance.STATUS_CHECKED);
         int checkedCount = checkedAttendances.size();
         checkIn.setCheckedCount(checkedCount);
         for(Attendance attendance : checkedAttendances) {
@@ -99,7 +99,7 @@ public class CheckInService {
         }
 
         // 迟到
-        List<Attendance> lateAttendances = attendanceRepository.findByCheckInIdAndStatus(checkInDto.getId(), Attendance.STATUS_LATE);
+        List<Attendance> lateAttendances = attendanceRepository.findByCheckInIdAndStatus(checkInId, Attendance.STATUS_LATE);
         int lateCount = lateAttendances.size();
         checkIn.setLateCount(lateCount);
         for(Attendance attendance : lateAttendances) {
@@ -120,8 +120,7 @@ public class CheckInService {
             attendanceRepository.save(attendance);
         }
 
-        checkIn = checkInRepository.save(checkIn);
-        return checkInDto.convertFor(checkIn);
+        checkInRepository.save(checkIn);
     }
 
     /**
