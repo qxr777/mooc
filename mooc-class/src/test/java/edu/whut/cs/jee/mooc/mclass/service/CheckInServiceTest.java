@@ -1,6 +1,6 @@
 package edu.whut.cs.jee.mooc.mclass.service;
 
-import edu.whut.cs.jee.mooc.common.exception.OverDueException;
+import edu.whut.cs.jee.mooc.common.exception.APIException;
 import edu.whut.cs.jee.mooc.mclass.dto.AttendanceDto;
 import edu.whut.cs.jee.mooc.mclass.dto.CheckInDto;
 import lombok.extern.slf4j.Slf4j;
@@ -53,7 +53,7 @@ public class CheckInServiceTest {
     }
 
     @Test
-    public void testSaveAttendance() throws ParseException, OverDueException {
+    public void testSaveAttendance() throws ParseException, APIException {
 //        testSaveCheckIn();
 
         AttendanceDto attendanceDto = AttendanceDto.builder()
@@ -70,7 +70,7 @@ public class CheckInServiceTest {
     }
 
     @Test
-    public void testCloseCheckIn() throws ParseException, OverDueException {
+    public void testCloseCheckIn() throws ParseException, APIException {
 //        testSaveAttendance();
 
         checkInService.closeCheckIn(checkInId);

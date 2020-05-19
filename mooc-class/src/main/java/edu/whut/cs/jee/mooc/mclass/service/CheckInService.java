@@ -1,6 +1,7 @@
 package edu.whut.cs.jee.mooc.mclass.service;
 
-import edu.whut.cs.jee.mooc.common.exception.OverDueException;
+import edu.whut.cs.jee.mooc.common.exception.APIException;
+import edu.whut.cs.jee.mooc.common.exception.AppCode;
 import edu.whut.cs.jee.mooc.mclass.dto.AttendanceDto;
 import edu.whut.cs.jee.mooc.mclass.dto.CheckInDto;
 import edu.whut.cs.jee.mooc.mclass.model.Attendance;
@@ -55,9 +56,9 @@ public class CheckInService {
      * 学生签到
      * @param attendanceDto
      * @return
-     * @throws OverDueException
+     * @throws APIException
      */
-    public AttendanceDto saveAttendance(AttendanceDto attendanceDto) throws OverDueException {
+    public AttendanceDto saveAttendance(AttendanceDto attendanceDto) throws APIException {
         Attendance attendance = attendanceDto.convertTo();
         CheckIn checkIn = checkInRepository.findById(attendance.getCheckInId()).get();
         LocalDateTime nowTime = LocalDateTime.now();
@@ -69,7 +70,7 @@ public class CheckInService {
         }
         Lesson lesson = lessonRepository.findById(checkIn.getLessonId()).get();
         if(lesson.getStatus() == Lesson.STATUS_END) {
-            throw new OverDueException();
+            throw new APIException(AppCode.OVER_DUE_ERROR, AppCode.OVER_DUE_ERROR.getMsg() + nowTime);
         }
 
         attendance = attendanceRepository.save(attendance);

@@ -1,7 +1,8 @@
 package edu.whut.cs.jee.mooc.mclass.dto;
 
-import com.sun.istack.internal.NotNull;
 import lombok.Data;
+
+import javax.validation.constraints.NotNull;
 
 @Data
 public class CourseDto {
@@ -10,7 +11,7 @@ public class CourseDto {
 
     private Long teacherId;
 
-    @NotNull
+    @NotNull(message = "课程名称不允许为空")
     private String name;
 
 }

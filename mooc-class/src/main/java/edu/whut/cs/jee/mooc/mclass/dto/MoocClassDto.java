@@ -1,12 +1,13 @@
 package edu.whut.cs.jee.mooc.mclass.dto;
 
-import com.sun.istack.internal.NotNull;
 import edu.whut.cs.jee.mooc.mclass.model.MoocClass;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.BeanUtils;
+
+import javax.validation.constraints.NotNull;
 
 @Data
 @Builder
@@ -20,19 +21,19 @@ public class MoocClassDto {
     /**
      * 名称
      */
-    @NotNull
+    @NotNull(message = "慕课堂名称不允许为空")
     private String name;
 
     /**
      * 学年
      */
-    @NotNull
+    @NotNull(message = "慕课堂所属学年不允许为空")
     private String year;
 
     /**
      * 学期
      */
-    @NotNull
+    @NotNull(message = "慕课堂所属学期不允许为空")
     private String semester;
 
     /**
@@ -46,32 +47,14 @@ public class MoocClassDto {
     private String offlineCourse;
 
     public MoocClass convertTo(){
-//        MoocClassDTOConvert moocClassDTOConvert = new MoocClassDTOConvert();
-//        MoocClass convert = moocClassDTOConvert.doForward(this);
         MoocClass moocClass = new MoocClass();
         BeanUtils.copyProperties(this,moocClass);
         return moocClass;
     }
 
     public MoocClassDto convertFor(MoocClass moocClass){
-//        MoocClassDTOConvert moocClassDTOConvert = new MoocClassDTOConvert();
-//        MoocClassDto convert = moocClassDTOConvert.doBackward(moocClass);
         BeanUtils.copyProperties(moocClass,this);
         return this;
     }
 
-//    private static class MoocClassDTOConvert implements Converter<MoocClassDto, MoocClass> {
-//
-//        public MoocClass doForward(MoocClassDto moocClassDto) {
-//            MoocClass moocClass = new MoocClass();
-//            BeanUtils.copyProperties(moocClassDto,moocClass);
-//            return moocClass;
-//        }
-//
-//        public MoocClassDto doBackward(MoocClass moocClass) {
-//            MoocClassDto moocClassDto = new MoocClassDto();
-//            BeanUtils.copyProperties(moocClass,moocClassDto);
-//            return moocClassDto;
-//        }
-//    }
 }
