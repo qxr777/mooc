@@ -10,6 +10,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+@Slf4j
 @RestController
 @Api("用户管理")
 @RequestMapping("/user")
@@ -30,6 +32,8 @@ public class UserController {
     @ApiOperation("所有用户列表")
     @GetMapping(value = "")
     public List<UserDto> list() {
+        log.info("UserController: info");
+        log.error("User Controller : error");
         return userService.getAllUsers();
     }
 

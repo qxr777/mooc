@@ -35,4 +35,10 @@ public class ControllerExceptionAdvice {
         return new ResultVo(e.getCode(), e.getMsg(), e.getMessage());
     }
 
+    @ExceptionHandler(Exception.class)
+    public ResultVo ExceptionHandler(Exception e) {
+        log.error(e.getMessage(), e);
+        return new ResultVo(ResultCode.SERVER_ERROR.getCode(), e.getLocalizedMessage(), e.getMessage());
+    }
+
 }
