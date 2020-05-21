@@ -69,7 +69,7 @@ public class UserController {
         return "success";
     }
 
-    @GetMapping("userPage")
+    @GetMapping("page")
     @ApiOperation(value = "分页获取用户列表")
     @ApiImplicitParams({
             @ApiImplicitParam(name = PageConsts.PAGE_NUM, value = "分页页码", defaultValue = PageConsts.PAGE_NUM_DEFAULT, dataType = "Integer"),

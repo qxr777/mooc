@@ -8,13 +8,14 @@ import edu.whut.cs.jee.mooc.upms.model.User;
 import edu.whut.cs.jee.mooc.upms.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -28,16 +29,24 @@ public class UserService {
     private UserRepository userRepository;
 
     public UserDto saveUser(UserDto userDto) {
-        User user = userRepository.save(userDto.convertTo());
+        User user = null;
+        try {
+            user = userRepository.save(userDto.convertTo());
+        } catch (DataIntegrityViolationException e) {
+            throw new APIException(AppCode.USERNAME_DUPLICATE_ERROR, userDto.getName() + AppCode.USERNAME_DUPLICATE_ERROR.getMsg());
+        }
+
         return userDto.convertFor(user);
     }
 
+    @Transactional(readOnly = true)
     public UserDto getUser(Long id) {
         User user = userRepository.findById(id).get();
         UserDto userDto = new UserDto();
         return userDto.convertFor(user);
     }
 
+    @Transactional(readOnly = true)
     public List<UserDto> getAllUsers() {
         List<User> users = new ArrayList<User>((Collection<? extends User>) userRepository.findAll());
         return BeanConvertUtils.convertListTo(users,UserDto::new);
@@ -50,6 +59,7 @@ public class UserService {
         userRepository.deleteById(userId);
     }
 
+    @Transactional(readOnly = true)
     public Page<User> getUsersByPage(UserDto userDto, Pageable pageable) {
         User exampleUser = BeanConvertUtils.convertTo(userDto, User::new);
 

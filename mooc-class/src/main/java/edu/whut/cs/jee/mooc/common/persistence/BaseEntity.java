@@ -21,9 +21,10 @@ public class BaseEntity implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
-    @Column(updatable = false)
+    @Column(updatable = false, name = "create_time")
     @CreationTimestamp
     private Date createTime;
+    @Column(name = "update_time")
     @UpdateTimestamp
     private Date updateTime;
 }

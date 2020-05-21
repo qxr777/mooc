@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 public class StudentDto extends UserDto{
 
     @NotNull(message = "学号不允许为空")
-    @Length(max = 20, min = 6)
+    @Length(max = 20, min = 6, message = "学号长度必须是6-20个字符")
     private String studentNo;
 
     public Student convertTo(){

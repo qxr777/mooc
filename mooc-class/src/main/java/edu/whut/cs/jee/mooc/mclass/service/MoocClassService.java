@@ -1,5 +1,6 @@
 package edu.whut.cs.jee.mooc.mclass.service;
 
+import com.google.common.collect.Lists;
 import edu.whut.cs.jee.mooc.common.util.BeanConvertUtils;
 import edu.whut.cs.jee.mooc.mclass.dto.JoinDto;
 import edu.whut.cs.jee.mooc.mclass.dto.LessonDto;
@@ -16,9 +17,12 @@ import edu.whut.cs.jee.mooc.upms.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
+import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 @Slf4j
@@ -63,6 +67,37 @@ public class MoocClassService {
         MoocClass saved =  moocClassRepository.save(moocClass);
         log.info("New MoocClass: {}", saved);
         return moocClassDto.convertFor(saved);
+    }
+
+    @Transactional(readOnly = true)
+    public List<MoocClassDto> getAllMoocClasses() {
+        Iterator<MoocClass> moocClassIterable = moocClassRepository.findAll().iterator();
+        MoocClass moocClass = null;
+        MoocClassDto moocClassDto = new MoocClassDto();
+        List<MoocClassDto> moocClassDtos = new ArrayList<>();
+        while(moocClassIterable.hasNext()) {
+            moocClass = moocClassIterable.next();
+            moocClassDtos.add(moocClassDto.convertFor(moocClass));
+        }
+        return moocClassDtos;
+    }
+
+    @Transactional(readOnly = true)
+    public MoocClassDto getMoocClass(Long moocClassId) {
+        MoocClass moocClass = moocClassRepository.findById(moocClassId).get();
+        MoocClassDto moocClassDto = new MoocClassDto();
+        return moocClassDto.convertFor(moocClass);
+    }
+
+    @Transactional(readOnly = true)
+    public List<User> getUsers(Long moocClassId) {
+        List<BigInteger> useIdList = moocClassRepository.findUserIds(moocClassId);
+        List<Long> userIds = Lists.newArrayList();
+        useIdList.stream().forEach(bigInteger ->{
+            userIds.add(bigInteger.longValue());
+        });
+        List<User> users = Lists.newArrayList(userRepository.findAllById(userIds));
+        return users;
     }
 
     /**
@@ -127,6 +162,7 @@ public class MoocClassService {
      * @param moocClassId
      * @return
      */
+    @Transactional(readOnly = true)
     public List<LessonDto> getLessons(Long moocClassId) {
         List<Lesson> lessons = lessonRepository.findByMoocClassId(moocClassId);
         return BeanConvertUtils.convertListTo(lessons, LessonDto::new, (s, t) -> { t.setCheckInCount(s.getCheckIn() != null ? 1 : 0); t.setExaminationCount(s.getExaminations().size());});

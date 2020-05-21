@@ -9,6 +9,7 @@ public enum  AppCode implements StatusCode {
     APP_ERROR(2000, "业务异常"),
     PRICE_ERROR(2001, "价格异常"),
     OVER_DUE_ERROR(2002, "签到已经超过时限"),
+    USERNAME_DUPLICATE_ERROR(2004, "用户名已经存在"),
     NO_USER_ERROR(2003, "用户不存在");
 
     private int code;

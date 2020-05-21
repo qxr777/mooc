@@ -18,6 +18,8 @@ public class MoocClassDto {
     private Long id;
 
     private Long teacherId;
+
+    private String teacherName;
     /**
      * 名称
      */
@@ -41,6 +43,8 @@ public class MoocClassDto {
      */
     private Long courseId;
 
+    private String courseName;
+
     /**
      * 独立线下课程名称
      */
@@ -53,6 +57,8 @@ public class MoocClassDto {
     }
 
     public MoocClassDto convertFor(MoocClass moocClass){
+        teacherName = moocClass.getCourse().getTeacher().getName();
+        courseName = moocClass.getCourse().getName();
         BeanUtils.copyProperties(moocClass,this);
         return this;
     }
