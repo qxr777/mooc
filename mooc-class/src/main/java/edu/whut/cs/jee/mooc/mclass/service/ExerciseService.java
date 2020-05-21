@@ -1,7 +1,11 @@
 package edu.whut.cs.jee.mooc.mclass.service;
 
-import edu.whut.cs.jee.mooc.mclass.model.*;
-import edu.whut.cs.jee.mooc.mclass.repository.*;
+import edu.whut.cs.jee.mooc.common.util.BeanConvertUtils;
+import edu.whut.cs.jee.mooc.mclass.dto.ExerciseDto;
+import edu.whut.cs.jee.mooc.mclass.model.Exercise;
+import edu.whut.cs.jee.mooc.mclass.model.Subject;
+import edu.whut.cs.jee.mooc.mclass.repository.ExerciseRepository;
+import edu.whut.cs.jee.mooc.mclass.repository.SubjectRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,11 +26,19 @@ public class ExerciseService {
 
     /**
      * 创建练习
-     * @param exercise
+     * @param exerciseDto
      * @return
      */
-    public Exercise saveExercise(Exercise exercise) {
-        return exerciseRepository.save(exercise);
+    public ExerciseDto saveExercise(ExerciseDto exerciseDto) {
+        Exercise exercise = BeanConvertUtils.convertTo(exerciseDto, Exercise::new);
+        exercise = exerciseRepository.save(exercise);
+        exerciseDto.setId(exercise.getId());
+        return exerciseDto;
+    }
+
+    public List<ExerciseDto> getExercises(Long courseId) {
+        List<Exercise> exercises = exerciseRepository.findByCourseId(courseId);
+        return BeanConvertUtils.convertListTo(exercises, ExerciseDto::new);
     }
 
     /**

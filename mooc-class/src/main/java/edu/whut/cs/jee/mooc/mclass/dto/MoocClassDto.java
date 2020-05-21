@@ -50,6 +50,11 @@ public class MoocClassDto {
      */
     private String offlineCourse;
 
+    /**
+     * 周几上课
+     */
+    private String weekday;
+
     public MoocClass convertTo(){
         MoocClass moocClass = new MoocClass();
         BeanUtils.copyProperties(this,moocClass);
@@ -57,8 +62,11 @@ public class MoocClassDto {
     }
 
     public MoocClassDto convertFor(MoocClass moocClass){
-        teacherName = moocClass.getCourse().getTeacher().getName();
-        courseName = moocClass.getCourse().getName();
+        if (moocClass.getCourse() != null) {
+            teacherName = moocClass.getCourse().getTeacher().getName();
+            courseName = moocClass.getCourse().getName();
+            courseId = moocClass.getCourse().getId();
+        }
         BeanUtils.copyProperties(moocClass,this);
         return this;
     }

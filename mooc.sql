@@ -303,6 +303,7 @@ CREATE TABLE `mclass_mooc_class` (
   `offline_course` varchar(255) DEFAULT NULL,
   `semester` varchar(255) DEFAULT NULL,
   `year` varchar(255) DEFAULT NULL,
+  `weekday` varchar(255) DEFAULT NULL,
   `course_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FKhbruw69f379dlto1dmv62snsr` (`course_id`)
@@ -312,7 +313,7 @@ CREATE TABLE `mclass_mooc_class` (
 -- Records of mclass_mooc_class
 -- ----------------------------
 BEGIN;
-INSERT INTO `mclass_mooc_class` VALUES (1, '2020-05-18 22:29:59', '2020-05-18 22:29:59', 'Java企业版研究生课堂', 'Java企业版课程', '春季', '2020', 1);
+INSERT INTO `mclass_mooc_class` VALUES (1, '2020-05-18 22:29:59', '2020-05-18 22:29:59', 'Java企业版研究生课堂', 'Java企业版课程', '春季', '2020', '周三/周五', 1);
 COMMIT;
 
 -- ----------------------------

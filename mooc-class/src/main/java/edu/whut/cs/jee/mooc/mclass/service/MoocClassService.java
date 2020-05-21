@@ -1,6 +1,8 @@
 package edu.whut.cs.jee.mooc.mclass.service;
 
 import com.google.common.collect.Lists;
+import edu.whut.cs.jee.mooc.common.exception.APIException;
+import edu.whut.cs.jee.mooc.common.exception.AppCode;
 import edu.whut.cs.jee.mooc.common.util.BeanConvertUtils;
 import edu.whut.cs.jee.mooc.mclass.dto.JoinDto;
 import edu.whut.cs.jee.mooc.mclass.dto.LessonDto;
@@ -66,6 +68,12 @@ public class MoocClassService {
         moocClass.setCourse(course);
         MoocClass saved =  moocClassRepository.save(moocClass);
         log.info("New MoocClass: {}", saved);
+        return moocClassDto.convertFor(saved);
+    }
+
+    public MoocClassDto editMoocClass(MoocClassDto moocClassDto) {
+        MoocClass moocClass = moocClassDto.convertTo();
+        MoocClass saved =  moocClassRepository.save(moocClass);
         return moocClassDto.convertFor(saved);
     }
 
@@ -152,6 +160,10 @@ public class MoocClassService {
      */
     public void join(JoinDto joinDto) {
         User user = userRepository.findById(joinDto.getUserId()).get();
+        List<User> users = this.getUsers(joinDto.getMoocClassId());
+        if (users.contains(user)) {
+            throw new APIException(AppCode.USER_HAS_JOINED_ERROR, user.getName() + AppCode.USER_HAS_JOINED_ERROR.getMsg());
+        }
         MoocClass moocClass = moocClassRepository.findById(joinDto.getMoocClassId()).get();
         moocClass.getUsers().add(user);
         moocClassRepository.save(moocClass);

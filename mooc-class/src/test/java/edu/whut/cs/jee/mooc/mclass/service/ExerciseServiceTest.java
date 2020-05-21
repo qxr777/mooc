@@ -1,6 +1,6 @@
 package edu.whut.cs.jee.mooc.mclass.service;
 
-import edu.whut.cs.jee.mooc.mclass.model.Exercise;
+import edu.whut.cs.jee.mooc.mclass.dto.ExerciseDto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,7 +14,7 @@ public class ExerciseServiceTest {
 
     Long courseId = 1L;
     Long exerciseId = 1L;
-    Exercise exercise = Exercise.builder()
+    ExerciseDto exerciseDto = ExerciseDto.builder()
             .courseId(courseId)
             .name("课程引论练习")
             .build();
@@ -24,7 +24,7 @@ public class ExerciseServiceTest {
 
     @Test
     public void testSaveExercise() {
-        exerciseService.saveExercise(exercise);
+        exerciseService.saveExercise(exerciseDto);
     }
 
     @Test

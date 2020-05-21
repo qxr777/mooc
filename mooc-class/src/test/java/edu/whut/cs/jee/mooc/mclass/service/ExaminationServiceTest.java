@@ -4,7 +4,7 @@ import edu.whut.cs.jee.mooc.mclass.dto.AnswerDto;
 import edu.whut.cs.jee.mooc.mclass.dto.ExaminationDto;
 import edu.whut.cs.jee.mooc.mclass.dto.ExaminationRecordDto;
 import edu.whut.cs.jee.mooc.mclass.model.Examination;
-import edu.whut.cs.jee.mooc.mclass.model.Subject;
+import edu.whut.cs.jee.mooc.mclass.vo.SubjectVo;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -62,7 +62,7 @@ public class ExaminationServiceTest {
     @Test
     public void testSaveExaminationRecord() {
         ExaminationDto examinationDto = examinationService.getExaminationDto(examinationId);
-        List<Subject> subjects = examinationDto.getSubjects();
+        List<SubjectVo> subjects = examinationDto.getSubjectVos();
 
         ExaminationRecordDto examinationRecordDto = new ExaminationRecordDto();
         examinationRecordDto.setExaminationId(examinationId);
