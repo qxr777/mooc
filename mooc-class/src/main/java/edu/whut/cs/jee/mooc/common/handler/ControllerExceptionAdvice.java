@@ -18,6 +18,8 @@ public class ControllerExceptionAdvice {
     public ResultVo MethodArgumentNotValidExceptionHandler(MethodArgumentNotValidException e) {
         // 从异常对象中拿到ObjectError对象
         ObjectError objectError = e.getBindingResult().getAllErrors().get(0);
+        // 可以使用 warn 日志级别来记录用户输入参数错误的情况，避免用户投诉时，无所适从。如非必要，请不要在此场景打出 error 级别，避免频繁报警。
+        log.warn(e.getMessage(), e);
         // 然后提取错误提示信息进行返回
         return new ResultVo(ResultCode.VALIDATE_ERROR, objectError.getDefaultMessage());
     }
@@ -26,6 +28,9 @@ public class ControllerExceptionAdvice {
     public ResultVo MethodArgumentNotValidExceptionHandler(BindException e) {
         // 从异常对象中拿到ObjectError对象
         ObjectError objectError = e.getBindingResult().getAllErrors().get(0);
+        // 可以使用 warn 日志级别来记录用户输入参数错误的情况，避免用户投诉时，无所适从。如非必要，请不要在此场景打出 error 级别，避免频繁报警。
+        log.warn(e.getMessage(), e);
+        // 然后提取错误提示信息进行返回
         return new ResultVo(ResultCode.VALIDATE_ERROR, objectError.getDefaultMessage());
     }
 
