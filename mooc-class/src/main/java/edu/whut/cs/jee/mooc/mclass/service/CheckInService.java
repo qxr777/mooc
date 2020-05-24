@@ -1,7 +1,9 @@
 package edu.whut.cs.jee.mooc.mclass.service;
 
+import edu.whut.cs.jee.mooc.common.constant.AppConstants;
 import edu.whut.cs.jee.mooc.common.exception.APIException;
 import edu.whut.cs.jee.mooc.common.exception.AppCode;
+import edu.whut.cs.jee.mooc.common.util.LocationUtils;
 import edu.whut.cs.jee.mooc.mclass.dto.AttendanceDto;
 import edu.whut.cs.jee.mooc.mclass.dto.CheckInDto;
 import edu.whut.cs.jee.mooc.mclass.model.Attendance;
@@ -46,9 +48,32 @@ public class CheckInService {
      * @return
      */
     public CheckInDto saveCheckIn(CheckInDto checkInDto) {
+        Lesson lesson = lessonRepository.findById(checkInDto.getLessonId()).get();
+        if (lesson.getCheckIn() != null && lesson.getCheckIn().getStatus() == CheckIn.STATUS_OPEN) {
+            throw new APIException(AppCode.HAS_OPENING_CHECKIN, AppCode.HAS_OPENING_CHECKIN.getMsg() + lesson.getCheckIn().getId());
+        }
+
         CheckIn checkIn = checkInDto.convertTo();
         checkIn.setStatus(CheckIn.STATUS_OPEN);
         checkIn = checkInRepository.save(checkIn);
+
+        // 将所有学生标记未签到
+        if (lesson.getCheckIn() != null && lesson.getCheckIn().getStatus() == CheckIn.STATUS_CLOSED) {
+            List<Attendance> attendances = attendanceRepository.findByCheckInId(lesson.getCheckIn().getId());
+            attendanceRepository.deleteAll(attendances);
+            checkInRepository.delete(lesson.getCheckIn());
+        }
+        lesson.setCheckIn(checkIn);
+        MoocClass moocClass = moocClassRepository.findById(lesson.getMoocClassId()).get();
+        List<User> users = new ArrayList<User>(moocClass.getUsers());
+        for(User user : users) {
+            Attendance attendance = Attendance.builder()
+                    .checkInId(checkIn.getId())
+                    .status(Attendance.STATUS_ABSENCE)
+                    .user(user)
+                    .build();
+            attendanceRepository.save(attendance);
+        }
         return checkInDto.convertFor(checkIn);
     }
 
@@ -59,8 +84,20 @@ public class CheckInService {
      * @throws APIException
      */
     public AttendanceDto saveAttendance(AttendanceDto attendanceDto) throws APIException {
-        Attendance attendance = attendanceDto.convertTo();
+        Attendance attendance = attendanceRepository.findByCheckInIdAndUserId(attendanceDto.getCheckInId(), attendanceDto.getUserId()).get(0);
         CheckIn checkIn = checkInRepository.findById(attendance.getCheckInId()).get();
+        //签到地点判断
+        Double latitude = attendanceDto.getLatitude();
+        Double longitude = attendanceDto.getLongitude();
+        Double centerLatitude = checkIn.getLatitude();
+        Double centerLongitude = checkIn.getLongitude();
+        if (checkIn.isGps()) {
+            double distance = LocationUtils.getDistance(latitude, longitude, centerLatitude, centerLongitude);
+            if (distance > AppConstants.MAX_DISTANCE_RANGE) {
+                throw new APIException(AppCode.OVER_RANGE_ERROR, AppCode.OVER_RANGE_ERROR.getMsg() + AppConstants.MAX_DISTANCE_RANGE + AppConstants.DISTANCE_UNIT);
+            }
+        }
+        // 签到时限判断
         LocalDateTime nowTime = LocalDateTime.now();
         LocalDateTime deadline = LocalDateTime.ofInstant(checkIn.getDeadline().toInstant(), ZoneId.systemDefault());
         if(nowTime.isAfter(deadline)) {
@@ -69,8 +106,8 @@ public class CheckInService {
             attendance.setStatus(Attendance.STATUS_CHECKED);
         }
         Lesson lesson = lessonRepository.findById(checkIn.getLessonId()).get();
-        if(lesson.getStatus() == Lesson.STATUS_END) {
-            throw new APIException(AppCode.OVER_DUE_ERROR, AppCode.OVER_DUE_ERROR.getMsg() + nowTime);
+        if(lesson.getStatus() == Lesson.STATUS_END || checkIn.getStatus() == CheckIn.STATUS_CLOSED) {
+            throw new APIException(AppCode.OVER_DUE_ERROR, AppCode.OVER_DUE_ERROR.getMsg());
         }
 
         attendance = attendanceRepository.save(attendance);
@@ -85,43 +122,32 @@ public class CheckInService {
     public void closeCheckIn(Long checkInId) {
         CheckIn checkIn = checkInRepository.findById(checkInId).get();
         checkIn.setStatus(CheckIn.STATUS_CLOSED);
+        checkIn = this.updateCount(checkIn);
+        checkInRepository.save(checkIn);
+    }
 
-        Lesson lesson = lessonRepository.findById(checkIn.getLessonId()).get();
-        MoocClass moocClass = moocClassRepository.findById(lesson.getMoocClassId()).get();
-        List<User> users = new ArrayList<User>(moocClass.getUsers());
-
+    /**
+     * 更新签到活动统计数据
+     * @param checkIn
+     * @return
+     */
+    private CheckIn updateCount(CheckIn checkIn) {
         // 正常签到
-        List<Attendance> checkedAttendances = attendanceRepository.findByCheckInIdAndStatus(checkInId, Attendance.STATUS_CHECKED);
+        List<Attendance> checkedAttendances = attendanceRepository.findByCheckInIdAndStatus(checkIn.getId(), Attendance.STATUS_CHECKED);
         int checkedCount = checkedAttendances.size();
         checkIn.setCheckedCount(checkedCount);
-        for(Attendance attendance : checkedAttendances) {
-            User user = attendance.getUser();
-            users.remove(user);
-        }
 
         // 迟到
-        List<Attendance> lateAttendances = attendanceRepository.findByCheckInIdAndStatus(checkInId, Attendance.STATUS_LATE);
+        List<Attendance> lateAttendances = attendanceRepository.findByCheckInIdAndStatus(checkIn.getId(), Attendance.STATUS_LATE);
         int lateCount = lateAttendances.size();
         checkIn.setLateCount(lateCount);
-        for(Attendance attendance : lateAttendances) {
-            User user = attendance.getUser();
-            users.remove(user);
-        }
 
-        // 补充缺课记录
-        int absenceCount = users.size();
+        // 缺课记录
+        List<Attendance> absenceAttendances = attendanceRepository.findByCheckInIdAndStatus(checkIn.getId(), Attendance.STATUS_ABSENCE);
+        int absenceCount = absenceAttendances.size();
         checkIn.setAbsenceCount(absenceCount);
-        Attendance attendance = null;
-        for(User user : users) {
-            attendance = Attendance.builder()
-                    .checkInId(checkIn.getId())
-                    .user(user)
-                    .status(Attendance.STATUS_ABSENCE)
-                    .build();
-            attendanceRepository.save(attendance);
-        }
 
-        checkInRepository.save(checkIn);
+        return checkIn;
     }
 
     /**
@@ -132,6 +158,7 @@ public class CheckInService {
     public CheckInDto getCheckInDto(Long checkInId) {
         CheckInDto checkInDto = new CheckInDto();
         CheckIn checkIn = checkInRepository.findById(checkInId).get();
+        checkIn = this.updateCount(checkIn);
         checkInDto.convertFor(checkIn);
         return checkInDto;
     }

@@ -1,5 +1,7 @@
 package edu.whut.cs.jee.mooc.mclass.controller;
 
+import edu.whut.cs.jee.mooc.mclass.model.Choice;
+import edu.whut.cs.jee.mooc.mclass.model.Fill;
 import edu.whut.cs.jee.mooc.mclass.model.Judgment;
 import edu.whut.cs.jee.mooc.mclass.model.Subject;
 import edu.whut.cs.jee.mooc.mclass.service.SubjectService;
@@ -23,13 +25,31 @@ public class SubjectController {
     @Autowired
     private SubjectService subjectService;
 
-    @PostMapping("")
+    @PostMapping("saveJudgment")
     @ApiOperation(value = "新增判断题")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "judgment", value = "判断题信息", dataType = "Judgment")
     })
     public Subject saveJudgment(@RequestBody @Valid Judgment judgment) {
         return subjectService.saveSubject(judgment);
+    }
+
+    @PostMapping("saveFill")
+    @ApiOperation(value = "新增填空题")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "fill", value = "填空题信息", dataType = "Fill")
+    })
+    public Subject saveFill(@RequestBody @Valid Fill fill) {
+        return subjectService.saveSubject(fill);
+    }
+
+    @PostMapping("saveChoice")
+    @ApiOperation(value = "新增选择题")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "choice", value = "选择题信息", dataType = "Choice")
+    })
+    public Subject saveChoice(@RequestBody @Valid Choice choice) {
+        return subjectService.saveChoice(choice);
     }
 
     @DeleteMapping("/{id}")
@@ -41,7 +61,7 @@ public class SubjectController {
     }
 
     @GetMapping("")
-    @ApiOperation(value = "获取指定随堂练习的所有习题")
+    @ApiOperation(value = "获取指定随堂测试的所有习题")
     public List<Subject> getSubjectsOfExamination(@RequestParam(value = "examinationId", required = true) Long examinationId) {
         return  subjectService.getSubjectsOfExaminzation(examinationId);
     }

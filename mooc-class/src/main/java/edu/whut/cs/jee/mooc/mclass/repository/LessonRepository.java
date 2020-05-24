@@ -8,4 +8,6 @@ import java.util.List;
 public interface LessonRepository extends BaseRepository<Lesson, Long> {
 
     List<Lesson> findByMoocClassId(Long moocClassId);
+
+    List<Lesson> findByMoocClassIdAndStatus(Long moocClassId, Integer status);
 }

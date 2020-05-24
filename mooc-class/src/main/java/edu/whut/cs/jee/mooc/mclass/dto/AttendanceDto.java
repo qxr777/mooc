@@ -20,6 +20,16 @@ public class AttendanceDto {
 
     private Long userId;
 
+    /**
+     * 签到处 经度
+     */
+    private Double longitude = 0.0;
+
+    /**
+     * 签到处 纬度
+     */
+    private Double latitude = 0.0;
+
     private String userName;
 
     private String statusCh;

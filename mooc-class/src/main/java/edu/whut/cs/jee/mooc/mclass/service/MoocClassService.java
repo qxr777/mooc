@@ -7,6 +7,7 @@ import edu.whut.cs.jee.mooc.common.util.BeanConvertUtils;
 import edu.whut.cs.jee.mooc.mclass.dto.JoinDto;
 import edu.whut.cs.jee.mooc.mclass.dto.LessonDto;
 import edu.whut.cs.jee.mooc.mclass.dto.MoocClassDto;
+import edu.whut.cs.jee.mooc.mclass.model.CheckIn;
 import edu.whut.cs.jee.mooc.mclass.model.Course;
 import edu.whut.cs.jee.mooc.mclass.model.Lesson;
 import edu.whut.cs.jee.mooc.mclass.model.MoocClass;
@@ -17,6 +18,7 @@ import edu.whut.cs.jee.mooc.upms.model.Teacher;
 import edu.whut.cs.jee.mooc.upms.model.User;
 import edu.whut.cs.jee.mooc.upms.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -72,7 +74,8 @@ public class MoocClassService {
     }
 
     public MoocClassDto editMoocClass(MoocClassDto moocClassDto) {
-        MoocClass moocClass = moocClassDto.convertTo();
+        MoocClass moocClass = moocClassRepository.findById(moocClassDto.getId()).get();
+        BeanUtils.copyProperties(moocClassDto, moocClass);
         MoocClass saved =  moocClassRepository.save(moocClass);
         return moocClassDto.convertFor(saved);
     }
@@ -133,13 +136,25 @@ public class MoocClassService {
 
     /**
      * 开始上课
-     * @param lessonId
+     * @param moocClassId
      */
-    public void startLesson(Long lessonId) {
+    public LessonDto startLesson(Long moocClassId) {
+        List<Lesson> lessons = lessonRepository.findByMoocClassIdAndStatus(moocClassId, Lesson.STATUS_SERVICING);
+        if (lessons.size() > 0) {
+            throw new APIException(AppCode.HAS_SERVING_LESSON, AppCode.HAS_SERVING_LESSON.getMsg() + lessons.get(0).getId());
+        }
+        Lesson lesson = Lesson.builder()
+                .moocClassId(moocClassId)
+                .startTime(new Date())
+                .status(Lesson.STATUS_SERVICING)
+                .build();
+        lesson = lessonRepository.save(lesson);
+        return BeanConvertUtils.convertTo(lesson, LessonDto::new);
+    }
+
+    public LessonDto getLesson(Long lessonId) {
         Lesson lesson = lessonRepository.findById(lessonId).get();
-        lesson.setStartTime(new Date());
-        lesson.setStatus(Lesson.STATUS_SERVICING);
-        lessonRepository.save(lesson);
+        return BeanConvertUtils.convertTo(lesson, LessonDto::new);
     }
 
     /**
@@ -150,6 +165,9 @@ public class MoocClassService {
         Lesson lesson = lessonRepository.findById(lessonId).get();
         lesson.setEndTime(new Date());
         lesson.setStatus(Lesson.STATUS_END);
+        if(lesson.getCheckIn() != null) {
+            lesson.getCheckIn().setStatus(CheckIn.STATUS_CLOSED);
+        }
         lessonRepository.save(lesson);
     }
 

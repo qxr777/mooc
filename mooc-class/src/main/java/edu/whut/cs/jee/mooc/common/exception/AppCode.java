@@ -8,10 +8,13 @@ public enum  AppCode implements StatusCode {
 
     APP_ERROR(2000, "业务异常"),
     PRICE_ERROR(2001, "价格异常"),
-    OVER_DUE_ERROR(2002, "签到已经超过时限"),
+    OVER_DUE_ERROR(2002, "签到已经关闭"),
     USERNAME_DUPLICATE_ERROR(2004, "用户名已经存在"),
     USER_HAS_JOINED_ERROR(2005, "用户已经加入此慕课堂"),
     NO_SUBJECT_ERROR(2006, "习题不存在"),
+    HAS_SERVING_LESSON(2007, "正在上课中"),
+    HAS_OPENING_CHECKIN(2008, "正在签到中"),
+    OVER_RANGE_ERROR(2009, "超过GPS签到中心偏差距离"),
     NO_USER_ERROR(2003, "用户不存在");
 
     private int code;

@@ -60,7 +60,9 @@ public class MoocClass extends BaseEntity {
      * 加入此慕课堂的用户
      */
     @ManyToMany
-    @JoinTable(name = "mclass_class_user") // 映射表
+    @JoinTable(name = "mclass_class_user",
+            joinColumns = {@JoinColumn(name = "mooc_class_id")},
+            inverseJoinColumns = {@JoinColumn(name = "users_id")})
     List<User> users;
 
 }

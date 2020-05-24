@@ -42,6 +42,7 @@ public class ExaminationRecordDto implements Serializable {
 
     public ExaminationRecordDto convertFor(ExaminationRecord examinationRecord){
         BeanUtils.copyProperties(examinationRecord,this);
+        this.setUserId(examinationRecord.getUser().getId());
         this.setUserName(examinationRecord.getUser().getName());
         return this;
     }

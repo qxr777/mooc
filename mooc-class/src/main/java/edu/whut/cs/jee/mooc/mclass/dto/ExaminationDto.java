@@ -16,6 +16,8 @@ import java.util.List;
 @Data
 public class ExaminationDto implements Serializable {
 
+    private Long id;
+
     private String name;
 
     private Long lessonId;

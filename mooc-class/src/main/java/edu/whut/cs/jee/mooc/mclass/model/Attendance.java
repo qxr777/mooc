@@ -37,6 +37,18 @@ public class Attendance extends BaseEntity {
     private Integer status = STATUS_ABSENCE;
 
     /**
+     * 签到处 经度
+     */
+    @Column(name = "longitude", columnDefinition = "decimal(5,2)")
+    private Double longitude;
+
+    /**
+     * 签到处 纬度
+     */
+    @Column(name = "latitude", columnDefinition = "decimal(5,2)")
+    private Double latitude;
+
+    /**
      * 
      */
     @ManyToOne

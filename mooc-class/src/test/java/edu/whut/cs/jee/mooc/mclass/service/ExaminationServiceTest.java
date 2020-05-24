@@ -4,6 +4,7 @@ import edu.whut.cs.jee.mooc.mclass.dto.AnswerDto;
 import edu.whut.cs.jee.mooc.mclass.dto.ExaminationDto;
 import edu.whut.cs.jee.mooc.mclass.dto.ExaminationRecordDto;
 import edu.whut.cs.jee.mooc.mclass.model.Examination;
+import edu.whut.cs.jee.mooc.mclass.model.Lesson;
 import edu.whut.cs.jee.mooc.mclass.vo.SubjectVo;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
@@ -25,8 +26,9 @@ public class ExaminationServiceTest {
     Long lessonId = 1L;
     Long exerciseId = 1L;
     Long examinationId = 1L;
+    Lesson lesson = new Lesson(lessonId);
     Examination examination = Examination.builder()
-            .lessonId(lessonId)
+            .lesson(lesson)
             .name("课程引论随堂练习_UNIT_TEST")
             .build();
 
@@ -50,7 +52,7 @@ public class ExaminationServiceTest {
 
     @Test
     public void testPublishExamination() {
-        examinationService.publishExamination(examinationId);
+        examinationService.publishExamination(examinationId, lessonId);
     }
 
     @Test

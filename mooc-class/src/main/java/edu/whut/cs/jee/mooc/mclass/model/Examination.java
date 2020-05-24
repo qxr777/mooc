@@ -23,13 +23,16 @@ public class Examination extends BaseEntity {
     public static final int STATUS_CLOSED = 3;  // 已关闭
 
     /**
-     * 启动随堂练习的备课
+     * 发布随堂测试的上课记录
      */
-    @Column(name = "lesson_id")
-    private Long lessonId;
+//    @Column(name = "lesson_id")
+//    private Long lessonId;
+    @ManyToOne
+    @JoinColumn(name = "lesson_id")
+    private Lesson lesson;
 
     /**
-     * 随堂练习的名称
+     * 随堂测试的名称
      */
     @Column(name = "name")
     private String name;

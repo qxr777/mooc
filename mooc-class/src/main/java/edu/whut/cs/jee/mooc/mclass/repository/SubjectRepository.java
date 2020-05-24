@@ -10,6 +10,8 @@ public interface SubjectRepository extends BaseRepository<Subject, Long> {
 
     List<Subject> findByExerciseId(Long exerciseId);
 
+    List<Subject> findByExerciseId(Long exerciseId, Sort sort);
+
     List<Subject> findByExaminationId(Long examinationId);
 
     List<Subject> findByExaminationId(Long examinationId, Sort sort);

@@ -53,6 +53,25 @@ public class MoocClassController {
         return moocClassServicee.saveLesson(lessonDto);
     }
 
+    @PostMapping("{moocClassId}/start")
+    @ApiOperation(value = "开始上课", notes = "路径参数ID")
+    public LessonDto start(@PathVariable Long moocClassId) {
+        return moocClassServicee.startLesson(moocClassId);
+    }
+
+    @PutMapping("/lesson/{lessonId}/end")
+    @ApiOperation(value = "结束上课", notes = "路径参数ID")
+    public String endLesson(@PathVariable Long lessonId) {
+        moocClassServicee.endLesson(lessonId);
+        return "success";
+    }
+
+    @ApiOperation(value = "获取上课记录详细信息", notes = "路径参数ID")
+    @GetMapping(value = "/lesson/{lessonId}")
+    public LessonDto detailLesson(@PathVariable Long lessonId) {
+        return moocClassServicee.getLesson(lessonId);
+    }
+
     @PutMapping("")
     @ApiOperation(value = "编辑慕课堂基本信息")
     @ApiImplicitParams({

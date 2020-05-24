@@ -23,6 +23,11 @@ public class Lesson extends BaseEntity {
     public static final int STATUS_SERVICING = 2;
     public static final int STATUS_END = 3;
 
+    public Lesson(Long id) {
+        super();
+        this.setId(id);
+    }
+
     /**
      * 上课状态
      */

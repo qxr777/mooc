@@ -44,6 +44,12 @@ public class SubjectService {
         return subjects;
     }
 
+    public List<Subject> getSubjectsOfExercise(Long exerciseId) {
+        Sort sort = new Sort(Sort.Direction.ASC, "id");
+        List<Subject> subjects = subjectRepository.findByExerciseId(exerciseId, sort);
+        return subjects;
+    }
+
     public void removeSubject(Long subjectId) {
         if (!subjectRepository.existsById(subjectId)) {
             throw new APIException(AppCode.NO_SUBJECT_ERROR, AppCode.NO_SUBJECT_ERROR.getMsg() + subjectId);

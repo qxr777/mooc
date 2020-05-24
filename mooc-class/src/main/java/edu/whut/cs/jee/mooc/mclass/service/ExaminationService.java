@@ -1,5 +1,6 @@
 package edu.whut.cs.jee.mooc.mclass.service;
 
+import edu.whut.cs.jee.mooc.common.util.BeanConvertUtils;
 import edu.whut.cs.jee.mooc.mclass.dto.AnswerDto;
 import edu.whut.cs.jee.mooc.mclass.dto.ExaminationDto;
 import edu.whut.cs.jee.mooc.mclass.dto.ExaminationRecordDto;
@@ -9,8 +10,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -35,6 +36,9 @@ public class ExaminationService {
     @Autowired
     private AnswerRepository answerRepository;
 
+    @Autowired
+    private LessonRepository lessonRepository;
+
     /**
      * 备课 - 添加活动 - 添加练习 - 创建练习
      * @param examination
@@ -52,8 +56,9 @@ public class ExaminationService {
      */
     public Examination importFromExercise(Long lessonId, Long exerciseId) {
         Exercise exercise = exerciseRepository.findById(exerciseId).get();
+        Lesson lesson = lessonRepository.findById(lessonId).get();
         Examination examination = new Examination();
-        examination.setLessonId(lessonId);
+        examination.setLesson(lesson);
         examination.setName(exercise.getName());
         examination.setStatus(Examination.STATUS_PRIVATE);
         examination = examinationRepository.save(examination);
@@ -71,12 +76,13 @@ public class ExaminationService {
         return examinationRepository.save(examination);
     }
 
+    @Transactional(readOnly = true)
     public Examination getExamination(Long examinationId) {
         return examinationRepository.findById(examinationId).get();
     }
 
     /**
-     * 批改、保存随堂练习记录
+     * 批改、保存随堂测试答题卡
      * @param examinationRecordDto
      * @return
      */
@@ -92,6 +98,7 @@ public class ExaminationService {
             Subject subject = subjectRepository.findById(answer.getSubjectId()).get();
             if (subject.check(answer.getAnswer())) {
                 answer.setRight(true);
+                answerDto.setRight(true);
                 examinationRecord.setCorrectCount(examinationRecord.getCorrectCount() + 1);
                 examinationRecord.setScore(examinationRecord.getScore() + subject.getScore());
             }
@@ -110,7 +117,7 @@ public class ExaminationService {
     }
 
     /**
-     * 删除备课中的练习
+     * 删除随堂测试
      * @param examinationId
      * @return
      */
@@ -124,17 +131,20 @@ public class ExaminationService {
      * 向学生发布随堂练习
      * @param examinationId
      */
-    public void publishExamination(Long examinationId) {
+    public void publishExamination(Long examinationId, Long lessonId) {
+        Lesson lesson = lessonRepository.findById(lessonId).get();
         Examination examination = examinationRepository.findById(examinationId).get();
+        examination.setLesson(lesson);
         examination.setStatus(Examination.STATUS_OPEN);
         examinationRepository.save(examination);
     }
 
     /**
-     * 获取完整随堂练习
+     * 获取完整随堂测试含习题
      * @param examinationId
      * @return
      */
+    @Transactional(readOnly = true)
     public ExaminationDto getExaminationDto(Long examinationId) {
         Examination examination = examinationRepository.findById(examinationId).get();
         Sort sort = new Sort(Sort.Direction.ASC, "id");
@@ -142,5 +152,28 @@ public class ExaminationService {
         examination.setSubjects(subjects);
         ExaminationDto examinationDto = new ExaminationDto();
         return examinationDto.convertFor(examination);
+    }
+
+    /**
+     * 获取随堂测试答题卡
+     * @param examinationId
+     * @return
+     */
+    @Transactional(readOnly = true)
+    public List<ExaminationRecordDto> getExaminationRecords(Long examinationId) {
+        Sort sort = new Sort(Sort.Direction.DESC, "id");
+        List<ExaminationRecord> examinationRecords = examinationRecordRepository.findByExaminationId(examinationId, sort);
+        List<ExaminationRecordDto> examinationRecordDtos = new ArrayList<>();
+        for (ExaminationRecord examinationRecord : examinationRecords) {
+            ExaminationRecordDto examinationRecordDto = new ExaminationRecordDto();
+            examinationRecordDto.convertFor(examinationRecord);
+            examinationRecordDtos.add(examinationRecordDto);
+        }
+        return examinationRecordDtos;
+    }
+
+    public List<ExaminationDto> getPrivateExaminations(Long moocClassId) {
+        List<Examination> examinations = examinationRepository.findByMoocClassIdAndStatus(moocClassId, Examination.STATUS_PRIVATE);
+        return BeanConvertUtils.convertListTo(examinations, ExaminationDto::new);
     }
 }

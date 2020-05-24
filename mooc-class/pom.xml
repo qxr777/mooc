@@ -21,6 +21,16 @@
                     <target>${java.version}</target>
                 </configuration>
             </plugin>
+
+            <plugin>
+            <!--热部署配置-->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <configuration>
+                <!--fork:如果没有该项配置,整个devtools不会起作用-->
+                <fork>true</fork>
+            </configuration>
+            </plugin>
         </plugins>
     </build>
     <properties>
@@ -61,6 +71,13 @@
             <artifactId>spring-boot-starter-web</artifactId>
             <version>${spring-boot.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional> <!-- 防止将devtools依赖传递到其他模块中 -->
+        </dependency>
+
         <!-- MySQL -->
         <dependency>
             <groupId>mysql</groupId>

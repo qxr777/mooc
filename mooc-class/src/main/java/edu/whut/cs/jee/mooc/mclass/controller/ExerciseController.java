@@ -1,7 +1,9 @@
 package edu.whut.cs.jee.mooc.mclass.controller;
 
 import edu.whut.cs.jee.mooc.mclass.dto.ExerciseDto;
+import edu.whut.cs.jee.mooc.mclass.model.Subject;
 import edu.whut.cs.jee.mooc.mclass.service.ExerciseService;
+import edu.whut.cs.jee.mooc.mclass.service.SubjectService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -22,6 +24,9 @@ public class ExerciseController {
     @Autowired
     private ExerciseService exerciseService;
 
+    @Autowired
+    private SubjectService subjectService;
+
     @PostMapping("")
     @ApiOperation(value = "新增练习")
     @ApiImplicitParams({
@@ -31,7 +36,7 @@ public class ExerciseController {
         return exerciseService.saveExercise(exerciseDto);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("{id}")
     @ApiOperation(value = "删除练习", notes = "根据ID删除练习")
     @ApiImplicitParam(name = "id", value = "练习ID", required = true, paramType = "path")
     public String delete(@PathVariable Long id) {
@@ -43,6 +48,12 @@ public class ExerciseController {
     @ApiOperation(value = "获取课程的所有练习")
     public List<ExerciseDto> getExercises(@RequestParam(value = "courseId", required = true) Long courseId) {
         return  exerciseService.getExercises(courseId);
+    }
+
+    @ApiOperation(value = "获取练习含的所有习题", notes = "路径参数ID")
+    @GetMapping(value = "{id}/subject")
+    public List<Subject> getSubjects(@PathVariable Long id) {
+        return subjectService.getSubjectsOfExercise(id);
     }
 
 }
