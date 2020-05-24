@@ -5,7 +5,6 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Set;
 
 /**
  * 备课/历史课堂/上课记录
@@ -22,6 +21,8 @@ public class Lesson extends BaseEntity {
     public static final int STATUS_READY = 1;
     public static final int STATUS_SERVICING = 2;
     public static final int STATUS_END = 3;
+
+    public static final String[] STATUS_STRING_CH={"未知", "准备", "上课中", "下课"};
 
     public Lesson(Long id) {
         super();
@@ -58,12 +59,8 @@ public class Lesson extends BaseEntity {
     @Column(name = "mooc_class_id")
     private Long moocClassId;
 
-    /**
-     * 添加的练习
-     */
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name="lesson_id")
-    private Set<Examination> examinations;
+    @Column(name = "examination_count")
+    private Integer examinationCount;
 
     /**
      * 添加的签到

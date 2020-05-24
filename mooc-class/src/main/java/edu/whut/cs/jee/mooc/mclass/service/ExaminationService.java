@@ -1,5 +1,7 @@
 package edu.whut.cs.jee.mooc.mclass.service;
 
+import edu.whut.cs.jee.mooc.common.exception.APIException;
+import edu.whut.cs.jee.mooc.common.exception.AppCode;
 import edu.whut.cs.jee.mooc.common.util.BeanConvertUtils;
 import edu.whut.cs.jee.mooc.mclass.dto.AnswerDto;
 import edu.whut.cs.jee.mooc.mclass.dto.ExaminationDto;
@@ -87,6 +89,11 @@ public class ExaminationService {
      * @return
      */
     public ExaminationRecordDto saveExaminationRecord(ExaminationRecordDto examinationRecordDto) {
+        Examination examination = examinationRepository.findById(examinationRecordDto.getExaminationId()).get();
+        if(examination.getStatus() != Examination.STATUS_OPEN) {
+            throw new APIException(AppCode.EXAMINATION_STATUS_ERROR, AppCode.EXAMINATION_STATUS_ERROR.getMsg() + examinationRecordDto.getExaminationId());
+        }
+
         ExaminationRecord examinationRecord = examinationRecordDto.convertTo();
         List<AnswerDto> answerDtos = examinationRecordDto.getAnswerDtos();
         List<Answer> answers = new ArrayList<>();
@@ -109,7 +116,6 @@ public class ExaminationService {
         examinationRecord = examinationRecordRepository.save(examinationRecord);
 
         // 更新随堂练习提交数
-        Examination examination = examinationRepository.findById(examinationRecord.getExaminationId()).get();
         examination.setSubmitCount(examination.getSubmitCount() + 1);
         examinationRepository.save(examination);
 

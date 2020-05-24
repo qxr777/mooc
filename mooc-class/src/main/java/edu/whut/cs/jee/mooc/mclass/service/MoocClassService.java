@@ -7,11 +7,9 @@ import edu.whut.cs.jee.mooc.common.util.BeanConvertUtils;
 import edu.whut.cs.jee.mooc.mclass.dto.JoinDto;
 import edu.whut.cs.jee.mooc.mclass.dto.LessonDto;
 import edu.whut.cs.jee.mooc.mclass.dto.MoocClassDto;
-import edu.whut.cs.jee.mooc.mclass.model.CheckIn;
-import edu.whut.cs.jee.mooc.mclass.model.Course;
-import edu.whut.cs.jee.mooc.mclass.model.Lesson;
-import edu.whut.cs.jee.mooc.mclass.model.MoocClass;
+import edu.whut.cs.jee.mooc.mclass.model.*;
 import edu.whut.cs.jee.mooc.mclass.repository.CourseRepository;
+import edu.whut.cs.jee.mooc.mclass.repository.ExaminationRepository;
 import edu.whut.cs.jee.mooc.mclass.repository.LessonRepository;
 import edu.whut.cs.jee.mooc.mclass.repository.MoocClassRepository;
 import edu.whut.cs.jee.mooc.upms.model.Teacher;
@@ -45,6 +43,9 @@ public class MoocClassService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private ExaminationRepository examinationRepository;
 
     /**
      * 【参考】各层命名规约: 插入的方法用 save/insert 做前缀。
@@ -84,9 +85,10 @@ public class MoocClassService {
     public List<MoocClassDto> getAllMoocClasses() {
         Iterator<MoocClass> moocClassIterable = moocClassRepository.findAll().iterator();
         MoocClass moocClass = null;
-        MoocClassDto moocClassDto = new MoocClassDto();
+        MoocClassDto moocClassDto = null;
         List<MoocClassDto> moocClassDtos = new ArrayList<>();
         while(moocClassIterable.hasNext()) {
+            moocClassDto = new MoocClassDto();
             moocClass = moocClassIterable.next();
             moocClassDtos.add(moocClassDto.convertFor(moocClass));
         }
@@ -165,10 +167,31 @@ public class MoocClassService {
         Lesson lesson = lessonRepository.findById(lessonId).get();
         lesson.setEndTime(new Date());
         lesson.setStatus(Lesson.STATUS_END);
+        // 关闭签到
         if(lesson.getCheckIn() != null) {
             lesson.getCheckIn().setStatus(CheckIn.STATUS_CLOSED);
         }
+        // 关闭随堂测试
+        List<Examination> examinations = examinationRepository.findByLesson(lesson);
+        for (Examination examination : examinations) {
+            if (examination.getStatus() != Examination.STATUS_CLOSED) {
+                examination.setStatus(Examination.STATUS_CLOSED);
+            }
+        }
+        lesson = updateCount(lesson);
         lessonRepository.save(lesson);
+    }
+
+    /**
+     * 更新上课记录的统计数据
+     * @param lesson
+     * @return
+     */
+    private Lesson updateCount(Lesson lesson) {
+        // 随堂测试数量
+        List<Examination> examinations = examinationRepository.findByLessonAndStatus(lesson, Examination.STATUS_CLOSED);
+        lesson.setExaminationCount(examinations.size());
+        return lesson;
     }
 
     /**
@@ -195,7 +218,7 @@ public class MoocClassService {
     @Transactional(readOnly = true)
     public List<LessonDto> getLessons(Long moocClassId) {
         List<Lesson> lessons = lessonRepository.findByMoocClassId(moocClassId);
-        return BeanConvertUtils.convertListTo(lessons, LessonDto::new, (s, t) -> { t.setCheckInCount(s.getCheckIn() != null ? 1 : 0); t.setExaminationCount(s.getExaminations().size());});
+        return BeanConvertUtils.convertListTo(lessons, LessonDto::new, (s, t) -> { t.setCheckInCount(s.getCheckIn() != null ? 1 : 0);t.setStatusCh(Lesson.STATUS_STRING_CH[t.getStatus()]);});
     }
 
 }

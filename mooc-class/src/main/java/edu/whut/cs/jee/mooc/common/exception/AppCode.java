@@ -15,6 +15,7 @@ public enum  AppCode implements StatusCode {
     HAS_SERVING_LESSON(2007, "正在上课中"),
     HAS_OPENING_CHECKIN(2008, "正在签到中"),
     OVER_RANGE_ERROR(2009, "超过GPS签到中心偏差距离"),
+    EXAMINATION_STATUS_ERROR(2010, "此随堂测试状态异常"),
     NO_USER_ERROR(2003, "用户不存在");
 
     private int code;

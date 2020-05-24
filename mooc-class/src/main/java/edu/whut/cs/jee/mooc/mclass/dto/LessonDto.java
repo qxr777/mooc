@@ -20,6 +20,8 @@ public class LessonDto {
 
     private Integer status;
 
+    private String statusCh;
+
     private Integer checkInCount;
 
     private Integer examinationCount;
@@ -43,6 +45,7 @@ public class LessonDto {
     public LessonDto convertFor(Lesson lesson){
         LessonDto lessonDto = new LessonDto();
         BeanUtils.copyProperties(lesson,lessonDto);
+        lessonDto.setStatusCh(Lesson.STATUS_STRING_CH[lessonDto.getStatus()]);
         return lessonDto;
     }
 
