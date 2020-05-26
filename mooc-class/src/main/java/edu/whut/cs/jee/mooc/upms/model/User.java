@@ -4,6 +4,8 @@ import edu.whut.cs.jee.mooc.common.persistence.BaseEntity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -28,5 +30,19 @@ public class User extends BaseEntity {
 
     @Column(name = "email")
     private String email;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "upms_user_r_role",
+            joinColumns = {@JoinColumn(name = "user_id")},
+            inverseJoinColumns = {@JoinColumn(name = "role_id")})
+    private List<Role> roles;
+
+    public List<String> getRoleNames() {
+        List<String> roleStrings = new ArrayList<>();
+        roles.stream().forEach(role ->{
+            roleStrings.add(role.getName());
+        });
+        return roleStrings;
+    }
 
 }

@@ -63,6 +63,6 @@ public class MoocClass extends BaseEntity {
     @JoinTable(name = "mclass_class_user",
             joinColumns = {@JoinColumn(name = "mooc_class_id")},
             inverseJoinColumns = {@JoinColumn(name = "users_id")})
-    List<User> users;
+    private List<User> users;
 
 }

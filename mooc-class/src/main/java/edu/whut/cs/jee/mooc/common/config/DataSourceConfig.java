@@ -1,8 +1,7 @@
 package edu.whut.cs.jee.mooc.common.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.annotation.Bean;
@@ -24,9 +23,10 @@ import java.util.Map;
  * 动态数据源（数据源切换，读写分离）
  */
 @Configuration
+@Slf4j
 public class DataSourceConfig {
 
-    private final static Logger LOGGER = LoggerFactory.getLogger(DataSourceConfig.class);
+//    private final static Logger LOGGER = LoggerFactory.getLogger(DataSourceConfig.class);
 
     @Autowired
     private Environment props;
@@ -103,7 +103,7 @@ public class DataSourceConfig {
                 if (lookupKey.equals("slave")) {
                     lookupKey += System.currentTimeMillis() % 2 + 1;
                 }
-                LOGGER.info("当前操作使用的数据源：{}", lookupKey);
+                log.info("当前操作使用的数据源：{}", lookupKey);
                 return lookupKey;
             }
         };

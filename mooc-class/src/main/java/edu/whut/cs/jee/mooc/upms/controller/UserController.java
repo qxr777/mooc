@@ -16,6 +16,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -25,6 +27,7 @@ import java.util.List;
 @RestController
 @Api("用户管理")
 @RequestMapping("/user")
+@PostAuthorize("hasRole('ADMIN')")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -39,6 +42,7 @@ public class UserController {
 
     @ApiOperation(value = "获取用户详细信息", notes = "路径参数ID")
     @GetMapping(value = "{id}")
+    @PostAuthorize("returnObject.name == principal.username or hasRole('ADMIN')")
     public UserDto detail(@PathVariable Long id) {
         return userService.getUser(id);
     }
@@ -49,6 +53,9 @@ public class UserController {
             @ApiImplicitParam(name = "studentDto", value = "学生信息", dataType = "StudentDto")
     })
     public UserDto saveStudent(@RequestBody @Valid StudentDto studentDto) {
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        final String rawPassword = studentDto.getPassword();
+        studentDto.setPassword(encoder.encode(rawPassword));
         return userService.saveUser(studentDto);
     }
 
@@ -58,6 +65,9 @@ public class UserController {
             @ApiImplicitParam(name = "teacherDto", value = "教师信息", dataType = "TeacherDto")
     })
     public UserDto saveTeacher(@RequestBody @Valid TeacherDto teacherDto) {
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        final String rawPassword = teacherDto.getPassword();
+        teacherDto.setPassword(encoder.encode(rawPassword));
         return userService.saveUser(teacherDto);
     }
 

@@ -8,6 +8,7 @@ import edu.whut.cs.jee.mooc.mclass.dto.ExaminationDto;
 import edu.whut.cs.jee.mooc.mclass.dto.ExaminationRecordDto;
 import edu.whut.cs.jee.mooc.mclass.model.*;
 import edu.whut.cs.jee.mooc.mclass.repository.*;
+import edu.whut.cs.jee.mooc.mclass.vo.SubjectStatisticVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -178,8 +179,33 @@ public class ExaminationService {
         return examinationRecordDtos;
     }
 
+    /**
+     * 获取此慕课堂未发布的随堂测试
+     * @param moocClassId
+     * @return
+     */
+    @Transactional(readOnly = true)
     public List<ExaminationDto> getPrivateExaminations(Long moocClassId) {
         List<Examination> examinations = examinationRepository.findByMoocClassIdAndStatus(moocClassId, Examination.STATUS_PRIVATE);
         return BeanConvertUtils.convertListTo(examinations, ExaminationDto::new);
+    }
+
+    /**
+     * 获取随堂测试答题统计
+     * @param examinationId
+     * @return
+     */
+    @Transactional(readOnly = true)
+    public List<SubjectStatisticVo> getSubjectStatisticVos(long examinationId) {
+        Sort sort = new Sort(Sort.Direction.ASC, "id");
+        List<Subject> subjects = subjectRepository.findByExaminationId(examinationId, sort);
+        List<SubjectStatisticVo> subjectStatisticVos = new ArrayList<>();
+        SubjectStatisticVo subjectStatisticVo = null;
+        for (Subject subject : subjects) {
+            subjectStatisticVo = new SubjectStatisticVo();
+            subjectStatisticVo = subjectStatisticVo.convertFor(subject);
+            subjectStatisticVos.add(subjectStatisticVo);
+        }
+        return subjectStatisticVos;
     }
 }

@@ -9,15 +9,11 @@ import java.io.Serializable;
 @Data
 public class AnswerDto implements Serializable {
 
-//    private Long id;
-
     private Long subjectId;
 
     private String answer;
 
     private boolean right;
-
-//    private Subject subject;
 
     public Answer convertTo(){
         Answer answer = new Answer();

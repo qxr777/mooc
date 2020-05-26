@@ -9,6 +9,7 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -27,6 +28,7 @@ public class CheckinController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "checkInDto", value = "签到基本信息", dataType = "CheckInDto")
     })
+    @PreAuthorize("hasRole('TEACHER')")
     public CheckInDto save(@RequestBody @Valid CheckInDto checkInDto) {
         return checkInService.saveCheckIn(checkInDto);
     }
@@ -42,6 +44,7 @@ public class CheckinController {
 
     @ApiOperation(value = "关闭签到活动", notes = "路径参数ID")
     @PostMapping(value = "{id}/close")
+    @PreAuthorize("hasRole('TEACHER')")
     public String close(@PathVariable Long id) {
         checkInService.closeCheckIn(id);
         return "success";
@@ -49,6 +52,7 @@ public class CheckinController {
 
     @ApiOperation(value = "获取签到详细信息", notes = "路径参数ID")
     @GetMapping(value = "{id}")
+    @PreAuthorize("hasRole('TEACHER')")
     public CheckInDto detail(@PathVariable Long id) {
         return checkInService.getCheckInDto(id);
     }

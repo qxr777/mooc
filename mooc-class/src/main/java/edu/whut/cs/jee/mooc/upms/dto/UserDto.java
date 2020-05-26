@@ -1,5 +1,6 @@
 package edu.whut.cs.jee.mooc.upms.dto;
 
+import edu.whut.cs.jee.mooc.upms.model.Role;
 import edu.whut.cs.jee.mooc.upms.model.User;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -8,6 +9,7 @@ import org.springframework.beans.BeanUtils;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Data
 public class UserDto {
@@ -34,15 +36,7 @@ public class UserDto {
     @ApiModelProperty(value = "邮箱")
     private String email;
 
-//    @NotNull(message = "学号不允许为空")
-//    @Length(max = 20, min = 6)
-//    private String studentNo;
-//
-//    @NotNull(message = "工资号不允许为空")
-//    @Length(max = 20, min = 6)
-//    private String salaryNo;
-//
-//    private String title;
+    private List<Role> roles;
 
     public User convertTo(){
         User user = new User();

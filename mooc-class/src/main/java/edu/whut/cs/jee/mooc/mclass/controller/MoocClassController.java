@@ -11,6 +11,7 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -30,6 +31,7 @@ public class MoocClassController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "moocClassDto", value = "慕课堂信息", dataType = "MoocClassDto")
     })
+    @PreAuthorize("hasRole('TEACHER')")
     public MoocClassDto save(@RequestBody @Valid MoocClassDto moocClassDto) {
         return moocClassServicee.saveMoocClass(moocClassDto);
     }
@@ -49,18 +51,21 @@ public class MoocClassController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "lessonDto", value = "备课信息", dataType = "LessonDto")
     })
+    @PreAuthorize("hasRole('TEACHER')")
     public LessonDto prepare(@RequestBody @Valid LessonDto lessonDto) {
         return moocClassServicee.saveLesson(lessonDto);
     }
 
     @PostMapping("{moocClassId}/start")
     @ApiOperation(value = "开始上课", notes = "路径参数ID")
+    @PreAuthorize("hasRole('TEACHER')")
     public LessonDto start(@PathVariable Long moocClassId) {
         return moocClassServicee.startLesson(moocClassId);
     }
 
     @PutMapping("/lesson/{lessonId}/end")
     @ApiOperation(value = "结束上课", notes = "路径参数ID")
+    @PreAuthorize("hasRole('TEACHER')")
     public String endLesson(@PathVariable Long lessonId) {
         moocClassServicee.endLesson(lessonId);
         return "success";
@@ -68,6 +73,7 @@ public class MoocClassController {
 
     @ApiOperation(value = "获取上课记录详细信息", notes = "路径参数ID")
     @GetMapping(value = "/lesson/{lessonId}")
+    @PreAuthorize("hasRole('TEACHER')")
     public LessonDto detailLesson(@PathVariable Long lessonId) {
         return moocClassServicee.getLesson(lessonId);
     }
@@ -77,12 +83,14 @@ public class MoocClassController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "moocClassDto", value = "慕课堂信息", dataType = "MoocClassDto")
     })
+    @PreAuthorize("hasRole('TEACHER')")
     public MoocClassDto edit(@RequestBody @Valid MoocClassDto moocClassDto) {
         return moocClassServicee.editMoocClass(moocClassDto);
     }
 
     @ApiOperation("获取所有慕课堂列表")
     @GetMapping(value = "")
+    @PreAuthorize("hasRole('TEACHER')")
     public List<MoocClassDto> list() {
         return moocClassServicee.getAllMoocClasses();
     }
@@ -95,6 +103,7 @@ public class MoocClassController {
 
     @ApiOperation(value = "获取慕课堂的学生", notes = "路径参数ID")
     @GetMapping(value = "{id}/users")
+    @PreAuthorize("hasRole('TEACHER')")
     public List<User> userList(@PathVariable Long id) {
         return moocClassServicee.getUsers(id);
     }

@@ -71,4 +71,8 @@ public class UserService {
         Page<User> userPage = userRepository.findAll(ex, pageable);
         return userPage;
     }
+
+    public List<User> getUserByUsername(String username) {
+        return userRepository.findByName(username);
+    }
 }
