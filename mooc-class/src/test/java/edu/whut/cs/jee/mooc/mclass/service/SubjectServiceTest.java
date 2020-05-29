@@ -1,10 +1,16 @@
 package edu.whut.cs.jee.mooc.mclass.service;
 
-import edu.whut.cs.jee.mooc.mclass.model.*;
+import edu.whut.cs.jee.mooc.mclass.model.Choice;
+import edu.whut.cs.jee.mooc.mclass.model.Fill;
+import edu.whut.cs.jee.mooc.mclass.model.Judgment;
+import edu.whut.cs.jee.mooc.mclass.model.Option;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.util.Assert;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -15,9 +21,18 @@ import java.util.List;
 public class SubjectServiceTest {
 
     Long exerciseId = 1L;
+    Long courseId = 1L;
+    Long subjectId = null;
 
     @Resource
     SubjectService subjectService;
+
+    @Resource
+    ExerciseService exerciseService;
+
+    @Before
+    public void  prepareTestObjects(){
+    }
 
     @Test
     public void testSaveFill() {
@@ -29,7 +44,8 @@ public class SubjectServiceTest {
         fill.setMatchType(Fill.MATCH_TYPE_EXACT);
         fill.setKeyType(Fill.KEY_TYPE_TEXT);
         fill.setTextKey("填空题答案_UNIT_TEST");
-        subjectService.saveSubject(fill);
+        subjectId = subjectService.saveSubject(fill).getId();
+        Assert.isTrue(subjectId > 0);
     }
 
     @Test
@@ -39,8 +55,8 @@ public class SubjectServiceTest {
         judgment.setContent("判断题题干_UNIT_TEST");
         judgment.setScore(10.0);
         judgment.setResult(false);
-        subjectService.saveSubject(judgment);
-
+        subjectId = subjectService.saveSubject(judgment).getId();
+        Assert.isTrue(subjectId > 0);
     }
 
     @Test
@@ -66,5 +82,12 @@ public class SubjectServiceTest {
         options.add(option2);
         choice.setOptions(options);
         choice = (Choice)subjectService.saveChoice(choice);
+        subjectId = choice.getId();
+        Assert.isTrue(subjectId > 0);
+    }
+
+    @After
+    public void clearTestObjects() {
+        subjectService.removeSubject(subjectId);
     }
 }

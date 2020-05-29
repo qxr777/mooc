@@ -90,9 +90,19 @@ public class MoocClassController {
 
     @ApiOperation("获取所有慕课堂列表")
     @GetMapping(value = "")
-    @PreAuthorize("hasRole('TEACHER')")
+    @PreAuthorize("hasRole('ADMIN')")
     public List<MoocClassDto> list() {
         return moocClassServicee.getAllMoocClasses();
+    }
+
+    @ApiOperation("获取教师的慕课堂列表")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "teacherId", value = "教师ID", dataType = "Long")
+    })
+    @GetMapping(value = "own")
+    @PreAuthorize("hasRole('TEACHER')")
+    public List<MoocClassDto> list(@RequestParam(value = "teacherId", required = true) Long teacherId) {
+        return moocClassServicee.getOwnMoocClasses(teacherId);
     }
 
     @ApiOperation(value = "获取慕课堂详细信息", notes = "路径参数ID")

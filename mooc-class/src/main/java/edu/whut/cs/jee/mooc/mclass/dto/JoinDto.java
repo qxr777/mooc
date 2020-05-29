@@ -9,6 +9,6 @@ public class JoinDto implements Serializable {
 
     private Long userId;
 
-    private Long moocClassId;
+    private String moocClassCode;
 
 }

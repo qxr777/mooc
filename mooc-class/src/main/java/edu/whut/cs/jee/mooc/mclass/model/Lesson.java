@@ -65,7 +65,7 @@ public class Lesson extends BaseEntity {
     /**
      * 添加的签到
      */
-    @OneToOne
+    @OneToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "check_in_id")
     private CheckIn checkIn;
 

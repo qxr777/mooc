@@ -4,15 +4,18 @@ import edu.whut.cs.jee.mooc.mclass.dto.AnswerDto;
 import edu.whut.cs.jee.mooc.mclass.dto.ExaminationDto;
 import edu.whut.cs.jee.mooc.mclass.dto.ExaminationRecordDto;
 import edu.whut.cs.jee.mooc.mclass.model.Examination;
-import edu.whut.cs.jee.mooc.mclass.model.Lesson;
 import edu.whut.cs.jee.mooc.mclass.vo.SubjectVo;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.util.Assert;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -20,45 +23,44 @@ import java.util.List;
 @SpringBootTest
 public class ExaminationServiceTest {
 
-    Long userId = 1L;
     Long studentId1 = 2L;
     Long studentId2 = 3L;
     Long lessonId = 1L;
     Long exerciseId = 1L;
-    Long examinationId = 1L;
-    Lesson lesson = new Lesson(lessonId);
-    Examination examination = Examination.builder()
-            .lesson(lesson)
-            .name("课程引论随堂练习_UNIT_TEST")
-            .build();
+    Long examinationId = null;
+
+    List<Long> examinationRecordIds = new ArrayList<>();
 
     @Resource
     ExaminationService examinationService;
 
-    @Test
-    public void testSaveExamination() {
-        examinationService.saveExamination(examination);
+    @Before
+    public void prepareTestObjects() {
+        Examination examination = examinationService.importFromExercise(lessonId, exerciseId);
+        examinationId = examination.getId();
+        examinationService.publishExamination(examinationId, lessonId);
+
     }
 
-    @Test
-    public void testImportFromExercise() {
-        examinationService.importFromExercise(lessonId, exerciseId);
-    }
-
-    @Test
-    public void testRemoveExamination() {
+    @After
+    public void clearTestObjects() {
+        for(Long examinationRecordId : examinationRecordIds) {
+            examinationService.removeExaminationRecord(examinationRecordId);
+        }
         examinationService.removeExamination(examinationId);
     }
 
     @Test
     public void testPublishExamination() {
         examinationService.publishExamination(examinationId, lessonId);
+        Assert.isTrue(examinationService.getExamination(examinationId).getStatus() == Examination.STATUS_OPEN);
     }
 
     @Test
     public void testGetExminationDto() {
         ExaminationDto examinationDto = examinationService.getExaminationDto(examinationId);
         log.info(examinationDto.toString());
+        Assert.isTrue(examinationDto.getSubjectVos().size() > 0);
     }
 
     @Test
@@ -81,7 +83,8 @@ public class ExaminationServiceTest {
         answerDto2.setSubjectId(subjects.get(2).getId());
         answerDto2.setAnswer("false");
         examinationRecordDto.addAnswer(answerDto2);
-        examinationService.saveExaminationRecord(examinationRecordDto);
+        examinationRecordDto = examinationService.saveExaminationRecord(examinationRecordDto);
+        examinationRecordIds.add(examinationRecordDto.getId());
 
         ExaminationRecordDto examinationRecordDto1 = new ExaminationRecordDto();
         examinationRecordDto1.setExaminationId(examinationId);
@@ -98,7 +101,8 @@ public class ExaminationServiceTest {
         answerDto2.setSubjectId(subjects.get(2).getId());
         answerDto2.setAnswer("false");
         examinationRecordDto1.addAnswer(answerDto2);
-
-        examinationService.saveExaminationRecord(examinationRecordDto1);
+        examinationRecordDto1 = examinationService.saveExaminationRecord(examinationRecordDto1);
+        examinationRecordIds.add(examinationRecordDto1.getId());
     }
+
 }

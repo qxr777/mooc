@@ -1,6 +1,5 @@
 package edu.whut.cs.jee.mooc.mclass.dto;
 
-import com.sun.istack.internal.NotNull;
 import edu.whut.cs.jee.mooc.mclass.model.Attendance;
 import edu.whut.cs.jee.mooc.mclass.model.CheckIn;
 import lombok.AllArgsConstructor;
@@ -9,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.BeanUtils;
 
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;

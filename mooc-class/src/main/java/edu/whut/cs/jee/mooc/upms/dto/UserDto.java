@@ -9,6 +9,7 @@ import org.springframework.beans.BeanUtils;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -36,11 +37,16 @@ public class UserDto {
     @ApiModelProperty(value = "邮箱")
     private String email;
 
-    private List<Role> roles;
+    private List<Role> roles = new ArrayList<>();
+
+    public void addRole(Role role) {
+        roles.add(role);
+    }
 
     public User convertTo(){
         User user = new User();
         BeanUtils.copyProperties(this, user);
+        user.setRoles(this.getRoles());
         return user;
     }
 

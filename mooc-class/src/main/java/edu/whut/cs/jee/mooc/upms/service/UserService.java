@@ -72,6 +72,7 @@ public class UserService {
         return userPage;
     }
 
+    @Transactional(readOnly = true)
     public List<User> getUserByUsername(String username) {
         return userRepository.findByName(username);
     }

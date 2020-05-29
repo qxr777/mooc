@@ -18,8 +18,8 @@ import edu.whut.cs.jee.mooc.upms.model.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
@@ -91,7 +91,7 @@ public class CheckInService {
         Double longitude = attendanceDto.getLongitude();
         Double centerLatitude = checkIn.getLatitude();
         Double centerLongitude = checkIn.getLongitude();
-        if (checkIn.isGps()) {
+        if (checkIn.isGps() && latitude != null && longitude != null) {
             double distance = LocationUtils.getDistance(latitude, longitude, centerLatitude, centerLongitude);
             if (distance > AppConstants.MAX_DISTANCE_RANGE) {
                 throw new APIException(AppCode.OVER_RANGE_ERROR, AppCode.OVER_RANGE_ERROR.getMsg() + AppConstants.MAX_DISTANCE_RANGE + AppConstants.DISTANCE_UNIT);
@@ -155,11 +155,16 @@ public class CheckInService {
      * @param checkInId
      * @return
      */
+    @Transactional(readOnly = true)
     public CheckInDto getCheckInDto(Long checkInId) {
         CheckInDto checkInDto = new CheckInDto();
         CheckIn checkIn = checkInRepository.findById(checkInId).get();
         checkIn = this.updateCount(checkIn);
         checkInDto.convertFor(checkIn);
         return checkInDto;
+    }
+
+    public void removeCheckIn(Long checkInId) {
+        checkInRepository.deleteById(checkInId);
     }
 }

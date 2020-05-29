@@ -55,6 +55,11 @@ public class MoocClassDto {
      */
     private String weekday;
 
+    /**
+     * 课堂码
+     */
+    private String code;
+
     public MoocClass convertTo(){
         MoocClass moocClass = new MoocClass();
         BeanUtils.copyProperties(this,moocClass);

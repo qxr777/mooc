@@ -52,7 +52,7 @@ public class Examination extends BaseEntity {
     /**
      * 习题
      */
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     @JoinColumn(name="examination_id")
     @OrderBy("id ASC")
     private List<Subject> subjects;

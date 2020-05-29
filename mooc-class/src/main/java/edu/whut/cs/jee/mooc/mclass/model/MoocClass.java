@@ -57,6 +57,12 @@ public class MoocClass extends BaseEntity {
     private String weekday;
 
     /**
+     * 课堂码
+     */
+    @Column(name = "code", unique = true, nullable = false, length = 6)
+    private String code;
+
+    /**
      * 加入此慕课堂的用户
      */
     @ManyToMany

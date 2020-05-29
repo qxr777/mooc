@@ -13,6 +13,8 @@ import java.util.List;
 @Data
 public class ExaminationRecordDto implements Serializable {
 
+    private Long id;
+
     private Long examinationId;
 
     private Long userId;

@@ -16,6 +16,7 @@ import edu.whut.cs.jee.mooc.upms.model.Teacher;
 import edu.whut.cs.jee.mooc.upms.model.User;
 import edu.whut.cs.jee.mooc.upms.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -69,9 +70,30 @@ public class MoocClassService {
         }
         MoocClass moocClass = moocClassDto.convertTo();
         moocClass.setCourse(course);
+        if (moocClass.getCode() == null) {
+            moocClass.setCode(this.generateMClassCode());
+        }
         MoocClass saved =  moocClassRepository.save(moocClass);
         log.info("New MoocClass: {}", saved);
         return moocClassDto.convertFor(saved);
+    }
+
+    private String generateMClassCode() {
+        String code = RandomStringUtils.randomAlphanumeric(6).toUpperCase();
+        while (this.getMoocClassByCode(code) != null) {
+            code = RandomStringUtils.randomAlphanumeric(6).toUpperCase();
+        }
+        return code;
+    }
+
+    @Transactional(readOnly = true)
+    public MoocClass getMoocClassByCode(String code) {
+        MoocClass moocClass = null;
+        List<MoocClass> moocClasses = moocClassRepository.findByCode(code);
+        if (moocClasses.size() > 0) {
+            moocClass = moocClasses.get(0);
+        }
+        return moocClass;
     }
 
     public MoocClassDto editMoocClass(MoocClassDto moocClassDto) {
@@ -96,10 +118,33 @@ public class MoocClassService {
     }
 
     @Transactional(readOnly = true)
+    public List<MoocClassDto> getOwnMoocClasses(Long teacherId) {
+        Iterator<MoocClass> moocClassIterable = moocClassRepository.findByTeacher(teacherId).iterator();
+        MoocClass moocClass = null;
+        MoocClassDto moocClassDto = null;
+        List<MoocClassDto> moocClassDtos = new ArrayList<>();
+        while(moocClassIterable.hasNext()) {
+            moocClassDto = new MoocClassDto();
+            moocClass = moocClassIterable.next();
+            moocClassDtos.add(moocClassDto.convertFor(moocClass));
+        }
+        return moocClassDtos;
+    }
+
+    @Transactional(readOnly = true)
     public MoocClassDto getMoocClass(Long moocClassId) {
         MoocClass moocClass = moocClassRepository.findById(moocClassId).get();
         MoocClassDto moocClassDto = new MoocClassDto();
         return moocClassDto.convertFor(moocClass);
+    }
+
+    public boolean isServing(Long moocClassId) {
+        boolean result = false;
+        List<Lesson> lessons = lessonRepository.findByMoocClassIdAndStatus(moocClassId, Lesson.STATUS_SERVICING);
+        if (lessons.size() > 0) {
+            result = true;
+        }
+        return result;
     }
 
     @Transactional(readOnly = true)
@@ -133,6 +178,22 @@ public class MoocClassService {
     public void removeLesson(Long lessonId) {
         if (lessonRepository.existsById(lessonId)) {
             lessonRepository.deleteById(lessonId);
+        }
+    }
+
+    public void removeMoocClass(Long moocClassId) {
+        if (moocClassRepository.existsById(moocClassId)) {
+            moocClassRepository.deleteById(moocClassId);
+        } else {
+            throw new APIException(AppCode.NO_MCLASS_ERROR, AppCode.NO_MCLASS_ERROR.getMsg() + moocClassId);
+        }
+    }
+
+    public void removeCourse(Long courseId) {
+        if (courseRepository.existsById(courseId)) {
+            courseRepository.deleteById(courseId);
+        } else {
+            throw new APIException(AppCode.NO_COURSE_ERROR, AppCode.NO_COURSE_ERROR.getMsg() + courseId);
         }
     }
 
@@ -200,12 +261,16 @@ public class MoocClassService {
      * @return
      */
     public void join(JoinDto joinDto) {
+        String code = joinDto.getMoocClassCode();
+        MoocClass moocClass = this.getMoocClassByCode(code);
+        if(moocClass == null) {
+            throw new APIException(AppCode.NO_MCLASS_ERROR, code + AppCode.NO_MCLASS_ERROR.getMsg());
+        }
         User user = userRepository.findById(joinDto.getUserId()).get();
-        List<User> users = this.getUsers(joinDto.getMoocClassId());
+        List<User> users = this.getUsers(moocClass.getId());
         if (users.contains(user)) {
             throw new APIException(AppCode.USER_HAS_JOINED_ERROR, user.getName() + AppCode.USER_HAS_JOINED_ERROR.getMsg());
         }
-        MoocClass moocClass = moocClassRepository.findById(joinDto.getMoocClassId()).get();
         moocClass.getUsers().add(user);
         moocClassRepository.save(moocClass);
     }

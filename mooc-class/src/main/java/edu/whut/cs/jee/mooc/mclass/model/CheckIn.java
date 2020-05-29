@@ -77,7 +77,7 @@ public class CheckIn extends BaseEntity {
     @Column(name = "late_count")
     private Integer lateCount;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     @JoinColumn(name="check_in_id")
     private List<Attendance> attendances;
 

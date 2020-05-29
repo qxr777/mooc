@@ -14,11 +14,15 @@ import javax.persistence.*;
 @AllArgsConstructor
 public class Role extends BaseEntity {
 
-    public static final Integer ROLE_ADMIN_ID = 1;
-    public static final Integer ROLE_TEACHER_ID = 2;
-    public static final Integer ROLE_STUDENT_ID = 3;
+    public static final Long ROLE_ADMIN_ID = 1L;
+    public static final Long ROLE_TEACHER_ID = 2L;
+    public static final Long ROLE_STUDENT_ID = 3L;
 
     @Column(name = "name", unique = true, nullable = false, length = 20)
     private String name;
+
+    public Role(Long id) {
+        this.setId(id);
+    }
 
 }

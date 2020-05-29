@@ -129,9 +129,13 @@ public class ExaminationService {
      * @return
      */
     public void removeExamination(Long examinationId) {
-        List<Subject> subjects = subjectRepository.findByExaminationId(examinationId);
-        subjectRepository.deleteAll(subjects);
+//        List<Subject> subjects = subjectRepository.findByExaminationId(examinationId);
+//        subjectRepository.deleteAll(subjects);
         examinationRepository.deleteById(examinationId);
+    }
+
+    public void removeExaminationRecord(Long examinationRecordId) {
+        examinationRecordRepository.deleteById(examinationRecordId);
     }
 
     /**

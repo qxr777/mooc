@@ -54,7 +54,7 @@ public class ExaminationRecord extends BaseEntity {
     @JoinColumn(name = "user_id")
     public User user;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     @JoinColumn(name="examination_record_id")
     private List<Answer> answers;
 
