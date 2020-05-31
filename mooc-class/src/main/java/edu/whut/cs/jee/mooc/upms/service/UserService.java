@@ -92,7 +92,16 @@ public class UserService {
     @Transactional(readOnly = true)
     public List<UserDto> getUserByUsername(String username) {
         List<User> users = userRepository.findByName(username);
-        return BeanConvertUtils.convertListTo(users,UserDto::new);
+        List<UserDto> userDtos = new ArrayList<>();
+        UserDto userDto = null;
+        List<RoleDto> roleDtos = null;
+        for(User user : users) {
+            userDto = BeanConvertUtils.convertTo(user, UserDto::new);
+            roleDtos = BeanConvertUtils.convertListTo(user.getRoles(), RoleDto::new);
+            userDto.setRoles(roleDtos);
+            userDtos.add(userDto);
+        }
+        return userDtos;
     }
 
     public Long register(UserDto userToAdd) {

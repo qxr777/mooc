@@ -1,7 +1,7 @@
 package edu.whut.cs.jee.mooc.upms.security;
 
-import edu.whut.cs.jee.mooc.upms.model.User;
-import edu.whut.cs.jee.mooc.upms.repository.UserRepository;
+import edu.whut.cs.jee.mooc.upms.dto.UserDto;
+import edu.whut.cs.jee.mooc.upms.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -14,19 +14,20 @@ import java.util.List;
 @Service
 @Transactional
 public class JwtUserDetailsService implements UserDetailsService {
+
     @Autowired
-    private UserRepository userRepository;
+    private UserService userService;
 
     @Override
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        List<User> users = userRepository.findByName(username);
-        User user = users.size() > 0 ? users.get(0) : null;
+        List<UserDto> userDtos = userService.getUserByUsername(username);
+        UserDto userDto = userDtos.size() > 0 ? userDtos.get(0) : null;
 
-        if (user == null) {
+        if (userDto == null) {
             throw new UsernameNotFoundException(String.format("No user found with username '%s'.", username));
         } else {
-            return JwtUserFactory.create(user);
+            return JwtUserFactory.create(userDto);
         }
     }
 }

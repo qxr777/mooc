@@ -1,6 +1,6 @@
 package edu.whut.cs.jee.mooc.upms.security;
 
-import edu.whut.cs.jee.mooc.upms.model.User;
+import edu.whut.cs.jee.mooc.upms.dto.UserDto;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
@@ -12,13 +12,13 @@ public final class JwtUserFactory {
     private JwtUserFactory() {
     }
 
-    public static JwtUser create(User user) {
+    public static JwtUser create(UserDto userDto) {
         return new JwtUser(
-                user.getId().toString(),
-                user.getName(),
-                user.getPassword(),
-                user.getEmail(),
-                mapToGrantedAuthorities(user.getRoleNames())
+                userDto.getId().toString(),
+                userDto.getName(),
+                userDto.getPassword(),
+                userDto.getEmail(),
+                mapToGrantedAuthorities(userDto.getRoleNames())
         );
     }
 

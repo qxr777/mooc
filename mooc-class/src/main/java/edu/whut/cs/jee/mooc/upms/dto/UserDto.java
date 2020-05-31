@@ -52,16 +52,11 @@ public class UserDto {
         this.email = email;
         this.roles = roles;
     }
-
-//    public User convertTo(){
-//        User user = new User();
-//        BeanUtils.copyProperties(this, user);
-//        user.setRoles(this.getRoles());
-//        return user;
-//    }
-//
-//    public UserDto convertFor(User user){
-//        BeanUtils.copyProperties(user,this);
-//        return this;
-//    }
+    public List<String> getRoleNames() {
+        List<String> roleStrings = new ArrayList<>();
+        roles.stream().forEach(role ->{
+            roleStrings.add(role.getName());
+        });
+        return roleStrings;
+    }
 }
