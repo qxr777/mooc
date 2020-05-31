@@ -43,7 +43,8 @@ public class MoocClassServiceTest {
                 .teacherId(userId)
                 .build();
 
-        moocClass = moocClassService.saveMoocClass(moocClass);
+        moocClassId = moocClassService.saveMoocClass(moocClass);
+        moocClass = moocClassService.getMoocClass(moocClassId);
         lesson = moocClassService.startLesson(moocClass.getId());
         lessonId = lesson.getId();
     }
@@ -68,13 +69,11 @@ public class MoocClassServiceTest {
         joinDto.setUserId(studentId2);
         moocClassService.join(joinDto);
         MoocClass joinedClass = moocClassService.getMoocClassByCode(joinDto.getMoocClassCode());
-        Assert.isTrue(moocClassService.getUsers(joinedClass.getId()).size() == 2);
+        Assert.isTrue(moocClassService.getUserDtos(joinedClass.getId()).size() == 2);
     }
 
     @Test
     public void testStartLesson() {
-//        LessonDto lessonDto = moocClassService.startLesson(moocClass.getId());
-//        lessonId = lessonDto.getId();
         Assert.isTrue(lesson.getStatus() == Lesson.STATUS_SERVICING);
         Assert.isTrue(moocClassService.isServing(lesson.getMoocClassId()));
     }

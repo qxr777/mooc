@@ -11,7 +11,6 @@ import java.util.List;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Table(name = "upms_user")
 @DiscriminatorColumn(name = "discriminator", discriminatorType = DiscriminatorType.STRING, length = 30)
-@Builder
 @Data
 @ToString(callSuper = true)
 @NoArgsConstructor

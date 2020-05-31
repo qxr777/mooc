@@ -1,10 +1,9 @@
 package edu.whut.cs.jee.mooc.upms.service;
 
 import edu.whut.cs.jee.mooc.common.constant.AppConstants;
+import edu.whut.cs.jee.mooc.upms.dto.RoleDto;
 import edu.whut.cs.jee.mooc.upms.dto.StudentDto;
 import edu.whut.cs.jee.mooc.upms.dto.TeacherDto;
-import edu.whut.cs.jee.mooc.upms.dto.UserDto;
-import edu.whut.cs.jee.mooc.upms.model.Role;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -33,8 +32,8 @@ public class UserServiceTest {
         teacher.setEmail("123@qq.com");
         teacher.setPassword(encoder.encode(AppConstants.DEFAULT_PASSWORD));
         teacher.setSalaryNo("0099937");
-        Role teacherRole = new Role(Role.ROLE_TEACHER_ID);
-        Role adminRole = new Role(Role.ROLE_ADMIN_ID);
+        RoleDto teacherRole = new RoleDto(AppConstants.ROLE_TEACHER_ID);
+        RoleDto adminRole = new RoleDto(AppConstants.ROLE_ADMIN_ID);
         teacher.addRole(teacherRole);
         teacher.addRole(adminRole);
         userService.saveUser(teacher);
@@ -44,7 +43,7 @@ public class UserServiceTest {
         student1.setStudentNo("201912345601");
         student1.setEmail("321@qq.com");
         student1.setPassword(encoder.encode(AppConstants.DEFAULT_PASSWORD));
-        Role studentRole = new Role(Role.ROLE_STUDENT_ID);
+        RoleDto studentRole = new RoleDto(AppConstants.ROLE_STUDENT_ID);
         student1.addRole(studentRole);
         userService.saveUser(student1);
         StudentDto student2 = new StudentDto();
@@ -67,12 +66,11 @@ public class UserServiceTest {
         teacher.setEmail("123@qq.com");
         teacher.setPassword(encoder.encode(AppConstants.DEFAULT_PASSWORD));
         teacher.setSalaryNo("0099937");
-        Role teacherRole = new Role(Role.ROLE_TEACHER_ID);
-        Role adminRole = new Role(Role.ROLE_ADMIN_ID);
+        RoleDto teacherRole = new RoleDto(AppConstants.ROLE_TEACHER_ID);
+        RoleDto adminRole = new RoleDto(AppConstants.ROLE_ADMIN_ID);
         teacher.addRole(teacherRole);
         teacher.addRole(adminRole);
-        UserDto userDto = userService.saveUser(teacher);
-        newUserId = userDto.getId();
+        newUserId = userService.saveUser(teacher);
         Assert.isTrue(newUserId > 0);
     }
 

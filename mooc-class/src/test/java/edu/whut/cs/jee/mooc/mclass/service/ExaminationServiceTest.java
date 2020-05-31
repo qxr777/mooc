@@ -1,10 +1,9 @@
 package edu.whut.cs.jee.mooc.mclass.service;
 
 import edu.whut.cs.jee.mooc.mclass.dto.AnswerDto;
-import edu.whut.cs.jee.mooc.mclass.dto.ExaminationDto;
 import edu.whut.cs.jee.mooc.mclass.dto.ExaminationRecordDto;
+import edu.whut.cs.jee.mooc.mclass.dto.SubjectDto;
 import edu.whut.cs.jee.mooc.mclass.model.Examination;
-import edu.whut.cs.jee.mooc.mclass.vo.SubjectVo;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.After;
 import org.junit.Before;
@@ -34,6 +33,9 @@ public class ExaminationServiceTest {
     @Resource
     ExaminationService examinationService;
 
+    @Resource
+    SubjectService subjectService;
+
     @Before
     public void prepareTestObjects() {
         Examination examination = examinationService.importFromExercise(lessonId, exerciseId);
@@ -56,17 +58,19 @@ public class ExaminationServiceTest {
         Assert.isTrue(examinationService.getExamination(examinationId).getStatus() == Examination.STATUS_OPEN);
     }
 
-    @Test
-    public void testGetExminationDto() {
-        ExaminationDto examinationDto = examinationService.getExaminationDto(examinationId);
-        log.info(examinationDto.toString());
-        Assert.isTrue(examinationDto.getSubjectVos().size() > 0);
-    }
+//    @Test
+//    public void testGetExminationDto() {
+//        ExaminationDto examinationDto = examinationService.getExaminationDto(examinationId);
+//        log.info(examinationDto.toString());
+//        Assert.isTrue(examinationDto.getSubjectDtos().size() > 0);
+//    }
 
     @Test
     public void testSaveExaminationRecord() {
-        ExaminationDto examinationDto = examinationService.getExaminationDto(examinationId);
-        List<SubjectVo> subjects = examinationDto.getSubjectVos();
+//        ExaminationDto examinationDto = examinationService.getExaminationDto(examinationId);
+//        List<SubjectDto> subjects = examinationDto.getSubjectDtos();
+
+        List<SubjectDto> subjects = subjectService.getSubjectsOfExaminzation(examinationId);
 
         ExaminationRecordDto examinationRecordDto = new ExaminationRecordDto();
         examinationRecordDto.setExaminationId(examinationId);

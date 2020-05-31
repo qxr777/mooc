@@ -1,5 +1,6 @@
 package edu.whut.cs.jee.mooc.mclass.model;
 
+import edu.whut.cs.jee.mooc.common.constant.SubjectConstants;
 import lombok.*;
 
 import javax.persistence.Column;
@@ -20,12 +21,6 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 public class Fill extends Subject {
-
-    public static final int KEY_TYPE_DECIMAL = 1; // 数值格式
-    public static final int KEY_TYPE_TEXT = 2;  // 文字格式
-
-    public static final int MATCH_TYPE_EXACT = 1; // 精确匹配
-    public static final int MATCH_TYP_FUZZY = 2;   // 模糊匹配
 
     /**
      * 数值格式 | 文字格式
@@ -62,10 +57,10 @@ public class Fill extends Subject {
     @Override
     public boolean check(String answer) {
         boolean result = false;
-        if (matchType == this.MATCH_TYPE_EXACT) {
+        if (matchType == SubjectConstants.FILL_MATCH_TYPE_EXACT) {
             result = answer.equals(textKey) || answer.equals(decimalKey);
         } else {
-            if (keyType == KEY_TYPE_TEXT) {
+            if (keyType == SubjectConstants.FILL_KEY_TYPE_TEXT) {
                 result = answer.indexOf(textKey) >= 0;
             }
         }

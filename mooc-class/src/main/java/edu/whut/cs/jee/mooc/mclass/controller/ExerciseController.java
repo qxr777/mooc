@@ -1,7 +1,6 @@
 package edu.whut.cs.jee.mooc.mclass.controller;
 
 import edu.whut.cs.jee.mooc.mclass.dto.ExerciseDto;
-import edu.whut.cs.jee.mooc.mclass.model.Subject;
 import edu.whut.cs.jee.mooc.mclass.service.ExerciseService;
 import edu.whut.cs.jee.mooc.mclass.service.SubjectService;
 import io.swagger.annotations.Api;
@@ -50,12 +49,6 @@ public class ExerciseController {
     @ApiOperation(value = "获取课程的所有练习")
     public List<ExerciseDto> getExercises(@RequestParam(value = "courseId", required = true) Long courseId) {
         return  exerciseService.getExercises(courseId);
-    }
-
-    @ApiOperation(value = "获取练习含的所有习题", notes = "路径参数ID")
-    @GetMapping(value = "{id}/subject")
-    public List<Subject> getSubjects(@PathVariable Long id) {
-        return subjectService.getSubjectsOfExercise(id);
     }
 
 }

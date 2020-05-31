@@ -38,7 +38,7 @@ public class MoocClass extends BaseEntity {
     private String semester;
 
     /**
-     * 线上关联课程
+     * 关联课程
      */
     @ManyToOne
     @JoinColumn(name = "course_id")
@@ -47,8 +47,8 @@ public class MoocClass extends BaseEntity {
     /**
      * 独立线下课程
      */
-    @Column(name = "offline_course")
-    private String offlineCourse;
+//    @Column(name = "offline_course")
+//    private String offlineCourse;
 
     /**
      * 周几上课
@@ -59,7 +59,7 @@ public class MoocClass extends BaseEntity {
     /**
      * 课堂码
      */
-    @Column(name = "code", unique = true, nullable = false, length = 6)
+    @Column(name = "code", unique = true, nullable = false, length = 6, updatable = false)
     private String code;
 
     /**

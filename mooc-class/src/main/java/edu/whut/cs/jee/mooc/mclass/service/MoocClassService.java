@@ -12,6 +12,7 @@ import edu.whut.cs.jee.mooc.mclass.repository.CourseRepository;
 import edu.whut.cs.jee.mooc.mclass.repository.ExaminationRepository;
 import edu.whut.cs.jee.mooc.mclass.repository.LessonRepository;
 import edu.whut.cs.jee.mooc.mclass.repository.MoocClassRepository;
+import edu.whut.cs.jee.mooc.upms.dto.UserDto;
 import edu.whut.cs.jee.mooc.upms.model.Teacher;
 import edu.whut.cs.jee.mooc.upms.model.User;
 import edu.whut.cs.jee.mooc.upms.repository.UserRepository;
@@ -23,9 +24,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 @Slf4j
@@ -53,7 +52,7 @@ public class MoocClassService {
      * @param moocClassDto
      * @return
      */
-    public MoocClassDto saveMoocClass(MoocClassDto moocClassDto) {
+    public Long saveMoocClass(MoocClassDto moocClassDto) {
         Course course = null;
         if(moocClassDto.getOfflineCourse() != null) {
             Teacher teacher = new Teacher();
@@ -68,14 +67,24 @@ public class MoocClassService {
         if(moocClassDto.getCourseId() != null) {
             course = courseRepository.findById(moocClassDto.getCourseId()).get();
         }
-        MoocClass moocClass = moocClassDto.convertTo();
+        MoocClass moocClass = BeanConvertUtils.convertTo(moocClassDto, MoocClass::new);
         moocClass.setCourse(course);
         if (moocClass.getCode() == null) {
             moocClass.setCode(this.generateMClassCode());
         }
         MoocClass saved =  moocClassRepository.save(moocClass);
-        log.info("New MoocClass: {}", saved);
-        return moocClassDto.convertFor(saved);
+        return saved.getId();
+    }
+
+    public Long addMoocClass(MoocClassDto moocClassDto) {
+        Course course = courseRepository.findById(moocClassDto.getCourseId()).get();
+        MoocClass moocClass = BeanConvertUtils.convertTo(moocClassDto, MoocClass::new);
+        moocClass.setCourse(course);
+        if (moocClass.getCode() == null) {
+            moocClass.setCode(this.generateMClassCode());
+        }
+        MoocClass saved =  moocClassRepository.save(moocClass);
+        return saved.getId();
     }
 
     private String generateMClassCode() {
@@ -86,7 +95,6 @@ public class MoocClassService {
         return code;
     }
 
-    @Transactional(readOnly = true)
     public MoocClass getMoocClassByCode(String code) {
         MoocClass moocClass = null;
         List<MoocClass> moocClasses = moocClassRepository.findByCode(code);
@@ -96,46 +104,66 @@ public class MoocClassService {
         return moocClass;
     }
 
-    public MoocClassDto editMoocClass(MoocClassDto moocClassDto) {
+    public Long editMoocClass(MoocClassDto moocClassDto) {
         MoocClass moocClass = moocClassRepository.findById(moocClassDto.getId()).get();
         BeanUtils.copyProperties(moocClassDto, moocClass);
         MoocClass saved =  moocClassRepository.save(moocClass);
-        return moocClassDto.convertFor(saved);
+        return saved.getId();
     }
 
-    @Transactional(readOnly = true)
-    public List<MoocClassDto> getAllMoocClasses() {
-        Iterator<MoocClass> moocClassIterable = moocClassRepository.findAll().iterator();
-        MoocClass moocClass = null;
-        MoocClassDto moocClassDto = null;
-        List<MoocClassDto> moocClassDtos = new ArrayList<>();
-        while(moocClassIterable.hasNext()) {
-            moocClassDto = new MoocClassDto();
-            moocClass = moocClassIterable.next();
-            moocClassDtos.add(moocClassDto.convertFor(moocClass));
-        }
-        return moocClassDtos;
-    }
+//    @Transactional(readOnly = true)
+//    public List<MoocClassDto> getAllMoocClasses() {
+//        Iterator<MoocClass> moocClassIterable = moocClassRepository.findAll().iterator();
+//        MoocClass moocClass = null;
+//        MoocClassDto moocClassDto = null;
+//        List<MoocClassDto> moocClassDtos = new ArrayList<>();
+//        while(moocClassIterable.hasNext()) {
+//            moocClassDto = new MoocClassDto();
+//            moocClass = moocClassIterable.next();
+//            moocClassDtos.add(moocClassDto.convertFor(moocClass));
+//        }
+//        return moocClassDtos;
+//    }
+
+//    @Transactional(readOnly = true)
+//    public List<MoocClassDto> getOwnMoocClasses(Long teacherId) {
+//        Iterator<MoocClass> moocClassIterable = moocClassRepository.findByTeacher(teacherId).iterator();
+//        MoocClass moocClass = null;
+//        MoocClassDto moocClassDto = null;
+//        List<MoocClassDto> moocClassDtos = new ArrayList<>();
+//        while(moocClassIterable.hasNext()) {
+//            moocClassDto = new MoocClassDto();
+//            moocClass = moocClassIterable.next();
+//            moocClassDtos.add(moocClassDto.convertFor(moocClass));
+//        }
+//        return moocClassDtos;
+//    }
 
     @Transactional(readOnly = true)
     public List<MoocClassDto> getOwnMoocClasses(Long teacherId) {
-        Iterator<MoocClass> moocClassIterable = moocClassRepository.findByTeacher(teacherId).iterator();
-        MoocClass moocClass = null;
-        MoocClassDto moocClassDto = null;
-        List<MoocClassDto> moocClassDtos = new ArrayList<>();
-        while(moocClassIterable.hasNext()) {
-            moocClassDto = new MoocClassDto();
-            moocClass = moocClassIterable.next();
-            moocClassDtos.add(moocClassDto.convertFor(moocClass));
-        }
+        List<MoocClass> moocClasses = moocClassRepository.findByTeacher(teacherId);
+        List<MoocClassDto> moocClassDtos = BeanConvertUtils.convertListTo(moocClasses, MoocClassDto::new,
+                (s, t) -> {
+                    t.setCourseId(s.getCourse().getId());
+                    t.setCourseName(s.getCourse().getName());
+                    t.setCode(s.getCode());
+                    t.setTeacherId(s.getCourse().getTeacher().getId());
+                    t.setTeacherName(s.getCourse().getTeacher().getName());
+                });
         return moocClassDtos;
     }
 
     @Transactional(readOnly = true)
     public MoocClassDto getMoocClass(Long moocClassId) {
         MoocClass moocClass = moocClassRepository.findById(moocClassId).get();
-        MoocClassDto moocClassDto = new MoocClassDto();
-        return moocClassDto.convertFor(moocClass);
+        MoocClassDto moocClassDto = BeanConvertUtils.convertTo(moocClass, MoocClassDto::new, (s, t) -> {
+            t.setCourseId(s.getCourse().getId());
+            t.setCourseName(s.getCourse().getName());
+            t.setCode(s.getCode());
+            t.setTeacherId(s.getCourse().getTeacher().getId());
+            t.setTeacherName(s.getCourse().getTeacher().getName());
+        });
+        return moocClassDto;
     }
 
     public boolean isServing(Long moocClassId) {
@@ -148,7 +176,17 @@ public class MoocClassService {
     }
 
     @Transactional(readOnly = true)
-    public List<User> getUsers(Long moocClassId) {
+    public List<UserDto> getUserDtos(Long moocClassId) {
+        List<BigInteger> useIdList = moocClassRepository.findUserIds(moocClassId);
+        List<Long> userIds = Lists.newArrayList();
+        useIdList.stream().forEach(bigInteger ->{
+            userIds.add(bigInteger.longValue());
+        });
+        List<User> users = Lists.newArrayList(userRepository.findAllById(userIds));
+        return BeanConvertUtils.convertListTo(users, UserDto::new);
+    }
+
+    private List<User> getUsers(Long moocClassId) {
         List<BigInteger> useIdList = moocClassRepository.findUserIds(moocClassId);
         List<Long> userIds = Lists.newArrayList();
         useIdList.stream().forEach(bigInteger ->{
@@ -163,11 +201,11 @@ public class MoocClassService {
      * @param lessonDto
      * @return
      */
-    public LessonDto saveLesson(LessonDto lessonDto) {
-        Lesson lesson = lessonDto.convertTo();
+    public Long saveLesson(LessonDto lessonDto) {
+        Lesson lesson = BeanConvertUtils.convertTo(lessonDto, Lesson::new);
         lesson = lessonRepository.save(lesson);
         log.info("New Lesson: ", lesson);
-        return lessonDto.convertFor(lesson);
+        return lesson.getId();
     }
 
     /**

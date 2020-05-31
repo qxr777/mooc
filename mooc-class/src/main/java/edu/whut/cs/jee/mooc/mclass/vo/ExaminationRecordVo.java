@@ -1,14 +1,12 @@
-package edu.whut.cs.jee.mooc.mclass.dto;
+package edu.whut.cs.jee.mooc.mclass.vo;
 
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 @Data
-public class ExaminationRecordDto implements Serializable {
+public class ExaminationRecordVo implements Serializable {
 
     private Long id;
 
@@ -26,10 +24,5 @@ public class ExaminationRecordDto implements Serializable {
 
     private Date submitTime;
 
-    private List<AnswerDto> answerDtos = new ArrayList<>();
-
-    public void addAnswer(AnswerDto answerDto) {
-        answerDtos.add(answerDto);
-    }
 
 }

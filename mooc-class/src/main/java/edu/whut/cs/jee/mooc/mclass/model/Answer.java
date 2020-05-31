@@ -53,11 +53,4 @@ public class Answer extends BaseEntity {
     @Column(name = "subject_id")
     private Long subjectId;
 
-    /**
-     * 习题
-     */
-//    @ManyToOne
-//    @JoinColumn(name = "subject_id", referencedColumnName = "id")
-//    private Subject subject;
-
 }

@@ -1,23 +1,14 @@
-package edu.whut.cs.jee.mooc.mclass.dto;
+package edu.whut.cs.jee.mooc.mclass.vo;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotNull;
 
 @Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-public class MoocClassDto {
+public class MoocClassEditVo {
 
     private Long id;
 
-    private Long teacherId;
-
-    private String teacherName;
     /**
      * 名称
      */
@@ -37,25 +28,8 @@ public class MoocClassDto {
     private String semester;
 
     /**
-     * 关联课程ID
-     */
-    private Long courseId;
-
-    private String courseName;
-
-    /**
-     * 独立线下课程名称
-     */
-    private String offlineCourse;
-
-    /**
      * 周几上课
      */
     private String weekday;
-
-    /**
-     * 课堂码
-     */
-    private String code;
 
 }

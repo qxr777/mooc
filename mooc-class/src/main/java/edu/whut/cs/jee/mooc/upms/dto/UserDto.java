@@ -1,10 +1,7 @@
 package edu.whut.cs.jee.mooc.upms.dto;
 
-import edu.whut.cs.jee.mooc.upms.model.Role;
-import edu.whut.cs.jee.mooc.upms.model.User;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
-import org.springframework.beans.BeanUtils;
+import lombok.*;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
@@ -12,6 +9,7 @@ import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
+@Builder
 @Data
 public class UserDto {
 
@@ -37,21 +35,33 @@ public class UserDto {
     @ApiModelProperty(value = "邮箱")
     private String email;
 
-    private List<Role> roles = new ArrayList<>();
+    private List<RoleDto> roles = new ArrayList<>();
 
-    public void addRole(Role role) {
+    public void addRole(RoleDto role) {
         roles.add(role);
     }
 
-    public User convertTo(){
-        User user = new User();
-        BeanUtils.copyProperties(this, user);
-        user.setRoles(this.getRoles());
-        return user;
+    public UserDto() {
     }
 
-    public UserDto convertFor(User user){
-        BeanUtils.copyProperties(user,this);
-        return this;
+    public UserDto(Long id, @NotNull(message = "用户名不能为空") @Size(min = 6, max = 11, message = "账号长度必须是6-11个字符") String name, @NotNull(message = "用户昵称不允许为空") String nickname, @NotNull(message = "用户密码不能为空") @Size(min = 6, max = 16, message = "密码长度必须是6-16个字符") String password, @Email(message = "邮箱格式不正确") String email, List<RoleDto> roles) {
+        this.id = id;
+        this.name = name;
+        this.nickname = nickname;
+        this.password = password;
+        this.email = email;
+        this.roles = roles;
     }
+
+//    public User convertTo(){
+//        User user = new User();
+//        BeanUtils.copyProperties(this, user);
+//        user.setRoles(this.getRoles());
+//        return user;
+//    }
+//
+//    public UserDto convertFor(User user){
+//        BeanUtils.copyProperties(user,this);
+//        return this;
+//    }
 }

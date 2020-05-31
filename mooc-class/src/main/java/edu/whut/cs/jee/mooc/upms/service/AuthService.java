@@ -1,9 +1,5 @@
 package edu.whut.cs.jee.mooc.upms.service;
 
-import edu.whut.cs.jee.mooc.common.exception.APIException;
-import edu.whut.cs.jee.mooc.common.exception.AppCode;
-import edu.whut.cs.jee.mooc.upms.dto.StudentDto;
-import edu.whut.cs.jee.mooc.upms.model.User;
 import edu.whut.cs.jee.mooc.upms.repository.UserRepository;
 import edu.whut.cs.jee.mooc.upms.security.JwtTokenUtil;
 import edu.whut.cs.jee.mooc.upms.security.JwtUser;
@@ -16,7 +12,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -42,16 +37,7 @@ public class AuthService {
         this.userRepository = userRepository;
     }
 
-    public User register(StudentDto userToAdd) {
-        final String username = userToAdd.getName();
-        if(userRepository.findByName(username).size() > 0) {
-            throw new APIException(AppCode.USERNAME_DUPLICATE_ERROR, username + AppCode.USERNAME_DUPLICATE_ERROR.getMsg());
-        }
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        final String rawPassword = userToAdd.getPassword();
-        userToAdd.setPassword(encoder.encode(rawPassword));
-        return userRepository.save(userToAdd.convertTo());
-    }
+
 
     public String login(String username, String password) {
         UsernamePasswordAuthenticationToken upToken = new UsernamePasswordAuthenticationToken(username, password);

@@ -3,6 +3,7 @@ package edu.whut.cs.jee.mooc.mclass.service;
 import edu.whut.cs.jee.mooc.common.constant.AppConstants;
 import edu.whut.cs.jee.mooc.common.exception.APIException;
 import edu.whut.cs.jee.mooc.common.exception.AppCode;
+import edu.whut.cs.jee.mooc.common.util.BeanConvertUtils;
 import edu.whut.cs.jee.mooc.common.util.LocationUtils;
 import edu.whut.cs.jee.mooc.mclass.dto.AttendanceDto;
 import edu.whut.cs.jee.mooc.mclass.dto.CheckInDto;
@@ -47,13 +48,14 @@ public class CheckInService {
      * @param checkInDto
      * @return
      */
-    public CheckInDto saveCheckIn(CheckInDto checkInDto) {
+    public Long saveCheckIn(CheckInDto checkInDto) {
         Lesson lesson = lessonRepository.findById(checkInDto.getLessonId()).get();
         if (lesson.getCheckIn() != null && lesson.getCheckIn().getStatus() == CheckIn.STATUS_OPEN) {
             throw new APIException(AppCode.HAS_OPENING_CHECKIN, AppCode.HAS_OPENING_CHECKIN.getMsg() + lesson.getCheckIn().getId());
         }
 
-        CheckIn checkIn = checkInDto.convertTo();
+//        CheckIn checkIn = checkInDto.convertTo();
+        CheckIn checkIn = BeanConvertUtils.convertTo(checkInDto, CheckIn::new);
         checkIn.setStatus(CheckIn.STATUS_OPEN);
         checkIn = checkInRepository.save(checkIn);
 
@@ -74,7 +76,7 @@ public class CheckInService {
                     .build();
             attendanceRepository.save(attendance);
         }
-        return checkInDto.convertFor(checkIn);
+        return checkIn.getId();
     }
 
     /**
@@ -83,7 +85,7 @@ public class CheckInService {
      * @return
      * @throws APIException
      */
-    public AttendanceDto saveAttendance(AttendanceDto attendanceDto) throws APIException {
+    public Long saveAttendance(AttendanceDto attendanceDto) throws APIException {
         Attendance attendance = attendanceRepository.findByCheckInIdAndUserId(attendanceDto.getCheckInId(), attendanceDto.getUserId()).get(0);
         CheckIn checkIn = checkInRepository.findById(attendance.getCheckInId()).get();
         //签到地点判断
@@ -111,7 +113,7 @@ public class CheckInService {
         }
 
         attendance = attendanceRepository.save(attendance);
-        return attendanceDto.convertFor(attendance);
+        return attendance.getId();
     }
 
     /**
@@ -157,11 +159,26 @@ public class CheckInService {
      */
     @Transactional(readOnly = true)
     public CheckInDto getCheckInDto(Long checkInId) {
-        CheckInDto checkInDto = new CheckInDto();
         CheckIn checkIn = checkInRepository.findById(checkInId).get();
         checkIn = this.updateCount(checkIn);
-        checkInDto.convertFor(checkIn);
+        CheckInDto checkInDto = BeanConvertUtils.convertTo(checkIn, CheckInDto::new,
+                (s, t) ->
+                {
+                    t.setStatusCh(CheckIn.STATUS_STRING_CH[s.getStatus()]);
+                });
+        checkInDto.setAttendanceDtos(this.getAttendances(checkInId));
         return checkInDto;
+    }
+
+    private List<AttendanceDto> getAttendances(Long checkId) {
+        List<Attendance> attendances = attendanceRepository.findByCheckInId(checkId);
+        return BeanConvertUtils.convertListTo(attendances, AttendanceDto::new,
+                (s, t) ->
+                {
+                    t.setUserId(s.getUser().getId());
+                    t.setUserName(s.getUser().getName());
+                    t.setStatusCh(Attendance.STATUS_STRING_CH[s.getStatus()]);
+                });
     }
 
     public void removeCheckIn(Long checkInId) {

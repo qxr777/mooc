@@ -244,24 +244,24 @@ INSERT INTO `mclass_fill` VALUES (NULL, 2, 1, '填空题答案_UNIT_TEST', 1, 4)
 COMMIT;
 
 -- ----------------------------
--- Table structure for mclass_judgement
+-- Table structure for mclass_judgment
 -- ----------------------------
-DROP TABLE IF EXISTS `mclass_judgement`;
-CREATE TABLE `mclass_judgement` (
+DROP TABLE IF EXISTS `mclass_judgment`;
+CREATE TABLE `mclass_judgment` (
   `false_count` int(11) DEFAULT NULL,
   `result` tinyint(3) unsigned DEFAULT '0',
   `true_count` int(11) DEFAULT NULL,
-  `judgement_id` bigint(20) NOT NULL,
-  PRIMARY KEY (`judgement_id`),
-  CONSTRAINT `FK3ejer8anjf8l8c2e9qq4o1qj9` FOREIGN KEY (`judgement_id`) REFERENCES `mclass_subject` (`id`)
+  `judgment_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`judgment_id`),
+  CONSTRAINT `FK3ejer8anjf8l8c2e9qq4o1qj9` FOREIGN KEY (`judgment_id`) REFERENCES `mclass_subject` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
--- Records of mclass_judgement
+-- Records of mclass_judgment
 -- ----------------------------
 BEGIN;
-INSERT INTO `mclass_judgement` VALUES (0, 0, 0, 3);
-INSERT INTO `mclass_judgement` VALUES (2, 0, 0, 6);
+INSERT INTO `mclass_judgment` VALUES (0, 0, 0, 3);
+INSERT INTO `mclass_judgment` VALUES (2, 0, 0, 6);
 COMMIT;
 
 -- ----------------------------

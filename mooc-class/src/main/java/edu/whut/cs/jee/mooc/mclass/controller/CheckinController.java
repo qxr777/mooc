@@ -1,8 +1,11 @@
 package edu.whut.cs.jee.mooc.mclass.controller;
 
+import edu.whut.cs.jee.mooc.common.util.BeanConvertUtils;
 import edu.whut.cs.jee.mooc.mclass.dto.AttendanceDto;
 import edu.whut.cs.jee.mooc.mclass.dto.CheckInDto;
 import edu.whut.cs.jee.mooc.mclass.service.CheckInService;
+import edu.whut.cs.jee.mooc.mclass.vo.AttendanceSaveVo;
+import edu.whut.cs.jee.mooc.mclass.vo.CheckInSaveVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -26,20 +29,20 @@ public class CheckinController {
     @PostMapping("")
     @ApiOperation(value = "新增签到活动")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "checkInDto", value = "签到基本信息", dataType = "CheckInDto")
+            @ApiImplicitParam(name = "checkInSaveVo", value = "签到基本信息", dataType = "CheckInSaveVo")
     })
     @PreAuthorize("hasRole('TEACHER')")
-    public CheckInDto save(@RequestBody @Valid CheckInDto checkInDto) {
-        return checkInService.saveCheckIn(checkInDto);
+    public Long save(@RequestBody @Valid CheckInSaveVo checkInSaveVo) {
+        return checkInService.saveCheckIn(BeanConvertUtils.convertTo(checkInSaveVo, CheckInDto::new));
     }
 
     @PostMapping("attend")
     @ApiOperation(value = "学生签到")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "attendanceDto", value = "签到DTO", dataType = "AttendanceDto")
+            @ApiImplicitParam(name = "attendanceSaveVo", value = "签到DTO", dataType = "AttendanceSaveVo")
     })
-    public AttendanceDto attend(@RequestBody @Valid AttendanceDto attendanceDto) {
-        return checkInService.saveAttendance(attendanceDto);
+    public Long attend(@RequestBody @Valid AttendanceSaveVo attendanceSaveVo) {
+        return checkInService.saveAttendance(BeanConvertUtils.convertTo(attendanceSaveVo, AttendanceDto::new));
     }
 
     @ApiOperation(value = "关闭签到活动", notes = "路径参数ID")

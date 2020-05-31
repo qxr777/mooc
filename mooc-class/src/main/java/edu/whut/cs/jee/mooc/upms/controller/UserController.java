@@ -1,10 +1,11 @@
 package edu.whut.cs.jee.mooc.upms.controller;
 
+import edu.whut.cs.jee.mooc.common.constant.AppConstants;
 import edu.whut.cs.jee.mooc.common.constant.PageConsts;
+import edu.whut.cs.jee.mooc.upms.dto.RoleDto;
 import edu.whut.cs.jee.mooc.upms.dto.StudentDto;
 import edu.whut.cs.jee.mooc.upms.dto.TeacherDto;
 import edu.whut.cs.jee.mooc.upms.dto.UserDto;
-import edu.whut.cs.jee.mooc.upms.model.User;
 import edu.whut.cs.jee.mooc.upms.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -52,10 +53,12 @@ public class UserController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "studentDto", value = "学生信息", dataType = "StudentDto")
     })
-    public UserDto saveStudent(@RequestBody @Valid StudentDto studentDto) {
+    public Long saveStudent(@RequestBody @Valid StudentDto studentDto) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         final String rawPassword = studentDto.getPassword();
         studentDto.setPassword(encoder.encode(rawPassword));
+        RoleDto roleDto = new RoleDto(AppConstants.ROLE_STUDENT_ID);
+        studentDto.addRole(roleDto);
         return userService.saveUser(studentDto);
     }
 
@@ -64,10 +67,14 @@ public class UserController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "teacherDto", value = "教师信息", dataType = "TeacherDto")
     })
-    public UserDto saveTeacher(@RequestBody @Valid TeacherDto teacherDto) {
+    public Long saveTeacher(@RequestBody @Valid TeacherDto teacherDto) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         final String rawPassword = teacherDto.getPassword();
         teacherDto.setPassword(encoder.encode(rawPassword));
+        if (teacherDto.getRoles().size() == 0) {
+            RoleDto roleDto = new RoleDto(AppConstants.ROLE_TEACHER_ID);
+            teacherDto.addRole(roleDto);
+        }
         return userService.saveUser(teacherDto);
     }
 
@@ -88,7 +95,7 @@ public class UserController {
             @ApiImplicitParam(name = PageConsts.ORDER, value = "排序方向", defaultValue = PageConsts.PAGE_ORDER_DEFAULT, dataType = "String"),
             @ApiImplicitParam(name = "userDto", value = "用户信息", dataType = "UserDto")
     })
-    public Page<User> userList(@RequestParam(value = PageConsts.PAGE_NUM, required = false, defaultValue = PageConsts.PAGE_NUM_DEFAULT) Integer pageNum,
+    public Page<UserDto> userList(@RequestParam(value = PageConsts.PAGE_NUM, required = false, defaultValue = PageConsts.PAGE_NUM_DEFAULT) Integer pageNum,
                                @RequestParam(value = PageConsts.PAGE_SIZE, required = false, defaultValue = PageConsts.PAGE_SIZE_DEFAULT) Integer pageSize,
                                @RequestParam(value = PageConsts.SORT, required = false, defaultValue = PageConsts.PAGE_SORT_DEFAULT) String sort,
                                @RequestParam(value = PageConsts.ORDER, required = false, defaultValue = PageConsts.PAGE_ORDER_DEFAULT) String order,

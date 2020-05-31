@@ -1,9 +1,7 @@
 package edu.whut.cs.jee.mooc.upms.dto;
 
-import edu.whut.cs.jee.mooc.upms.model.Teacher;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
-import org.springframework.beans.BeanUtils;
 
 import javax.validation.constraints.NotNull;
 
@@ -16,15 +14,15 @@ public class TeacherDto extends UserDto{
 
     private String title;
 
-    public Teacher convertTo(){
-        Teacher teacher = new Teacher();
-        BeanUtils.copyProperties(this, teacher);
-        return teacher;
-    }
-
-    public TeacherDto convertFor(Teacher teacher){
-        BeanUtils.copyProperties(teacher,this);
-        return this;
-    }
+//    public Teacher convertTo(){
+//        Teacher teacher = new Teacher();
+//        BeanUtils.copyProperties(this, teacher);
+//        return teacher;
+//    }
+//
+//    public TeacherDto convertFor(Teacher teacher){
+//        BeanUtils.copyProperties(teacher,this);
+//        return this;
+//    }
 
 }

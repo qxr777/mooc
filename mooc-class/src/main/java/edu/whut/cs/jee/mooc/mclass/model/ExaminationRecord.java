@@ -44,9 +44,6 @@ public class ExaminationRecord extends BaseEntity {
     @Column(name = "examination_id")
     private Long examinationId;
 
-//    @Column(name = "user_id")
-//    private Long userId;
-
     /**
      * 参加的学生
      */

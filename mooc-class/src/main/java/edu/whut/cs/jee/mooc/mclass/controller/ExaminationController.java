@@ -1,11 +1,11 @@
 package edu.whut.cs.jee.mooc.mclass.controller;
 
 import edu.whut.cs.jee.mooc.common.constant.AppConstants;
+import edu.whut.cs.jee.mooc.common.util.BeanConvertUtils;
 import edu.whut.cs.jee.mooc.mclass.dto.ExaminationDto;
 import edu.whut.cs.jee.mooc.mclass.dto.ExaminationRecordDto;
-import edu.whut.cs.jee.mooc.mclass.model.Examination;
 import edu.whut.cs.jee.mooc.mclass.service.ExaminationService;
-import edu.whut.cs.jee.mooc.mclass.vo.SubjectStatisticVo;
+import edu.whut.cs.jee.mooc.mclass.vo.ExaminationRecordVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -27,6 +27,7 @@ public class ExaminationController {
     @Autowired
     private ExaminationService examinationService;
 
+
     @PostMapping("/importFromExercise")
     @ApiOperation(value = "从练习库导入随堂测试")
     @ApiImplicitParams({
@@ -34,9 +35,9 @@ public class ExaminationController {
             @ApiImplicitParam(name = "exerciseId", value = "练习ID", dataType = "Long")
     })
     @PreAuthorize("hasRole('TEACHER')")
-    public Examination importFromExercise(@RequestParam(value = "lessonId", required = true) Long lessonId,
+    public Long importFromExercise(@RequestParam(value = "lessonId", required = true) Long lessonId,
                                           @RequestParam(value = "exerciseId", required = true) Long exerciseId) {
-        return examinationService.importFromExercise(lessonId, exerciseId);
+        return examinationService.importFromExercise(lessonId, exerciseId).getId();
     }
 
     @PostMapping("/publish")
@@ -70,23 +71,12 @@ public class ExaminationController {
         return "success";
     }
 
-    @ApiOperation(value = "获取随堂测试含习题", notes = "路径参数ID")
-    @GetMapping(value = "{id}")
-    public ExaminationDto detail(@PathVariable Long id) {
-        return examinationService.getExaminationDto(id);
-    }
-
     @ApiOperation(value = "获取参加随堂测试学生的答题结果", notes = "路径参数ID")
     @GetMapping(value = "{id}/record")
     @PreAuthorize("hasRole('TEACHER')")
-    public List<ExaminationRecordDto> getRecords(@PathVariable Long id) {
-        return examinationService.getExaminationRecords(id);
-    }
-
-    @ApiOperation(value = "获取随堂测试的答题统计情况", notes = "路径参数ID")
-    @GetMapping(value = "{id}/statistic")
-    public List<SubjectStatisticVo> getStatistics(@PathVariable Long id) {
-        return examinationService.getSubjectStatisticVos(id);
+    public List<ExaminationRecordVo> getRecords(@PathVariable Long id) {
+        List<ExaminationRecordDto> examinationRecordDtos = examinationService.getExaminationRecords(id);
+        return BeanConvertUtils.convertListTo(examinationRecordDtos, ExaminationRecordVo::new);
     }
 
     @GetMapping("/privates")

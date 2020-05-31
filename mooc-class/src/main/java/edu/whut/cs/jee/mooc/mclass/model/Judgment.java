@@ -11,8 +11,8 @@ import javax.persistence.Table;
  * 判断题
  */
 @Entity
-@Table(name = "mclass_judgement")
-@PrimaryKeyJoinColumn(name = "judgement_id")
+@Table(name = "mclass_judgment")
+@PrimaryKeyJoinColumn(name = "judgment_id")
 @Builder
 @Data
 @ToString(callSuper = true)

@@ -1,9 +1,10 @@
 package edu.whut.cs.jee.mooc.mclass.service;
 
-import edu.whut.cs.jee.mooc.mclass.model.Choice;
-import edu.whut.cs.jee.mooc.mclass.model.Fill;
-import edu.whut.cs.jee.mooc.mclass.model.Judgment;
-import edu.whut.cs.jee.mooc.mclass.model.Option;
+import edu.whut.cs.jee.mooc.common.constant.SubjectConstants;
+import edu.whut.cs.jee.mooc.mclass.dto.ChoiceDto;
+import edu.whut.cs.jee.mooc.mclass.dto.FillDto;
+import edu.whut.cs.jee.mooc.mclass.dto.JudgmentDto;
+import edu.whut.cs.jee.mooc.mclass.dto.OptionDto;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -36,44 +37,44 @@ public class SubjectServiceTest {
 
     @Test
     public void testSaveFill() {
-        Fill fill = new Fill();
+        FillDto fill = new FillDto();
         fill.setExerciseId(exerciseId);
         fill.setContent("填空题题干_UNIT_TEST");
         fill.setUnique(true);
         fill.setScore(10.0);
-        fill.setMatchType(Fill.MATCH_TYPE_EXACT);
-        fill.setKeyType(Fill.KEY_TYPE_TEXT);
+        fill.setMatchType(SubjectConstants.FILL_MATCH_TYPE_EXACT);
+        fill.setKeyType(SubjectConstants.FILL_KEY_TYPE_TEXT);
         fill.setTextKey("填空题答案_UNIT_TEST");
-        subjectId = subjectService.saveSubject(fill).getId();
+        subjectId = subjectService.saveFill(fill).getId();
         Assert.isTrue(subjectId > 0);
     }
 
     @Test
     public void testSaveJudgment() {
-        Judgment judgment = new Judgment();
+        JudgmentDto judgment = new JudgmentDto();
         judgment.setExerciseId(exerciseId);
         judgment.setContent("判断题题干_UNIT_TEST");
         judgment.setScore(10.0);
         judgment.setResult(false);
-        subjectId = subjectService.saveSubject(judgment).getId();
+        subjectId = subjectService.saveJudgment(judgment).getId();
         Assert.isTrue(subjectId > 0);
     }
 
     @Test
     public void testSaveChoice() {
-        Choice choice = new Choice();
+        ChoiceDto choice = new ChoiceDto();
         choice.setExerciseId(exerciseId);
         choice.setScore(10.0);
         choice.setContent("选择题题干_UNIT_TEST");
-        List<Option> options = new ArrayList<Option>();
-        Option option1 = Option.builder()
+        List<OptionDto> options = new ArrayList<>();
+        OptionDto option1 = OptionDto.builder()
                 .name("A")
                 .content("选项A_UNIT_TEST")
                 .correct(true)
                 .count(0)
                 .build();
         options.add(option1);
-        Option option2 = Option.builder()
+        OptionDto option2 = OptionDto.builder()
                 .name("B")
                 .content("选项B_UNIT_TEST")
                 .correct(true)
@@ -81,7 +82,7 @@ public class SubjectServiceTest {
                 .build();
         options.add(option2);
         choice.setOptions(options);
-        choice = (Choice)subjectService.saveChoice(choice);
+        choice = subjectService.saveChoice(choice);
         subjectId = choice.getId();
         Assert.isTrue(subjectId > 0);
     }

@@ -5,12 +5,12 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class SubjectVo {
+public class SubjectExaminationVo {
 
     private Long id;
     private String content;
     private Double score;
     private String type;
 
-    private List<OptionVo> optionVos;
+    private List<OptionExaminationVo> options;
 }

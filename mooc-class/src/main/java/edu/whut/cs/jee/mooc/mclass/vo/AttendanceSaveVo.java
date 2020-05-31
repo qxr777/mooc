@@ -1,17 +1,15 @@
-package edu.whut.cs.jee.mooc.mclass.dto;
+package edu.whut.cs.jee.mooc.mclass.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
-
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AttendanceDto {
+public class AttendanceSaveVo {
 
     private Long checkInId;
 
@@ -26,11 +24,5 @@ public class AttendanceDto {
      * 签到处 纬度
      */
     private Double latitude = 0.0;
-
-    private String userName;
-
-    private String statusCh;
-
-    private Date createTime;
 
 }

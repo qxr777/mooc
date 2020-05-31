@@ -8,7 +8,7 @@ import edu.whut.cs.jee.mooc.mclass.dto.ExaminationDto;
 import edu.whut.cs.jee.mooc.mclass.dto.ExaminationRecordDto;
 import edu.whut.cs.jee.mooc.mclass.model.*;
 import edu.whut.cs.jee.mooc.mclass.repository.*;
-import edu.whut.cs.jee.mooc.mclass.vo.SubjectStatisticVo;
+import edu.whut.cs.jee.mooc.upms.model.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -95,12 +95,17 @@ public class ExaminationService {
             throw new APIException(AppCode.EXAMINATION_STATUS_ERROR, AppCode.EXAMINATION_STATUS_ERROR.getMsg() + examinationRecordDto.getExaminationId());
         }
 
-        ExaminationRecord examinationRecord = examinationRecordDto.convertTo();
+//        ExaminationRecord examinationRecord = examinationRecordDto.convertTo();
+        ExaminationRecord examinationRecord = BeanConvertUtils.convertTo(examinationRecordDto, ExaminationRecord::new);
+        User user = new User();
+        user.setId(examinationRecordDto.getUserId());
+        examinationRecord.setUser(user);
         List<AnswerDto> answerDtos = examinationRecordDto.getAnswerDtos();
         List<Answer> answers = new ArrayList<>();
         Answer answer = null;
         for (AnswerDto answerDto : answerDtos) {
-            answer = answerDto.convertTo();
+//            answer = answerDto.convertTo();
+            answer = BeanConvertUtils.convertTo(answerDto, Answer::new);
             answer.setStatus(Answer.STATUS_CHECKED);
             answer.setUserId(examinationRecordDto.getUserId());
             Subject subject = subjectRepository.findById(answer.getSubjectId()).get();
@@ -120,7 +125,11 @@ public class ExaminationService {
         examination.setSubmitCount(examination.getSubmitCount() + 1);
         examinationRepository.save(examination);
 
-        return examinationRecordDto.convertFor(examinationRecord);
+        return BeanConvertUtils.convertTo(examinationRecord, ExaminationRecordDto::new, (s, t) -> {
+            t.setUserId(s.getUser().getId());
+            t.setUserName(s.getUser().getName());
+            t.setUserNickname(s.getUser().getNickname());
+        });
     }
 
     /**
@@ -155,15 +164,15 @@ public class ExaminationService {
      * @param examinationId
      * @return
      */
-    @Transactional(readOnly = true)
-    public ExaminationDto getExaminationDto(Long examinationId) {
-        Examination examination = examinationRepository.findById(examinationId).get();
-        Sort sort = new Sort(Sort.Direction.ASC, "id");
-        List<Subject> subjects = subjectRepository.findByExaminationId(examinationId, sort);
-        examination.setSubjects(subjects);
-        ExaminationDto examinationDto = new ExaminationDto();
-        return examinationDto.convertFor(examination);
-    }
+//    @Transactional(readOnly = true)
+//    public ExaminationDto getExaminationDto(Long examinationId) {
+//        Examination examination = examinationRepository.findById(examinationId).get();
+//        Sort sort = new Sort(Sort.Direction.ASC, "id");
+//        List<Subject> subjects = subjectRepository.findByExaminationId(examinationId, sort);
+//        examination.setSubjects(subjects);
+//        ExaminationDto examinationDto = new ExaminationDto();
+//        return examinationDto.convertFor(examination);
+//    }
 
     /**
      * 获取随堂测试答题卡
@@ -174,12 +183,12 @@ public class ExaminationService {
     public List<ExaminationRecordDto> getExaminationRecords(Long examinationId) {
         Sort sort = new Sort(Sort.Direction.DESC, "id");
         List<ExaminationRecord> examinationRecords = examinationRecordRepository.findByExaminationId(examinationId, sort);
-        List<ExaminationRecordDto> examinationRecordDtos = new ArrayList<>();
-        for (ExaminationRecord examinationRecord : examinationRecords) {
-            ExaminationRecordDto examinationRecordDto = new ExaminationRecordDto();
-            examinationRecordDto.convertFor(examinationRecord);
-            examinationRecordDtos.add(examinationRecordDto);
-        }
+        List<ExaminationRecordDto> examinationRecordDtos = BeanConvertUtils.convertListTo(examinationRecords, ExaminationRecordDto::new,
+                (s, t) -> {
+                    t.setUserId(s.getUser().getId());
+                    t.setUserName(s.getUser().getName());
+                    t.setUserNickname(s.getUser().getNickname());
+                });
         return examinationRecordDtos;
     }
 
@@ -199,17 +208,18 @@ public class ExaminationService {
      * @param examinationId
      * @return
      */
-    @Transactional(readOnly = true)
-    public List<SubjectStatisticVo> getSubjectStatisticVos(long examinationId) {
-        Sort sort = new Sort(Sort.Direction.ASC, "id");
-        List<Subject> subjects = subjectRepository.findByExaminationId(examinationId, sort);
-        List<SubjectStatisticVo> subjectStatisticVos = new ArrayList<>();
-        SubjectStatisticVo subjectStatisticVo = null;
-        for (Subject subject : subjects) {
-            subjectStatisticVo = new SubjectStatisticVo();
-            subjectStatisticVo = subjectStatisticVo.convertFor(subject);
-            subjectStatisticVos.add(subjectStatisticVo);
-        }
-        return subjectStatisticVos;
-    }
+//    @Transactional(readOnly = true)
+//    public List<SubjectStatisticVo> getSubjectStatisticVos(long examinationId) {
+//        Sort sort = new Sort(Sort.Direction.ASC, "id");
+//        List<Subject> subjects = subjectRepository.findByExaminationId(examinationId, sort);
+//        List<SubjectStatisticVo> subjectStatisticVos = new ArrayList<>();
+//        SubjectStatisticVo subjectStatisticVo = null;
+//        for (Subject subject : subjects) {
+//            subjectStatisticVo = new SubjectStatisticVo();
+//            subjectStatisticVo = subjectStatisticVo.convertFor(subject);
+//            subjectStatisticVos.add(subjectStatisticVo);
+//        }
+//        return subjectStatisticVos;
+//    }
+
 }

@@ -54,8 +54,7 @@ public class CheckInServiceTest {
         LessonDto lessonDto = moocClassService.startLesson(moocClassId);
         lessonId = lessonDto.getId();
         checkInDto.setLessonId(lessonId);
-        checkInDto = checkInService.saveCheckIn(checkInDto);
-        checkInId = checkInDto.getId();
+        checkInId = checkInService.saveCheckIn(checkInDto);
     }
 
     @After
