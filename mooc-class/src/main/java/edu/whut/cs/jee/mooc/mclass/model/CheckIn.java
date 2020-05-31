@@ -19,10 +19,6 @@ import java.util.List;
 @AllArgsConstructor
 public class CheckIn extends BaseEntity {
 
-    public static final int STATUS_OPEN = 1;
-    public static final int STATUS_CLOSED = 2;
-
-    public static final String[] STATUS_STRING_CH={"未知", "开放", "关闭"};
     /**
      * 状态
      */

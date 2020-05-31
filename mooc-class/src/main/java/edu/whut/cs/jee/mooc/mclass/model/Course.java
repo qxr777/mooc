@@ -19,11 +19,6 @@ import java.util.Set;
 @AllArgsConstructor
 public class Course extends BaseEntity {
 
-    public static final int TYPE_ONLINE = 1;
-    public static final int TYPE_OFFLINE = 2;
-
-    public static final String[] TYPE_STRING_CH = {"未知", "在线课程", "独立线下课程"};
-
     /**
      * 课程名称
      */

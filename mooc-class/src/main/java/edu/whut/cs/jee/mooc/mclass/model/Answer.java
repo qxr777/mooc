@@ -17,8 +17,6 @@ import javax.persistence.*;
 @AllArgsConstructor
 public class Answer extends BaseEntity {
 
-    public static final int STATUS_CHECKED = 1; // 已批改
-
     /**
      * 学生的随堂练习记录
      */

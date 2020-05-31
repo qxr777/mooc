@@ -1,5 +1,6 @@
 package edu.whut.cs.jee.mooc.mclass.model;
 
+import edu.whut.cs.jee.mooc.common.constant.CheckInConstants;
 import edu.whut.cs.jee.mooc.common.persistence.BaseEntity;
 import edu.whut.cs.jee.mooc.upms.model.User;
 import lombok.*;
@@ -18,12 +19,6 @@ import javax.persistence.*;
 @AllArgsConstructor
 public class Attendance extends BaseEntity {
 
-    public static final int STATUS_CHECKED = 1; // 已签到
-    public static final int STATUS_LATE = 2;  // 迟到
-    public static final int STATUS_ABSENCE = 3; // 缺课
-
-    public static final String[] STATUS_STRING_CH={"未签到", "已签到", "迟到", "缺课"};
-
     /**
      * 签到活动
      */
@@ -34,7 +29,7 @@ public class Attendance extends BaseEntity {
      * 已签到 | 迟到 | 缺课
      */
     @Column(name = "status" )
-    private Integer status = STATUS_ABSENCE;
+    private Integer status = CheckInConstants.ATTENDANCE_STATUS_ABSENCE;
 
     /**
      * 签到处 经度

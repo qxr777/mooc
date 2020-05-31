@@ -18,12 +18,6 @@ import java.util.Date;
 @AllArgsConstructor
 public class Lesson extends BaseEntity {
 
-    public static final int STATUS_READY = 1;
-    public static final int STATUS_SERVICING = 2;
-    public static final int STATUS_END = 3;
-
-    public static final String[] STATUS_STRING_CH={"未知", "准备", "上课中", "下课"};
-
     public Lesson(Long id) {
         super();
         this.setId(id);

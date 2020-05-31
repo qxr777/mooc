@@ -1,9 +1,9 @@
 package edu.whut.cs.jee.mooc.mclass.service;
 
+import edu.whut.cs.jee.mooc.common.constant.ExaminationConstants;
 import edu.whut.cs.jee.mooc.mclass.dto.AnswerDto;
 import edu.whut.cs.jee.mooc.mclass.dto.ExaminationRecordDto;
 import edu.whut.cs.jee.mooc.mclass.dto.SubjectDto;
-import edu.whut.cs.jee.mooc.mclass.model.Examination;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.After;
 import org.junit.Before;
@@ -38,8 +38,7 @@ public class ExaminationServiceTest {
 
     @Before
     public void prepareTestObjects() {
-        Examination examination = examinationService.importFromExercise(lessonId, exerciseId);
-        examinationId = examination.getId();
+        examinationId = examinationService.importFromExercise(lessonId, exerciseId);
         examinationService.publishExamination(examinationId, lessonId);
 
     }
@@ -55,21 +54,11 @@ public class ExaminationServiceTest {
     @Test
     public void testPublishExamination() {
         examinationService.publishExamination(examinationId, lessonId);
-        Assert.isTrue(examinationService.getExamination(examinationId).getStatus() == Examination.STATUS_OPEN);
+        Assert.isTrue(examinationService.getExamination(examinationId).getStatus() == ExaminationConstants.EXAMINATION_STATUS_OPEN);
     }
-
-//    @Test
-//    public void testGetExminationDto() {
-//        ExaminationDto examinationDto = examinationService.getExaminationDto(examinationId);
-//        log.info(examinationDto.toString());
-//        Assert.isTrue(examinationDto.getSubjectDtos().size() > 0);
-//    }
 
     @Test
     public void testSaveExaminationRecord() {
-//        ExaminationDto examinationDto = examinationService.getExaminationDto(examinationId);
-//        List<SubjectDto> subjects = examinationDto.getSubjectDtos();
-
         List<SubjectDto> subjects = subjectService.getSubjectsOfExaminzation(examinationId);
 
         ExaminationRecordDto examinationRecordDto = new ExaminationRecordDto();

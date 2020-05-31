@@ -1,6 +1,6 @@
 package edu.whut.cs.jee.mooc.mclass.dto;
 
-import edu.whut.cs.jee.mooc.mclass.model.Lesson;
+import edu.whut.cs.jee.mooc.common.constant.MoocClassConstatnts;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,7 +17,7 @@ public class LessonDto {
 
     private Long id;
 
-    private Integer status = Lesson.STATUS_READY;
+    private Integer status = MoocClassConstatnts.LESSON_STATUS_READY;
 
     private String statusCh;
 

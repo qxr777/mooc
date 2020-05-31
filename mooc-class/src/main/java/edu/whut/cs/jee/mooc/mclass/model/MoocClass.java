@@ -45,12 +45,6 @@ public class MoocClass extends BaseEntity {
     private Course course;
 
     /**
-     * 独立线下课程
-     */
-//    @Column(name = "offline_course")
-//    private String offlineCourse;
-
-    /**
      * 周几上课
      */
     @Column(name = "weekday")

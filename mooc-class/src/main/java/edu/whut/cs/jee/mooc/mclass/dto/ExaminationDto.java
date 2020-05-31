@@ -14,6 +14,8 @@ public class ExaminationDto implements Serializable {
 
     private Long lessonId;
 
+    private Integer status;
+
     private List<SubjectDto> subjectDtos;
 
 }

@@ -1,5 +1,6 @@
 package edu.whut.cs.jee.mooc.mclass.service;
 
+import edu.whut.cs.jee.mooc.common.constant.ExaminationConstants;
 import edu.whut.cs.jee.mooc.common.exception.APIException;
 import edu.whut.cs.jee.mooc.common.exception.AppCode;
 import edu.whut.cs.jee.mooc.common.util.BeanConvertUtils;
@@ -43,27 +44,18 @@ public class ExaminationService {
     private LessonRepository lessonRepository;
 
     /**
-     * 备课 - 添加活动 - 添加练习 - 创建练习
-     * @param examination
-     * @return
-     */
-    public Examination saveExamination(Examination examination) {
-        return examinationRepository.save(examination);
-    }
-
-    /**
      * 备课 - 添加活动 - 添加练习 - 从练习库导入
      * @param lessonId
      * @param exerciseId
      * @return
      */
-    public Examination importFromExercise(Long lessonId, Long exerciseId) {
+    public Long importFromExercise(Long lessonId, Long exerciseId) {
         Exercise exercise = exerciseRepository.findById(exerciseId).get();
         Lesson lesson = lessonRepository.findById(lessonId).get();
         Examination examination = new Examination();
         examination.setLesson(lesson);
         examination.setName(exercise.getName());
-        examination.setStatus(Examination.STATUS_PRIVATE);
+        examination.setStatus(ExaminationConstants.EXAMINATION_STATUS_PRIVATE);
         examination = examinationRepository.save(examination);
         List<Subject> subjects = new ArrayList<>();
         Subject subjectInExamination = null;
@@ -76,12 +68,13 @@ public class ExaminationService {
             subjects.add(subjectInExamination);
         }
         examination.setSubjects(subjects);
-        return examinationRepository.save(examination);
+        return examinationRepository.save(examination).getId();
     }
 
     @Transactional(readOnly = true)
-    public Examination getExamination(Long examinationId) {
-        return examinationRepository.findById(examinationId).get();
+    public ExaminationDto getExamination(Long examinationId) {
+        Examination examination = examinationRepository.findById(examinationId).get();
+        return BeanConvertUtils.convertTo(examination, ExaminationDto::new);
     }
 
     /**
@@ -91,7 +84,7 @@ public class ExaminationService {
      */
     public ExaminationRecordDto saveExaminationRecord(ExaminationRecordDto examinationRecordDto) {
         Examination examination = examinationRepository.findById(examinationRecordDto.getExaminationId()).get();
-        if(examination.getStatus() != Examination.STATUS_OPEN) {
+        if(examination.getStatus() != ExaminationConstants.EXAMINATION_STATUS_OPEN) {
             throw new APIException(AppCode.EXAMINATION_STATUS_ERROR, AppCode.EXAMINATION_STATUS_ERROR.getMsg() + examinationRecordDto.getExaminationId());
         }
 
@@ -106,7 +99,7 @@ public class ExaminationService {
         for (AnswerDto answerDto : answerDtos) {
 //            answer = answerDto.convertTo();
             answer = BeanConvertUtils.convertTo(answerDto, Answer::new);
-            answer.setStatus(Answer.STATUS_CHECKED);
+            answer.setStatus(ExaminationConstants.ANSWER_STATUS_CHECKED);
             answer.setUserId(examinationRecordDto.getUserId());
             Subject subject = subjectRepository.findById(answer.getSubjectId()).get();
             if (subject.check(answer.getAnswer())) {
@@ -155,7 +148,7 @@ public class ExaminationService {
         Lesson lesson = lessonRepository.findById(lessonId).get();
         Examination examination = examinationRepository.findById(examinationId).get();
         examination.setLesson(lesson);
-        examination.setStatus(Examination.STATUS_OPEN);
+        examination.setStatus(ExaminationConstants.EXAMINATION_STATUS_OPEN);
         examinationRepository.save(examination);
     }
 
@@ -199,7 +192,7 @@ public class ExaminationService {
      */
     @Transactional(readOnly = true)
     public List<ExaminationDto> getPrivateExaminations(Long moocClassId) {
-        List<Examination> examinations = examinationRepository.findByMoocClassIdAndStatus(moocClassId, Examination.STATUS_PRIVATE);
+        List<Examination> examinations = examinationRepository.findByMoocClassIdAndStatus(moocClassId, ExaminationConstants.EXAMINATION_STATUS_PRIVATE);
         return BeanConvertUtils.convertListTo(examinations, ExaminationDto::new);
     }
 

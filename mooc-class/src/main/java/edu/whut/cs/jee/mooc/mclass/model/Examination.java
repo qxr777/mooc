@@ -18,15 +18,9 @@ import java.util.List;
 @AllArgsConstructor
 public class Examination extends BaseEntity {
 
-    public static final int STATUS_PRIVATE = 1; // 未发布
-    public static final int STATUS_OPEN = 2;  // 进行中
-    public static final int STATUS_CLOSED = 3;  // 已关闭
-
     /**
      * 发布随堂测试的上课记录
      */
-//    @Column(name = "lesson_id")
-//    private Long lessonId;
     @ManyToOne
     @JoinColumn(name = "lesson_id")
     private Lesson lesson;

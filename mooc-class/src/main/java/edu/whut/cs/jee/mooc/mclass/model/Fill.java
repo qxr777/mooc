@@ -46,8 +46,6 @@ public class Fill extends Subject {
     @Column(name = "match_type")
     private Integer matchType;
 
-
-
     /**
      * 是否唯一答案
      */

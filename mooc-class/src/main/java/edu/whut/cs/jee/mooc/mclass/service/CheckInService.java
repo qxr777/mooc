@@ -1,6 +1,8 @@
 package edu.whut.cs.jee.mooc.mclass.service;
 
 import edu.whut.cs.jee.mooc.common.constant.AppConstants;
+import edu.whut.cs.jee.mooc.common.constant.CheckInConstants;
+import edu.whut.cs.jee.mooc.common.constant.MoocClassConstatnts;
 import edu.whut.cs.jee.mooc.common.exception.APIException;
 import edu.whut.cs.jee.mooc.common.exception.AppCode;
 import edu.whut.cs.jee.mooc.common.util.BeanConvertUtils;
@@ -50,17 +52,17 @@ public class CheckInService {
      */
     public Long saveCheckIn(CheckInDto checkInDto) {
         Lesson lesson = lessonRepository.findById(checkInDto.getLessonId()).get();
-        if (lesson.getCheckIn() != null && lesson.getCheckIn().getStatus() == CheckIn.STATUS_OPEN) {
+        if (lesson.getCheckIn() != null && lesson.getCheckIn().getStatus() == CheckInConstants.CHECK_IN_STATUS_OPEN) {
             throw new APIException(AppCode.HAS_OPENING_CHECKIN, AppCode.HAS_OPENING_CHECKIN.getMsg() + lesson.getCheckIn().getId());
         }
 
 //        CheckIn checkIn = checkInDto.convertTo();
         CheckIn checkIn = BeanConvertUtils.convertTo(checkInDto, CheckIn::new);
-        checkIn.setStatus(CheckIn.STATUS_OPEN);
+        checkIn.setStatus(CheckInConstants.CHECK_IN_STATUS_OPEN);
         checkIn = checkInRepository.save(checkIn);
 
         // 将所有学生标记未签到
-        if (lesson.getCheckIn() != null && lesson.getCheckIn().getStatus() == CheckIn.STATUS_CLOSED) {
+        if (lesson.getCheckIn() != null && lesson.getCheckIn().getStatus() == CheckInConstants.CHECK_IN_STATUS_CLOSED) {
             List<Attendance> attendances = attendanceRepository.findByCheckInId(lesson.getCheckIn().getId());
             attendanceRepository.deleteAll(attendances);
             checkInRepository.delete(lesson.getCheckIn());
@@ -71,7 +73,7 @@ public class CheckInService {
         for(User user : users) {
             Attendance attendance = Attendance.builder()
                     .checkInId(checkIn.getId())
-                    .status(Attendance.STATUS_ABSENCE)
+                    .status(CheckInConstants.ATTENDANCE_STATUS_ABSENCE)
                     .user(user)
                     .build();
             attendanceRepository.save(attendance);
@@ -103,12 +105,12 @@ public class CheckInService {
         LocalDateTime nowTime = LocalDateTime.now();
         LocalDateTime deadline = LocalDateTime.ofInstant(checkIn.getDeadline().toInstant(), ZoneId.systemDefault());
         if(nowTime.isAfter(deadline)) {
-            attendance.setStatus(Attendance.STATUS_LATE);
+            attendance.setStatus(CheckInConstants.ATTENDANCE_STATUS_LATE);
         } else {
-            attendance.setStatus(Attendance.STATUS_CHECKED);
+            attendance.setStatus(CheckInConstants.ATTENDANCE_STATUS_CHECKED);
         }
         Lesson lesson = lessonRepository.findById(checkIn.getLessonId()).get();
-        if(lesson.getStatus() == Lesson.STATUS_END || checkIn.getStatus() == CheckIn.STATUS_CLOSED) {
+        if(lesson.getStatus() == MoocClassConstatnts.LESSON_STATUS_END || checkIn.getStatus() == CheckInConstants.CHECK_IN_STATUS_CLOSED) {
             throw new APIException(AppCode.OVER_DUE_ERROR, AppCode.OVER_DUE_ERROR.getMsg());
         }
 
@@ -123,7 +125,7 @@ public class CheckInService {
      */
     public void closeCheckIn(Long checkInId) {
         CheckIn checkIn = checkInRepository.findById(checkInId).get();
-        checkIn.setStatus(CheckIn.STATUS_CLOSED);
+        checkIn.setStatus(CheckInConstants.CHECK_IN_STATUS_CLOSED);
         checkIn = this.updateCount(checkIn);
         checkInRepository.save(checkIn);
     }
@@ -135,17 +137,17 @@ public class CheckInService {
      */
     private CheckIn updateCount(CheckIn checkIn) {
         // 正常签到
-        List<Attendance> checkedAttendances = attendanceRepository.findByCheckInIdAndStatus(checkIn.getId(), Attendance.STATUS_CHECKED);
+        List<Attendance> checkedAttendances = attendanceRepository.findByCheckInIdAndStatus(checkIn.getId(), CheckInConstants.ATTENDANCE_STATUS_CHECKED);
         int checkedCount = checkedAttendances.size();
         checkIn.setCheckedCount(checkedCount);
 
         // 迟到
-        List<Attendance> lateAttendances = attendanceRepository.findByCheckInIdAndStatus(checkIn.getId(), Attendance.STATUS_LATE);
+        List<Attendance> lateAttendances = attendanceRepository.findByCheckInIdAndStatus(checkIn.getId(), CheckInConstants.ATTENDANCE_STATUS_LATE);
         int lateCount = lateAttendances.size();
         checkIn.setLateCount(lateCount);
 
         // 缺课记录
-        List<Attendance> absenceAttendances = attendanceRepository.findByCheckInIdAndStatus(checkIn.getId(), Attendance.STATUS_ABSENCE);
+        List<Attendance> absenceAttendances = attendanceRepository.findByCheckInIdAndStatus(checkIn.getId(), CheckInConstants.ATTENDANCE_STATUS_ABSENCE);
         int absenceCount = absenceAttendances.size();
         checkIn.setAbsenceCount(absenceCount);
 
@@ -164,7 +166,7 @@ public class CheckInService {
         CheckInDto checkInDto = BeanConvertUtils.convertTo(checkIn, CheckInDto::new,
                 (s, t) ->
                 {
-                    t.setStatusCh(CheckIn.STATUS_STRING_CH[s.getStatus()]);
+                    t.setStatusCh(CheckInConstants.CHECK_IN_STATUS_STRING_CH[s.getStatus()]);
                 });
         checkInDto.setAttendanceDtos(this.getAttendances(checkInId));
         return checkInDto;
@@ -177,7 +179,7 @@ public class CheckInService {
                 {
                     t.setUserId(s.getUser().getId());
                     t.setUserName(s.getUser().getName());
-                    t.setStatusCh(Attendance.STATUS_STRING_CH[s.getStatus()]);
+                    t.setStatusCh(CheckInConstants.ATTENDANCE_STATUS_STRING_CH[s.getStatus()]);
                 });
     }
 

@@ -37,7 +37,7 @@ public class ExaminationController {
     @PreAuthorize("hasRole('TEACHER')")
     public Long importFromExercise(@RequestParam(value = "lessonId", required = true) Long lessonId,
                                           @RequestParam(value = "exerciseId", required = true) Long exerciseId) {
-        return examinationService.importFromExercise(lessonId, exerciseId).getId();
+        return examinationService.importFromExercise(lessonId, exerciseId);
     }
 
     @PostMapping("/publish")

@@ -1,10 +1,11 @@
 package edu.whut.cs.jee.mooc.mclass.service;
 
+import edu.whut.cs.jee.mooc.common.constant.MoocClassConstatnts;
 import edu.whut.cs.jee.mooc.mclass.dto.JoinDto;
 import edu.whut.cs.jee.mooc.mclass.dto.LessonDto;
 import edu.whut.cs.jee.mooc.mclass.dto.MoocClassDto;
-import edu.whut.cs.jee.mooc.mclass.model.Lesson;
 import edu.whut.cs.jee.mooc.mclass.model.MoocClass;
+import edu.whut.cs.jee.mooc.mclass.repository.MoocClassRepository;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -31,6 +32,9 @@ public class MoocClassServiceTest {
 
     @Resource
     MoocClassService moocClassService;
+
+    @Resource
+    MoocClassRepository moocClassRepository;
 
     @Before
     public void  prepareTestObjects(){
@@ -68,13 +72,13 @@ public class MoocClassServiceTest {
         moocClassService.join(joinDto);
         joinDto.setUserId(studentId2);
         moocClassService.join(joinDto);
-        MoocClass joinedClass = moocClassService.getMoocClassByCode(joinDto.getMoocClassCode());
+        MoocClass joinedClass = moocClassRepository.findById(moocClass.getId()).get();
         Assert.isTrue(moocClassService.getUserDtos(joinedClass.getId()).size() == 2);
     }
 
     @Test
     public void testStartLesson() {
-        Assert.isTrue(lesson.getStatus() == Lesson.STATUS_SERVICING);
+        Assert.isTrue(lesson.getStatus() == MoocClassConstatnts.LESSON_STATUS_SERVICING);
         Assert.isTrue(moocClassService.isServing(lesson.getMoocClassId()));
     }
 

@@ -1,13 +1,19 @@
 package edu.whut.cs.jee.mooc.mclass.service;
 
 import com.google.common.collect.Lists;
+import edu.whut.cs.jee.mooc.common.constant.CheckInConstants;
+import edu.whut.cs.jee.mooc.common.constant.ExaminationConstants;
+import edu.whut.cs.jee.mooc.common.constant.MoocClassConstatnts;
 import edu.whut.cs.jee.mooc.common.exception.APIException;
 import edu.whut.cs.jee.mooc.common.exception.AppCode;
 import edu.whut.cs.jee.mooc.common.util.BeanConvertUtils;
 import edu.whut.cs.jee.mooc.mclass.dto.JoinDto;
 import edu.whut.cs.jee.mooc.mclass.dto.LessonDto;
 import edu.whut.cs.jee.mooc.mclass.dto.MoocClassDto;
-import edu.whut.cs.jee.mooc.mclass.model.*;
+import edu.whut.cs.jee.mooc.mclass.model.Course;
+import edu.whut.cs.jee.mooc.mclass.model.Examination;
+import edu.whut.cs.jee.mooc.mclass.model.Lesson;
+import edu.whut.cs.jee.mooc.mclass.model.MoocClass;
 import edu.whut.cs.jee.mooc.mclass.repository.CourseRepository;
 import edu.whut.cs.jee.mooc.mclass.repository.ExaminationRepository;
 import edu.whut.cs.jee.mooc.mclass.repository.LessonRepository;
@@ -59,7 +65,7 @@ public class MoocClassService {
             teacher.setId(moocClassDto.getTeacherId());
             course = Course.builder()
                     .name(moocClassDto.getOfflineCourse())
-                    .type(Course.TYPE_OFFLINE)
+                    .type(MoocClassConstatnts.COURSE_TYPE_OFFLINE)
                     .teacher(teacher)
                     .build();
             course = courseRepository.save(course);
@@ -95,7 +101,7 @@ public class MoocClassService {
         return code;
     }
 
-    public MoocClass getMoocClassByCode(String code) {
+    private MoocClass getMoocClassByCode(String code) {
         MoocClass moocClass = null;
         List<MoocClass> moocClasses = moocClassRepository.findByCode(code);
         if (moocClasses.size() > 0) {
@@ -168,7 +174,7 @@ public class MoocClassService {
 
     public boolean isServing(Long moocClassId) {
         boolean result = false;
-        List<Lesson> lessons = lessonRepository.findByMoocClassIdAndStatus(moocClassId, Lesson.STATUS_SERVICING);
+        List<Lesson> lessons = lessonRepository.findByMoocClassIdAndStatus(moocClassId, MoocClassConstatnts.LESSON_STATUS_SERVICING);
         if (lessons.size() > 0) {
             result = true;
         }
@@ -240,14 +246,14 @@ public class MoocClassService {
      * @param moocClassId
      */
     public LessonDto startLesson(Long moocClassId) {
-        List<Lesson> lessons = lessonRepository.findByMoocClassIdAndStatus(moocClassId, Lesson.STATUS_SERVICING);
+        List<Lesson> lessons = lessonRepository.findByMoocClassIdAndStatus(moocClassId, MoocClassConstatnts.LESSON_STATUS_SERVICING);
         if (lessons.size() > 0) {
             throw new APIException(AppCode.HAS_SERVING_LESSON, AppCode.HAS_SERVING_LESSON.getMsg() + lessons.get(0).getId());
         }
         Lesson lesson = Lesson.builder()
                 .moocClassId(moocClassId)
                 .startTime(new Date())
-                .status(Lesson.STATUS_SERVICING)
+                .status(MoocClassConstatnts.LESSON_STATUS_SERVICING)
                 .build();
         lesson = lessonRepository.save(lesson);
         return BeanConvertUtils.convertTo(lesson, LessonDto::new);
@@ -265,16 +271,16 @@ public class MoocClassService {
     public void endLesson(Long lessonId) {
         Lesson lesson = lessonRepository.findById(lessonId).get();
         lesson.setEndTime(new Date());
-        lesson.setStatus(Lesson.STATUS_END);
+        lesson.setStatus(MoocClassConstatnts.LESSON_STATUS_END);
         // 关闭签到
         if(lesson.getCheckIn() != null) {
-            lesson.getCheckIn().setStatus(CheckIn.STATUS_CLOSED);
+            lesson.getCheckIn().setStatus(CheckInConstants.CHECK_IN_STATUS_CLOSED);
         }
         // 关闭随堂测试
         List<Examination> examinations = examinationRepository.findByLesson(lesson);
         for (Examination examination : examinations) {
-            if (examination.getStatus() != Examination.STATUS_CLOSED) {
-                examination.setStatus(Examination.STATUS_CLOSED);
+            if (examination.getStatus() != ExaminationConstants.EXAMINATION_STATUS_CLOSED) {
+                examination.setStatus(ExaminationConstants.EXAMINATION_STATUS_CLOSED);
             }
         }
         lesson = updateCount(lesson);
@@ -288,7 +294,7 @@ public class MoocClassService {
      */
     private Lesson updateCount(Lesson lesson) {
         // 随堂测试数量
-        List<Examination> examinations = examinationRepository.findByLessonAndStatus(lesson, Examination.STATUS_CLOSED);
+        List<Examination> examinations = examinationRepository.findByLessonAndStatus(lesson, ExaminationConstants.EXAMINATION_STATUS_CLOSED);
         lesson.setExaminationCount(examinations.size());
         return lesson;
     }
@@ -321,7 +327,7 @@ public class MoocClassService {
     @Transactional(readOnly = true)
     public List<LessonDto> getLessons(Long moocClassId) {
         List<Lesson> lessons = lessonRepository.findByMoocClassId(moocClassId);
-        return BeanConvertUtils.convertListTo(lessons, LessonDto::new, (s, t) -> { t.setCheckInCount(s.getCheckIn() != null ? 1 : 0);t.setStatusCh(Lesson.STATUS_STRING_CH[t.getStatus()]);});
+        return BeanConvertUtils.convertListTo(lessons, LessonDto::new, (s, t) -> { t.setCheckInCount(s.getCheckIn() != null ? 1 : 0);t.setStatusCh(MoocClassConstatnts.LESSON_STATUS_STRING_CH[t.getStatus()]);});
     }
 
 }
