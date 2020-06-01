@@ -49,14 +49,25 @@ public class UserService {
     @Transactional(readOnly = true)
     public UserDto getUser(Long id) {
         User user = userRepository.findById(id).get();
+        List<RoleDto> roleDtos = BeanConvertUtils.convertListTo(user.getRoles(), RoleDto::new);
         UserDto userDto = user instanceof Teacher ? BeanConvertUtils.convertTo(user, TeacherDto::new) : BeanConvertUtils.convertTo(user, StudentDto::new);
+        userDto.setRoles(roleDtos);
         return userDto;
     }
 
     @Transactional(readOnly = true)
     public List<UserDto> getAllUsers() {
         List<User> users = new ArrayList<User>((Collection<? extends User>) userRepository.findAll());
-        return BeanConvertUtils.convertListTo(users,UserDto::new);
+        List<UserDto> userDtos = new ArrayList<>();
+        List<RoleDto> roleDtos = null;
+        UserDto userDto = null;
+        for(User user : users) {
+            userDto = BeanConvertUtils.convertTo(user, UserDto::new);
+            roleDtos = BeanConvertUtils.convertListTo(user.getRoles(), RoleDto::new);
+            userDto.setRoles(roleDtos);
+            userDtos.add(userDto);
+        }
+        return userDtos;
     }
 
     public void removeUser(Long userId) {
