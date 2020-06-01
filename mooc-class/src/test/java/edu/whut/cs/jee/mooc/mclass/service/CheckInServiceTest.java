@@ -1,9 +1,12 @@
 package edu.whut.cs.jee.mooc.mclass.service;
 
+import edu.whut.cs.jee.mooc.common.constant.MoocClassConstatnts;
 import edu.whut.cs.jee.mooc.common.exception.APIException;
 import edu.whut.cs.jee.mooc.mclass.dto.AttendanceDto;
 import edu.whut.cs.jee.mooc.mclass.dto.CheckInDto;
 import edu.whut.cs.jee.mooc.mclass.dto.LessonDto;
+import edu.whut.cs.jee.mooc.mclass.model.Lesson;
+import edu.whut.cs.jee.mooc.mclass.repository.LessonRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.After;
 import org.junit.Before;
@@ -13,12 +16,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
-import java.text.ParseException;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
+import java.util.List;
 
 @Slf4j
 @RunWith(SpringRunner.class)
@@ -49,8 +52,15 @@ public class CheckInServiceTest {
     @Resource
     MoocClassService moocClassService;
 
+    @Resource
+    LessonRepository lessonRepository;
+
     @Before
     public void prepareTestObjects() {
+        List<Lesson> lessons = lessonRepository.findByMoocClassIdAndStatus(moocClassId, MoocClassConstatnts.LESSON_STATUS_SERVICING);
+        for(Lesson lesson : lessons) {
+            moocClassService.endLesson(lesson.getId());
+        }
         LessonDto lessonDto = moocClassService.startLesson(moocClassId);
         lessonId = lessonDto.getId();
         checkInDto.setLessonId(lessonId);
@@ -59,17 +69,11 @@ public class CheckInServiceTest {
 
     @After
     public void clearTestObjects() {
-//        checkInService.removeCheckIn(checkInId);
         moocClassService.removeLesson(lessonId);
     }
 
-//    @Test
-//    public void testSaveCheckIn() throws ParseException {
-//        checkInDto = checkInService.saveCheckIn(checkInDto);
-//    }
-
     @Test
-    public void testSaveAttendance() throws ParseException, APIException {
+    public void testSaveAttendance() throws APIException {
         AttendanceDto attendanceDto = AttendanceDto.builder()
                 .userId(studentId1)
                 .checkInId(checkInId)
@@ -84,7 +88,7 @@ public class CheckInServiceTest {
     }
 
     @Test
-    public void testCloseCheckIn() throws ParseException, APIException {
+    public void testCloseCheckIn() throws APIException {
         checkInService.closeCheckIn(checkInId);
     }
 
