@@ -1,0 +1,6 @@
+version: '2'
+services:
+    mooc-monitor:
+        image: qxr777/springboot-admin:latest
+        ports:
+            - 7002:7002

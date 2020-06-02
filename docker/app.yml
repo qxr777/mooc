@@ -8,5 +8,13 @@ services:
       mooc-net:
         aliases:
           - mysql
+  mooc-monitor:
+    extends:
+      file: monitor.yml
+      service: mooc-monitor
+    networks:
+      mooc-net:
+        aliases:
+          - monitor
 networks:
     mooc-net:

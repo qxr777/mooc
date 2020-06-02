@@ -103,7 +103,7 @@ public class DataSourceConfig {
                 if (lookupKey.equals("slave")) {
                     lookupKey += System.currentTimeMillis() % 2 + 1;
                 }
-                log.info("当前操作使用的数据源：{}", lookupKey);
+                log.info("Current Datasource：{}", lookupKey);
                 return lookupKey;
             }
         };

@@ -10,7 +10,7 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="host" elementType="Argument">
             <stringProp name="Argument.name">host</stringProp>
-            <stringProp name="Argument.value">localhost</stringProp>
+            <stringProp name="Argument.value">39.106.254.13</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="port" elementType="Argument">
@@ -29,7 +29,7 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.num_threads">100</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
         <stringProp name="ThreadGroup.duration"></stringProp>
@@ -575,7 +575,7 @@ vars.put(&quot;token&quot;, StrData);
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.num_threads">100</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
         <stringProp name="ThreadGroup.duration"></stringProp>
