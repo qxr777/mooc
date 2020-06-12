@@ -15,7 +15,7 @@
           </elementProp>
           <elementProp name="port" elementType="Argument">
             <stringProp name="Argument.name">port</stringProp>
-            <stringProp name="Argument.value">8080</stringProp>
+            <stringProp name="Argument.value">81</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -29,7 +29,7 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">100</stringProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
         <stringProp name="ThreadGroup.duration"></stringProp>
@@ -140,10 +140,10 @@ vars.put(&quot;token&quot;, StrData);
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-  &quot;checkInId&quot;: 19,&#xd;
+  &quot;checkInId&quot;: 1,&#xd;
   &quot;longitude&quot;: 200,&#xd;
   &quot;latitude&quot;: 100,  &#xd;
-  &quot;userId&quot;: 2&#xd;
+  &quot;userId&quot;: 3&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -290,7 +290,7 @@ vars.put(&quot;token&quot;, StrData);
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">10</stringProp>
+          <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
         <stringProp name="ThreadGroup.num_threads">1</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
@@ -405,27 +405,19 @@ vars.put(&quot;token&quot;, StrData);
                 <stringProp name="Argument.value">{&#xd;
   &quot;answerDtos&quot;: [&#xd;
     {&#xd;
-      &quot;answer&quot;: &quot;true&quot;,&#xd;
-      &quot;subjectId&quot;: 63&#xd;
+      &quot;answer&quot;: &quot;填空题答案_UNIT_TEST&quot;,&#xd;
+      &quot;subjectId&quot;: 4&#xd;
     },&#xd;
     {&#xd;
-      &quot;answer&quot;: &quot;加油武汉&quot;,&#xd;
-      &quot;subjectId&quot;: 64&#xd;
+      &quot;answer&quot;: &quot;A,B&quot;,&#xd;
+      &quot;subjectId&quot;: 5&#xd;
     },&#xd;
     {&#xd;
-      &quot;answer&quot;: &quot;123456&quot;,&#xd;
-      &quot;subjectId&quot;: 65&#xd;
-    },&#xd;
-    {&#xd;
-      &quot;answer&quot;: &quot;C&quot;,&#xd;
-      &quot;subjectId&quot;: 66&#xd;
-    },&#xd;
-    {&#xd;
-      &quot;answer&quot;: &quot;B,D&quot;,&#xd;
-      &quot;subjectId&quot;: 67&#xd;
+      &quot;answer&quot;: &quot;false&quot;,&#xd;
+      &quot;subjectId&quot;: 6&#xd;
     }&#xd;
   ],&#xd;
-  &quot;examinationId&quot;: 17,&#xd;
+  &quot;examinationId&quot;: 1,&#xd;
   &quot;userId&quot;: 2&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
@@ -435,7 +427,7 @@ vars.put(&quot;token&quot;, StrData);
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
           <stringProp name="HTTPSampler.port">${port}</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
           <stringProp name="HTTPSampler.path">/examination/submit</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
@@ -575,7 +567,7 @@ vars.put(&quot;token&quot;, StrData);
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">100</stringProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
         <stringProp name="ThreadGroup.duration"></stringProp>

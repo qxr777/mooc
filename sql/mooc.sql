@@ -4,14 +4,14 @@
  Source Server         : local_docker
  Source Server Type    : MySQL
  Source Server Version : 50722
- Source Host           : dbserver:3306
+ Source Host           : localhost:3306
  Source Schema         : mooc
 
  Target Server Type    : MySQL
  Target Server Version : 50722
  File Encoding         : 65001
 
- Date: 28/05/2020 20:28:07
+ Date: 04/06/2020 09:55:43
 */
 
 SET NAMES utf8mb4;
@@ -34,7 +34,7 @@ CREATE TABLE `mclass_answer` (
   PRIMARY KEY (`id`),
   KEY `FKak05md5crmt5h1vfrobmiwgt1` (`examination_record_id`),
   CONSTRAINT `FKak05md5crmt5h1vfrobmiwgt1` FOREIGN KEY (`examination_record_id`) REFERENCES `mclass_examination_record` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of mclass_answer
@@ -46,6 +46,9 @@ INSERT INTO `mclass_answer` VALUES (3, '2020-05-18 22:37:38', '2020-05-18 22:37:
 INSERT INTO `mclass_answer` VALUES (4, '2020-05-18 22:37:39', '2020-05-18 22:37:39', '填空题答案_UNIT_TEST', 2, 1, 1, 4, 3);
 INSERT INTO `mclass_answer` VALUES (5, '2020-05-18 22:37:39', '2020-05-18 22:37:39', 'A,B', 2, 1, 1, 5, 3);
 INSERT INTO `mclass_answer` VALUES (6, '2020-05-18 22:37:39', '2020-05-18 22:37:39', 'false', 2, 1, 1, 6, 3);
+INSERT INTO `mclass_answer` VALUES (7, '2020-06-04 09:47:53', '2020-06-04 09:47:53', '填空题答案_UNIT_TEST', 3, 1, 1, 4, 2);
+INSERT INTO `mclass_answer` VALUES (8, '2020-06-04 09:47:53', '2020-06-04 09:47:53', 'A,B', 3, 1, 1, 5, 2);
+INSERT INTO `mclass_answer` VALUES (9, '2020-06-04 09:47:53', '2020-06-04 09:47:53', 'false', 3, 1, 1, 6, 2);
 COMMIT;
 
 -- ----------------------------
@@ -66,7 +69,15 @@ CREATE TABLE `mclass_attendance` (
   KEY `FKrxtm0n53nqcoskln4ny96r04j` (`check_in_id`),
   CONSTRAINT `FK4j2g19plyherqpn3w1rnfnv7o` FOREIGN KEY (`user_id`) REFERENCES `upms_user` (`id`),
   CONSTRAINT `FKrxtm0n53nqcoskln4ny96r04j` FOREIGN KEY (`check_in_id`) REFERENCES `mclass_check_in` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of mclass_attendance
+-- ----------------------------
+BEGIN;
+INSERT INTO `mclass_attendance` VALUES (1, '2020-06-04 09:52:22', '2020-06-04 09:52:22', 1, 3, 2, NULL, NULL);
+INSERT INTO `mclass_attendance` VALUES (2, '2020-06-04 09:52:22', '2020-06-04 09:53:13', 1, 1, 3, NULL, NULL);
+COMMIT;
 
 -- ----------------------------
 -- Table structure for mclass_check_in
@@ -86,7 +97,14 @@ CREATE TABLE `mclass_check_in` (
   `longitude` decimal(5,2) DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of mclass_check_in
+-- ----------------------------
+BEGIN;
+INSERT INTO `mclass_check_in` VALUES (1, '2020-06-04 09:52:22', '2020-06-04 09:52:22', NULL, NULL, '2022-06-09 19:42:44', b'1', NULL, 100.00, 1, 200.00, 1);
+COMMIT;
 
 -- ----------------------------
 -- Table structure for mclass_choice
@@ -141,7 +159,7 @@ CREATE TABLE `mclass_course` (
   PRIMARY KEY (`id`),
   KEY `FK6a8tuuij8qb7sh3365efhyj0v` (`teacher_id`),
   CONSTRAINT `FK6a8tuuij8qb7sh3365efhyj0v` FOREIGN KEY (`teacher_id`) REFERENCES `upms_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of mclass_course
@@ -165,13 +183,13 @@ CREATE TABLE `mclass_examination` (
   PRIMARY KEY (`id`),
   KEY `FKh6ci26ntg34iapoo2p7a5j6r6` (`lesson_id`),
   CONSTRAINT `FKh6ci26ntg34iapoo2p7a5j6r6` FOREIGN KEY (`lesson_id`) REFERENCES `mclass_lesson` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of mclass_examination
 -- ----------------------------
 BEGIN;
-INSERT INTO `mclass_examination` VALUES (1, '2020-05-18 22:34:37', '2020-05-18 22:37:39', 1, '课程引论练习', 2, 2);
+INSERT INTO `mclass_examination` VALUES (1, '2020-05-18 22:34:37', '2020-06-04 09:47:53', 1, '课程引论练习', 2, 3);
 COMMIT;
 
 -- ----------------------------
@@ -190,7 +208,7 @@ CREATE TABLE `mclass_examination_record` (
   PRIMARY KEY (`id`),
   KEY `FK9smo6p5a3odet2kvub0tqay6j` (`user_id`),
   CONSTRAINT `FK9smo6p5a3odet2kvub0tqay6j` FOREIGN KEY (`user_id`) REFERENCES `upms_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of mclass_examination_record
@@ -198,6 +216,7 @@ CREATE TABLE `mclass_examination_record` (
 BEGIN;
 INSERT INTO `mclass_examination_record` VALUES (1, '2020-05-18 22:37:38', '2020-05-18 22:37:38', 2, 1, 20.00, '2020-05-18 22:37:38', 2);
 INSERT INTO `mclass_examination_record` VALUES (2, '2020-05-18 22:37:39', '2020-05-18 22:37:39', 3, 1, 30.00, '2020-05-18 22:37:39', 3);
+INSERT INTO `mclass_examination_record` VALUES (3, '2020-06-04 09:47:53', '2020-06-04 09:47:53', 3, 1, 30.00, '2020-06-04 09:47:53', 2);
 COMMIT;
 
 -- ----------------------------
@@ -211,7 +230,7 @@ CREATE TABLE `mclass_exercise` (
   `course_id` bigint(20) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of mclass_exercise
@@ -261,7 +280,7 @@ CREATE TABLE `mclass_judgment` (
 -- ----------------------------
 BEGIN;
 INSERT INTO `mclass_judgment` VALUES (0, 0, 0, 3);
-INSERT INTO `mclass_judgment` VALUES (2, 0, 0, 6);
+INSERT INTO `mclass_judgment` VALUES (3, 0, 0, 6);
 COMMIT;
 
 -- ----------------------------
@@ -282,13 +301,13 @@ CREATE TABLE `mclass_lesson` (
   PRIMARY KEY (`id`),
   KEY `FKfay0v3u145ymqgfkfrlxki51` (`check_in_id`),
   CONSTRAINT `FKfay0v3u145ymqgfkfrlxki51` FOREIGN KEY (`check_in_id`) REFERENCES `mclass_check_in` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of mclass_lesson
 -- ----------------------------
 BEGIN;
-INSERT INTO `mclass_lesson` VALUES (1, '2020-05-18 22:34:10', '2020-05-18 22:38:25', '2020-05-18 22:38:25', 1, '2020-05-18 22:33:53', '2020-05-18 22:35:02', 3, NULL, NULL);
+INSERT INTO `mclass_lesson` VALUES (1, '2020-05-18 22:34:10', '2020-06-04 09:52:22', '2022-05-18 22:38:25', 1, '2020-05-18 22:33:53', '2020-05-18 22:35:02', 2, 1, NULL);
 COMMIT;
 
 -- ----------------------------
@@ -309,7 +328,7 @@ CREATE TABLE `mclass_mooc_class` (
   PRIMARY KEY (`id`),
   KEY `FKhbruw69f379dlto1dmv62snsr` (`course_id`),
   CONSTRAINT `FKhbruw69f379dlto1dmv62snsr` FOREIGN KEY (`course_id`) REFERENCES `mclass_course` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of mclass_mooc_class
@@ -334,7 +353,7 @@ CREATE TABLE `mclass_option` (
   PRIMARY KEY (`id`),
   KEY `FKdva24lm5bx7qpbwi3q86ddqm` (`choice_id`),
   CONSTRAINT `FKdva24lm5bx7qpbwi3q86ddqm` FOREIGN KEY (`choice_id`) REFERENCES `mclass_choice` (`choice_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of mclass_option
@@ -342,8 +361,8 @@ CREATE TABLE `mclass_option` (
 BEGIN;
 INSERT INTO `mclass_option` VALUES (1, '2020-05-18 22:33:22', '2020-05-18 22:33:22', '选项A_UNIT_TEST', 1, 0, 'A', 2);
 INSERT INTO `mclass_option` VALUES (2, '2020-05-18 22:33:22', '2020-05-18 22:33:22', '选项B_UNIT_TEST', 1, 0, 'B', 2);
-INSERT INTO `mclass_option` VALUES (3, '2020-05-18 22:34:37', '2020-05-18 22:37:39', '选项A_UNIT_TEST', 1, 1, 'A', 5);
-INSERT INTO `mclass_option` VALUES (4, '2020-05-18 22:34:37', '2020-05-18 22:37:39', '选项B_UNIT_TEST', 1, 2, 'B', 5);
+INSERT INTO `mclass_option` VALUES (3, '2020-05-18 22:34:37', '2020-06-04 09:47:53', '选项A_UNIT_TEST', 1, 2, 'A', 5);
+INSERT INTO `mclass_option` VALUES (4, '2020-05-18 22:34:37', '2020-06-04 09:47:53', '选项B_UNIT_TEST', 1, 3, 'B', 5);
 COMMIT;
 
 -- ----------------------------
@@ -367,7 +386,7 @@ CREATE TABLE `mclass_subject` (
   KEY `FKihb1sa66psshqpf8j249n04p8` (`examination_id`),
   CONSTRAINT `FK3tpqqo88sfcesfjj5ddljfia2` FOREIGN KEY (`exercise_id`) REFERENCES `mclass_exercise` (`id`),
   CONSTRAINT `FKihb1sa66psshqpf8j249n04p8` FOREIGN KEY (`examination_id`) REFERENCES `mclass_examination` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of mclass_subject
@@ -376,9 +395,9 @@ BEGIN;
 INSERT INTO `mclass_subject` VALUES (1, '2020-05-18 22:33:22', '2020-05-18 22:33:22', '填空题题干_UNIT_TEST', 0, NULL, NULL, 1, 0, NULL, 10.00);
 INSERT INTO `mclass_subject` VALUES (2, '2020-05-18 22:33:22', '2020-05-18 22:33:22', '选择题题干_UNIT_TEST', 0, NULL, NULL, 1, 0, NULL, 10.00);
 INSERT INTO `mclass_subject` VALUES (3, '2020-05-18 22:33:22', '2020-05-18 22:33:22', '判断题题干_UNIT_TEST', 0, NULL, NULL, 1, 0, NULL, 10.00);
-INSERT INTO `mclass_subject` VALUES (4, '2020-05-18 22:34:37', '2020-05-18 22:37:39', '填空题题干_UNIT_TEST', 0, 0, 1, NULL, 2, 100, 10.00);
-INSERT INTO `mclass_subject` VALUES (5, '2020-05-18 22:34:37', '2020-05-18 22:37:39', '选择题题干_UNIT_TEST', 1, 50, 1, NULL, 1, 50, 10.00);
-INSERT INTO `mclass_subject` VALUES (6, '2020-05-18 22:34:37', '2020-05-18 22:37:39', '判断题题干_UNIT_TEST', 0, 0, 1, NULL, 2, 100, 10.00);
+INSERT INTO `mclass_subject` VALUES (4, '2020-05-18 22:34:37', '2020-06-04 09:47:53', '填空题题干_UNIT_TEST', 0, 0, 1, NULL, 3, 100, 10.00);
+INSERT INTO `mclass_subject` VALUES (5, '2020-05-18 22:34:37', '2020-06-04 09:47:53', '选择题题干_UNIT_TEST', 1, 33, 1, NULL, 2, 66, 10.00);
+INSERT INTO `mclass_subject` VALUES (6, '2020-05-18 22:34:37', '2020-06-04 09:47:53', '判断题题干_UNIT_TEST', 0, 0, 1, NULL, 3, 100, 10.00);
 COMMIT;
 
 -- ----------------------------
@@ -421,7 +440,7 @@ CREATE TABLE `upms_user` (
   `title` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK_rms9jmyq5ysgxhkgy98ujd50i` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of upms_user
