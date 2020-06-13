@@ -5,7 +5,7 @@ MOOC单体版本说明
 
 1. 在命令窗口中通过`cd`指令进入项目文件夹的`/docker`目录中
 
-2. 在命令窗口中输入`docker-compose -f app.yml up -dr`，将自动下载mysql和springboot-admin镜像至本地，并启动对应服务的两个容器；mysql容器启动后，将自动导入`sql/mooc.sql`
+2. 在命令窗口中输入`docker-compose -f app.yml up -d`，将自动下载mysql和springboot-admin镜像至本地，并启动对应服务的两个容器；mysql容器启动后，将自动导入`sql/mooc.sql`
 
 3. 在IDEA中打开mooc项目文件夹，以Run或Debug模式启动`mooc-class`模块中的`edu.whut.cs.jee.mooc.MoocClassApplication`的`main`方法。
 
