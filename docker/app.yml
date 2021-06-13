@@ -8,6 +8,14 @@ services:
       mooc-net:
         aliases:
           - mysql
+  mooc-redis:
+    extends:
+      file: redis.yml
+      service: mooc-redis
+    networks:
+      mooc-net:
+        aliases:
+          - redis
   mooc-monitor:
     extends:
       file: monitor.yml

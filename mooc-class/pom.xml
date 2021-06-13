@@ -117,6 +117,25 @@
             <artifactId>spring-boot-admin-starter-client</artifactId>
             <version>2.1.2</version>
         </dependency>
+
+        <!-- hibernate-redis  -->
+        <dependency>
+            <groupId>com.github.debop</groupId>
+            <artifactId>hibernate-redis</artifactId>
+            <version>2.4.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson</artifactId>
+            <version>3.10.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson-hibernate-53</artifactId>
+            <version>3.10.2</version>
+        </dependency>
     </dependencies>
 
 
