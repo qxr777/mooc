@@ -26,6 +26,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -36,6 +39,7 @@ import java.util.List;
 @Slf4j
 @Service
 @Transactional
+@CacheConfig(cacheNames = "mclasses")
 public class MoocClassService {
 
     @Autowired
@@ -58,6 +62,7 @@ public class MoocClassService {
      * @param moocClassDto
      * @return
      */
+    @CacheEvict(key="T(String).valueOf('teacherId').concat('-').concat(#moocClassDto.teacherId)")
     public Long saveMoocClass(MoocClassDto moocClassDto) {
         Course course = null;
         if(moocClassDto.getOfflineCourse() != null) {
@@ -82,6 +87,12 @@ public class MoocClassService {
         return saved.getId();
     }
 
+    /**
+     * 关联在线课程，生成慕课堂
+     * @param moocClassDto
+     * @return
+     */
+    @CacheEvict(key="T(String).valueOf('teacherId').concat('-').concat(#moocClassDto.teacherId)")
     public Long addMoocClass(MoocClassDto moocClassDto) {
         Course course = courseRepository.findById(moocClassDto.getCourseId()).get();
         MoocClass moocClass = BeanConvertUtils.convertTo(moocClassDto, MoocClass::new);
@@ -109,7 +120,7 @@ public class MoocClassService {
         }
         return moocClass;
     }
-
+    @CacheEvict(key="T(String).valueOf('id').concat('-').concat(#moocClassDto.id)")
     public Long editMoocClass(MoocClassDto moocClassDto) {
         MoocClass moocClass = moocClassRepository.findById(moocClassDto.getId()).get();
         BeanUtils.copyProperties(moocClassDto, moocClass);
@@ -146,6 +157,7 @@ public class MoocClassService {
 //    }
 
     @Transactional(readOnly = true)
+    @Cacheable(key="T(String).valueOf('teacherId').concat('-').concat(#teacherId)")
     public List<MoocClassDto> getOwnMoocClasses(Long teacherId) {
         List<MoocClass> moocClasses = moocClassRepository.findByTeacher(teacherId);
         List<MoocClassDto> moocClassDtos = BeanConvertUtils.convertListTo(moocClasses, MoocClassDto::new,
@@ -160,6 +172,7 @@ public class MoocClassService {
     }
 
     @Transactional(readOnly = true)
+    @Cacheable(key="T(String).valueOf('id').concat('-').concat(#moocClassId)")
     public MoocClassDto getMoocClass(Long moocClassId) {
         MoocClass moocClass = moocClassRepository.findById(moocClassId).get();
         MoocClassDto moocClassDto = BeanConvertUtils.convertTo(moocClass, MoocClassDto::new, (s, t) -> {
@@ -179,6 +192,18 @@ public class MoocClassService {
             result = true;
         }
         return result;
+    }
+
+    @Transactional(readOnly = true)
+    @Cacheable(key="T(String).valueOf('userId').concat('-').concat(#userId)")
+    public List<MoocClassDto> getJoinMoocClasses(Long userId) {
+        List<BigInteger> moocClassIdList = moocClassRepository.findMoocClassIds(userId);
+        List<Long> moocClassIds = Lists.newArrayList();
+        moocClassIdList.stream().forEach(bigInteger ->{
+            moocClassIds.add(bigInteger.longValue());
+        });
+        List<MoocClass> moocClasses = Lists.newArrayList(moocClassRepository.findAllById(moocClassIds));
+        return BeanConvertUtils.convertListTo(moocClasses, MoocClassDto::new);
     }
 
     @Transactional(readOnly = true)
@@ -304,6 +329,7 @@ public class MoocClassService {
      * @param joinDto
      * @return
      */
+    @CacheEvict(key="T(String).valueOf('userId').concat('-').concat(#joinDto.userId)")
     public void join(JoinDto joinDto) {
         String code = joinDto.getMoocClassCode();
         MoocClass moocClass = this.getMoocClassByCode(code);

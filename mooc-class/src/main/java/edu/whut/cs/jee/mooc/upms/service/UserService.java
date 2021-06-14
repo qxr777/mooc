@@ -14,6 +14,8 @@ import edu.whut.cs.jee.mooc.upms.model.User;
 import edu.whut.cs.jee.mooc.upms.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.*;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -28,6 +30,7 @@ import java.util.stream.Collectors;
 @Slf4j
 @Service
 @Transactional
+@CacheConfig(cacheNames = "users")
 public class UserService {
 
     @Autowired
@@ -46,6 +49,7 @@ public class UserService {
         return user.getId();
     }
 
+    @Cacheable(cacheNames = "user" ,key="#id")
     @Transactional(readOnly = true)
     public UserDto getUser(Long id) {
         User user = userRepository.findById(id).get();
@@ -55,6 +59,7 @@ public class UserService {
         return userDto;
     }
 
+    @Cacheable
     @Transactional(readOnly = true)
     public List<UserDto> getAllUsers() {
         List<User> users = new ArrayList<User>((Collection<? extends User>) userRepository.findAll());
@@ -101,6 +106,7 @@ public class UserService {
     }
 
     @Transactional(readOnly = true)
+    @Cacheable(key = "#p0")
     public List<UserDto> getUserByUsername(String username) {
         List<User> users = userRepository.findByName(username);
         List<UserDto> userDtos = new ArrayList<>();

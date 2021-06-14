@@ -1,7 +1,9 @@
 package edu.whut.cs.jee.mooc.upms.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.*;
+import lombok.Builder;
+import lombok.Data;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
@@ -52,6 +54,8 @@ public class UserDto {
         this.email = email;
         this.roles = roles;
     }
+
+    @JsonIgnore
     public List<String> getRoleNames() {
         List<String> roleStrings = new ArrayList<>();
         roles.stream().forEach(role ->{

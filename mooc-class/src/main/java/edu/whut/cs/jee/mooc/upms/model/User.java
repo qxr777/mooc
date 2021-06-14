@@ -16,7 +16,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-@Cacheable(true)
 public class User extends BaseEntity {
 
     @Column(name = "name", unique = true, nullable = false, length = 20)

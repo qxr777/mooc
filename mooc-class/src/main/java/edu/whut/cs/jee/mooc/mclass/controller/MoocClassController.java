@@ -115,8 +115,17 @@ public class MoocClassController {
     })
     @GetMapping(value = "own")
     @PreAuthorize("hasRole('TEACHER')")
-    public List<MoocClassDto> list(@RequestParam(value = "teacherId", required = true) Long teacherId) {
+    public List<MoocClassDto> listOwn(@RequestParam(value = "teacherId", required = true) Long teacherId) {
         return moocClassServicee.getOwnMoocClasses(teacherId);
+    }
+
+    @ApiOperation("获取学生的慕课堂列表")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "userId", value = "学生ID", dataType = "Long")
+    })
+    @GetMapping(value = "join")
+    public List<MoocClassDto> listJoin(@RequestParam(value = "userId", required = true) Long userId) {
+        return moocClassServicee.getJoinMoocClasses(userId);
     }
 
     @ApiOperation(value = "获取慕课堂详细信息", notes = "路径参数ID")

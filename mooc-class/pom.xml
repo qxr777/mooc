@@ -118,23 +118,21 @@
             <version>2.1.2</version>
         </dependency>
 
-        <!-- hibernate-redis  -->
+        <!-- 集成redis -->
         <dependency>
-            <groupId>com.github.debop</groupId>
-            <artifactId>hibernate-redis</artifactId>
-            <version>2.4.0</version>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+            <version>2.4.2</version>
         </dependency>
-
+        <!-- redis依赖，2.0以上使用这个依赖 -->
         <dependency>
-            <groupId>org.redisson</groupId>
-            <artifactId>redisson</artifactId>
-            <version>3.10.2</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
-
+        <!-- 缓存依赖 -->
         <dependency>
-            <groupId>org.redisson</groupId>
-            <artifactId>redisson-hibernate-53</artifactId>
-            <version>3.10.2</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
         </dependency>
     </dependencies>
 

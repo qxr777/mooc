@@ -16,7 +16,6 @@ import java.util.Date;
 @ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-@Cacheable
 public class Lesson extends BaseEntity {
 
     public Lesson(Long id) {

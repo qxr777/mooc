@@ -17,7 +17,6 @@ import java.util.Set;
 @ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-@Cacheable
 public class Course extends BaseEntity {
 
     /**
