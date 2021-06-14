@@ -1,0 +1,11 @@
+version: '2'
+services:
+    mooc-jar:
+        image: qxr777/mooc:latest
+        ports:
+            - 8080:8080
+        networks:
+            - mooc-net
+networks:
+    mooc-net:
+        name: mooc-net

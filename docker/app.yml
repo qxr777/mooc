@@ -7,7 +7,9 @@ services:
     networks:
       mooc-net:
         aliases:
-          - mysql
+          - MASTER_DB_SERVER
+          - SLAVE_DB_SERVER_1
+          - SLAVE_DB_SERVER_2
   mooc-redis:
     extends:
       file: redis.yml
@@ -15,7 +17,7 @@ services:
     networks:
       mooc-net:
         aliases:
-          - redis
+          - REDIS_SERVER
   mooc-monitor:
     extends:
       file: monitor.yml
@@ -23,6 +25,7 @@ services:
     networks:
       mooc-net:
         aliases:
-          - monitor
+          - MONITOR_SERVER
 networks:
     mooc-net:
+      name: mooc-net
