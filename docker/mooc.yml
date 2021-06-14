@@ -8,4 +8,4 @@ services:
             - mooc-net
 networks:
     mooc-net:
-        name: mooc-net
+        #name: mooc-net
