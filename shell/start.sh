@@ -1,1 +1,1 @@
-nohup java -jar mooc-class-2.1.2.RELEASE.jar --spring.profiles.active=prod &
+nohup java -jar mooc-class-1.0.SNAPSHOT.jar --spring.profiles.active=prod &

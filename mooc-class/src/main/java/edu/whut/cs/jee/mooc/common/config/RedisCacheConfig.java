@@ -3,7 +3,6 @@ package edu.whut.cs.jee.mooc.common.config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
-import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,7 +21,6 @@ import java.time.Duration;
  * @version 1.0
  */
 @Configuration
-@EnableCaching
 public class RedisCacheConfig extends CachingConfigurerSupport {
 
     private static final Logger logger = LoggerFactory.getLogger(RedisCacheConfig.class);
