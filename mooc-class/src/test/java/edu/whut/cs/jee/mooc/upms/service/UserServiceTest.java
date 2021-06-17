@@ -4,6 +4,7 @@ import edu.whut.cs.jee.mooc.common.constant.AppConstants;
 import edu.whut.cs.jee.mooc.upms.dto.RoleDto;
 import edu.whut.cs.jee.mooc.upms.dto.StudentDto;
 import edu.whut.cs.jee.mooc.upms.dto.TeacherDto;
+import edu.whut.cs.jee.mooc.upms.model.Role;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -54,6 +55,23 @@ public class UserServiceTest {
         student2.setPassword(encoder.encode(AppConstants.DEFAULT_PASSWORD));
         student2.addRole(studentRole);
         userService.saveUser(student2);
+    }
+
+//    @Test
+    public void testSaveRoles() {
+        Role role1 = new Role();
+        role1.setId(AppConstants.ROLE_ADMIN_ID);
+        role1.setName("ROLE_ADMIN");
+        userService.saveRole(role1);
+        Role role2 = new Role();
+        role2.setId(AppConstants.ROLE_TEACHER_ID);
+        role2.setName("ROLE_TEACHER");
+        userService.saveRole(role2);
+        Role role3 = new Role();
+        role3.setId(AppConstants.ROLE_STUDENT_ID);
+        role3.setName("ROLE_STUDENT");
+        userService.saveRole(role3);
+
     }
 
     @Test

@@ -11,6 +11,7 @@ import edu.whut.cs.jee.mooc.upms.model.Role;
 import edu.whut.cs.jee.mooc.upms.model.Student;
 import edu.whut.cs.jee.mooc.upms.model.Teacher;
 import edu.whut.cs.jee.mooc.upms.model.User;
+import edu.whut.cs.jee.mooc.upms.repository.RoleRepository;
 import edu.whut.cs.jee.mooc.upms.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,9 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private RoleRepository roleRepository;
+
     public Long saveUser(UserDto userDto) {
         User user = null;
         try {
@@ -47,6 +51,11 @@ public class UserService {
         }
 
         return user.getId();
+    }
+
+    public Long saveRole(Role role) {
+        role = roleRepository.save(role);
+        return role.getId();
     }
 
     @Cacheable(cacheNames = "user" ,key="#id")
