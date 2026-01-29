@@ -1,4 +1,3 @@
-version: '2'
 services:
   mooc-mysql:
     extends:
@@ -10,7 +9,7 @@ services:
           - MASTER_DB_SERVER
           - SLAVE_DB_SERVER_1
           - SLAVE_DB_SERVER_2
-        ipv4_address: 172.23.0.2
+        ipv4_address: 172.25.0.2
   mooc-redis:
     extends:
       file: redis.yml
@@ -19,7 +18,7 @@ services:
       mooc-net:
         aliases:
           - REDIS_SERVER
-        ipv4_address: 172.23.0.3
+        ipv4_address: 172.25.0.3
   mooc-monitor:
     extends:
       file: monitor.yml
@@ -28,11 +27,11 @@ services:
       mooc-net:
         aliases:
           - MONITOR_SERVER
-        ipv4_address: 172.23.0.4
+        ipv4_address: 172.25.0.4
 networks:
     mooc-net:
       #name: mooc-net
       ipam:
         config:
-          - subnet: 172.23.0.0/16
-            gateway: 172.23.0.1
+          - subnet: 172.25.0.0/16
+            gateway: 172.25.0.1
