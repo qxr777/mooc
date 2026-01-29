@@ -15,6 +15,19 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.versoin}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
@@ -52,8 +65,8 @@
     <properties>
         <java.version>1.8</java.version>
         <spring-boot.version>2.1.2.RELEASE</spring-boot.version>
-        <lombok.versoin>1.18.4</lombok.versoin>
-        <mysql.connector.version>5.1.31</mysql.connector.version>
+        <lombok.versoin>1.18.30</lombok.versoin>
+        <mysql.connector.version>8.0.33</mysql.connector.version>
         <swagger.version>2.9.2</swagger.version>
         <druid.version>1.1.17</druid.version>
         <maven.test.skip>true</maven.test.skip>
@@ -71,6 +84,7 @@
             <artifactId>lombok</artifactId>
             <version>${lombok.versoin}</version>
             <optional>true</optional>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

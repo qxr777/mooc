@@ -7,7 +7,6 @@ services:
             - ./data/mysql/data:/var/lib/mysql
             - ../sql/mooc.sql:/docker-entrypoint-initdb.d/mooc.sql
         environment:
-            - MYSQL_USER=root
             - MYSQL_ROOT_PASSWORD=123456
             - MYSQL_DATABASE=mooc
             - LANG=C.UTF-8
