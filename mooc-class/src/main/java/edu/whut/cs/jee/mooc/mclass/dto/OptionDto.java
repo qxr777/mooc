@@ -13,6 +13,7 @@ public class OptionDto {
     private Long id;
     private String name;
     private String content;
+    @Builder.Default
     private Integer count = 0;
     private boolean correct;
 }

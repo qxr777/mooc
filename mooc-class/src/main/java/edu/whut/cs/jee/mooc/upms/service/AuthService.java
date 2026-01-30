@@ -1,8 +1,6 @@
 package edu.whut.cs.jee.mooc.upms.service;
 
-import edu.whut.cs.jee.mooc.upms.repository.UserRepository;
 import edu.whut.cs.jee.mooc.upms.security.JwtTokenUtil;
-import edu.whut.cs.jee.mooc.upms.security.JwtUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,7 +18,6 @@ public class AuthService {
     private AuthenticationManager authenticationManager;
     private UserDetailsService userDetailsService;
     private JwtTokenUtil jwtTokenUtil;
-    private UserRepository userRepository;
 
     @Value("${jwt.tokenHead}")
     private String tokenHead;
@@ -29,12 +26,10 @@ public class AuthService {
     public AuthService(
             AuthenticationManager authenticationManager,
             @Qualifier("jwtUserDetailsService") UserDetailsService userDetailsService,
-            JwtTokenUtil jwtTokenUtil,
-            UserRepository userRepository) {
+            JwtTokenUtil jwtTokenUtil) {
         this.authenticationManager = authenticationManager;
         this.userDetailsService = userDetailsService;
         this.jwtTokenUtil = jwtTokenUtil;
-        this.userRepository = userRepository;
     }
 
 
@@ -51,8 +46,6 @@ public class AuthService {
 
     public String refresh(String oldToken) {
         final String token = oldToken.substring(tokenHead.length());
-        String username = jwtTokenUtil.getUsernameFromToken(token);
-        JwtUser user = (JwtUser) userDetailsService.loadUserByUsername(username);
         if (jwtTokenUtil.canTokenBeRefreshed(token)){
             return tokenHead + jwtTokenUtil.refreshToken(token);
         }

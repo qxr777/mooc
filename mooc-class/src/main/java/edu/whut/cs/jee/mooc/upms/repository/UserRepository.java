@@ -2,7 +2,6 @@ package edu.whut.cs.jee.mooc.upms.repository;
 
 import edu.whut.cs.jee.mooc.common.persistence.BaseRepository;
 import edu.whut.cs.jee.mooc.upms.model.User;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.repository.query.QueryByExampleExecutor;
 
 import java.util.List;

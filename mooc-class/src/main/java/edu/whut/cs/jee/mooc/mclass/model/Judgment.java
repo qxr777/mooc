@@ -15,6 +15,7 @@ import javax.persistence.Table;
 @PrimaryKeyJoinColumn(name = "judgment_id")
 @Builder
 @Data
+@EqualsAndHashCode(callSuper = false)
 @ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
@@ -30,12 +31,14 @@ public class Judgment extends Subject {
      * 选T的人数
      */
     @Column(name = "true_count")
+    @Builder.Default
     private Integer trueCount = 0;
 
     /**
      * 选F的人数
      */
     @Column(name = "false_count")
+    @Builder.Default
     private Integer falseCount = 0;
 
     @Override

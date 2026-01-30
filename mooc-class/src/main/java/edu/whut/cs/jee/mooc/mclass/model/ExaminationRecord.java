@@ -15,6 +15,7 @@ import java.util.List;
 @Table(name = "mclass_examination_record")
 @Builder
 @Data
+@EqualsAndHashCode(callSuper = false)
 @ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
@@ -24,12 +25,14 @@ public class ExaminationRecord extends BaseEntity {
      * 得分
      */
     @Column(name = "score", columnDefinition = "decimal(5,2)")
+    @Builder.Default
     private Double score = 0.0;
 
     /**
      * 答对数量
      */
     @Column(name = "correct_count")
+    @Builder.Default
     private Integer correctCount = 0;
 
     /**

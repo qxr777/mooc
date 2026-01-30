@@ -14,6 +14,7 @@ import java.util.List;
 @Table(name = "mclass_mooc_class")
 @Builder
 @Data
+@EqualsAndHashCode(callSuper = false)
 @ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor

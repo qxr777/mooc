@@ -1,6 +1,7 @@
 package edu.whut.cs.jee.mooc.mclass.dto;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
@@ -8,6 +9,7 @@ import java.util.List;
  * 选择题
  */
 @Data
+@EqualsAndHashCode(callSuper = false)
 public class ChoiceDto extends SubjectDto {
 
     /**

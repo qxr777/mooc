@@ -2,7 +2,6 @@ package edu.whut.cs.jee.mooc.mclass.controller;
 
 import edu.whut.cs.jee.mooc.mclass.dto.ExerciseDto;
 import edu.whut.cs.jee.mooc.mclass.service.ExerciseService;
-import edu.whut.cs.jee.mooc.mclass.service.SubjectService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -24,9 +23,6 @@ public class ExerciseController {
 
     @Autowired
     private ExerciseService exerciseService;
-
-    @Autowired
-    private SubjectService subjectService;
 
     @PostMapping("")
     @ApiOperation(value = "新增练习")

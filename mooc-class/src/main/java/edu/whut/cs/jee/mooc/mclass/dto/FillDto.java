@@ -2,11 +2,13 @@ package edu.whut.cs.jee.mooc.mclass.dto;
 
 import edu.whut.cs.jee.mooc.common.constant.SubjectConstants;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * 填空题
  */
 @Data
+@EqualsAndHashCode(callSuper = false)
 public class FillDto extends SubjectDto {
 
     /**

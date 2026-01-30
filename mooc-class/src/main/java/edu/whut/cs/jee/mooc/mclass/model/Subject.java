@@ -3,6 +3,7 @@ package edu.whut.cs.jee.mooc.mclass.model;
 import edu.whut.cs.jee.mooc.common.persistence.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
@@ -16,6 +17,7 @@ import javax.persistence.*;
 @Inheritance(strategy = InheritanceType.JOINED)
 //@Builder
 @Data
+@EqualsAndHashCode(callSuper = false)
 @ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor

@@ -56,6 +56,7 @@ public class CheckInDto {
     /**
      * 学生到课记录
      */
+    @Builder.Default
     private List<AttendanceDto> attendanceDtos = new ArrayList<>();
 
 }

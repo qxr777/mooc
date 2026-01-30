@@ -12,6 +12,7 @@ import javax.persistence.*;
 @Table(name = "mclass_answer")
 @Builder
 @Data
+@EqualsAndHashCode(callSuper = false)
 @ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor

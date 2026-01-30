@@ -9,7 +9,7 @@ import javax.persistence.Entity;
 
 @Entity
 @Data
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = true)
 @DiscriminatorValue("Teacher")
 public class Teacher extends User {
 

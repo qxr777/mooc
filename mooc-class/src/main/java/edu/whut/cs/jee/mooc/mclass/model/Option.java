@@ -14,6 +14,7 @@ import javax.persistence.Table;
 @Table(name = "mclass_option")
 @Builder
 @Data
+@EqualsAndHashCode(callSuper = false)
 @ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
@@ -35,6 +36,7 @@ public class Option extends BaseEntity implements Cloneable{
      * 选择人数
      */
     @Column(name = "count")
+    @Builder.Default
     private Integer count = 0;
 
     /**

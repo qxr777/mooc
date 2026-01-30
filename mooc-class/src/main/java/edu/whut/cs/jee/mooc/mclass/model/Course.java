@@ -14,6 +14,7 @@ import java.util.Set;
 @Table(name = "mclass_course")
 @Builder
 @Data
+@EqualsAndHashCode(callSuper = false)
 @ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor

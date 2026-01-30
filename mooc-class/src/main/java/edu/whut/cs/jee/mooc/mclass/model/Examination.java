@@ -13,6 +13,7 @@ import java.util.List;
 @Table(name = "mclass_examination")
 @Builder
 @Data
+@EqualsAndHashCode(callSuper = false)
 @ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
@@ -41,6 +42,7 @@ public class Examination extends BaseEntity {
      * 提交人数
      */
     @Column(name = "submit_count")
+    @Builder.Default
     private Integer submitCount = 0;
 
     /**

@@ -14,10 +14,11 @@ import java.util.List;
 @PrimaryKeyJoinColumn(name = "choice_id")
 @Builder
 @Data
+@EqualsAndHashCode(callSuper = false)
 @ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class Choice extends Subject implements Cloneable{
+public class Choice extends Subject {
 
     /**
      * 候选项

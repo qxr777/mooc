@@ -14,6 +14,7 @@ import javax.persistence.*;
 @Table(name = "mclass_attendance")
 @Builder
 @Data
+@EqualsAndHashCode(callSuper = false)
 @ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
@@ -29,6 +30,7 @@ public class Attendance extends BaseEntity {
      * 已签到 | 迟到 | 缺课
      */
     @Column(name = "status" )
+    @Builder.Default
     private Integer status = CheckInConstants.ATTENDANCE_STATUS_ABSENCE;
 
     /**

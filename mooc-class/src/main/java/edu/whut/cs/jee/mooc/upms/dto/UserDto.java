@@ -37,6 +37,7 @@ public class UserDto {
     @ApiModelProperty(value = "邮箱")
     private String email;
 
+    @Builder.Default
     private List<RoleDto> roles = new ArrayList<>();
 
     public void addRole(RoleDto role) {

@@ -13,6 +13,7 @@ import java.util.Date;
 @Table(name = "mclass_lesson")
 @Builder
 @Data
+@EqualsAndHashCode(callSuper = false)
 @ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor

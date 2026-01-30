@@ -1,6 +1,7 @@
 package edu.whut.cs.jee.mooc.mclass.vo;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.validation.constraints.NotNull;
 
@@ -8,6 +9,7 @@ import javax.validation.constraints.NotNull;
  * 保存填空题VO
  */
 @Data
+@EqualsAndHashCode(callSuper = false)
 public class FillSaveVo extends SubjectSaveVo {
 
     /**

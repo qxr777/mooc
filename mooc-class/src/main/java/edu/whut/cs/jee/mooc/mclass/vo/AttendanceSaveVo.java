@@ -18,11 +18,13 @@ public class AttendanceSaveVo {
     /**
      * 签到处 经度
      */
+    @Builder.Default
     private Double longitude = 0.0;
 
     /**
      * 签到处 纬度
      */
+    @Builder.Default
     private Double latitude = 0.0;
 
 }

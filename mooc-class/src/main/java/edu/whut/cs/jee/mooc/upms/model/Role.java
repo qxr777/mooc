@@ -9,6 +9,7 @@ import javax.persistence.*;
 @Table(name = "upms_role")
 @Builder
 @Data
+@EqualsAndHashCode(callSuper = false)
 @ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor

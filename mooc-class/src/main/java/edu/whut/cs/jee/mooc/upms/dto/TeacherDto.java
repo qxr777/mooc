@@ -1,11 +1,13 @@
 package edu.whut.cs.jee.mooc.upms.dto;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotNull;
 
 @Data
+@EqualsAndHashCode(callSuper = false)
 public class TeacherDto extends UserDto{
 
     @NotNull(message = "工资号不允许为空")

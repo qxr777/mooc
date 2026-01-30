@@ -13,6 +13,7 @@ import java.util.List;
 @Table(name = "mclass_exercise")
 @Builder
 @Data
+@EqualsAndHashCode(callSuper = false)
 @ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor

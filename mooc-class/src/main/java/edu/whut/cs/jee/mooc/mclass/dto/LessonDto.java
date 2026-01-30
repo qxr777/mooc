@@ -17,6 +17,7 @@ public class LessonDto {
 
     private Long id;
 
+    @Builder.Default
     private Integer status = MoocClassConstatnts.LESSON_STATUS_READY;
 
     private String statusCh;
