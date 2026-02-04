@@ -26,7 +26,7 @@
 <body>
   <div class="header">
     <h1>🧪 MOOC API 综合测试报告</h1>
-    <p>测试时间: 2026-02-04T02:13:37.161Z</p>
+    <p>测试时间: 2026-02-04T06:17:00.868Z</p>
   </div>
 
   <div class="summary">
@@ -36,15 +36,15 @@
     </div>
     <div class="summary-card">
       <h3>成功请求数</h3>
-      <div class="value success">34</div>
+      <div class="value success">23</div>
     </div>
     <div class="summary-card">
       <h3>失败请求数</h3>
-      <div class="value failure">0</div>
+      <div class="value failure">11</div>
     </div>
     <div class="summary-card">
       <h3>测试通过率</h3>
-      <div class="value">100.00%</div>
+      <div class="value">67.65%</div>
     </div>
   </div>
 
@@ -64,21 +64,69 @@
     <div class="suite">
       <h3>🏫 慕课堂管理测试</h3>
       <div class="suite-summary">
-        <span class="success">✅ 通过: 8</span>
-        <span class="failure">❌ 失败: 0</span>
+        <span class="success">✅ 通过: 5</span>
+        <span class="failure">❌ 失败: 3</span>
       </div>
       
       
+        <div class="suite-errors">
+
+            <div class="error-item">
+              <strong>新增慕课堂</strong>
+              <p>期望状态码: 200, 实际状态码: 400</p>
+              <p><strong>响应:</strong> <pre>{
+  "code": 1002,
+  "msg": "参数校验失败",
+  "data": "课程名称不允许为空"
+}</pre></p>
+            </div>
+
+            <div class="error-item">
+              <strong>更新慕课堂</strong>
+              <p>期望状态码: 200, 实际状态码: 500</p>
+              <p><strong>响应:</strong> <pre>{
+  "code": 1005,
+  "msg": "Request method 'PUT' not supported",
+  "data": "Request method 'PUT' not supported"
+}</pre></p>
+            </div>
+
+            <div class="error-item">
+              <strong>开始上课</strong>
+              <p>期望状态码: 200, 实际状态码: 400</p>
+              <p><strong>响应:</strong> <pre>{
+  "code": 2007,
+  "msg": "正在上课中",
+  "data": "正在上课中1"
+}</pre></p>
+            </div>
+
+        </div>
+
     </div>
   
     <div class="suite">
       <h3>📚 习题管理测试</h3>
       <div class="suite-summary">
-        <span class="success">✅ 通过: 7</span>
-        <span class="failure">❌ 失败: 0</span>
+        <span class="success">✅ 通过: 6</span>
+        <span class="failure">❌ 失败: 1</span>
       </div>
       
       
+        <div class="suite-errors">
+
+            <div class="error-item">
+              <strong>新增填空题</strong>
+              <p>期望状态码: 200, 实际状态码: 400</p>
+              <p><strong>响应:</strong> <pre>{
+  "code": 1002,
+  "msg": "参数校验失败",
+  "data": "must not be null"
+}</pre></p>
+            </div>
+
+        </div>
+
     </div>
   
     <div class="suite">
@@ -94,11 +142,35 @@
     <div class="suite">
       <h3>✅ 签到管理测试</h3>
       <div class="suite-summary">
-        <span class="success">✅ 通过: 2</span>
-        <span class="failure">❌ 失败: 0</span>
+        <span class="success">✅ 通过: 0</span>
+        <span class="failure">❌ 失败: 2</span>
       </div>
       
       
+        <div class="suite-errors">
+
+            <div class="error-item">
+              <strong>获取签到信息</strong>
+              <p>期望状态码: 200, 实际状态码: 400</p>
+              <p><strong>响应:</strong> <pre>{
+  "code": 2014,
+  "msg": "签到不存在",
+  "data": "CheckIn not found: 1"
+}</pre></p>
+            </div>
+
+            <div class="error-item">
+              <strong>关闭签到活动</strong>
+              <p>期望状态码: 200, 实际状态码: 400</p>
+              <p><strong>响应:</strong> <pre>{
+  "code": 2014,
+  "msg": "签到不存在",
+  "data": "CheckIn not found: 1"
+}</pre></p>
+            </div>
+
+        </div>
+
     </div>
   
     <div class="suite">
@@ -114,28 +186,86 @@
     <div class="suite">
       <h3>🔐 认证管理测试</h3>
       <div class="suite-summary">
-        <span class="success">✅ 通过: 2</span>
-        <span class="failure">❌ 失败: 0</span>
+        <span class="success">✅ 通过: 0</span>
+        <span class="failure">❌ 失败: 2</span>
       </div>
       
       
+        <div class="suite-errors">
+
+            <div class="error-item">
+              <strong>刷新令牌</strong>
+              <p>期望状态码: 200, 实际状态码: 500</p>
+              <p><strong>响应:</strong> <pre>{
+  "code": 1005,
+  "msg": "Request method 'POST' not supported",
+  "data": "Request method 'POST' not supported"
+}</pre></p>
+            </div>
+
+            <div class="error-item">
+              <strong>注册新用户</strong>
+              <p>期望状态码: 200, 实际状态码: 500</p>
+              <p><strong>响应:</strong> <pre>{
+  "code": 1005,
+  "msg": "JSON parse error: Cannot deserialize value of type `java.lang.Long` from String \"STUDENT\": not a valid Long value; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.lang.Long` from String \"STUDENT\": not a valid Long value\n at [Source: (PushbackInputStream); line: 1, column: 114] (through reference chain: edu.whut.cs.jee.mooc.upms.vo.UserSignUpVo[\"role\"])",
+  "data": "JSON parse error: Cannot deserialize value of type `java.lang.Long` from String \"STUDENT\": not a valid Long value; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.lang.Long` from String \"STUDENT\": not a valid Long value\n at [Source: (PushbackInputStream); line: 1, column: 114] (through reference chain: edu.whut.cs.jee.mooc.upms.vo.UserSignUpVo[\"role\"])"
+}</pre></p>
+            </div>
+
+        </div>
+
     </div>
   
     <div class="suite">
       <h3>👥 用户管理测试（需要ADMIN权限）</h3>
       <div class="suite-summary">
-        <span class="success">✅ 通过: 6</span>
-        <span class="failure">❌ 失败: 0</span>
+        <span class="success">✅ 通过: 3</span>
+        <span class="failure">❌ 失败: 3</span>
       </div>
       
       
+        <div class="suite-errors">
+
+            <div class="error-item">
+              <strong>新增学生用户</strong>
+              <p>期望状态码: 200, 实际状态码: 400</p>
+              <p><strong>响应:</strong> <pre>{
+  "code": 1002,
+  "msg": "参数校验失败",
+  "data": "账号长度必须是6-11个字符"
+}</pre></p>
+            </div>
+
+            <div class="error-item">
+              <strong>新增教师用户</strong>
+              <p>期望状态码: 200, 实际状态码: 400</p>
+              <p><strong>响应:</strong> <pre>{
+  "code": 1002,
+  "msg": "参数校验失败",
+  "data": "账号长度必须是6-11个字符"
+}</pre></p>
+            </div>
+
+            <div class="error-item">
+              <strong>删除用户</strong>
+              <p>期望状态码: 200, 实际状态码: 400</p>
+              <p><strong>响应:</strong> <pre>{
+  "code": 2003,
+  "msg": "用户不存在",
+  "data": "用户不存在999"
+}</pre></p>
+            </div>
+
+        </div>
+
     </div>
   
   </div>
 
   <script>
     setTimeout(() => {
-      if (0 > 0) {
+      if (11 > 0) {
         alert('存在失败的测试，请查看报告详情！');
       }
     }, 1000);

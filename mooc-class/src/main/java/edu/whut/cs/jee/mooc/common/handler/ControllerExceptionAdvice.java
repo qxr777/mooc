@@ -4,10 +4,12 @@ import edu.whut.cs.jee.mooc.common.base.ResultVo;
 import edu.whut.cs.jee.mooc.common.constant.ResultCode;
 import edu.whut.cs.jee.mooc.common.exception.APIException;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindException;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @Slf4j
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class ControllerExceptionAdvice {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResultVo MethodArgumentNotValidExceptionHandler(MethodArgumentNotValidException e) {
         // 从异常对象中拿到ObjectError对象
         ObjectError objectError = e.getBindingResult().getAllErrors().get(0);
@@ -25,6 +28,7 @@ public class ControllerExceptionAdvice {
     }
 
     @ExceptionHandler({BindException.class})
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResultVo MethodArgumentNotValidExceptionHandler(BindException e) {
         // 从异常对象中拿到ObjectError对象
         ObjectError objectError = e.getBindingResult().getAllErrors().get(0);
@@ -35,12 +39,14 @@ public class ControllerExceptionAdvice {
     }
 
     @ExceptionHandler(APIException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST) // Or INTERNAL_SERVER_ERROR depending on code, but keeping simple for now
     public ResultVo APIExceptionHandler(APIException e) {
         log.error(e.getMessage(), e);
         return new ResultVo(e.getCode(), e.getMsg(), e.getMessage());
     }
 
     @ExceptionHandler(Exception.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ResultVo ExceptionHandler(Exception e) {
         log.error(e.getMessage(), e);
         return new ResultVo(ResultCode.SERVER_ERROR.getCode(), e.getLocalizedMessage(), e.getMessage());

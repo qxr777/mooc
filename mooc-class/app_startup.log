@@ -1,25 +1,4 @@
 [INFO] Scanning for projects...
-Downloading from central: https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/maven-metadata.xml
-Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/boot/maven-metadata.xml
-Downloading from central: https://repo.maven.apache.org/maven2/com/spotify/maven-metadata.xml
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/johnzon/maven-metadata.xml
-Progress (1): 375 BProgress (2): 375 B | 237 BProgress (3): 375 B | 237 B | 511 BProgress (4): 375 B | 237 B | 511 B | 249 B                                           Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/boot/maven-metadata.xml (249 B at 342 B/s)
-Downloaded from central: https://repo.maven.apache.org/maven2/com/spotify/maven-metadata.xml (511 B at 701 B/s)
-Downloaded from central: https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/maven-metadata.xml (375 B at 515 B/s)
-Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/johnzon/maven-metadata.xml (237 B at 325 B/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/infinispan/maven-metadata.xml
-Downloading from central: https://repo.maven.apache.org/maven2/org/flywaydb/maven-metadata.xml
-Downloading from central: https://repo.maven.apache.org/maven2/org/jooq/maven-metadata.xml
-Downloading from central: https://repo.maven.apache.org/maven2/pl/project13/maven/maven-metadata.xml
-Progress (1): 398 BProgress (2): 398 B | 249 B                           Downloaded from central: https://repo.maven.apache.org/maven2/pl/project13/maven/maven-metadata.xml (249 B at 6.7 kB/s)
-Downloaded from central: https://repo.maven.apache.org/maven2/org/jooq/maven-metadata.xml (398 B at 9.5 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/m2e/maven-metadata.xml
-Progress (1): 510 BProgress (2): 510 B | 234 B                           Downloaded from central: https://repo.maven.apache.org/maven2/org/infinispan/maven-metadata.xml (510 B at 11 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-metadata.xml
-Downloaded from central: https://repo.maven.apache.org/maven2/org/flywaydb/maven-metadata.xml (234 B at 5.0 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/maven-metadata.xml
-Progress (1): 3.1 kBProgress (1): 8.0 kBProgress (1): 8.0 kBProgress (1): 13 kB Progress (1): 17 kBProgress (1): 20 kBProgress (1): 21 kBProgress (2): 21 kB | 4.6 kBProgress (2): 21 kB | 10 kB Progress (2): 21 kB | 14 kB                           Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-metadata.xml (14 kB at 246 kB/s)
-Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/maven-metadata.xml (21 kB at 232 kB/s)
 [INFO]
 [INFO] ----------------< org.springframework.boot:mooc-class >-----------------
 [INFO] Building mooc-class 1.0-SNAPSHOT
@@ -28,55 +7,7 @@ Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/
 [INFO]
 [INFO] >>> spring-boot:2.1.2.RELEASE:run (default-cli) > test-compile @ mooc-class >>>
 [WARNING] 2 problems were encountered while building the effective model for com.alibaba:druid:jar:1.1.17 during dependency collection step for project (use -X to see details)
-Downloading from central: https://repo.maven.apache.org/maven2/com/h2database/h2/1.4.197/h2-1.4.197.pom
-Progress (1): 960 B                   Downloaded from central: https://repo.maven.apache.org/maven2/com/h2database/h2/1.4.197/h2-1.4.197.pom (960 B at 18 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/it/ozimov/embedded-redis/0.7.2/embedded-redis-0.7.2.pom
-Progress (1): 1.2 kBProgress (1): 3.2 kBProgress (1): 5.9 kBProgress (1): 10 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/it/ozimov/embedded-redis/0.7.2/embedded-redis-0.7.2.pom (10 kB at 191 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/com/google/guava/guava/21.0/guava-21.0.pom
-Progress (1): 938 BProgress (1): 2.5 kBProgress (1): 4.7 kBProgress (1): 7.0 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/com/google/guava/guava/21.0/guava-21.0.pom (7.0 kB at 143 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/com/google/guava/guava-parent/21.0/guava-parent-21.0.pom
-Progress (1): 964 BProgress (1): 2.3 kBProgress (1): 5.6 kBProgress (1): 9.0 kBProgress (1): 9.7 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/com/google/guava/guava-parent/21.0/guava-parent-21.0.pom (9.7 kB at 206 kB/s)
 [WARNING] The artifact mysql:mysql-connector-java:jar:8.0.33 has been relocated to com.mysql:mysql-connector-j:jar:8.0.33: MySQL Connector/J artifacts moved to reverse-DNS compliant Maven 2+ coordinates.
-Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-test/2.1.2.RELEASE/spring-boot-starter-test-2.1.2.RELEASE.jar
-Downloading from central: https://repo.maven.apache.org/maven2/org/yaml/snakeyaml/1.23/snakeyaml-1.23.jar
-Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-test/2.1.2.RELEASE/spring-boot-test-2.1.2.RELEASE.jar
-Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-test-autoconfigure/2.1.2.RELEASE/spring-boot-test-autoconfigure-2.1.2.RELEASE.jar
-Downloading from central: https://repo.maven.apache.org/maven2/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar
-Progress (1): 0.9/197 kBProgress (1): 2.3/197 kBProgress (1): 3.6/197 kBProgress (1): 5.0/197 kBProgress (1): 6.4/197 kBProgress (1): 7.7/197 kBProgress (1): 8.2/197 kBProgress (1): 9.6/197 kBProgress (2): 9.6/197 kB | 0.9/172 kBProgress (2): 11/197 kB | 0.9/172 kB Progress (2): 11/197 kB | 2.3/172 kBProgress (2): 12/197 kB | 2.3/172 kBProgress (2): 12/197 kB | 3.7/172 kBProgress (2): 14/197 kB | 3.7/172 kBProgress (2): 14/197 kB | 5.0/172 kBProgress (2): 15/197 kB | 5.0/172 kBProgress (2): 16/197 kB | 5.0/172 kBProgress (2): 16/197 kB | 6.4/172 kBProgress (2): 16/197 kB | 7.8/172 kBProgress (2): 16/197 kB | 9.1/172 kBProgress (2): 16/197 kB | 11/172 kB Progress (2): 16/197 kB | 12/172 kBProgress (2): 16/197 kB | 13/172 kBProgress (2): 16/197 kB | 15/172 kBProgress (2): 16/197 kB | 16/172 kBProgress (3): 16/197 kB | 16/172 kB | 404 BProgress (3): 16/197 kB | 17/172 kB | 404 BProgress (3): 16/197 kB | 19/172 kB | 404 BProgress (3): 16/197 kB | 20/172 kB | 404 BProgress (3): 16/197 kB | 21/172 kB | 404 BProgress (3): 16/197 kB | 23/172 kB | 404 BProgress (3): 16/197 kB | 24/172 kB | 404 BProgress (3): 16/197 kB | 26/172 kB | 404 BProgress (3): 16/197 kB | 27/172 kB | 404 B                                           Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-starter-test/2.1.2.RELEASE/spring-boot-starter-test-2.1.2.RELEASE.jar (404 B at 5.9 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/net/minidev/json-smart/2.3/json-smart-2.3.jar
-Progress (2): 18/197 kB | 27/172 kBProgress (2): 19/197 kB | 27/172 kBProgress (3): 19/197 kB | 27/172 kB | 0.9/301 kBProgress (3): 21/197 kB | 27/172 kB | 0.9/301 kBProgress (3): 21/197 kB | 27/172 kB | 2.3/301 kBProgress (3): 22/197 kB | 27/172 kB | 2.3/301 kBProgress (3): 22/197 kB | 27/172 kB | 3.7/301 kBProgress (3): 23/197 kB | 27/172 kB | 3.7/301 kBProgress (3): 23/197 kB | 27/172 kB | 5.0/301 kBProgress (3): 25/197 kB | 27/172 kB | 5.0/301 kBProgress (3): 25/197 kB | 27/172 kB | 6.4/301 kBProgress (3): 26/197 kB | 27/172 kB | 6.4/301 kBProgress (3): 26/197 kB | 27/172 kB | 7.8/301 kBProgress (3): 26/197 kB | 27/172 kB | 9.1/301 kBProgress (3): 26/197 kB | 27/172 kB | 11/301 kB Progress (3): 26/197 kB | 27/172 kB | 12/301 kBProgress (3): 27/197 kB | 27/172 kB | 12/301 kBProgress (3): 27/197 kB | 27/172 kB | 13/301 kBProgress (3): 27/197 kB | 27/172 kB | 15/301 kBProgress (3): 29/197 kB | 27/172 kB | 15/301 kBProgress (3): 29/197 kB | 27/172 kB | 16/301 kBProgress (3): 30/197 kB | 27/172 kB | 16/301 kBProgress (3): 30/197 kB | 27/172 kB | 17/301 kBProgress (3): 31/197 kB | 27/172 kB | 17/301 kBProgress (3): 31/197 kB | 27/172 kB | 19/301 kBProgress (3): 33/197 kB | 27/172 kB | 19/301 kBProgress (3): 33/197 kB | 27/172 kB | 20/301 kBProgress (3): 34/197 kB | 27/172 kB | 20/301 kBProgress (3): 36/197 kB | 27/172 kB | 20/301 kBProgress (3): 37/197 kB | 27/172 kB | 20/301 kBProgress (3): 37/197 kB | 28/172 kB | 20/301 kBProgress (3): 38/197 kB | 28/172 kB | 20/301 kBProgress (3): 38/197 kB | 30/172 kB | 20/301 kBProgress (3): 40/197 kB | 30/172 kB | 20/301 kBProgress (3): 40/197 kB | 31/172 kB | 20/301 kBProgress (3): 41/197 kB | 31/172 kB | 20/301 kBProgress (3): 41/197 kB | 32/172 kB | 20/301 kBProgress (3): 41/197 kB | 34/172 kB | 20/301 kBProgress (3): 41/197 kB | 35/172 kB | 20/301 kBProgress (3): 41/197 kB | 37/172 kB | 20/301 kBProgress (3): 42/197 kB | 37/172 kB | 20/301 kBProgress (3): 42/197 kB | 38/172 kB | 20/301 kBProgress (3): 42/197 kB | 39/172 kB | 20/301 kBProgress (3): 44/197 kB | 39/172 kB | 20/301 kBProgress (3): 44/197 kB | 41/172 kB | 20/301 kBProgress (3): 45/197 kB | 41/172 kB | 20/301 kBProgress (3): 45/197 kB | 42/172 kB | 20/301 kBProgress (3): 47/197 kB | 42/172 kB | 20/301 kBProgress (3): 47/197 kB | 43/172 kB | 20/301 kBProgress (3): 48/197 kB | 43/172 kB | 20/301 kBProgress (3): 48/197 kB | 45/172 kB | 20/301 kBProgress (3): 48/197 kB | 46/172 kB | 20/301 kBProgress (3): 49/197 kB | 46/172 kB | 20/301 kBProgress (3): 49/197 kB | 47/172 kB | 20/301 kBProgress (3): 51/197 kB | 47/172 kB | 20/301 kBProgress (3): 51/197 kB | 49/172 kB | 20/301 kBProgress (3): 55/197 kB | 49/172 kB | 20/301 kBProgress (3): 59/197 kB | 49/172 kB | 20/301 kBProgress (3): 59/197 kB | 49/172 kB | 21/301 kBProgress (3): 59/197 kB | 49/172 kB | 23/301 kBProgress (3): 59/197 kB | 49/172 kB | 24/301 kBProgress (3): 59/197 kB | 49/172 kB | 26/301 kBProgress (3): 63/197 kB | 49/172 kB | 26/301 kBProgress (3): 63/197 kB | 49/172 kB | 27/301 kBProgress (3): 63/197 kB | 49/172 kB | 28/301 kBProgress (3): 68/197 kB | 49/172 kB | 28/301 kBProgress (3): 68/197 kB | 49/172 kB | 30/301 kBProgress (3): 68/197 kB | 53/172 kB | 30/301 kBProgress (3): 68/197 kB | 53/172 kB | 31/301 kBProgress (3): 72/197 kB | 53/172 kB | 31/301 kBProgress (3): 72/197 kB | 53/172 kB | 32/301 kBProgress (3): 72/197 kB | 57/172 kB | 32/301 kBProgress (3): 72/197 kB | 57/172 kB | 37/301 kBProgress (3): 76/197 kB | 57/172 kB | 37/301 kBProgress (3): 80/197 kB | 57/172 kB | 37/301 kBProgress (3): 84/197 kB | 57/172 kB | 37/301 kBProgress (3): 89/197 kB | 57/172 kB | 37/301 kBProgress (3): 93/197 kB | 57/172 kB | 37/301 kBProgress (3): 93/197 kB | 57/172 kB | 41/301 kBProgress (3): 93/197 kB | 57/172 kB | 45/301 kBProgress (3): 93/197 kB | 57/172 kB | 49/301 kBProgress (3): 93/197 kB | 62/172 kB | 49/301 kBProgress (3): 93/197 kB | 66/172 kB | 49/301 kBProgress (3): 93/197 kB | 66/172 kB | 54/301 kBProgress (3): 93/197 kB | 70/172 kB | 54/301 kBProgress (3): 93/197 kB | 70/172 kB | 58/301 kBProgress (3): 93/197 kB | 74/172 kB | 58/301 kBProgress (3): 93/197 kB | 74/172 kB | 62/301 kBProgress (3): 93/197 kB | 78/172 kB | 62/301 kBProgress (3): 93/197 kB | 83/172 kB | 62/301 kBProgress (3): 93/197 kB | 83/172 kB | 66/301 kBProgress (3): 93/197 kB | 87/172 kB | 66/301 kBProgress (3): 93/197 kB | 91/172 kB | 66/301 kBProgress (3): 93/197 kB | 95/172 kB | 66/301 kBProgress (3): 93/197 kB | 100/172 kB | 66/301 kBProgress (3): 97/197 kB | 100/172 kB | 66/301 kBProgress (3): 97/197 kB | 104/172 kB | 66/301 kBProgress (3): 101/197 kB | 104/172 kB | 66/301 kBProgress (3): 101/197 kB | 108/172 kB | 66/301 kBProgress (3): 101/197 kB | 112/172 kB | 66/301 kBProgress (3): 106/197 kB | 112/172 kB | 66/301 kBProgress (3): 106/197 kB | 116/172 kB | 66/301 kBProgress (3): 110/197 kB | 116/172 kB | 66/301 kBProgress (3): 110/197 kB | 121/172 kB | 66/301 kBProgress (3): 110/197 kB | 125/172 kB | 66/301 kBProgress (3): 110/197 kB | 125/172 kB | 70/301 kBProgress (3): 110/197 kB | 125/172 kB | 75/301 kBProgress (3): 110/197 kB | 125/172 kB | 79/301 kBProgress (3): 110/197 kB | 125/172 kB | 83/301 kBProgress (3): 110/197 kB | 125/172 kB | 87/301 kBProgress (3): 110/197 kB | 125/172 kB | 92/301 kBProgress (3): 110/197 kB | 125/172 kB | 96/301 kBProgress (3): 110/197 kB | 125/172 kB | 100/301 kBProgress (3): 114/197 kB | 125/172 kB | 100/301 kBProgress (3): 114/197 kB | 129/172 kB | 100/301 kBProgress (3): 118/197 kB | 129/172 kB | 100/301 kBProgress (3): 118/197 kB | 131/172 kB | 100/301 kBProgress (3): 123/197 kB | 131/172 kB | 100/301 kBProgress (3): 123/197 kB | 135/172 kB | 100/301 kBProgress (3): 123/197 kB | 139/172 kB | 100/301 kBProgress (3): 127/197 kB | 139/172 kB | 100/301 kBProgress (3): 127/197 kB | 143/172 kB | 100/301 kBProgress (3): 127/197 kB | 148/172 kB | 100/301 kBProgress (3): 131/197 kB | 148/172 kB | 100/301 kBProgress (3): 131/197 kB | 152/172 kB | 100/301 kBProgress (3): 135/197 kB | 152/172 kB | 100/301 kBProgress (3): 135/197 kB | 156/172 kB | 100/301 kBProgress (3): 139/197 kB | 156/172 kB | 100/301 kBProgress (3): 139/197 kB | 160/172 kB | 100/301 kBProgress (3): 143/197 kB | 160/172 kB | 100/301 kBProgress (3): 143/197 kB | 164/172 kB | 100/301 kBProgress (3): 143/197 kB | 164/172 kB | 104/301 kBProgress (3): 143/197 kB | 164/172 kB | 109/301 kBProgress (3): 143/197 kB | 164/172 kB | 113/301 kBProgress (3): 143/197 kB | 164/172 kB | 117/301 kBProgress (3): 143/197 kB | 164/172 kB | 121/301 kBProgress (3): 143/197 kB | 164/172 kB | 125/301 kBProgress (3): 143/197 kB | 164/172 kB | 130/301 kBProgress (3): 148/197 kB | 164/172 kB | 130/301 kBProgress (3): 148/197 kB | 169/172 kB | 130/301 kBProgress (3): 152/197 kB | 169/172 kB | 130/301 kBProgress (3): 152/197 kB | 172 kB | 130/301 kB    Progress (3): 156/197 kB | 172 kB | 130/301 kBProgress (3): 160/197 kB | 172 kB | 130/301 kBProgress (3): 160/197 kB | 172 kB | 134/301 kBProgress (3): 160/197 kB | 172 kB | 138/301 kBProgress (3): 160/197 kB | 172 kB | 142/301 kBProgress (3): 160/197 kB | 172 kB | 147/301 kBProgress (3): 160/197 kB | 172 kB | 151/301 kBProgress (4): 160/197 kB | 172 kB | 151/301 kB | 0.9/120 kBProgress (4): 160/197 kB | 172 kB | 151/301 kB | 2.3/120 kBProgress (4): 160/197 kB | 172 kB | 155/301 kB | 2.3/120 kBProgress (4): 160/197 kB | 172 kB | 155/301 kB | 3.7/120 kBProgress (4): 160/197 kB | 172 kB | 159/301 kB | 3.7/120 kBProgress (4): 160/197 kB | 172 kB | 159/301 kB | 5.0/120 kBProgress (4): 160/197 kB | 172 kB | 159/301 kB | 6.4/120 kBProgress (4): 160/197 kB | 172 kB | 164/301 kB | 6.4/120 kBProgress (4): 160/197 kB | 172 kB | 164/301 kB | 7.8/120 kBProgress (4): 160/197 kB | 172 kB | 168/301 kB | 7.8/120 kBProgress (4): 160/197 kB | 172 kB | 168/301 kB | 9.1/120 kBProgress (4): 160/197 kB | 172 kB | 172/301 kB | 9.1/120 kBProgress (4): 160/197 kB | 172 kB | 172/301 kB | 11/120 kB Progress (4): 160/197 kB | 172 kB | 172/301 kB | 12/120 kBProgress (4): 160/197 kB | 172 kB | 176/301 kB | 12/120 kBProgress (4): 160/197 kB | 172 kB | 176/301 kB | 13/120 kBProgress (4): 160/197 kB | 172 kB | 180/301 kB | 13/120 kBProgress (4): 160/197 kB | 172 kB | 180/301 kB | 15/120 kBProgress (4): 160/197 kB | 172 kB | 185/301 kB | 15/120 kBProgress (4): 160/197 kB | 172 kB | 185/301 kB | 16/120 kBProgress (4): 160/197 kB | 172 kB | 189/301 kB | 16/120 kBProgress (4): 160/197 kB | 172 kB | 189/301 kB | 17/120 kBProgress (4): 160/197 kB | 172 kB | 193/301 kB | 17/120 kBProgress (4): 160/197 kB | 172 kB | 193/301 kB | 19/120 kBProgress (4): 160/197 kB | 172 kB | 193/301 kB | 20/120 kBProgress (4): 160/197 kB | 172 kB | 197/301 kB | 20/120 kBProgress (4): 160/197 kB | 172 kB | 197/301 kB | 21/120 kBProgress (4): 160/197 kB | 172 kB | 202/301 kB | 21/120 kBProgress (4): 160/197 kB | 172 kB | 202/301 kB | 23/120 kBProgress (4): 160/197 kB | 172 kB | 202/301 kB | 24/120 kBProgress (5): 160/197 kB | 172 kB | 202/301 kB | 24/120 kB | 0.9/223 kBProgress (5): 160/197 kB | 172 kB | 202/301 kB | 24/120 kB | 2.3/223 kBProgress (5): 160/197 kB | 172 kB | 202/301 kB | 24/120 kB | 3.7/223 kBProgress (5): 160/197 kB | 172 kB | 202/301 kB | 24/120 kB | 5.0/223 kBProgress (5): 160/197 kB | 172 kB | 202/301 kB | 24/120 kB | 6.4/223 kBProgress (5): 165/197 kB | 172 kB | 202/301 kB | 24/120 kB | 6.4/223 kBProgress (5): 169/197 kB | 172 kB | 202/301 kB | 24/120 kB | 6.4/223 kBProgress (5): 173/197 kB | 172 kB | 202/301 kB | 24/120 kB | 6.4/223 kBProgress (5): 177/197 kB | 172 kB | 202/301 kB | 24/120 kB | 6.4/223 kB                                                                       Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-test-autoconfigure/2.1.2.RELEASE/spring-boot-test-autoconfigure-2.1.2.RELEASE.jar (172 kB at 1.2 MB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar
-Progress (4): 182/197 kB | 202/301 kB | 24/120 kB | 6.4/223 kBProgress (4): 186/197 kB | 202/301 kB | 24/120 kB | 6.4/223 kBProgress (4): 190/197 kB | 202/301 kB | 24/120 kB | 6.4/223 kBProgress (4): 194/197 kB | 202/301 kB | 24/120 kB | 6.4/223 kBProgress (4): 197 kB | 202/301 kB | 24/120 kB | 6.4/223 kB    Progress (4): 197 kB | 202/301 kB | 24/120 kB | 7.8/223 kBProgress (4): 197 kB | 202/301 kB | 24/120 kB | 9.1/223 kBProgress (4): 197 kB | 202/301 kB | 24/120 kB | 11/223 kB Progress (4): 197 kB | 202/301 kB | 24/120 kB | 12/223 kBProgress (4): 197 kB | 202/301 kB | 24/120 kB | 13/223 kBProgress (4): 197 kB | 202/301 kB | 24/120 kB | 15/223 kBProgress (4): 197 kB | 202/301 kB | 24/120 kB | 16/223 kBProgress (4): 197 kB | 202/301 kB | 24/120 kB | 17/223 kBProgress (4): 197 kB | 202/301 kB | 24/120 kB | 19/223 kBProgress (4): 197 kB | 202/301 kB | 24/120 kB | 20/223 kBProgress (4): 197 kB | 218/301 kB | 24/120 kB | 20/223 kBProgress (4): 197 kB | 218/301 kB | 24/120 kB | 21/223 kBProgress (4): 197 kB | 218/301 kB | 24/120 kB | 23/223 kBProgress (4): 197 kB | 218/301 kB | 24/120 kB | 24/223 kBProgress (4): 197 kB | 218/301 kB | 24/120 kB | 26/223 kBProgress (4): 197 kB | 234/301 kB | 24/120 kB | 26/223 kBProgress (4): 197 kB | 234/301 kB | 24/120 kB | 27/223 kBProgress (4): 197 kB | 234/301 kB | 26/120 kB | 27/223 kBProgress (4): 197 kB | 251/301 kB | 26/120 kB | 27/223 kBProgress (4): 197 kB | 251/301 kB | 27/120 kB | 27/223 kBProgress (4): 197 kB | 251/301 kB | 28/120 kB | 27/223 kBProgress (4): 197 kB | 267/301 kB | 28/120 kB | 27/223 kBProgress (4): 197 kB | 267/301 kB | 30/120 kB | 27/223 kBProgress (4): 197 kB | 267/301 kB | 31/120 kB | 27/223 kBProgress (4): 197 kB | 267/301 kB | 32/120 kB | 27/223 kBProgress (4): 197 kB | 283/301 kB | 32/120 kB | 27/223 kBProgress (4): 197 kB | 283/301 kB | 34/120 kB | 27/223 kBProgress (4): 197 kB | 283/301 kB | 35/120 kB | 27/223 kBProgress (4): 197 kB | 283/301 kB | 37/120 kB | 27/223 kBProgress (4): 197 kB | 283/301 kB | 38/120 kB | 27/223 kBProgress (4): 197 kB | 300/301 kB | 38/120 kB | 27/223 kBProgress (4): 197 kB | 301 kB | 38/120 kB | 27/223 kB                                                         Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-test/2.1.2.RELEASE/spring-boot-test-2.1.2.RELEASE.jar (197 kB at 1.3 MB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar
-Progress (3): 301 kB | 38/120 kB | 28/223 kBProgress (3): 301 kB | 38/120 kB | 30/223 kBProgress (3): 301 kB | 38/120 kB | 31/223 kBProgress (3): 301 kB | 38/120 kB | 32/223 kBProgress (3): 301 kB | 38/120 kB | 34/223 kBProgress (3): 301 kB | 38/120 kB | 35/223 kBProgress (3): 301 kB | 38/120 kB | 37/223 kBProgress (3): 301 kB | 38/120 kB | 38/223 kBProgress (3): 301 kB | 38/120 kB | 39/223 kBProgress (3): 301 kB | 38/120 kB | 41/223 kBProgress (3): 301 kB | 38/120 kB | 42/223 kBProgress (3): 301 kB | 38/120 kB | 43/223 kBProgress (3): 301 kB | 38/120 kB | 45/223 kBProgress (3): 301 kB | 38/120 kB | 46/223 kBProgress (3): 301 kB | 38/120 kB | 47/223 kBProgress (3): 301 kB | 38/120 kB | 49/223 kB                                            Downloaded from central: https://repo.maven.apache.org/maven2/org/yaml/snakeyaml/1.23/snakeyaml-1.23.jar (301 kB at 2.0 MB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/junit/junit/4.12/junit-4.12.jar
-Progress (2): 39/120 kB | 49/223 kBProgress (2): 41/120 kB | 49/223 kBProgress (2): 42/120 kB | 49/223 kBProgress (2): 43/120 kB | 49/223 kBProgress (2): 45/120 kB | 49/223 kBProgress (2): 49/120 kB | 49/223 kBProgress (2): 53/120 kB | 49/223 kBProgress (2): 53/120 kB | 50/223 kBProgress (2): 53/120 kB | 52/223 kBProgress (2): 53/120 kB | 53/223 kBProgress (2): 53/120 kB | 54/223 kBProgress (2): 53/120 kB | 56/223 kBProgress (2): 53/120 kB | 60/223 kBProgress (2): 53/120 kB | 64/223 kBProgress (2): 53/120 kB | 68/223 kBProgress (2): 53/120 kB | 73/223 kBProgress (2): 53/120 kB | 77/223 kBProgress (2): 53/120 kB | 81/223 kBProgress (2): 57/120 kB | 81/223 kBProgress (2): 62/120 kB | 81/223 kBProgress (2): 66/120 kB | 81/223 kBProgress (2): 70/120 kB | 81/223 kBProgress (2): 74/120 kB | 81/223 kBProgress (2): 79/120 kB | 81/223 kBProgress (2): 83/120 kB | 81/223 kBProgress (2): 87/120 kB | 81/223 kBProgress (2): 91/120 kB | 81/223 kBProgress (2): 95/120 kB | 81/223 kBProgress (2): 95/120 kB | 85/223 kBProgress (2): 95/120 kB | 90/223 kBProgress (2): 100/120 kB | 90/223 kBProgress (2): 104/120 kB | 90/223 kBProgress (2): 108/120 kB | 90/223 kBProgress (2): 112/120 kB | 90/223 kBProgress (2): 117/120 kB | 90/223 kBProgress (2): 120 kB | 90/223 kB                                    Downloaded from central: https://repo.maven.apache.org/maven2/net/minidev/json-smart/2.3/json-smart-2.3.jar (120 kB at 781 kB/s)
-Progress (1): 94/223 kBProgress (1): 98/223 kBProgress (1): 102/223 kBProgress (1): 106/223 kBProgress (1): 111/223 kBProgress (1): 115/223 kBProgress (1): 119/223 kBProgress (1): 123/223 kB                        Downloading from central: https://repo.maven.apache.org/maven2/org/mockito/mockito-core/2.23.4/mockito-core-2.23.4.jar
-Progress (2): 123/223 kB | 3.8/30 kBProgress (2): 123/223 kB | 8.0/30 kBProgress (2): 123/223 kB | 12/30 kB Progress (2): 123/223 kB | 16/30 kBProgress (2): 123/223 kB | 21/30 kBProgress (2): 123/223 kB | 25/30 kBProgress (2): 123/223 kB | 29/30 kBProgress (2): 123/223 kB | 30 kB                                   Downloaded from central: https://repo.maven.apache.org/maven2/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar (30 kB at 195 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/net/bytebuddy/byte-buddy-agent/1.9.7/byte-buddy-agent-1.9.7.jar
-Progress (1): 128/223 kBProgress (1): 132/223 kBProgress (1): 136/223 kBProgress (1): 140/223 kBProgress (1): 144/223 kBProgress (1): 149/223 kBProgress (1): 153/223 kBProgress (1): 157/223 kBProgress (1): 161/223 kBProgress (1): 166/223 kBProgress (1): 170/223 kBProgress (1): 174/223 kBProgress (1): 178/223 kBProgress (1): 183/223 kBProgress (1): 187/223 kBProgress (1): 191/223 kBProgress (1): 195/223 kBProgress (1): 199/223 kBProgress (1): 204/223 kBProgress (1): 208/223 kBProgress (1): 212/223 kBProgress (1): 216/223 kBProgress (1): 221/223 kBProgress (1): 223 kB                        Downloaded from central: https://repo.maven.apache.org/maven2/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar (223 kB at 1.3 MB/s)
-Progress (1): 3.8/315 kBProgress (1): 8.0/315 kBProgress (2): 8.0/315 kB | 7.7/53 kBProgress (2): 12/315 kB | 7.7/53 kB Progress (2): 12/315 kB | 16/53 kB Progress (2): 16/315 kB | 16/53 kBProgress (2): 21/315 kB | 16/53 kBProgress (2): 21/315 kB | 32/53 kBProgress (2): 37/315 kB | 32/53 kBProgress (2): 37/315 kB | 49/53 kBProgress (2): 53/315 kB | 49/53 kBProgress (2): 53/315 kB | 53 kB                                  Downloading from central: https://repo.maven.apache.org/maven2/org/objenesis/objenesis/2.6/objenesis-2.6.jar
-Downloaded from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar (53 kB at 321 kB/s)
-Progress (1): 70/315 kB                       Downloading from central: https://repo.maven.apache.org/maven2/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar
-Progress (1): 86/315 kBProgress (1): 103/315 kBProgress (1): 119/315 kBProgress (1): 135/315 kBProgress (1): 152/315 kBProgress (1): 168/315 kBProgress (2): 168/315 kB | 3.8/565 kBProgress (2): 185/315 kB | 3.8/565 kBProgress (2): 185/315 kB | 8.0/565 kBProgress (2): 185/315 kB | 12/565 kB Progress (2): 201/315 kB | 12/565 kBProgress (2): 201/315 kB | 16/565 kBProgress (2): 201/315 kB | 21/565 kBProgress (2): 217/315 kB | 21/565 kBProgress (2): 217/315 kB | 25/565 kBProgress (2): 217/315 kB | 29/565 kBProgress (2): 217/315 kB | 33/565 kBProgress (2): 234/315 kB | 33/565 kBProgress (2): 250/315 kB | 33/565 kBProgress (2): 266/315 kB | 33/565 kBProgress (2): 283/315 kB | 33/565 kBProgress (2): 283/315 kB | 38/565 kBProgress (2): 299/315 kB | 38/565 kBProgress (2): 299/315 kB | 42/565 kBProgress (2): 299/315 kB | 46/565 kBProgress (2): 315 kB | 46/565 kB    Progress (2): 315 kB | 50/565 kBProgress (2): 315 kB | 55/565 kBProgress (2): 315 kB | 59/565 kBProgress (3): 315 kB | 59/565 kB | 3.8/43 kBProgress (3): 315 kB | 63/565 kB | 3.8/43 kBProgress (3): 315 kB | 67/565 kB | 3.8/43 kBProgress (3): 315 kB | 71/565 kB | 3.8/43 kBProgress (3): 315 kB | 76/565 kB | 3.8/43 kB                                            Downloaded from central: https://repo.maven.apache.org/maven2/junit/junit/4.12/junit-4.12.jar (315 kB at 1.7 MB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3.jar
-Progress (2): 76/565 kB | 8.0/43 kBProgress (2): 80/565 kB | 8.0/43 kBProgress (2): 84/565 kB | 8.0/43 kBProgress (2): 88/565 kB | 8.0/43 kBProgress (2): 93/565 kB | 8.0/43 kBProgress (2): 93/565 kB | 24/43 kB Progress (2): 93/565 kB | 41/43 kBProgress (2): 93/565 kB | 43 kB                                  Downloaded from central: https://repo.maven.apache.org/maven2/net/bytebuddy/byte-buddy-agent/1.9.7/byte-buddy-agent-1.9.7.jar (43 kB at 233 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/skyscreamer/jsonassert/1.5.0/jsonassert-1.5.0.jar
-Progress (1): 109/565 kBProgress (1): 125/565 kBProgress (1): 142/565 kBProgress (1): 158/565 kBProgress (1): 175/565 kBProgress (1): 191/565 kBProgress (1): 207/565 kBProgress (1): 224/565 kBProgress (1): 240/565 kBProgress (1): 256/565 kBProgress (1): 273/565 kBProgress (1): 289/565 kBProgress (1): 306/565 kBProgress (1): 322/565 kBProgress (2): 322/565 kB | 7.7/56 kBProgress (2): 322/565 kB | 8.2/56 kBProgress (2): 322/565 kB | 25/56 kB Progress (2): 338/565 kB | 25/56 kBProgress (2): 338/565 kB | 41/56 kBProgress (2): 338/565 kB | 56 kB   Progress (2): 355/565 kB | 56 kBProgress (2): 371/565 kB | 56 kB                                Downloaded from central: https://repo.maven.apache.org/maven2/org/objenesis/objenesis/2.6/objenesis-2.6.jar (56 kB at 276 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar
-Progress (1): 388/565 kBProgress (1): 404/565 kBProgress (1): 420/565 kBProgress (1): 437/565 kBProgress (2): 437/565 kB | 3.4/45 kBProgress (2): 453/565 kB | 3.4/45 kBProgress (2): 469/565 kB | 3.4/45 kBProgress (2): 469/565 kB | 20/45 kB Progress (2): 486/565 kB | 20/45 kBProgress (2): 486/565 kB | 36/45 kBProgress (2): 486/565 kB | 45 kB   Progress (2): 502/565 kB | 45 kBProgress (2): 519/565 kB | 45 kBProgress (2): 535/565 kB | 45 kBProgress (3): 535/565 kB | 45 kB | 7.7/53 kBProgress (3): 535/565 kB | 45 kB | 16/53 kB Progress (3): 551/565 kB | 45 kB | 16/53 kBProgress (3): 551/565 kB | 45 kB | 32/53 kBProgress (3): 551/565 kB | 45 kB | 49/53 kBProgress (3): 551/565 kB | 45 kB | 53 kB   Progress (3): 565 kB | 45 kB | 53 kB                                        Downloaded from central: https://repo.maven.apache.org/maven2/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar (45 kB at 209 kB/s)
-Downloaded from central: https://repo.maven.apache.org/maven2/org/mockito/mockito-core/2.23.4/mockito-core-2.23.4.jar (565 kB at 2.6 MB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/spring-test/5.1.4.RELEASE/spring-test-5.1.4.RELEASE.jar
-Downloading from central: https://repo.maven.apache.org/maven2/org/xmlunit/xmlunit-core/2.6.2/xmlunit-core-2.6.2.jar
-Downloaded from central: https://repo.maven.apache.org/maven2/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3.jar (53 kB at 245 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/com/h2database/h2/1.4.197/h2-1.4.197.jar
-Progress (1): 7.7/30 kBProgress (1): 16/30 kB Progress (1): 24/30 kBProgress (1): 30 kB                      Downloaded from central: https://repo.maven.apache.org/maven2/org/skyscreamer/jsonassert/1.5.0/jsonassert-1.5.0.jar (30 kB at 136 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/it/ozimov/embedded-redis/0.7.2/embedded-redis-0.7.2.jar
-Progress (1): 7.7/18 kBProgress (1): 12/18 kB Progress (1): 18 kB                      Downloaded from central: https://repo.maven.apache.org/maven2/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar (18 kB at 74 kB/s)
-Progress (1): 7.7/168 kBProgress (1): 16/168 kB Progress (2): 16/168 kB | 0/1.9 MBProgress (2): 32/168 kB | 0/1.9 MBProgress (2): 32/168 kB | 0/1.9 MBProgress (2): 32/168 kB | 0/1.9 MBProgress (2): 49/168 kB | 0/1.9 MBProgress (2): 49/168 kB | 0/1.9 MBProgress (2): 65/168 kB | 0/1.9 MBProgress (2): 65/168 kB | 0.1/1.9 MBProgress (2): 81/168 kB | 0.1/1.9 MBProgress (2): 81/168 kB | 0.1/1.9 MBProgress (2): 98/168 kB | 0.1/1.9 MBProgress (2): 98/168 kB | 0.1/1.9 MBProgress (2): 114/168 kB | 0.1/1.9 MBProgress (2): 114/168 kB | 0.1/1.9 MBProgress (2): 131/168 kB | 0.1/1.9 MBProgress (2): 131/168 kB | 0.1/1.9 MBProgress (2): 131/168 kB | 0.1/1.9 MBProgress (2): 147/168 kB | 0.1/1.9 MBProgress (2): 147/168 kB | 0.1/1.9 MBProgress (2): 163/168 kB | 0.1/1.9 MBProgress (2): 168 kB | 0.1/1.9 MB    Progress (2): 168 kB | 0.2/1.9 MBProgress (2): 168 kB | 0.2/1.9 MB                                 Downloaded from central: https://repo.maven.apache.org/maven2/org/xmlunit/xmlunit-core/2.6.2/xmlunit-core-2.6.2.jar (168 kB at 643 kB/s)
-Progress (1): 0.2/1.9 MBProgress (1): 0.2/1.9 MBProgress (1): 0.2/1.9 MBProgress (2): 0.2/1.9 MB | 0/3.9 MBProgress (2): 0.2/1.9 MB | 0/3.9 MBProgress (2): 0.2/1.9 MB | 0/3.9 MBProgress (2): 0.3/1.9 MB | 0/3.9 MBProgress (2): 0.3/1.9 MB | 0/3.9 MBProgress (2): 0.3/1.9 MB | 0/3.9 MBProgress (2): 0.3/1.9 MB | 0/3.9 MBProgress (2): 0.3/1.9 MB | 0/3.9 MBProgress (2): 0.3/1.9 MB | 0/3.9 MBProgress (2): 0.3/1.9 MB | 0/3.9 MBProgress (2): 0.3/1.9 MB | 0.1/3.9 MBProgress (2): 0.3/1.9 MB | 0.1/3.9 MBProgress (2): 0.4/1.9 MB | 0.1/3.9 MBProgress (2): 0.4/1.9 MB | 0.1/3.9 MBProgress (2): 0.4/1.9 MB | 0.1/3.9 MBProgress (2): 0.4/1.9 MB | 0.1/3.9 MBProgress (2): 0.4/1.9 MB | 0.1/3.9 MBProgress (2): 0.4/1.9 MB | 0.1/3.9 MBProgress (2): 0.4/1.9 MB | 0.1/3.9 MBProgress (2): 0.5/1.9 MB | 0.1/3.9 MBProgress (2): 0.5/1.9 MB | 0.1/3.9 MBProgress (2): 0.5/1.9 MB | 0.1/3.9 MBProgress (2): 0.5/1.9 MB | 0.1/3.9 MBProgress (2): 0.5/1.9 MB | 0.1/3.9 MBProgress (2): 0.5/1.9 MB | 0.1/3.9 MBProgress (2): 0.5/1.9 MB | 0.1/3.9 MBProgress (2): 0.6/1.9 MB | 0.1/3.9 MBProgress (2): 0.6/1.9 MB | 0.1/3.9 MBProgress (2): 0.6/1.9 MB | 0.1/3.9 MBProgress (2): 0.6/1.9 MB | 0.1/3.9 MBProgress (2): 0.6/1.9 MB | 0.1/3.9 MBProgress (2): 0.6/1.9 MB | 0.1/3.9 MBProgress (3): 0.6/1.9 MB | 0.1/3.9 MB | 7.7/619 kBProgress (3): 0.6/1.9 MB | 0.1/3.9 MB | 7.7/619 kBProgress (3): 0.6/1.9 MB | 0.1/3.9 MB | 16/619 kB Progress (3): 0.6/1.9 MB | 0.1/3.9 MB | 16/619 kBProgress (3): 0.6/1.9 MB | 0.1/3.9 MB | 32/619 kBProgress (3): 0.7/1.9 MB | 0.1/3.9 MB | 32/619 kBProgress (3): 0.7/1.9 MB | 0.1/3.9 MB | 32/619 kBProgress (3): 0.7/1.9 MB | 0.1/3.9 MB | 32/619 kBProgress (3): 0.7/1.9 MB | 0.1/3.9 MB | 49/619 kBProgress (3): 0.7/1.9 MB | 0.2/3.9 MB | 49/619 kBProgress (3): 0.7/1.9 MB | 0.2/3.9 MB | 49/619 kBProgress (3): 0.7/1.9 MB | 0.2/3.9 MB | 65/619 kBProgress (3): 0.7/1.9 MB | 0.2/3.9 MB | 65/619 kBProgress (3): 0.7/1.9 MB | 0.2/3.9 MB | 65/619 kBProgress (3): 0.7/1.9 MB | 0.2/3.9 MB | 65/619 kBProgress (3): 0.7/1.9 MB | 0.2/3.9 MB | 65/619 kBProgress (3): 0.7/1.9 MB | 0.2/3.9 MB | 65/619 kBProgress (3): 0.7/1.9 MB | 0.2/3.9 MB | 65/619 kBProgress (3): 0.7/1.9 MB | 0.3/3.9 MB | 65/619 kBProgress (3): 0.7/1.9 MB | 0.3/3.9 MB | 65/619 kBProgress (3): 0.7/1.9 MB | 0.3/3.9 MB | 65/619 kBProgress (3): 0.7/1.9 MB | 0.3/3.9 MB | 65/619 kBProgress (3): 0.7/1.9 MB | 0.3/3.9 MB | 65/619 kBProgress (3): 0.7/1.9 MB | 0.3/3.9 MB | 65/619 kBProgress (3): 0.8/1.9 MB | 0.3/3.9 MB | 65/619 kBProgress (3): 0.8/1.9 MB | 0.3/3.9 MB | 65/619 kBProgress (3): 0.8/1.9 MB | 0.3/3.9 MB | 65/619 kBProgress (3): 0.8/1.9 MB | 0.3/3.9 MB | 65/619 kBProgress (3): 0.8/1.9 MB | 0.3/3.9 MB | 65/619 kBProgress (3): 0.8/1.9 MB | 0.4/3.9 MB | 65/619 kBProgress (3): 0.8/1.9 MB | 0.4/3.9 MB | 65/619 kBProgress (3): 0.8/1.9 MB | 0.4/3.9 MB | 65/619 kBProgress (3): 0.8/1.9 MB | 0.4/3.9 MB | 81/619 kBProgress (3): 0.8/1.9 MB | 0.4/3.9 MB | 81/619 kBProgress (3): 0.8/1.9 MB | 0.4/3.9 MB | 98/619 kBProgress (3): 0.8/1.9 MB | 0.4/3.9 MB | 98/619 kBProgress (3): 0.8/1.9 MB | 0.4/3.9 MB | 114/619 kBProgress (3): 0.8/1.9 MB | 0.4/3.9 MB | 114/619 kBProgress (3): 0.8/1.9 MB | 0.4/3.9 MB | 131/619 kBProgress (3): 0.8/1.9 MB | 0.5/3.9 MB | 131/619 kBProgress (3): 0.8/1.9 MB | 0.5/3.9 MB | 147/619 kBProgress (3): 0.8/1.9 MB | 0.5/3.9 MB | 147/619 kBProgress (3): 0.8/1.9 MB | 0.5/3.9 MB | 163/619 kBProgress (3): 0.8/1.9 MB | 0.5/3.9 MB | 163/619 kBProgress (3): 0.8/1.9 MB | 0.5/3.9 MB | 163/619 kBProgress (3): 0.8/1.9 MB | 0.5/3.9 MB | 163/619 kBProgress (3): 0.8/1.9 MB | 0.5/3.9 MB | 163/619 kBProgress (3): 0.8/1.9 MB | 0.6/3.9 MB | 163/619 kBProgress (3): 0.8/1.9 MB | 0.6/3.9 MB | 163/619 kBProgress (3): 0.8/1.9 MB | 0.6/3.9 MB | 163/619 kBProgress (3): 0.8/1.9 MB | 0.6/3.9 MB | 163/619 kBProgress (3): 0.8/1.9 MB | 0.6/3.9 MB | 163/619 kBProgress (3): 0.8/1.9 MB | 0.6/3.9 MB | 180/619 kBProgress (3): 0.8/1.9 MB | 0.6/3.9 MB | 180/619 kBProgress (3): 0.8/1.9 MB | 0.6/3.9 MB | 180/619 kBProgress (3): 0.8/1.9 MB | 0.6/3.9 MB | 180/619 kBProgress (3): 0.8/1.9 MB | 0.6/3.9 MB | 180/619 kBProgress (3): 0.8/1.9 MB | 0.7/3.9 MB | 180/619 kBProgress (3): 0.8/1.9 MB | 0.7/3.9 MB | 180/619 kBProgress (3): 0.8/1.9 MB | 0.7/3.9 MB | 196/619 kBProgress (3): 0.8/1.9 MB | 0.7/3.9 MB | 196/619 kBProgress (3): 0.8/1.9 MB | 0.7/3.9 MB | 213/619 kBProgress (3): 0.8/1.9 MB | 0.7/3.9 MB | 213/619 kBProgress (3): 0.8/1.9 MB | 0.7/3.9 MB | 229/619 kBProgress (3): 0.8/1.9 MB | 0.7/3.9 MB | 229/619 kBProgress (3): 0.8/1.9 MB | 0.7/3.9 MB | 245/619 kBProgress (3): 0.8/1.9 MB | 0.7/3.9 MB | 245/619 kBProgress (3): 0.9/1.9 MB | 0.7/3.9 MB | 245/619 kBProgress (3): 0.9/1.9 MB | 0.8/3.9 MB | 245/619 kBProgress (3): 0.9/1.9 MB | 0.8/3.9 MB | 245/619 kBProgress (3): 0.9/1.9 MB | 0.8/3.9 MB | 245/619 kBProgress (3): 0.9/1.9 MB | 0.8/3.9 MB | 245/619 kBProgress (3): 0.9/1.9 MB | 0.8/3.9 MB | 245/619 kBProgress (3): 0.9/1.9 MB | 0.8/3.9 MB | 245/619 kBProgress (3): 0.9/1.9 MB | 0.8/3.9 MB | 262/619 kBProgress (3): 0.9/1.9 MB | 0.8/3.9 MB | 262/619 kBProgress (3): 0.9/1.9 MB | 0.8/3.9 MB | 262/619 kBProgress (3): 0.9/1.9 MB | 0.8/3.9 MB | 278/619 kBProgress (3): 0.9/1.9 MB | 0.9/3.9 MB | 278/619 kBProgress (3): 0.9/1.9 MB | 0.9/3.9 MB | 294/619 kBProgress (3): 0.9/1.9 MB | 0.9/3.9 MB | 294/619 kBProgress (3): 0.9/1.9 MB | 0.9/3.9 MB | 311/619 kBProgress (3): 0.9/1.9 MB | 0.9/3.9 MB | 311/619 kBProgress (3): 0.9/1.9 MB | 0.9/3.9 MB | 311/619 kBProgress (3): 0.9/1.9 MB | 0.9/3.9 MB | 311/619 kBProgress (3): 0.9/1.9 MB | 0.9/3.9 MB | 311/619 kBProgress (3): 0.9/1.9 MB | 0.9/3.9 MB | 311/619 kBProgress (3): 0.9/1.9 MB | 0.9/3.9 MB | 311/619 kBProgress (3): 0.9/1.9 MB | 0.9/3.9 MB | 311/619 kBProgress (3): 1.0/1.9 MB | 0.9/3.9 MB | 311/619 kBProgress (3): 1.0/1.9 MB | 0.9/3.9 MB | 327/619 kBProgress (3): 1.0/1.9 MB | 0.9/3.9 MB | 327/619 kBProgress (3): 1.0/1.9 MB | 1.0/3.9 MB | 327/619 kBProgress (3): 1.0/1.9 MB | 1.0/3.9 MB | 327/619 kBProgress (3): 1.0/1.9 MB | 1.0/3.9 MB | 344/619 kBProgress (3): 1.0/1.9 MB | 1.0/3.9 MB | 344/619 kBProgress (3): 1.0/1.9 MB | 1.0/3.9 MB | 360/619 kBProgress (3): 1.0/1.9 MB | 1.0/3.9 MB | 360/619 kBProgress (3): 1.0/1.9 MB | 1.0/3.9 MB | 360/619 kBProgress (3): 1.0/1.9 MB | 1.0/3.9 MB | 360/619 kBProgress (3): 1.0/1.9 MB | 1.0/3.9 MB | 376/619 kBProgress (3): 1.0/1.9 MB | 1.0/3.9 MB | 393/619 kBProgress (3): 1.0/1.9 MB | 1.0/3.9 MB | 393/619 kBProgress (3): 1.0/1.9 MB | 1.0/3.9 MB | 393/619 kBProgress (3): 1.0/1.9 MB | 1.0/3.9 MB | 393/619 kBProgress (3): 1.0/1.9 MB | 1.0/3.9 MB | 393/619 kBProgress (3): 1.0/1.9 MB | 1.0/3.9 MB | 393/619 kBProgress (3): 1.1/1.9 MB | 1.0/3.9 MB | 393/619 kBProgress (3): 1.1/1.9 MB | 1.0/3.9 MB | 393/619 kBProgress (3): 1.1/1.9 MB | 1.0/3.9 MB | 393/619 kBProgress (3): 1.1/1.9 MB | 1.0/3.9 MB | 393/619 kBProgress (3): 1.1/1.9 MB | 1.0/3.9 MB | 409/619 kBProgress (3): 1.1/1.9 MB | 1.0/3.9 MB | 409/619 kBProgress (3): 1.1/1.9 MB | 1.0/3.9 MB | 409/619 kBProgress (3): 1.1/1.9 MB | 1.0/3.9 MB | 426/619 kBProgress (3): 1.2/1.9 MB | 1.0/3.9 MB | 426/619 kBProgress (3): 1.2/1.9 MB | 1.0/3.9 MB | 442/619 kBProgress (3): 1.2/1.9 MB | 1.0/3.9 MB | 442/619 kBProgress (3): 1.2/1.9 MB | 1.1/3.9 MB | 442/619 kBProgress (3): 1.2/1.9 MB | 1.1/3.9 MB | 442/619 kBProgress (3): 1.2/1.9 MB | 1.1/3.9 MB | 442/619 kBProgress (3): 1.2/1.9 MB | 1.1/3.9 MB | 458/619 kBProgress (3): 1.2/1.9 MB | 1.1/3.9 MB | 458/619 kBProgress (3): 1.2/1.9 MB | 1.1/3.9 MB | 458/619 kBProgress (3): 1.2/1.9 MB | 1.1/3.9 MB | 458/619 kBProgress (3): 1.2/1.9 MB | 1.1/3.9 MB | 475/619 kBProgress (3): 1.2/1.9 MB | 1.1/3.9 MB | 475/619 kBProgress (3): 1.2/1.9 MB | 1.1/3.9 MB | 475/619 kBProgress (3): 1.2/1.9 MB | 1.1/3.9 MB | 491/619 kBProgress (3): 1.3/1.9 MB | 1.1/3.9 MB | 491/619 kBProgress (3): 1.3/1.9 MB | 1.1/3.9 MB | 491/619 kBProgress (3): 1.3/1.9 MB | 1.1/3.9 MB | 507/619 kBProgress (3): 1.3/1.9 MB | 1.1/3.9 MB | 507/619 kBProgress (3): 1.3/1.9 MB | 1.1/3.9 MB | 524/619 kBProgress (3): 1.3/1.9 MB | 1.1/3.9 MB | 524/619 kBProgress (3): 1.3/1.9 MB | 1.2/3.9 MB | 524/619 kBProgress (3): 1.3/1.9 MB | 1.2/3.9 MB | 540/619 kBProgress (3): 1.3/1.9 MB | 1.2/3.9 MB | 540/619 kBProgress (3): 1.3/1.9 MB | 1.2/3.9 MB | 540/619 kBProgress (3): 1.3/1.9 MB | 1.2/3.9 MB | 540/619 kBProgress (3): 1.3/1.9 MB | 1.2/3.9 MB | 557/619 kBProgress (3): 1.3/1.9 MB | 1.2/3.9 MB | 557/619 kBProgress (3): 1.3/1.9 MB | 1.2/3.9 MB | 557/619 kBProgress (3): 1.3/1.9 MB | 1.2/3.9 MB | 557/619 kBProgress (3): 1.3/1.9 MB | 1.2/3.9 MB | 557/619 kBProgress (3): 1.3/1.9 MB | 1.2/3.9 MB | 573/619 kBProgress (3): 1.3/1.9 MB | 1.2/3.9 MB | 573/619 kBProgress (3): 1.3/1.9 MB | 1.2/3.9 MB | 573/619 kBProgress (3): 1.4/1.9 MB | 1.2/3.9 MB | 573/619 kBProgress (3): 1.4/1.9 MB | 1.2/3.9 MB | 589/619 kBProgress (3): 1.4/1.9 MB | 1.2/3.9 MB | 589/619 kBProgress (3): 1.4/1.9 MB | 1.2/3.9 MB | 589/619 kBProgress (3): 1.4/1.9 MB | 1.2/3.9 MB | 606/619 kBProgress (3): 1.4/1.9 MB | 1.3/3.9 MB | 606/619 kBProgress (3): 1.4/1.9 MB | 1.3/3.9 MB | 606/619 kBProgress (3): 1.4/1.9 MB | 1.3/3.9 MB | 619 kB    Progress (3): 1.4/1.9 MB | 1.3/3.9 MB | 619 kBProgress (3): 1.4/1.9 MB | 1.3/3.9 MB | 619 kBProgress (3): 1.4/1.9 MB | 1.3/3.9 MB | 619 kBProgress (3): 1.4/1.9 MB | 1.3/3.9 MB | 619 kBProgress (3): 1.4/1.9 MB | 1.3/3.9 MB | 619 kBProgress (3): 1.4/1.9 MB | 1.3/3.9 MB | 619 kB                                              Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/spring-test/5.1.4.RELEASE/spring-test-5.1.4.RELEASE.jar (619 kB at 1.7 MB/s)
-Progress (2): 1.4/1.9 MB | 1.3/3.9 MBProgress (2): 1.5/1.9 MB | 1.3/3.9 MBProgress (2): 1.5/1.9 MB | 1.3/3.9 MBProgress (2): 1.5/1.9 MB | 1.3/3.9 MBProgress (2): 1.5/1.9 MB | 1.4/3.9 MBProgress (2): 1.5/1.9 MB | 1.4/3.9 MBProgress (2): 1.5/1.9 MB | 1.4/3.9 MBProgress (2): 1.5/1.9 MB | 1.4/3.9 MBProgress (2): 1.5/1.9 MB | 1.4/3.9 MBProgress (2): 1.5/1.9 MB | 1.4/3.9 MBProgress (2): 1.5/1.9 MB | 1.4/3.9 MBProgress (2): 1.5/1.9 MB | 1.4/3.9 MBProgress (2): 1.5/1.9 MB | 1.4/3.9 MBProgress (2): 1.6/1.9 MB | 1.4/3.9 MBProgress (2): 1.6/1.9 MB | 1.4/3.9 MBProgress (2): 1.6/1.9 MB | 1.4/3.9 MBProgress (2): 1.6/1.9 MB | 1.5/3.9 MBProgress (2): 1.6/1.9 MB | 1.5/3.9 MBProgress (2): 1.6/1.9 MB | 1.5/3.9 MBProgress (2): 1.6/1.9 MB | 1.5/3.9 MBProgress (2): 1.6/1.9 MB | 1.5/3.9 MBProgress (2): 1.6/1.9 MB | 1.5/3.9 MBProgress (2): 1.6/1.9 MB | 1.5/3.9 MBProgress (2): 1.6/1.9 MB | 1.5/3.9 MBProgress (2): 1.7/1.9 MB | 1.5/3.9 MBProgress (2): 1.7/1.9 MB | 1.5/3.9 MBProgress (2): 1.7/1.9 MB | 1.5/3.9 MBProgress (2): 1.7/1.9 MB | 1.5/3.9 MBProgress (2): 1.7/1.9 MB | 1.5/3.9 MBProgress (2): 1.7/1.9 MB | 1.6/3.9 MBProgress (2): 1.7/1.9 MB | 1.6/3.9 MBProgress (2): 1.7/1.9 MB | 1.6/3.9 MBProgress (2): 1.7/1.9 MB | 1.6/3.9 MBProgress (2): 1.7/1.9 MB | 1.6/3.9 MBProgress (2): 1.7/1.9 MB | 1.6/3.9 MBProgress (2): 1.7/1.9 MB | 1.6/3.9 MBProgress (2): 1.7/1.9 MB | 1.6/3.9 MBProgress (2): 1.8/1.9 MB | 1.6/3.9 MBProgress (2): 1.8/1.9 MB | 1.6/3.9 MBProgress (2): 1.8/1.9 MB | 1.6/3.9 MBProgress (2): 1.8/1.9 MB | 1.6/3.9 MBProgress (2): 1.8/1.9 MB | 1.6/3.9 MBProgress (2): 1.8/1.9 MB | 1.6/3.9 MBProgress (2): 1.8/1.9 MB | 1.7/3.9 MBProgress (2): 1.8/1.9 MB | 1.7/3.9 MBProgress (2): 1.8/1.9 MB | 1.7/3.9 MBProgress (2): 1.8/1.9 MB | 1.7/3.9 MBProgress (2): 1.8/1.9 MB | 1.7/3.9 MBProgress (2): 1.9/1.9 MB | 1.7/3.9 MBProgress (2): 1.9/1.9 MB | 1.7/3.9 MBProgress (2): 1.9/1.9 MB | 1.7/3.9 MBProgress (2): 1.9/1.9 MB | 1.7/3.9 MBProgress (2): 1.9/1.9 MB | 1.7/3.9 MBProgress (2): 1.9/1.9 MB | 1.7/3.9 MBProgress (2): 1.9/1.9 MB | 1.7/3.9 MBProgress (2): 1.9 MB | 1.7/3.9 MB    Progress (2): 1.9 MB | 1.8/3.9 MB                                 Downloaded from central: https://repo.maven.apache.org/maven2/com/h2database/h2/1.4.197/h2-1.4.197.jar (1.9 MB at 5.1 MB/s)
-Progress (1): 1.8/3.9 MBProgress (1): 1.8/3.9 MBProgress (1): 1.8/3.9 MBProgress (1): 1.8/3.9 MBProgress (1): 1.8/3.9 MBProgress (1): 1.9/3.9 MBProgress (1): 1.9/3.9 MBProgress (1): 1.9/3.9 MBProgress (1): 1.9/3.9 MBProgress (1): 1.9/3.9 MBProgress (1): 1.9/3.9 MBProgress (1): 1.9/3.9 MBProgress (1): 2.0/3.9 MBProgress (1): 2.0/3.9 MBProgress (1): 2.0/3.9 MBProgress (1): 2.0/3.9 MBProgress (1): 2.0/3.9 MBProgress (1): 2.0/3.9 MBProgress (1): 2.1/3.9 MBProgress (1): 2.1/3.9 MBProgress (1): 2.1/3.9 MBProgress (1): 2.1/3.9 MBProgress (1): 2.1/3.9 MBProgress (1): 2.1/3.9 MBProgress (1): 2.2/3.9 MBProgress (1): 2.2/3.9 MBProgress (1): 2.2/3.9 MBProgress (1): 2.2/3.9 MBProgress (1): 2.2/3.9 MBProgress (1): 2.2/3.9 MBProgress (1): 2.3/3.9 MBProgress (1): 2.3/3.9 MBProgress (1): 2.3/3.9 MBProgress (1): 2.3/3.9 MBProgress (1): 2.3/3.9 MBProgress (1): 2.3/3.9 MBProgress (1): 2.4/3.9 MBProgress (1): 2.4/3.9 MBProgress (1): 2.4/3.9 MBProgress (1): 2.4/3.9 MBProgress (1): 2.4/3.9 MBProgress (1): 2.4/3.9 MBProgress (1): 2.5/3.9 MBProgress (1): 2.5/3.9 MBProgress (1): 2.5/3.9 MBProgress (1): 2.5/3.9 MBProgress (1): 2.5/3.9 MBProgress (1): 2.5/3.9 MBProgress (1): 2.6/3.9 MBProgress (1): 2.6/3.9 MBProgress (1): 2.6/3.9 MBProgress (1): 2.6/3.9 MBProgress (1): 2.6/3.9 MBProgress (1): 2.6/3.9 MBProgress (1): 2.7/3.9 MBProgress (1): 2.7/3.9 MBProgress (1): 2.7/3.9 MBProgress (1): 2.7/3.9 MBProgress (1): 2.7/3.9 MBProgress (1): 2.7/3.9 MBProgress (1): 2.8/3.9 MBProgress (1): 2.8/3.9 MBProgress (1): 2.8/3.9 MBProgress (1): 2.8/3.9 MBProgress (1): 2.8/3.9 MBProgress (1): 2.8/3.9 MBProgress (1): 2.9/3.9 MBProgress (1): 2.9/3.9 MBProgress (1): 2.9/3.9 MBProgress (1): 2.9/3.9 MBProgress (1): 2.9/3.9 MBProgress (1): 2.9/3.9 MBProgress (1): 2.9/3.9 MBProgress (1): 3.0/3.9 MBProgress (1): 3.0/3.9 MBProgress (1): 3.0/3.9 MBProgress (1): 3.0/3.9 MBProgress (1): 3.0/3.9 MBProgress (1): 3.0/3.9 MBProgress (1): 3.1/3.9 MBProgress (1): 3.1/3.9 MBProgress (1): 3.1/3.9 MBProgress (1): 3.1/3.9 MBProgress (1): 3.1/3.9 MBProgress (1): 3.1/3.9 MBProgress (1): 3.2/3.9 MBProgress (1): 3.2/3.9 MBProgress (1): 3.2/3.9 MBProgress (1): 3.2/3.9 MBProgress (1): 3.2/3.9 MBProgress (1): 3.2/3.9 MBProgress (1): 3.3/3.9 MBProgress (1): 3.3/3.9 MBProgress (1): 3.3/3.9 MBProgress (1): 3.3/3.9 MBProgress (1): 3.3/3.9 MBProgress (1): 3.3/3.9 MBProgress (1): 3.4/3.9 MBProgress (1): 3.4/3.9 MBProgress (1): 3.4/3.9 MBProgress (1): 3.4/3.9 MBProgress (1): 3.4/3.9 MBProgress (1): 3.4/3.9 MBProgress (1): 3.5/3.9 MBProgress (1): 3.5/3.9 MBProgress (1): 3.5/3.9 MBProgress (1): 3.5/3.9 MBProgress (1): 3.5/3.9 MBProgress (1): 3.5/3.9 MBProgress (1): 3.6/3.9 MBProgress (1): 3.6/3.9 MBProgress (1): 3.6/3.9 MBProgress (1): 3.6/3.9 MBProgress (1): 3.6/3.9 MBProgress (1): 3.6/3.9 MBProgress (1): 3.7/3.9 MBProgress (1): 3.7/3.9 MBProgress (1): 3.7/3.9 MBProgress (1): 3.7/3.9 MBProgress (1): 3.7/3.9 MBProgress (1): 3.7/3.9 MBProgress (1): 3.8/3.9 MBProgress (1): 3.8/3.9 MBProgress (1): 3.8/3.9 MBProgress (1): 3.8/3.9 MBProgress (1): 3.8/3.9 MBProgress (1): 3.8/3.9 MBProgress (1): 3.8/3.9 MBProgress (1): 3.9/3.9 MBProgress (1): 3.9/3.9 MBProgress (1): 3.9/3.9 MBProgress (1): 3.9 MB                        Downloaded from central: https://repo.maven.apache.org/maven2/it/ozimov/embedded-redis/0.7.2/embedded-redis-0.7.2.jar (3.9 MB at 8.3 MB/s)
 [INFO]
 [INFO] --- resources:3.1.0:resources (default-resources) @ mooc-class ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
@@ -84,8 +15,7 @@ Progress (1): 1.8/3.9 MBProgress (1): 1.8/3.9 MBProgress (1): 1.8/3.9 MBProgr
 [INFO] Copying 2 resources
 [INFO]
 [INFO] --- compiler:3.8.0:compile (default-compile) @ mooc-class ---
-[INFO] Changes detected - recompiling the module!
-[INFO] Compiling 114 source files to /app/mooc-class/target/classes
+[INFO] Nothing to compile - all classes are up to date
 [INFO]
 [INFO] --- resources:3.1.0:testResources (default-testResources) @ mooc-class ---
 [INFO] Not copying test resources
@@ -97,278 +27,6 @@ Progress (1): 1.8/3.9 MBProgress (1): 1.8/3.9 MBProgress (1): 1.8/3.9 MBProgr
 [INFO]
 [INFO]
 [INFO] --- spring-boot:2.1.2.RELEASE:run (default-cli) @ mooc-class ---
-Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-loader-tools/2.1.2.RELEASE/spring-boot-loader-tools-2.1.2.RELEASE.pom
-Progress (1): 1.3 kBProgress (1): 2.7 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-loader-tools/2.1.2.RELEASE/spring-boot-loader-tools-2.1.2.RELEASE.pom (2.7 kB at 55 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.18/commons-compress-1.18.pom
-Progress (1): 764 BProgress (1): 1.9 kBProgress (1): 3.5 kBProgress (1): 7.0 kBProgress (1): 9.2 kBProgress (1): 12 kB Progress (1): 16 kBProgress (1): 18 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.18/commons-compress-1.18.pom (18 kB at 445 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/47/commons-parent-47.pom
-Progress (1): 704 BProgress (1): 1.9 kBProgress (1): 3.3 kBProgress (1): 5.0 kBProgress (1): 6.7 kBProgress (1): 8.3 kBProgress (1): 9.8 kBProgress (1): 12 kB Progress (1): 15 kBProgress (1): 18 kBProgress (1): 22 kBProgress (1): 26 kBProgress (1): 29 kBProgress (1): 32 kBProgress (1): 34 kBProgress (1): 34 kBProgress (1): 37 kBProgress (1): 41 kBProgress (1): 44 kBProgress (1): 46 kBProgress (1): 50 kBProgress (1): 55 kBProgress (1): 60 kBProgress (1): 64 kBProgress (1): 67 kBProgress (1): 69 kBProgress (1): 71 kBProgress (1): 73 kBProgress (1): 75 kBProgress (1): 77 kBProgress (1): 78 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/47/commons-parent-47.pom (78 kB at 1.8 MB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-archiver/3.2.0/maven-archiver-3.2.0.pom
-Progress (1): 799 BProgress (1): 2.3 kBProgress (1): 4.3 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-archiver/3.2.0/maven-archiver-3.2.0.pom (4.3 kB at 94 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.pom
-Progress (1): 815 B                   Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.pom (815 B at 19 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-containers/1.5.5/plexus-containers-1.5.5.pom
-Progress (1): 1.3 kBProgress (1): 4.2 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-containers/1.5.5/plexus-containers-1.5.5.pom (4.2 kB at 115 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-component-annotations/1.5.4/plexus-component-annotations-1.5.4.pom
-Progress (1): 815 B                   Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-component-annotations/1.5.4/plexus-component-annotations-1.5.4.pom (815 B at 22 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-containers/1.5.4/plexus-containers-1.5.4.pom
-Progress (1): 1.3 kBProgress (1): 4.2 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-containers/1.5.4/plexus-containers-1.5.4.pom (4.2 kB at 115 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/2.0.5/plexus-2.0.5.pom
-Progress (1): 712 BProgress (1): 2.8 kBProgress (1): 6.4 kBProgress (1): 9.1 kBProgress (1): 13 kB Progress (1): 17 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/2.0.5/plexus-2.0.5.pom (17 kB at 423 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-utils/3.2.0/maven-shared-utils-3.2.0.pom
-Progress (1): 802 BProgress (1): 2.3 kBProgress (1): 4.6 kBProgress (1): 4.9 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-utils/3.2.0/maven-shared-utils-3.2.0.pom (4.9 kB at 112 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/3.5/plexus-archiver-3.5.pom
-Progress (1): 1.3 kBProgress (1): 3.8 kBProgress (1): 4.8 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/3.5/plexus-archiver-3.5.pom (4.8 kB at 117 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/5.0/plexus-5.0.pom
-Progress (1): 702 BProgress (1): 2.7 kBProgress (1): 6.5 kBProgress (1): 9.1 kBProgress (1): 12 kB Progress (1): 16 kBProgress (1): 20 kBProgress (1): 21 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/5.0/plexus-5.0.pom (21 kB at 520 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-io/3.0.0/plexus-io-3.0.0.pom
-Progress (1): 1.4 kBProgress (1): 4.4 kBProgress (1): 4.5 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-io/3.0.0/plexus-io-3.0.0.pom (4.5 kB at 111 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.14/commons-compress-1.14.pom
-Progress (1): 771 BProgress (1): 2.0 kBProgress (1): 4.1 kBProgress (1): 6.4 kBProgress (1): 9.2 kBProgress (1): 12 kB Progress (1): 13 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.14/commons-compress-1.14.pom (13 kB at 337 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/42/commons-parent-42.pom
-Progress (1): 707 BProgress (1): 1.9 kBProgress (1): 3.1 kBProgress (1): 4.5 kBProgress (1): 5.9 kBProgress (1): 7.5 kBProgress (1): 11 kB Progress (1): 14 kBProgress (1): 17 kBProgress (1): 21 kBProgress (1): 24 kBProgress (1): 26 kBProgress (1): 29 kBProgress (1): 31 kBProgress (1): 34 kBProgress (1): 34 kBProgress (1): 38 kBProgress (1): 40 kBProgress (1): 44 kBProgress (1): 49 kBProgress (1): 53 kBProgress (1): 56 kBProgress (1): 59 kBProgress (1): 61 kBProgress (1): 63 kBProgress (1): 65 kBProgress (1): 66 kBProgress (1): 68 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/42/commons-parent-42.pom (68 kB at 1.6 MB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/iq80/snappy/snappy/0.4/snappy-0.4.pom
-Progress (1): 1.2 kBProgress (1): 3.7 kBProgress (1): 8.5 kBProgress (1): 12 kB Progress (1): 15 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/iq80/snappy/snappy/0.4/snappy-0.4.pom (15 kB at 393 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/tukaani/xz/1.6/xz-1.6.pom
-Progress (1): 1.1 kBProgress (1): 1.9 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/tukaani/xz/1.6/xz-1.6.pom (1.9 kB at 54 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact/3.3.9/maven-artifact-3.3.9.pom
-Progress (1): 852 BProgress (1): 2.1 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact/3.3.9/maven-artifact-3.3.9.pom (2.1 kB at 61 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven/3.3.9/maven-3.3.9.pom
-Progress (1): 735 BProgress (1): 1.9 kBProgress (1): 3.4 kBProgress (1): 5.3 kBProgress (1): 9.7 kBProgress (1): 15 kB Progress (1): 19 kBProgress (1): 21 kBProgress (1): 24 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven/3.3.9/maven-3.3.9.pom (24 kB at 614 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/27/maven-parent-27.pom
-Progress (1): 730 BProgress (1): 2.0 kBProgress (1): 5.9 kBProgress (1): 10 kB Progress (1): 15 kBProgress (1): 19 kBProgress (1): 23 kBProgress (1): 24 kBProgress (1): 27 kBProgress (1): 31 kBProgress (1): 34 kBProgress (1): 37 kBProgress (1): 41 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/27/maven-parent-27.pom (41 kB at 1.0 MB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/apache/17/apache-17.pom
-Progress (1): 749 BProgress (1): 2.1 kBProgress (1): 3.9 kBProgress (1): 8.1 kBProgress (1): 12 kB Progress (1): 15 kBProgress (1): 16 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/apache/17/apache-17.pom (16 kB at 434 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.pom
-Progress (1): 743 BProgress (1): 2.1 kBProgress (1): 5.4 kBProgress (1): 8.8 kBProgress (1): 12 kB Progress (1): 15 kBProgress (1): 16 kBProgress (1): 18 kBProgress (1): 21 kBProgress (1): 24 kBProgress (1): 27 kBProgress (1): 28 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.pom (28 kB at 734 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-core/3.3.9/maven-core-3.3.9.pom
-Progress (1): 794 BProgress (1): 3.1 kBProgress (1): 5.5 kBProgress (1): 8.3 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-core/3.3.9/maven-core-3.3.9.pom (8.3 kB at 218 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model/3.3.9/maven-model-3.3.9.pom
-Progress (1): 811 BProgress (1): 2.6 kBProgress (1): 4.0 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model/3.3.9/maven-model-3.3.9.pom (4.0 kB at 106 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-settings/3.3.9/maven-settings-3.3.9.pom
-Progress (1): 832 BProgress (1): 1.8 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-settings/3.3.9/maven-settings-3.3.9.pom (1.8 kB at 39 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-settings-builder/3.3.9/maven-settings-builder-3.3.9.pom
-Progress (1): 823 BProgress (1): 2.6 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-settings-builder/3.3.9/maven-settings-builder-3.3.9.pom (2.6 kB at 69 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-builder-support/3.3.9/maven-builder-support-3.3.9.pom
-Progress (1): 835 BProgress (1): 1.7 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-builder-support/3.3.9/maven-builder-support-3.3.9.pom (1.7 kB at 50 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-interpolation/1.21/plexus-interpolation-1.21.pom
-Progress (1): 1.3 kBProgress (1): 1.5 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-interpolation/1.21/plexus-interpolation-1.21.pom (1.5 kB at 44 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-component-annotations/1.6/plexus-component-annotations-1.6.pom
-Progress (1): 748 B                   Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-component-annotations/1.6/plexus-component-annotations-1.6.pom (748 B at 17 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-containers/1.6/plexus-containers-1.6.pom
-Progress (1): 1.2 kBProgress (1): 3.8 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-containers/1.6/plexus-containers-1.6.pom (3.8 kB at 114 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/3.3.2/plexus-3.3.2.pom
-Progress (1): 703 BProgress (1): 2.5 kBProgress (1): 6.2 kBProgress (1): 8.8 kBProgress (1): 11 kB Progress (1): 15 kBProgress (1): 20 kBProgress (1): 22 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/3.3.2/plexus-3.3.2.pom (22 kB at 633 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-repository-metadata/3.3.9/maven-repository-metadata-3.3.9.pom
-Progress (1): 831 BProgress (1): 1.9 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-repository-metadata/3.3.9/maven-repository-metadata-3.3.9.pom (1.9 kB at 54 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-api/3.3.9/maven-plugin-api-3.3.9.pom
-Progress (1): 821 BProgress (1): 2.7 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-api/3.3.9/maven-plugin-api-3.3.9.pom (2.7 kB at 73 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.plexus/0.3.2/org.eclipse.sisu.plexus-0.3.2.pom
-Progress (1): 904 BProgress (1): 3.1 kBProgress (1): 4.2 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.plexus/0.3.2/org.eclipse.sisu.plexus-0.3.2.pom (4.2 kB at 116 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/sisu-plexus/0.3.2/sisu-plexus-0.3.2.pom
-Progress (1): 861 BProgress (1): 2.9 kBProgress (1): 5.2 kBProgress (1): 9.8 kBProgress (1): 11 kB Progress (1): 14 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/sisu-plexus/0.3.2/sisu-plexus-0.3.2.pom (14 kB at 392 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/javax/enterprise/cdi-api/1.0/cdi-api-1.0.pom
-Progress (1): 1.4 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/javax/enterprise/cdi-api/1.0/cdi-api-1.0.pom (1.4 kB at 41 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/jboss/weld/weld-api-parent/1.0/weld-api-parent-1.0.pom
-Progress (1): 1.1 kBProgress (1): 2.4 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/jboss/weld/weld-api-parent/1.0/weld-api-parent-1.0.pom (2.4 kB at 59 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/jboss/weld/weld-api-bom/1.0/weld-api-bom-1.0.pom
-Progress (1): 987 BProgress (1): 3.4 kBProgress (1): 7.9 kBProgress (1): 7.9 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/jboss/weld/weld-api-bom/1.0/weld-api-bom-1.0.pom (7.9 kB at 226 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/jboss/weld/weld-parent/6/weld-parent-6.pom
-Progress (1): 1.1 kBProgress (1): 3.6 kBProgress (1): 7.1 kBProgress (1): 13 kB Progress (1): 17 kBProgress (1): 20 kBProgress (1): 21 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/jboss/weld/weld-parent/6/weld-parent-6.pom (21 kB at 505 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/javax/annotation/jsr250-api/1.0/jsr250-api-1.0.pom
-Progress (1): 1.0 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/javax/annotation/jsr250-api/1.0/jsr250-api-1.0.pom (1.0 kB at 29 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/javax/inject/javax.inject/1/javax.inject-1.pom
-Progress (1): 612 B                   Downloaded from central: https://repo.maven.apache.org/maven2/javax/inject/javax.inject/1/javax.inject-1.pom (612 B at 15 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.inject/0.3.2/org.eclipse.sisu.inject-0.3.2.pom
-Progress (1): 914 BProgress (1): 2.6 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.inject/0.3.2/org.eclipse.sisu.inject-0.3.2.pom (2.6 kB at 75 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/sisu-inject/0.3.2/sisu-inject-0.3.2.pom
-Progress (1): 860 BProgress (1): 2.8 kBProgress (1): 5.1 kBProgress (1): 9.6 kBProgress (1): 11 kB Progress (1): 14 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/sisu-inject/0.3.2/sisu-inject-0.3.2.pom (14 kB at 412 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-classworlds/2.5.2/plexus-classworlds-2.5.2.pom
-Progress (1): 943 BProgress (1): 3.1 kBProgress (1): 3.4 kBProgress (1): 6.3 kBProgress (1): 7.3 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-classworlds/2.5.2/plexus-classworlds-2.5.2.pom (7.3 kB at 209 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.0.17/plexus-utils-3.0.17.pom
-Progress (1): 817 BProgress (1): 2.3 kBProgress (1): 3.4 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.0.17/plexus-utils-3.0.17.pom (3.4 kB at 106 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model-builder/3.3.9/maven-model-builder-3.3.9.pom
-Progress (1): 836 BProgress (1): 3.1 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model-builder/3.3.9/maven-model-builder-3.3.9.pom (3.1 kB at 81 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/com/google/guava/guava/18.0/guava-18.0.pom
-Progress (1): 955 BProgress (1): 2.8 kBProgress (1): 5.0 kBProgress (1): 5.7 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/com/google/guava/guava/18.0/guava-18.0.pom (5.7 kB at 162 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/com/google/guava/guava-parent/18.0/guava-parent-18.0.pom
-Progress (1): 1.1 kBProgress (1): 3.0 kBProgress (1): 3.4 kBProgress (1): 6.5 kBProgress (1): 7.7 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/com/google/guava/guava-parent/18.0/guava-parent-18.0.pom (7.7 kB at 214 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-aether-provider/3.3.9/maven-aether-provider-3.3.9.pom
-Progress (1): 815 BProgress (1): 3.6 kBProgress (1): 4.0 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-aether-provider/3.3.9/maven-aether-provider-3.3.9.pom (4.0 kB at 130 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-api/1.0.2.v20150114/aether-api-1.0.2.v20150114.pom
-Progress (1): 922 BProgress (1): 1.8 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-api/1.0.2.v20150114/aether-api-1.0.2.v20150114.pom (1.8 kB at 5.1 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether/1.0.2.v20150114/aether-1.0.2.v20150114.pom
-Progress (1): 795 BProgress (1): 3.2 kBProgress (1): 5.1 kBProgress (1): 8.9 kBProgress (1): 12 kB Progress (1): 16 kBProgress (1): 19 kBProgress (1): 22 kBProgress (1): 27 kBProgress (1): 29 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether/1.0.2.v20150114/aether-1.0.2.v20150114.pom (29 kB at 815 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-spi/1.0.2.v20150114/aether-spi-1.0.2.v20150114.pom
-Progress (1): 916 BProgress (1): 2.0 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-spi/1.0.2.v20150114/aether-spi-1.0.2.v20150114.pom (2.0 kB at 52 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-util/1.0.2.v20150114/aether-util-1.0.2.v20150114.pom
-Progress (1): 918 BProgress (1): 2.1 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-util/1.0.2.v20150114/aether-util-1.0.2.v20150114.pom (2.1 kB at 59 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-impl/1.0.2.v20150114/aether-impl-1.0.2.v20150114.pom
-Progress (1): 921 BProgress (1): 3.4 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-impl/1.0.2.v20150114/aether-impl-1.0.2.v20150114.pom (3.4 kB at 73 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/com/google/inject/guice/4.0/guice-4.0.pom
-Progress (1): 1.6 kBProgress (1): 3.6 kBProgress (1): 6.3 kBProgress (1): 9.9 kBProgress (1): 11 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/com/google/inject/guice/4.0/guice-4.0.pom (11 kB at 280 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/com/google/inject/guice-parent/4.0/guice-parent-4.0.pom
-Progress (1): 796 BProgress (1): 2.8 kBProgress (1): 4.4 kBProgress (1): 7.1 kBProgress (1): 10 kB Progress (1): 12 kBProgress (1): 15 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/com/google/inject/guice-parent/4.0/guice-parent-4.0.pom (15 kB at 352 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/com/google/google/5/google-5.pom
-Progress (1): 1.2 kBProgress (1): 2.5 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/com/google/google/5/google-5.pom (2.5 kB at 77 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/aopalliance/aopalliance/1.0/aopalliance-1.0.pom
-Progress (1): 363 B                   Downloaded from central: https://repo.maven.apache.org/maven2/aopalliance/aopalliance/1.0/aopalliance-1.0.pom (363 B at 10 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/com/google/guava/guava/16.0.1/guava-16.0.1.pom
-Progress (1): 956 BProgress (1): 2.8 kBProgress (1): 5.3 kBProgress (1): 6.1 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/com/google/guava/guava/16.0.1/guava-16.0.1.pom (6.1 kB at 179 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/com/google/guava/guava-parent/16.0.1/guava-parent-16.0.1.pom
-Progress (1): 1.1 kBProgress (1): 2.9 kBProgress (1): 6.3 kBProgress (1): 7.3 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/com/google/guava/guava-parent/16.0.1/guava-parent-16.0.1.pom (7.3 kB at 222 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-common-artifact-filters/3.0.1/maven-common-artifact-filters-3.0.1.pom
-Progress (1): 807 BProgress (1): 2.3 kBProgress (1): 4.8 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-common-artifact-filters/3.0.1/maven-common-artifact-filters-3.0.1.pom (4.8 kB at 118 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-utils/3.1.0/maven-shared-utils-3.1.0.pom
-Progress (1): 802 BProgress (1): 2.3 kBProgress (1): 4.5 kBProgress (1): 5.0 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-utils/3.1.0/maven-shared-utils-3.1.0.pom (5.0 kB at 138 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/3.6.0/plexus-archiver-3.6.0.pom
-Progress (1): 1.3 kBProgress (1): 3.8 kBProgress (1): 4.8 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/3.6.0/plexus-archiver-3.6.0.pom (4.8 kB at 138 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-io/3.0.1/plexus-io-3.0.1.pom
-Progress (1): 1.4 kBProgress (1): 4.4 kBProgress (1): 4.5 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-io/3.0.1/plexus-io-3.0.1.pom (4.5 kB at 123 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/commons-io/commons-io/2.6/commons-io-2.6.pom
-Progress (1): 782 BProgress (1): 2.1 kBProgress (1): 5.3 kBProgress (1): 7.5 kBProgress (1): 9.5 kBProgress (1): 12 kB Progress (1): 14 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/commons-io/commons-io/2.6/commons-io-2.6.pom (14 kB at 446 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.16.1/commons-compress-1.16.1.pom
-Progress (1): 762 BProgress (1): 1.9 kBProgress (1): 4.2 kBProgress (1): 6.6 kBProgress (1): 9.3 kBProgress (1): 12 kB Progress (1): 15 kBProgress (1): 16 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.16.1/commons-compress-1.16.1.pom (16 kB at 447 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/43/commons-parent-43.pom
-Progress (1): 714 BProgress (1): 1.9 kBProgress (1): 3.3 kBProgress (1): 5.0 kBProgress (1): 6.3 kBProgress (1): 7.9 kBProgress (1): 11 kB Progress (1): 14 kBProgress (1): 17 kBProgress (1): 20 kBProgress (1): 24 kBProgress (1): 27 kBProgress (1): 29 kBProgress (1): 32 kBProgress (1): 34 kBProgress (1): 35 kBProgress (1): 38 kBProgress (1): 41 kBProgress (1): 45 kBProgress (1): 49 kBProgress (1): 54 kBProgress (1): 57 kBProgress (1): 60 kBProgress (1): 62 kBProgress (1): 64 kBProgress (1): 66 kBProgress (1): 68 kBProgress (1): 70 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/43/commons-parent-43.pom (70 kB at 1.8 MB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/tukaani/xz/1.8/xz-1.8.pom
-Progress (1): 1.1 kBProgress (1): 1.9 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/tukaani/xz/1.8/xz-1.8.pom (1.9 kB at 62 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-shade-plugin/3.2.1/maven-shade-plugin-3.2.1.pom
-Progress (1): 769 BProgress (1): 2.1 kBProgress (1): 5.3 kBProgress (1): 7.7 kBProgress (1): 9.3 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-shade-plugin/3.2.1/maven-shade-plugin-3.2.1.pom (9.3 kB at 283 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/33/maven-plugins-33.pom
-Progress (1): 758 BProgress (1): 2.3 kBProgress (1): 4.7 kBProgress (1): 7.6 kBProgress (1): 10.0 kBProgress (1): 11 kB                     Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/33/maven-plugins-33.pom (11 kB at 324 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/33/maven-parent-33.pom
-Progress (1): 717 BProgress (1): 1.9 kBProgress (1): 5.4 kBProgress (1): 9.9 kBProgress (1): 14 kB Progress (1): 19 kBProgress (1): 23 kBProgress (1): 26 kBProgress (1): 27 kBProgress (1): 30 kBProgress (1): 34 kBProgress (1): 36 kBProgress (1): 39 kBProgress (1): 44 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/33/maven-parent-33.pom (44 kB at 1.3 MB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-artifact-transfer/0.10.0/maven-artifact-transfer-0.10.0.pom
-Progress (1): 1.1 kBProgress (1): 3.4 kBProgress (1): 6.3 kBProgress (1): 11 kB Progress (1): 12 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-artifact-transfer/0.10.0/maven-artifact-transfer-0.10.0.pom (12 kB at 321 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-components/31/maven-shared-components-31.pom
-Progress (1): 798 BProgress (1): 2.3 kBProgress (1): 4.5 kBProgress (1): 5.1 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-components/31/maven-shared-components-31.pom (5.1 kB at 131 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.11/commons-codec-1.11.pom
-Progress (1): 752 BProgress (1): 2.0 kBProgress (1): 4.1 kBProgress (1): 6.5 kBProgress (1): 8.4 kBProgress (1): 11 kB Progress (1): 14 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.11/commons-codec-1.11.pom (14 kB at 377 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm/7.0/asm-7.0.pom
-Progress (1): 1.2 kBProgress (1): 2.9 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm/7.0/asm-7.0.pom (2.9 kB at 84 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-commons/7.0/asm-commons-7.0.pom
-Progress (1): 1.1 kBProgress (1): 3.7 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-commons/7.0/asm-commons-7.0.pom (3.7 kB at 105 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-tree/7.0/asm-tree-7.0.pom
-Progress (1): 1.2 kBProgress (1): 3.1 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-tree/7.0/asm-tree-7.0.pom (3.1 kB at 68 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-analysis/7.0/asm-analysis-7.0.pom
-Progress (1): 1.2 kBProgress (1): 3.2 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-analysis/7.0/asm-analysis-7.0.pom (3.2 kB at 90 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/jdom/jdom2/2.0.6/jdom2-2.0.6.pom
-Progress (1): 956 BProgress (1): 2.2 kBProgress (1): 3.2 kBProgress (1): 4.6 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/jdom/jdom2/2.0.6/jdom2-2.0.6.pom (4.6 kB at 121 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-tree/3.0.1/maven-dependency-tree-3.0.1.pom
-Progress (1): 783 BProgress (1): 2.3 kBProgress (1): 4.8 kBProgress (1): 7.3 kBProgress (1): 7.5 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-tree/3.0.1/maven-dependency-tree-3.0.1.pom (7.5 kB at 167 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-util/0.9.0.M2/aether-util-0.9.0.M2.pom
-Progress (1): 935 BProgress (1): 2.0 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-util/0.9.0.M2/aether-util-0.9.0.M2.pom (2.0 kB at 52 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether/0.9.0.M2/aether-0.9.0.M2.pom
-Progress (1): 807 BProgress (1): 3.2 kBProgress (1): 5.9 kBProgress (1): 9.8 kBProgress (1): 13 kB Progress (1): 17 kBProgress (1): 20 kBProgress (1): 24 kBProgress (1): 28 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether/0.9.0.M2/aether-0.9.0.M2.pom (28 kB at 820 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/vafer/jdependency/2.1.1/jdependency-2.1.1.pom
-Progress (1): 1.1 kBProgress (1): 3.4 kBProgress (1): 6.8 kBProgress (1): 11 kB Progress (1): 11 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/vafer/jdependency/2.1.1/jdependency-2.1.1.pom (11 kB at 322 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm/7.0-beta/asm-7.0-beta.pom
-Progress (1): 1.2 kBProgress (1): 2.9 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm/7.0-beta/asm-7.0-beta.pom (2.9 kB at 92 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-analysis/7.0-beta/asm-analysis-7.0-beta.pom
-Progress (1): 1.2 kBProgress (1): 3.2 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-analysis/7.0-beta/asm-analysis-7.0-beta.pom (3.2 kB at 106 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-tree/7.0-beta/asm-tree-7.0-beta.pom
-Progress (1): 1.2 kBProgress (1): 3.1 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-tree/7.0-beta/asm-tree-7.0-beta.pom (3.1 kB at 101 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-commons/7.0-beta/asm-commons-7.0-beta.pom
-Progress (1): 1.1 kBProgress (1): 3.7 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-commons/7.0-beta/asm-commons-7.0-beta.pom (3.7 kB at 112 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-util/7.0-beta/asm-util-7.0-beta.pom
-Progress (1): 1.2 kBProgress (1): 3.7 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-util/7.0-beta/asm-util-7.0-beta.pom (3.7 kB at 85 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/com/google/guava/guava/19.0/guava-19.0.pom
-Progress (1): 947 BProgress (1): 2.9 kBProgress (1): 5.2 kBProgress (1): 6.8 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/com/google/guava/guava/19.0/guava-19.0.pom (6.8 kB at 174 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/com/google/guava/guava-parent/19.0/guava-parent-19.0.pom
-Progress (1): 964 BProgress (1): 2.8 kBProgress (1): 6.1 kBProgress (1): 9.9 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/com/google/guava/guava-parent/19.0/guava-parent-19.0.pom (9.9 kB at 290 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-loader-tools/2.1.2.RELEASE/spring-boot-loader-tools-2.1.2.RELEASE.jar
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.18/commons-compress-1.18.jar
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-archiver/3.2.0/maven-archiver-3.2.0.jar
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-utils/3.2.0/maven-shared-utils-3.2.0.jar
-Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-interpolation/1.22/plexus-interpolation-1.22.jar
-Progress (1): 3.3/592 kBProgress (2): 3.3/592 kB | 7.7/149 kBProgress (2): 3.3/592 kB | 16/149 kB Progress (2): 20/592 kB | 16/149 kB Progress (2): 20/592 kB | 29/149 kBProgress (2): 36/592 kB | 29/149 kBProgress (2): 36/592 kB | 45/149 kBProgress (2): 52/592 kB | 45/149 kBProgress (2): 52/592 kB | 61/149 kBProgress (2): 61/592 kB | 61/149 kBProgress (2): 61/592 kB | 78/149 kBProgress (2): 77/592 kB | 78/149 kBProgress (2): 77/592 kB | 94/149 kBProgress (2): 93/592 kB | 94/149 kBProgress (2): 93/592 kB | 111/149 kBProgress (2): 110/592 kB | 111/149 kBProgress (3): 110/592 kB | 111/149 kB | 7.7/77 kBProgress (3): 110/592 kB | 111/149 kB | 16/77 kB Progress (3): 110/592 kB | 127/149 kB | 16/77 kBProgress (3): 110/592 kB | 131/149 kB | 16/77 kBProgress (3): 126/592 kB | 131/149 kB | 16/77 kBProgress (3): 126/592 kB | 147/149 kB | 16/77 kBProgress (3): 143/592 kB | 147/149 kB | 16/77 kBProgress (3): 143/592 kB | 147/149 kB | 32/77 kBProgress (3): 143/592 kB | 149 kB | 32/77 kB    Progress (3): 159/592 kB | 149 kB | 32/77 kBProgress (3): 159/592 kB | 149 kB | 49/77 kBProgress (3): 175/592 kB | 149 kB | 49/77 kB                                            Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-loader-tools/2.1.2.RELEASE/spring-boot-loader-tools-2.1.2.RELEASE.jar (149 kB at 3.8 MB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact/3.3.9/maven-artifact-3.3.9.jar
-Progress (2): 192/592 kB | 49/77 kBProgress (2): 192/592 kB | 57/77 kBProgress (2): 208/592 kB | 57/77 kBProgress (2): 225/592 kB | 57/77 kBProgress (2): 225/592 kB | 74/77 kBProgress (2): 225/592 kB | 77 kB   Progress (2): 241/592 kB | 77 kBProgress (3): 241/592 kB | 77 kB | 7.7/165 kBProgress (3): 241/592 kB | 77 kB | 16/165 kB Progress (3): 257/592 kB | 77 kB | 16/165 kBProgress (3): 257/592 kB | 77 kB | 32/165 kBProgress (3): 274/592 kB | 77 kB | 32/165 kB                                            Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-interpolation/1.22/plexus-interpolation-1.22.jar (77 kB at 1.8 MB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar
-Progress (2): 274/592 kB | 48/165 kBProgress (2): 290/592 kB | 48/165 kBProgress (2): 306/592 kB | 48/165 kBProgress (2): 306/592 kB | 65/165 kBProgress (2): 323/592 kB | 65/165 kBProgress (2): 323/592 kB | 81/165 kBProgress (2): 339/592 kB | 81/165 kBProgress (2): 339/592 kB | 98/165 kBProgress (2): 339/592 kB | 114/165 kBProgress (2): 356/592 kB | 114/165 kBProgress (2): 372/592 kB | 114/165 kBProgress (2): 372/592 kB | 130/165 kBProgress (2): 372/592 kB | 147/165 kBProgress (2): 388/592 kB | 147/165 kBProgress (3): 388/592 kB | 147/165 kB | 7.7/24 kBProgress (3): 388/592 kB | 147/165 kB | 16/24 kB Progress (3): 405/592 kB | 147/165 kB | 16/24 kBProgress (3): 405/592 kB | 163/165 kB | 16/24 kBProgress (3): 405/592 kB | 165 kB | 16/24 kB    Progress (3): 421/592 kB | 165 kB | 16/24 kBProgress (3): 421/592 kB | 165 kB | 24 kB   Progress (3): 438/592 kB | 165 kB | 24 kB                                         Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-utils/3.2.0/maven-shared-utils-3.2.0.jar (165 kB at 3.6 MB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-core/3.3.9/maven-core-3.3.9.jar
-Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-archiver/3.2.0/maven-archiver-3.2.0.jar (24 kB at 504 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-settings-builder/3.3.9/maven-settings-builder-3.3.9.jar
-Progress (1): 454/592 kBProgress (1): 470/592 kBProgress (1): 487/592 kBProgress (1): 503/592 kBProgress (1): 519/592 kBProgress (1): 528/592 kBProgress (1): 544/592 kBProgress (1): 561/592 kBProgress (1): 577/592 kBProgress (1): 592 kB                        Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.18/commons-compress-1.18.jar (592 kB at 11 MB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-builder-support/3.3.9/maven-builder-support-3.3.9.jar
-Progress (1): 7.7/55 kBProgress (1): 16/55 kB Progress (1): 32/55 kBProgress (1): 49/55 kBProgress (2): 49/55 kB | 7.7/502 kBProgress (2): 55 kB | 7.7/502 kB   Progress (2): 55 kB | 16/502 kB Progress (2): 55 kB | 32/502 kB                               Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact/3.3.9/maven-artifact-3.3.9.jar (55 kB at 775 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-repository-metadata/3.3.9/maven-repository-metadata-3.3.9.jar
-Progress (1): 49/502 kBProgress (1): 65/502 kBProgress (1): 81/502 kBProgress (1): 98/502 kBProgress (1): 114/502 kBProgress (1): 131/502 kBProgress (1): 147/502 kBProgress (1): 163/502 kBProgress (1): 180/502 kBProgress (1): 196/502 kBProgress (1): 213/502 kBProgress (1): 229/502 kBProgress (1): 245/502 kBProgress (1): 262/502 kBProgress (1): 278/502 kBProgress (1): 294/502 kBProgress (1): 311/502 kBProgress (1): 327/502 kBProgress (2): 327/502 kB | 7.7/15 kBProgress (2): 327/502 kB | 12/15 kB Progress (2): 344/502 kB | 12/15 kBProgress (2): 344/502 kB | 15 kB   Progress (2): 360/502 kB | 15 kBProgress (2): 376/502 kB | 15 kB                                Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-builder-support/3.3.9/maven-builder-support-3.3.9.jar (15 kB at 186 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model-builder/3.3.9/maven-model-builder-3.3.9.jar
-Progress (1): 393/502 kBProgress (1): 409/502 kBProgress (1): 426/502 kBProgress (1): 442/502 kBProgress (1): 458/502 kBProgress (1): 475/502 kBProgress (1): 491/502 kBProgress (1): 502 kB                        Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar (502 kB at 6.0 MB/s)
-Progress (1): 7.7/638 kB                        Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-aether-provider/3.3.9/maven-aether-provider-3.3.9.jar
-Progress (1): 16/638 kBProgress (1): 25/638 kBProgress (1): 41/638 kBProgress (1): 57/638 kBProgress (1): 74/638 kBProgress (2): 74/638 kB | 7.7/43 kBProgress (2): 74/638 kB | 12/43 kB Progress (2): 90/638 kB | 12/43 kBProgress (2): 90/638 kB | 28/43 kBProgress (2): 106/638 kB | 28/43 kBProgress (2): 106/638 kB | 43 kB   Progress (2): 123/638 kB | 43 kB                                Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-settings-builder/3.3.9/maven-settings-builder-3.3.9.jar (43 kB at 500 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-spi/1.0.2.v20150114/aether-spi-1.0.2.v20150114.jar
-Progress (1): 139/638 kBProgress (1): 156/638 kBProgress (1): 172/638 kBProgress (1): 180/638 kBProgress (1): 197/638 kBProgress (1): 213/638 kBProgress (1): 221/638 kBProgress (1): 238/638 kBProgress (1): 246/638 kBProgress (1): 262/638 kBProgress (1): 270/638 kBProgress (1): 279/638 kBProgress (1): 295/638 kBProgress (1): 311/638 kBProgress (1): 328/638 kBProgress (1): 344/638 kBProgress (1): 360/638 kBProgress (1): 377/638 kBProgress (1): 393/638 kBProgress (1): 410/638 kBProgress (1): 426/638 kBProgress (1): 442/638 kBProgress (1): 459/638 kBProgress (1): 475/638 kBProgress (1): 492/638 kBProgress (1): 508/638 kBProgress (1): 524/638 kBProgress (1): 541/638 kBProgress (1): 557/638 kBProgress (1): 573/638 kBProgress (1): 590/638 kBProgress (1): 606/638 kBProgress (1): 623/638 kBProgress (1): 638 kB                        Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-core/3.3.9/maven-core-3.3.9.jar (638 kB at 6.3 MB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-impl/1.0.2.v20150114/aether-impl-1.0.2.v20150114.jar
-Progress (1): 7.7/27 kBProgress (1): 16/27 kB Progress (1): 27 kB                      Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-repository-metadata/3.3.9/maven-repository-metadata-3.3.9.jar (27 kB at 260 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-api/1.0.2.v20150114/aether-api-1.0.2.v20150114.jar
-Progress (1): 7.7/177 kBProgress (1): 16/177 kB Progress (1): 32/177 kBProgress (1): 49/177 kBProgress (1): 65/177 kBProgress (1): 81/177 kBProgress (1): 98/177 kBProgress (1): 114/177 kBProgress (1): 131/177 kBProgress (1): 147/177 kBProgress (1): 163/177 kBProgress (1): 177 kB    Progress (2): 177 kB | 7.7/67 kB                                Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model-builder/3.3.9/maven-model-builder-3.3.9.jar (177 kB at 1.6 MB/s)
-Progress (1): 16/67 kB                      Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-util/1.0.2.v20150114/aether-util-1.0.2.v20150114.jar
-Progress (1): 32/67 kBProgress (1): 49/67 kBProgress (1): 65/67 kBProgress (1): 67 kB                      Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-aether-provider/3.3.9/maven-aether-provider-3.3.9.jar (67 kB at 571 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.plexus/0.3.2/org.eclipse.sisu.plexus-0.3.2.jar
-Progress (1): 7.7/31 kBProgress (1): 12/31 kB Progress (1): 28/31 kBProgress (1): 31 kB                      Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-spi/1.0.2.v20150114/aether-spi-1.0.2.v20150114.jar (31 kB at 244 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/javax/enterprise/cdi-api/1.0/cdi-api-1.0.jar
-Progress (1): 7.7/136 kBProgress (1): 16/136 kB Progress (1): 32/136 kBProgress (1): 49/136 kBProgress (1): 65/136 kBProgress (1): 81/136 kBProgress (1): 98/136 kBProgress (1): 114/136 kBProgress (1): 131/136 kBProgress (1): 136 kB                        Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-api/1.0.2.v20150114/aether-api-1.0.2.v20150114.jar (136 kB at 960 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/javax/annotation/jsr250-api/1.0/jsr250-api-1.0.jar
-Progress (1): 7.7/147 kBProgress (1): 16/147 kB Progress (1): 32/147 kBProgress (1): 49/147 kBProgress (2): 49/147 kB | 7.7/173 kBProgress (2): 49/147 kB | 16/173 kB Progress (2): 65/147 kB | 16/173 kBProgress (2): 81/147 kB | 16/173 kBProgress (2): 81/147 kB | 32/173 kBProgress (2): 98/147 kB | 32/173 kBProgress (2): 98/147 kB | 49/173 kBProgress (2): 114/147 kB | 49/173 kBProgress (3): 114/147 kB | 49/173 kB | 7.7/205 kBProgress (3): 114/147 kB | 49/173 kB | 16/205 kB Progress (3): 114/147 kB | 65/173 kB | 16/205 kBProgress (3): 131/147 kB | 65/173 kB | 16/205 kBProgress (3): 131/147 kB | 65/173 kB | 32/205 kBProgress (3): 131/147 kB | 81/173 kB | 32/205 kBProgress (3): 147 kB | 81/173 kB | 32/205 kB    Progress (3): 147 kB | 81/173 kB | 49/205 kBProgress (3): 147 kB | 98/173 kB | 49/205 kBProgress (3): 147 kB | 98/173 kB | 65/205 kBProgress (3): 147 kB | 114/173 kB | 65/205 kB                                             Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-util/1.0.2.v20150114/aether-util-1.0.2.v20150114.jar (147 kB at 966 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.inject/0.3.2/org.eclipse.sisu.inject-0.3.2.jar
-Progress (2): 131/173 kB | 65/205 kBProgress (2): 131/173 kB | 81/205 kBProgress (2): 131/173 kB | 98/205 kBProgress (2): 147/173 kB | 98/205 kBProgress (2): 163/173 kB | 98/205 kBProgress (2): 163/173 kB | 114/205 kBProgress (2): 173 kB | 114/205 kB    Progress (2): 173 kB | 131/205 kBProgress (2): 173 kB | 147/205 kB                                 Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-impl/1.0.2.v20150114/aether-impl-1.0.2.v20150114.jar (173 kB at 1.1 MB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/com/google/inject/guice/4.0/guice-4.0-no_aop.jar
-Progress (1): 163/205 kBProgress (1): 180/205 kBProgress (1): 196/205 kBProgress (1): 205 kB                        Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.plexus/0.3.2/org.eclipse.sisu.plexus-0.3.2.jar (205 kB at 1.3 MB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/javax/inject/javax.inject/1/javax.inject-1.jar
-Progress (1): 7.7/45 kBProgress (1): 12/45 kB Progress (1): 28/45 kBProgress (1): 44/45 kBProgress (1): 45 kB                      Downloaded from central: https://repo.maven.apache.org/maven2/javax/enterprise/cdi-api/1.0/cdi-api-1.0.jar (45 kB at 272 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/aopalliance/aopalliance/1.0/aopalliance-1.0.jar
-Progress (1): 5.8 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/javax/annotation/jsr250-api/1.0/jsr250-api-1.0.jar (5.8 kB at 33 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-classworlds/2.5.2/plexus-classworlds-2.5.2.jar
-Progress (1): 7.7/378 kBProgress (1): 12/378 kB Progress (1): 28/378 kBProgress (1): 44/378 kBProgress (1): 61/378 kBProgress (1): 77/378 kBProgress (1): 93/378 kBProgress (1): 110/378 kBProgress (2): 110/378 kB | 2.5 kBProgress (2): 126/378 kB | 2.5 kBProgress (2): 143/378 kB | 2.5 kB                                 Downloaded from central: https://repo.maven.apache.org/maven2/javax/inject/javax.inject/1/javax.inject-1.jar (2.5 kB at 13 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-component-annotations/1.6/plexus-component-annotations-1.6.jar
-Progress (1): 159/378 kBProgress (1): 175/378 kBProgress (1): 192/378 kBProgress (1): 208/378 kBProgress (1): 225/378 kBProgress (1): 241/378 kBProgress (1): 257/378 kBProgress (1): 274/378 kBProgress (1): 290/378 kBProgress (1): 306/378 kBProgress (1): 323/378 kBProgress (1): 339/378 kBProgress (1): 356/378 kBProgress (1): 372/378 kBProgress (1): 378 kB                        Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/sisu/org.eclipse.sisu.inject/0.3.2/org.eclipse.sisu.inject-0.3.2.jar (378 kB at 2.0 MB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model/3.3.9/maven-model-3.3.9.jar
-Progress (1): 7.7/424 kBProgress (1): 16/424 kB Progress (1): 32/424 kBProgress (1): 49/424 kBProgress (1): 65/424 kBProgress (1): 81/424 kBProgress (1): 98/424 kBProgress (1): 114/424 kBProgress (1): 131/424 kBProgress (1): 147/424 kBProgress (1): 163/424 kBProgress (1): 180/424 kBProgress (1): 196/424 kBProgress (1): 213/424 kBProgress (1): 229/424 kBProgress (1): 245/424 kBProgress (1): 262/424 kBProgress (1): 278/424 kBProgress (1): 294/424 kBProgress (1): 311/424 kBProgress (1): 327/424 kBProgress (1): 344/424 kBProgress (1): 360/424 kBProgress (2): 360/424 kB | 4.5 kBProgress (2): 376/424 kB | 4.5 kBProgress (2): 393/424 kB | 4.5 kB                                 Downloaded from central: https://repo.maven.apache.org/maven2/aopalliance/aopalliance/1.0/aopalliance-1.0.jar (4.5 kB at 22 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-api/3.3.9/maven-plugin-api-3.3.9.jar
-Progress (1): 409/424 kBProgress (1): 424 kB                        Downloaded from central: https://repo.maven.apache.org/maven2/com/google/inject/guice/4.0/guice-4.0-no_aop.jar (424 kB at 2.0 MB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-settings/3.3.9/maven-settings-3.3.9.jar
-Progress (1): 7.7/53 kBProgress (1): 16/53 kB Progress (1): 32/53 kBProgress (1): 49/53 kBProgress (1): 53 kB                      Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-classworlds/2.5.2/plexus-classworlds-2.5.2.jar (53 kB at 249 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-common-artifact-filters/3.0.1/maven-common-artifact-filters-3.0.1.jar
-Progress (1): 4.3 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-component-annotations/1.6/plexus-component-annotations-1.6.jar (4.3 kB at 20 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/3.6.0/plexus-archiver-3.6.0.jar
-Progress (1): 7.7/164 kBProgress (1): 16/164 kB Progress (1): 32/164 kBProgress (1): 49/164 kBProgress (1): 65/164 kBProgress (1): 81/164 kBProgress (1): 98/164 kBProgress (1): 114/164 kBProgress (1): 131/164 kBProgress (1): 147/164 kBProgress (1): 163/164 kBProgress (1): 164 kB                        Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model/3.3.9/maven-model-3.3.9.jar (164 kB at 722 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-io/3.0.1/plexus-io-3.0.1.jar
-Progress (1): 7.7/191 kBProgress (1): 16/191 kB Progress (1): 32/191 kBProgress (2): 32/191 kB | 7.7/47 kBProgress (2): 32/191 kB | 16/47 kB Progress (2): 49/191 kB | 16/47 kBProgress (2): 65/191 kB | 16/47 kBProgress (2): 65/191 kB | 32/47 kBProgress (3): 65/191 kB | 32/47 kB | 7.7/61 kBProgress (3): 81/191 kB | 32/47 kB | 7.7/61 kBProgress (3): 81/191 kB | 32/47 kB | 16/61 kB Progress (3): 81/191 kB | 47 kB | 16/61 kB   Progress (3): 81/191 kB | 47 kB | 25/61 kBProgress (3): 98/191 kB | 47 kB | 25/61 kBProgress (3): 98/191 kB | 47 kB | 41/61 kBProgress (3): 114/191 kB | 47 kB | 41/61 kBProgress (3): 114/191 kB | 47 kB | 57/61 kBProgress (3): 114/191 kB | 47 kB | 61 kB   Progress (3): 131/191 kB | 47 kB | 61 kBProgress (3): 147/191 kB | 47 kB | 61 kB                                        Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-common-artifact-filters/3.0.1/maven-common-artifact-filters-3.0.1.jar (61 kB at 243 kB/s)
-Progress (2): 163/191 kB | 47 kBProgress (2): 180/191 kB | 47 kBProgress (2): 191 kB | 47 kB    Progress (3): 191 kB | 47 kB | 7.7/44 kBProgress (3): 191 kB | 47 kB | 16/44 kB Progress (3): 191 kB | 47 kB | 32/44 kB                                       Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/3.6.0/plexus-archiver-3.6.0.jar (191 kB at 753 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/iq80/snappy/snappy/0.4/snappy-0.4.jar
-Progress (2): 47 kB | 44 kB                           Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-api/3.3.9/maven-plugin-api-3.3.9.jar (47 kB at 187 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/tukaani/xz/1.8/xz-1.8.jar
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-shade-plugin/3.2.1/maven-shade-plugin-3.2.1.jar
-Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-settings/3.3.9/maven-settings-3.3.9.jar (44 kB at 174 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-artifact-transfer/0.10.0/maven-artifact-transfer-0.10.0.jar
-Progress (1): 7.7/74 kBProgress (1): 16/74 kB Progress (1): 25/74 kBProgress (1): 41/74 kBProgress (1): 57/74 kBProgress (1): 74/74 kBProgress (1): 74 kB                      Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-io/3.0.1/plexus-io-3.0.1.jar (74 kB at 284 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.11/commons-codec-1.11.jar
-Progress (1): 7.7/109 kBProgress (1): 16/109 kB Progress (1): 25/109 kBProgress (1): 41/109 kBProgress (1): 57/109 kBProgress (1): 74/109 kBProgress (1): 90/109 kBProgress (1): 106/109 kBProgress (1): 109 kB                        Downloaded from central: https://repo.maven.apache.org/maven2/org/tukaani/xz/1.8/xz-1.8.jar (109 kB at 377 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm/7.0/asm-7.0.jar
-Progress (1): 7.7/114 kBProgress (1): 16/114 kB Progress (1): 32/114 kBProgress (1): 49/114 kBProgress (1): 65/114 kBProgress (2): 65/114 kB | 7.7/128 kBProgress (2): 65/114 kB | 16/128 kB Progress (2): 81/114 kB | 16/128 kBProgress (2): 81/114 kB | 32/128 kBProgress (2): 98/114 kB | 32/128 kBProgress (2): 114 kB | 32/128 kB                                   Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-shade-plugin/3.2.1/maven-shade-plugin-3.2.1.jar (114 kB at 383 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-commons/7.0/asm-commons-7.0.jar
-Progress (2): 32/128 kB | 7.7/335 kBProgress (2): 32/128 kB | 16/335 kB Progress (2): 32/128 kB | 32/335 kBProgress (3): 32/128 kB | 32/335 kB | 7.7/58 kBProgress (3): 32/128 kB | 32/335 kB | 16/58 kB Progress (3): 32/128 kB | 49/335 kB | 16/58 kBProgress (3): 49/128 kB | 49/335 kB | 16/58 kBProgress (3): 61/128 kB | 49/335 kB | 16/58 kBProgress (3): 61/128 kB | 49/335 kB | 32/58 kBProgress (3): 78/128 kB | 49/335 kB | 32/58 kBProgress (3): 78/128 kB | 49/335 kB | 49/58 kBProgress (3): 94/128 kB | 49/335 kB | 49/58 kBProgress (3): 94/128 kB | 49/335 kB | 58 kB   Progress (3): 111/128 kB | 49/335 kB | 58 kBProgress (3): 127/128 kB | 49/335 kB | 58 kBProgress (3): 128 kB | 49/335 kB | 58 kB                                            Downloaded from central: https://repo.maven.apache.org/maven2/org/iq80/snappy/snappy/0.4/snappy-0.4.jar (58 kB at 191 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-tree/7.0/asm-tree-7.0.jar
-Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-artifact-transfer/0.10.0/maven-artifact-transfer-0.10.0.jar (128 kB at 424 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-analysis/7.0/asm-analysis-7.0.jar
-Progress (1): 65/335 kBProgress (1): 81/335 kBProgress (1): 98/335 kBProgress (1): 114/335 kBProgress (1): 131/335 kBProgress (1): 147/335 kBProgress (1): 163/335 kBProgress (1): 180/335 kBProgress (1): 196/335 kBProgress (1): 213/335 kBProgress (1): 229/335 kBProgress (1): 245/335 kBProgress (1): 262/335 kBProgress (1): 278/335 kBProgress (1): 294/335 kBProgress (1): 311/335 kBProgress (1): 327/335 kBProgress (1): 335 kB                        Downloaded from central: https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.11/commons-codec-1.11.jar (335 kB at 1.1 MB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/jdom/jdom2/2.0.6/jdom2-2.0.6.jar
-Progress (1): 7.7/114 kBProgress (1): 16/114 kB Progress (1): 32/114 kBProgress (1): 49/114 kBProgress (1): 65/114 kBProgress (1): 81/114 kBProgress (1): 98/114 kBProgress (1): 114 kB                       Downloaded from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm/7.0/asm-7.0.jar (114 kB at 355 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-tree/3.0.1/maven-dependency-tree-3.0.1.jar
-Progress (1): 7.7/80 kBProgress (1): 16/80 kB Progress (1): 32/80 kBProgress (1): 49/80 kBProgress (1): 65/80 kBProgress (1): 80 kB                      Downloaded from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-commons/7.0/asm-commons-7.0.jar (80 kB at 243 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/vafer/jdependency/2.1.1/jdependency-2.1.1.jar
-Progress (1): 7.7/50 kBProgress (1): 16/50 kB Progress (1): 28/50 kBProgress (1): 44/50 kBProgress (1): 50 kB                      Downloaded from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-tree/7.0/asm-tree-7.0.jar (50 kB at 149 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-util/7.0-beta/asm-util-7.0-beta.jar
-Progress (1): 7.7/33 kBProgress (1): 16/33 kB Progress (1): 32/33 kBProgress (1): 33 kB   Progress (2): 33 kB | 7.7/305 kBProgress (2): 33 kB | 16/305 kB                                Downloaded from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-analysis/7.0/asm-analysis-7.0.jar (33 kB at 97 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/com/google/guava/guava/19.0/guava-19.0.jar
-Progress (1): 32/305 kBProgress (1): 49/305 kBProgress (1): 65/305 kBProgress (1): 81/305 kBProgress (1): 98/305 kBProgress (1): 114/305 kBProgress (1): 131/305 kBProgress (1): 147/305 kBProgress (1): 163/305 kBProgress (1): 180/305 kBProgress (1): 196/305 kBProgress (1): 213/305 kBProgress (1): 229/305 kBProgress (1): 245/305 kBProgress (1): 262/305 kBProgress (1): 278/305 kBProgress (1): 294/305 kBProgress (1): 305 kB    Progress (2): 305 kB | 7.7/37 kBProgress (2): 305 kB | 16/37 kB Progress (2): 305 kB | 32/37 kBProgress (2): 305 kB | 37 kB                               Downloaded from central: https://repo.maven.apache.org/maven2/org/jdom/jdom2/2.0.6/jdom2-2.0.6.jar (305 kB at 864 kB/s)
-Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-tree/3.0.1/maven-dependency-tree-3.0.1.jar (37 kB at 104 kB/s)
-Progress (1): 7.7/186 kBProgress (1): 12/186 kB Progress (1): 29/186 kBProgress (1): 45/186 kBProgress (1): 61/186 kBProgress (1): 66/186 kBProgress (1): 82/186 kBProgress (1): 98/186 kBProgress (1): 115/186 kBProgress (1): 131/186 kBProgress (1): 147/186 kBProgress (1): 164/186 kBProgress (1): 180/186 kBProgress (1): 186 kB                        Downloaded from central: https://repo.maven.apache.org/maven2/org/vafer/jdependency/2.1.1/jdependency-2.1.1.jar (186 kB at 509 kB/s)
-Progress (1): 7.7/81 kBProgress (1): 16/81 kB Progress (1): 32/81 kBProgress (1): 49/81 kBProgress (2): 49/81 kB | 0/2.3 MBProgress (2): 49/81 kB | 0/2.3 MBProgress (2): 65/81 kB | 0/2.3 MBProgress (2): 81 kB | 0/2.3 MB   Progress (2): 81 kB | 0/2.3 MB                              Downloaded from central: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-util/7.0-beta/asm-util-7.0-beta.jar (81 kB at 212 kB/s)
-Progress (1): 0/2.3 MBProgress (1): 0.1/2.3 MBProgress (1): 0.1/2.3 MBProgress (1): 0.1/2.3 MBProgress (1): 0.1/2.3 MBProgress (1): 0.1/2.3 MBProgress (1): 0.1/2.3 MBProgress (1): 0.1/2.3 MBProgress (1): 0.2/2.3 MBProgress (1): 0.2/2.3 MBProgress (1): 0.2/2.3 MBProgress (1): 0.2/2.3 MBProgress (1): 0.2/2.3 MBProgress (1): 0.2/2.3 MBProgress (1): 0.3/2.3 MBProgress (1): 0.3/2.3 MBProgress (1): 0.3/2.3 MBProgress (1): 0.3/2.3 MBProgress (1): 0.3/2.3 MBProgress (1): 0.3/2.3 MBProgress (1): 0.4/2.3 MBProgress (1): 0.4/2.3 MBProgress (1): 0.4/2.3 MBProgress (1): 0.4/2.3 MBProgress (1): 0.4/2.3 MBProgress (1): 0.4/2.3 MBProgress (1): 0.5/2.3 MBProgress (1): 0.5/2.3 MBProgress (1): 0.5/2.3 MBProgress (1): 0.5/2.3 MBProgress (1): 0.5/2.3 MBProgress (1): 0.5/2.3 MBProgress (1): 0.6/2.3 MBProgress (1): 0.6/2.3 MBProgress (1): 0.6/2.3 MBProgress (1): 0.6/2.3 MBProgress (1): 0.6/2.3 MBProgress (1): 0.6/2.3 MBProgress (1): 0.7/2.3 MBProgress (1): 0.7/2.3 MBProgress (1): 0.7/2.3 MBProgress (1): 0.7/2.3 MBProgress (1): 0.7/2.3 MBProgress (1): 0.7/2.3 MBProgress (1): 0.8/2.3 MBProgress (1): 0.8/2.3 MBProgress (1): 0.8/2.3 MBProgress (1): 0.8/2.3 MBProgress (1): 0.8/2.3 MBProgress (1): 0.8/2.3 MBProgress (1): 0.9/2.3 MBProgress (1): 0.9/2.3 MBProgress (1): 0.9/2.3 MBProgress (1): 0.9/2.3 MBProgress (1): 0.9/2.3 MBProgress (1): 0.9/2.3 MBProgress (1): 1.0/2.3 MBProgress (1): 1.0/2.3 MBProgress (1): 1.0/2.3 MBProgress (1): 1.0/2.3 MBProgress (1): 1.0/2.3 MBProgress (1): 1.0/2.3 MBProgress (1): 1.0/2.3 MBProgress (1): 1.1/2.3 MBProgress (1): 1.1/2.3 MBProgress (1): 1.1/2.3 MBProgress (1): 1.1/2.3 MBProgress (1): 1.1/2.3 MBProgress (1): 1.1/2.3 MBProgress (1): 1.2/2.3 MBProgress (1): 1.2/2.3 MBProgress (1): 1.2/2.3 MBProgress (1): 1.2/2.3 MBProgress (1): 1.2/2.3 MBProgress (1): 1.2/2.3 MBProgress (1): 1.3/2.3 MBProgress (1): 1.3/2.3 MBProgress (1): 1.3/2.3 MBProgress (1): 1.3/2.3 MBProgress (1): 1.3/2.3 MBProgress (1): 1.3/2.3 MBProgress (1): 1.4/2.3 MBProgress (1): 1.4/2.3 MBProgress (1): 1.4/2.3 MBProgress (1): 1.4/2.3 MBProgress (1): 1.4/2.3 MBProgress (1): 1.4/2.3 MBProgress (1): 1.5/2.3 MBProgress (1): 1.5/2.3 MBProgress (1): 1.5/2.3 MBProgress (1): 1.5/2.3 MBProgress (1): 1.5/2.3 MBProgress (1): 1.5/2.3 MBProgress (1): 1.6/2.3 MBProgress (1): 1.6/2.3 MBProgress (1): 1.6/2.3 MBProgress (1): 1.6/2.3 MBProgress (1): 1.6/2.3 MBProgress (1): 1.6/2.3 MBProgress (1): 1.7/2.3 MBProgress (1): 1.7/2.3 MBProgress (1): 1.7/2.3 MBProgress (1): 1.7/2.3 MBProgress (1): 1.7/2.3 MBProgress (1): 1.7/2.3 MBProgress (1): 1.8/2.3 MBProgress (1): 1.8/2.3 MBProgress (1): 1.8/2.3 MBProgress (1): 1.8/2.3 MBProgress (1): 1.8/2.3 MBProgress (1): 1.8/2.3 MBProgress (1): 1.9/2.3 MBProgress (1): 1.9/2.3 MBProgress (1): 1.9/2.3 MBProgress (1): 1.9/2.3 MBProgress (1): 1.9/2.3 MBProgress (1): 1.9/2.3 MBProgress (1): 1.9/2.3 MBProgress (1): 2.0/2.3 MBProgress (1): 2.0/2.3 MBProgress (1): 2.0/2.3 MBProgress (1): 2.0/2.3 MBProgress (1): 2.0/2.3 MBProgress (1): 2.0/2.3 MBProgress (1): 2.1/2.3 MBProgress (1): 2.1/2.3 MBProgress (1): 2.1/2.3 MBProgress (1): 2.1/2.3 MBProgress (1): 2.1/2.3 MBProgress (1): 2.1/2.3 MBProgress (1): 2.2/2.3 MBProgress (1): 2.2/2.3 MBProgress (1): 2.2/2.3 MBProgress (1): 2.2/2.3 MBProgress (1): 2.2/2.3 MBProgress (1): 2.2/2.3 MBProgress (1): 2.3/2.3 MBProgress (1): 2.3/2.3 MBProgress (1): 2.3/2.3 MBProgress (1): 2.3 MB                        Downloaded from central: https://repo.maven.apache.org/maven2/com/google/guava/guava/19.0/guava-19.0.jar (2.3 MB at 5.0 MB/s)
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -378,55 +36,55 @@ Progress (1): 0/2.3 MBProgress (1): 0.1/2.3 MBProgress (1): 0.1/2.3 MBProgres
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::        (v2.1.2.RELEASE)
 
-02:12:44.611 INFO  edu.whut.cs.jee.mooc.MoocClassApplication - Starting MoocClassApplication on devbox with PID 3735 (/app/mooc-class/target/classes started by jules in /app/mooc-class)
-02:12:44.614 INFO  edu.whut.cs.jee.mooc.MoocClassApplication - The following profiles are active: sandbox
-02:12:46.634 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
-02:12:46.635 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
-02:12:46.911 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 267ms. Found 13 repository interfaces.
-02:12:47.408 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
-02:12:47.410 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
-02:12:47.451 INFO  o.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface edu.whut.cs.jee.mooc.mclass.repository.AnswerRepository.
-02:12:47.452 INFO  o.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface edu.whut.cs.jee.mooc.mclass.repository.AttendanceRepository.
-02:12:47.453 INFO  o.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface edu.whut.cs.jee.mooc.mclass.repository.CheckInRepository.
-02:12:47.453 INFO  o.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface edu.whut.cs.jee.mooc.mclass.repository.CourseRepository.
-02:12:47.454 INFO  o.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface edu.whut.cs.jee.mooc.mclass.repository.ExaminationRecordRepository.
-02:12:47.454 INFO  o.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface edu.whut.cs.jee.mooc.mclass.repository.ExaminationRepository.
-02:12:47.454 INFO  o.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface edu.whut.cs.jee.mooc.mclass.repository.ExerciseRepository.
-02:12:47.454 INFO  o.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface edu.whut.cs.jee.mooc.mclass.repository.LessonRepository.
-02:12:47.454 INFO  o.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface edu.whut.cs.jee.mooc.mclass.repository.MoocClassRepository.
-02:12:47.455 INFO  o.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface edu.whut.cs.jee.mooc.mclass.repository.OptionRepository.
-02:12:47.455 INFO  o.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface edu.whut.cs.jee.mooc.mclass.repository.SubjectRepository.
-02:12:47.455 INFO  o.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface edu.whut.cs.jee.mooc.upms.repository.RoleRepository.
-02:12:47.455 INFO  o.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface edu.whut.cs.jee.mooc.upms.repository.UserRepository.
-02:12:47.455 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 36ms. Found 0 repository interfaces.
-02:12:48.524 INFO  o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisCacheConfig' of type [edu.whut.cs.jee.mooc.common.config.RedisCacheConfig$$EnhancerBySpringCGLIB$$9b16db1b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-02:12:48.568 INFO  o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$26cb1268] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-02:12:48.604 INFO  o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$bf78daa2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-02:12:48.610 INFO  o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-02:12:48.611 INFO  o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@4a632dc1' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-02:12:48.614 INFO  o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$e44d7d54] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-02:12:48.618 INFO  o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-02:12:50.814 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
-02:12:50.842 INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-02:12:50.854 INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-02:12:50.854 INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.14]
-02:12:50.865 INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
-02:12:50.978 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-02:12:50.978 INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 5850 ms
-02:12:51.522 INFO  edu.whut.cs.jee.mooc.common.config.RedisCacheConfig - 自定义RedisCacheManager加载完成
-02:12:51.659 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
-02:12:51.693 INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
-02:12:51.965 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
-02:12:51.965 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
-02:12:52.432 INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+06:15:57.421 INFO  edu.whut.cs.jee.mooc.MoocClassApplication - Starting MoocClassApplication on devbox with PID 12890 (/app/mooc-class/target/classes started by jules in /app/mooc-class)
+06:15:57.423 INFO  edu.whut.cs.jee.mooc.MoocClassApplication - The following profiles are active: sandbox
+06:15:58.619 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+06:15:58.620 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+06:15:58.836 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 209ms. Found 13 repository interfaces.
+06:15:59.174 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+06:15:59.175 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+06:15:59.200 INFO  o.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface edu.whut.cs.jee.mooc.mclass.repository.AnswerRepository.
+06:15:59.200 INFO  o.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface edu.whut.cs.jee.mooc.mclass.repository.AttendanceRepository.
+06:15:59.201 INFO  o.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface edu.whut.cs.jee.mooc.mclass.repository.CheckInRepository.
+06:15:59.201 INFO  o.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface edu.whut.cs.jee.mooc.mclass.repository.CourseRepository.
+06:15:59.202 INFO  o.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface edu.whut.cs.jee.mooc.mclass.repository.ExaminationRecordRepository.
+06:15:59.202 INFO  o.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface edu.whut.cs.jee.mooc.mclass.repository.ExaminationRepository.
+06:15:59.202 INFO  o.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface edu.whut.cs.jee.mooc.mclass.repository.ExerciseRepository.
+06:15:59.203 INFO  o.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface edu.whut.cs.jee.mooc.mclass.repository.LessonRepository.
+06:15:59.203 INFO  o.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface edu.whut.cs.jee.mooc.mclass.repository.MoocClassRepository.
+06:15:59.203 INFO  o.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface edu.whut.cs.jee.mooc.mclass.repository.OptionRepository.
+06:15:59.204 INFO  o.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface edu.whut.cs.jee.mooc.mclass.repository.SubjectRepository.
+06:15:59.204 INFO  o.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface edu.whut.cs.jee.mooc.upms.repository.RoleRepository.
+06:15:59.204 INFO  o.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface edu.whut.cs.jee.mooc.upms.repository.UserRepository.
+06:15:59.204 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 21ms. Found 0 repository interfaces.
+06:15:59.794 INFO  o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'redisCacheConfig' of type [edu.whut.cs.jee.mooc.common.config.RedisCacheConfig$$EnhancerBySpringCGLIB$$837a892c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+06:15:59.831 INFO  o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$f2ec079] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+06:15:59.867 INFO  o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$a7dc88b3] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+06:15:59.873 INFO  o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+06:15:59.875 INFO  o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@1018aff3' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+06:15:59.878 INFO  o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$ccb12b65] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+06:15:59.882 INFO  o.s.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+06:16:00.308 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+06:16:00.328 INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+06:16:00.342 INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+06:16:00.343 INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.14]
+06:16:00.355 INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+06:16:00.454 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+06:16:00.454 INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2977 ms
+06:16:00.936 INFO  edu.whut.cs.jee.mooc.common.config.RedisCacheConfig - 自定义RedisCacheManager加载完成
+06:16:01.058 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
+06:16:01.077 INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+06:16:01.336 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
+06:16:01.337 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
+06:16:01.739 INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-02:12:52.536 INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.7.Final}
-02:12:52.537 INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
-02:12:52.757 INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-02:12:52.994 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
-02:12:53.006 INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-02:12:54.328 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
+06:16:01.804 INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.7.Final}
+06:16:01.806 INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+06:16:01.950 INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+06:16:02.116 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
+06:16:02.127 INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+06:16:03.251 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
 Hibernate:
 
     create table mclass_answer (
@@ -770,63 +428,63 @@ Hibernate:
        add constraint FKi81xsuu0y51hmufc0r5dh5dwk
        foreign key (user_id)
        references upms_user
-02:12:54.507 INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-02:12:55.449 INFO  org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar - Registered '/actuator/jolokia' to jolokia-actuator-endpoint
+06:16:03.376 INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+06:16:03.933 INFO  org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar - Registered '/actuator/jolokia' to jolokia-actuator-endpoint
 Embedded Redis started on port 6379
-02:12:55.861 INFO  org.hibernate.hql.internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
-02:12:56.514 WARN  o.s.b.a.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-02:12:56.686 INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver - Exposing 17 endpoint(s) beneath base path '/actuator'
-02:12:56.810 INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
-02:12:56.924 INFO  org.springframework.security.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@203b41f6, org.springframework.security.web.context.SecurityContextPersistenceFilter@540cf3b4, org.springframework.security.web.header.HeaderWriterFilter@22d4a6b9, org.springframework.security.web.authentication.logout.LogoutFilter@5ebbd5c3, edu.whut.cs.jee.mooc.upms.security.JwtAuthenticationTokenFilter@2784bcde, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6d368e4f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1371fb26, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@59cf6eb0, org.springframework.security.web.session.SessionManagementFilter@514b4b34, org.springframework.security.web.access.ExceptionTranslationFilter@4d749dbf, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@19211fd2]
-02:12:57.104 INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
-02:12:57.520 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
-02:12:57.520 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
-02:12:57.520 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
-02:12:57.525 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
-02:12:57.525 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
-02:12:57.525 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
-02:12:57.735 INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
-02:12:57.755 INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
-02:12:57.808 INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
-02:12:58.085 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: deleteUsingDELETE_1
-02:12:58.101 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: saveUsingPOST_1
-02:12:58.116 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: detailUsingGET_1
-02:12:58.151 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: saveUsingPOST_2
-02:12:58.166 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_1
-02:12:58.168 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_2
-02:12:58.170 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingDELETE_1
-02:12:58.171 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_3
-02:12:58.172 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_4
-02:12:58.173 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_5
-02:12:58.175 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_6
-02:12:58.176 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_7
-02:12:58.177 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_8
-02:12:58.179 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_9
-02:12:58.180 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_10
-02:12:58.182 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_11
-02:12:58.183 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_12
-02:12:58.184 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_13
-02:12:58.186 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_14
-02:12:58.188 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_15
-02:12:58.191 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_16
-02:12:58.193 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_17
-02:12:58.194 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_18
-02:12:58.196 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_19
-02:12:58.197 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_20
-02:12:58.200 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_21
-02:12:58.208 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: deleteUsingDELETE_2
-02:12:58.247 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: deleteUsingDELETE_3
-02:12:58.248 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: detailUsingGET_2
-02:12:58.298 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: userListUsingGET_1
-02:12:58.328 INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
-02:12:58.358 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
-02:12:58.361 INFO  edu.whut.cs.jee.mooc.MoocClassApplication - Started MoocClassApplication in 19.122 seconds (JVM running for 38.973)
-02:12:58.374 INFO  edu.whut.cs.jee.mooc.MoocClassApplication - All MoocClass: {}
-02:13:34.736 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-02:13:34.737 INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-02:13:34.748 INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 11 ms
-02:13:35.194 INFO  io.lettuce.core.EpollProvider - Starting without optional epoll library
-02:13:35.196 INFO  io.lettuce.core.KqueueProvider - Starting without optional kqueue library
+06:16:04.238 INFO  org.hibernate.hql.internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+06:16:04.838 WARN  o.s.b.a.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+06:16:05.013 INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver - Exposing 17 endpoint(s) beneath base path '/actuator'
+06:16:05.168 INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+06:16:05.281 INFO  org.springframework.security.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@42f287ee, org.springframework.security.web.context.SecurityContextPersistenceFilter@2e639f95, org.springframework.security.web.header.HeaderWriterFilter@7a2508bc, org.springframework.security.web.authentication.logout.LogoutFilter@46e96ab0, edu.whut.cs.jee.mooc.upms.security.JwtAuthenticationTokenFilter@3a81573f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3024dee2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@45dd9bbb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2c018d37, org.springframework.security.web.session.SessionManagementFilter@65a6e184, org.springframework.security.web.access.ExceptionTranslationFilter@1a28f7e9, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1444d9b0]
+06:16:05.463 INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+06:16:05.742 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
+06:16:05.743 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
+06:16:05.743 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
+06:16:05.748 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
+06:16:05.748 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
+06:16:05.748 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
+06:16:06.030 INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+06:16:06.053 INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+06:16:06.094 INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+06:16:06.317 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: deleteUsingDELETE_1
+06:16:06.325 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: saveUsingPOST_1
+06:16:06.336 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: detailUsingGET_1
+06:16:06.367 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: saveUsingPOST_2
+06:16:06.384 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_1
+06:16:06.385 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_2
+06:16:06.388 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingDELETE_1
+06:16:06.389 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_3
+06:16:06.390 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_4
+06:16:06.391 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_5
+06:16:06.392 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_6
+06:16:06.394 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_7
+06:16:06.395 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_8
+06:16:06.396 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_9
+06:16:06.398 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_10
+06:16:06.399 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_11
+06:16:06.400 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_12
+06:16:06.402 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_13
+06:16:06.403 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_14
+06:16:06.404 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_15
+06:16:06.406 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_16
+06:16:06.407 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_17
+06:16:06.409 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_18
+06:16:06.410 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_19
+06:16:06.411 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_20
+06:16:06.413 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: handleUsingGET_21
+06:16:06.421 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: deleteUsingDELETE_2
+06:16:06.460 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: deleteUsingDELETE_3
+06:16:06.462 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: detailUsingGET_2
+06:16:06.515 INFO  s.documentation.spring.web.readers.operation.CachingOperationNameGenerator - Generating unique operation named: userListUsingGET_1
+06:16:06.540 INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+06:16:06.571 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+06:16:06.574 INFO  edu.whut.cs.jee.mooc.MoocClassApplication - Started MoocClassApplication in 9.573 seconds (JVM running for 13.683)
+06:16:06.587 INFO  edu.whut.cs.jee.mooc.MoocClassApplication - All MoocClass: {}
+06:16:58.756 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+06:16:58.757 INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+06:16:58.769 INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 12 ms
+06:16:59.160 INFO  io.lettuce.core.EpollProvider - Starting without optional epoll library
+06:16:59.161 INFO  io.lettuce.core.KqueueProvider - Starting without optional kqueue library
 Hibernate:
     select
         user0_.id as id2_16_,
@@ -844,8 +502,8 @@ Hibernate:
         upms_user user0_
     where
         user0_.name=?
-02:13:35.530 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：slave1
-02:13:35.534 INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+06:16:59.320 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：slave1
+06:16:59.324 INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
 Hibernate:
     select
         roles0_.user_id as user_id1_17_0_,
@@ -878,8 +536,8 @@ Hibernate:
         upms_user user0_
     where
         user0_.name=?
-02:13:35.861 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：slave2
-02:13:35.867 INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-3} inited
+06:16:59.651 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：slave2
+06:16:59.653 INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-3} inited
 Hibernate:
     select
         roles0_.user_id as user_id1_17_0_,
@@ -931,7 +589,7 @@ Hibernate:
             on course1_.teacher_id=teacher2_.id
     where
         moocclass0_.id=?
-02:13:36.120 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：slave1
+06:16:59.814 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：slave1
 Hibernate:
     select
         lesson0_.id as id1_11_,
@@ -948,25 +606,7 @@ Hibernate:
         mclass_lesson lesson0_
     where
         lesson0_.mooc_class_id=?
-02:13:36.180 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：slave1
-Hibernate:
-    select
-        checkin0_.id as id1_2_0_,
-        checkin0_.create_time as create_t2_2_0_,
-        checkin0_.update_time as update_t3_2_0_,
-        checkin0_.absence_count as absence_4_2_0_,
-        checkin0_.checked_count as checked_5_2_0_,
-        checkin0_.deadline as deadline6_2_0_,
-        checkin0_.is_gps as is_gps7_2_0_,
-        checkin0_.late_count as late_cou8_2_0_,
-        checkin0_.latitude as latitude9_2_0_,
-        checkin0_.lesson_id as lesson_10_2_0_,
-        checkin0_.longitude as longitu11_2_0_,
-        checkin0_.status as status12_2_0_
-    from
-        mclass_check_in checkin0_
-    where
-        checkin0_.id=?
+06:16:59.860 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：slave1
 Hibernate:
     select
         moocclass0_.id as id1_12_,
@@ -985,7 +625,7 @@ Hibernate:
     where
         moocclass0_.course_id=course1_.id
         and course1_.teacher_id=?
-02:13:36.222 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：slave1
+06:16:59.898 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：slave1
 Hibernate:
     select
         course0_.id as id1_5_0_,
@@ -1017,7 +657,7 @@ Hibernate:
         mclass_class_user
     where
         mooc_class_id = ?
-02:13:36.270 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：slave1
+06:16:59.938 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：slave1
 Hibernate:
     select
         user0_.id as id2_16_,
@@ -1084,25 +724,7 @@ Hibernate:
     where
         lesson0_.mooc_class_id=?
         and lesson0_.status=?
-02:13:36.429 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
-Hibernate:
-    select
-        checkin0_.id as id1_2_0_,
-        checkin0_.create_time as create_t2_2_0_,
-        checkin0_.update_time as update_t3_2_0_,
-        checkin0_.absence_count as absence_4_2_0_,
-        checkin0_.checked_count as checked_5_2_0_,
-        checkin0_.deadline as deadline6_2_0_,
-        checkin0_.is_gps as is_gps7_2_0_,
-        checkin0_.late_count as late_cou8_2_0_,
-        checkin0_.latitude as latitude9_2_0_,
-        checkin0_.lesson_id as lesson_10_2_0_,
-        checkin0_.longitude as longitu11_2_0_,
-        checkin0_.status as status12_2_0_
-    from
-        mclass_check_in checkin0_
-    where
-        checkin0_.id=?
+06:17:00.075 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
 Hibernate:
     select
         lesson0_.id as id1_11_0_,
@@ -1134,25 +756,73 @@ Hibernate:
             on lesson0_.check_in_id=checkin1_.id
     where
         lesson0_.id=?
-02:13:36.456 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
+06:17:00.098 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
 Hibernate:
     select
-        checkin0_.id as id1_2_0_,
-        checkin0_.create_time as create_t2_2_0_,
-        checkin0_.update_time as update_t3_2_0_,
-        checkin0_.absence_count as absence_4_2_0_,
-        checkin0_.checked_count as checked_5_2_0_,
-        checkin0_.deadline as deadline6_2_0_,
-        checkin0_.is_gps as is_gps7_2_0_,
-        checkin0_.late_count as late_cou8_2_0_,
-        checkin0_.latitude as latitude9_2_0_,
-        checkin0_.lesson_id as lesson_10_2_0_,
-        checkin0_.longitude as longitu11_2_0_,
-        checkin0_.status as status12_2_0_
+        examinatio0_.id as id1_6_,
+        examinatio0_.create_time as create_t2_6_,
+        examinatio0_.update_time as update_t3_6_,
+        examinatio0_.lesson_id as lesson_i7_6_,
+        examinatio0_.name as name4_6_,
+        examinatio0_.status as status5_6_,
+        examinatio0_.submit_count as submit_c6_6_
     from
-        mclass_check_in checkin0_
+        mclass_examination examinatio0_
     where
-        checkin0_.id=?
+        examinatio0_.lesson_id=?
+Hibernate:
+    update
+        mclass_lesson
+    set
+        update_time=?,
+        check_in_id=?,
+        end_time=?,
+        examination_count=?,
+        mooc_class_id=?,
+        service_date=?,
+        start_time=?,
+        status=?
+    where
+        id=?
+Hibernate:
+    update
+        mclass_examination
+    set
+        update_time=?,
+        lesson_id=?,
+        name=?,
+        status=?,
+        submit_count=?
+    where
+        id=?
+Hibernate:
+    select
+        examinatio0_.id as id1_6_,
+        examinatio0_.create_time as create_t2_6_,
+        examinatio0_.update_time as update_t3_6_,
+        examinatio0_.lesson_id as lesson_i7_6_,
+        examinatio0_.name as name4_6_,
+        examinatio0_.status as status5_6_,
+        examinatio0_.submit_count as submit_c6_6_
+    from
+        mclass_examination examinatio0_
+    where
+        examinatio0_.lesson_id=?
+        and examinatio0_.status=?
+Hibernate:
+    update
+        mclass_lesson
+    set
+        update_time=?,
+        check_in_id=?,
+        end_time=?,
+        examination_count=?,
+        mooc_class_id=?,
+        service_date=?,
+        start_time=?,
+        status=?
+    where
+        id=?
 Hibernate:
     select
         subject0_.id as id1_14_,
@@ -1195,7 +865,7 @@ Hibernate:
         subject0_.exercise_id=?
     order by
         subject0_.id asc
-02:13:36.486 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
+06:17:00.163 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
 Hibernate:
     select
         options0_.choice_id as choice_i8_13_0_,
@@ -1253,7 +923,7 @@ Hibernate:
         subject0_.examination_id=?
     order by
         subject0_.id asc
-02:13:36.549 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
+06:17:00.216 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
 Hibernate:
     select
         options0_.choice_id as choice_i8_13_0_,
@@ -1311,7 +981,7 @@ Hibernate:
         subject0_.examination_id=?
     order by
         subject0_.id asc
-02:13:36.572 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
+06:17:00.237 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
 Hibernate:
     select
         options0_.choice_id as choice_i8_13_0_,
@@ -1369,7 +1039,7 @@ Hibernate:
         subject0_.examination_id=?
     order by
         subject0_.id asc
-02:13:36.599 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
+06:17:00.264 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
 Hibernate:
     select
         options0_.choice_id as choice_i8_13_0_,
@@ -1392,7 +1062,7 @@ Hibernate:
         (id, create_time, update_time, content, error_count, error_percent, examination_id, exercise_id, right_count, right_percent, score)
     values
         (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-02:13:36.656 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
+06:17:00.307 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
 Hibernate:
     insert
     into
@@ -1407,7 +1077,7 @@ Hibernate:
         (id, create_time, update_time, content, error_count, error_percent, examination_id, exercise_id, right_count, right_percent, score)
     values
         (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-02:13:36.700 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
+06:17:00.342 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
 Hibernate:
     insert
     into
@@ -1487,7 +1157,7 @@ Hibernate:
         examinatio0_.examination_id=?
     order by
         examinatio0_.id desc
-02:13:36.785 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：slave2
+06:17:00.425 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：slave2
 Hibernate:
     select
         user0_.id as id2_16_0_,
@@ -1539,7 +1209,7 @@ Hibernate:
         examinatio0_.lesson_id=lesson1_.id
         and lesson1_.mooc_class_id=?
         and examinatio0_.status=?
-02:13:36.811 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：slave2
+06:17:00.452 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：slave1
 Hibernate:
     select
         exercise0_.id as id1_8_0_,
@@ -1551,7 +1221,7 @@ Hibernate:
         mclass_exercise exercise0_
     where
         exercise0_.id=?
-02:13:36.829 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
+06:17:00.473 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
 Hibernate:
     select
         lesson0_.id as id1_11_0_,
@@ -1584,23 +1254,286 @@ Hibernate:
     where
         lesson0_.id=?
 Hibernate:
+    insert
+    into
+        mclass_examination
+        (id, create_time, update_time, lesson_id, name, status, submit_count)
+    values
+        (null, ?, ?, ?, ?, ?, ?)
+Hibernate:
     select
-        checkin0_.id as id1_2_0_,
-        checkin0_.create_time as create_t2_2_0_,
-        checkin0_.update_time as update_t3_2_0_,
-        checkin0_.absence_count as absence_4_2_0_,
-        checkin0_.checked_count as checked_5_2_0_,
-        checkin0_.deadline as deadline6_2_0_,
-        checkin0_.is_gps as is_gps7_2_0_,
-        checkin0_.late_count as late_cou8_2_0_,
-        checkin0_.latitude as latitude9_2_0_,
-        checkin0_.lesson_id as lesson_10_2_0_,
-        checkin0_.longitude as longitu11_2_0_,
-        checkin0_.status as status12_2_0_
+        subjects0_.exercise_id as exercise8_14_0_,
+        subjects0_.id as id1_14_0_,
+        subjects0_.id as id1_14_1_,
+        subjects0_.create_time as create_t2_14_1_,
+        subjects0_.update_time as update_t3_14_1_,
+        subjects0_.content as content4_14_1_,
+        subjects0_.error_count as error_co5_14_1_,
+        subjects0_.error_percent as error_pe6_14_1_,
+        subjects0_.examination_id as examinat7_14_1_,
+        subjects0_.exercise_id as exercise8_14_1_,
+        subjects0_.right_count as right_co9_14_1_,
+        subjects0_.right_percent as right_p10_14_1_,
+        subjects0_.score as score11_14_1_,
+        subjects0_2_.false_count as false_co1_10_1_,
+        subjects0_2_.result as result2_10_1_,
+        subjects0_2_.true_count as true_cou3_10_1_,
+        subjects0_3_.decimal_key as decimal_1_9_1_,
+        subjects0_3_.key_type as key_type2_9_1_,
+        subjects0_3_.match_type as match_ty3_9_1_,
+        subjects0_3_.text_key as text_key4_9_1_,
+        subjects0_3_.is_unique as is_uniqu5_9_1_,
+        case
+            when subjects0_1_.choice_id is not null then 1
+            when subjects0_2_.judgment_id is not null then 2
+            when subjects0_3_.fill_id is not null then 3
+            when subjects0_.id is not null then 0
+        end as clazz_1_
     from
-        mclass_check_in checkin0_
+        mclass_subject subjects0_
+    left outer join
+        mclass_choice subjects0_1_
+            on subjects0_.id=subjects0_1_.choice_id
+    left outer join
+        mclass_judgment subjects0_2_
+            on subjects0_.id=subjects0_2_.judgment_id
+    left outer join
+        mclass_fill subjects0_3_
+            on subjects0_.id=subjects0_3_.fill_id
     where
-        checkin0_.id=?
+        subjects0_.exercise_id=?
+    order by
+        subjects0_.id asc
+Hibernate:
+    select
+        options0_.choice_id as choice_i8_13_0_,
+        options0_.id as id1_13_0_,
+        options0_.id as id1_13_1_,
+        options0_.create_time as create_t2_13_1_,
+        options0_.update_time as update_t3_13_1_,
+        options0_.content as content4_13_1_,
+        options0_.is_correct as is_corre5_13_1_,
+        options0_.count as count6_13_1_,
+        options0_.name as name7_13_1_
+    from
+        mclass_option options0_
+    where
+        options0_.choice_id=?
+Hibernate:
+    select
+        options0_.choice_id as choice_i8_13_0_,
+        options0_.id as id1_13_0_,
+        options0_.id as id1_13_1_,
+        options0_.create_time as create_t2_13_1_,
+        options0_.update_time as update_t3_13_1_,
+        options0_.content as content4_13_1_,
+        options0_.is_correct as is_corre5_13_1_,
+        options0_.count as count6_13_1_,
+        options0_.name as name7_13_1_
+    from
+        mclass_option options0_
+    where
+        options0_.choice_id=?
+Hibernate:
+    insert
+    into
+        mclass_subject
+        (id, create_time, update_time, content, error_count, error_percent, examination_id, exercise_id, right_count, right_percent, score)
+    values
+        (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate:
+    insert
+    into
+        mclass_fill
+        (decimal_key, key_type, match_type, text_key, is_unique, fill_id)
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate:
+    insert
+    into
+        mclass_subject
+        (id, create_time, update_time, content, error_count, error_percent, examination_id, exercise_id, right_count, right_percent, score)
+    values
+        (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate:
+    insert
+    into
+        mclass_choice
+        (choice_id)
+    values
+        (?)
+Hibernate:
+    insert
+    into
+        mclass_option
+        (id, create_time, update_time, content, is_correct, count, name)
+    values
+        (null, ?, ?, ?, ?, ?, ?)
+Hibernate:
+    insert
+    into
+        mclass_option
+        (id, create_time, update_time, content, is_correct, count, name)
+    values
+        (null, ?, ?, ?, ?, ?, ?)
+Hibernate:
+    insert
+    into
+        mclass_subject
+        (id, create_time, update_time, content, error_count, error_percent, examination_id, exercise_id, right_count, right_percent, score)
+    values
+        (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate:
+    insert
+    into
+        mclass_judgment
+        (false_count, result, true_count, judgment_id)
+    values
+        (?, ?, ?, ?)
+Hibernate:
+    insert
+    into
+        mclass_subject
+        (id, create_time, update_time, content, error_count, error_percent, examination_id, exercise_id, right_count, right_percent, score)
+    values
+        (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate:
+    insert
+    into
+        mclass_judgment
+        (false_count, result, true_count, judgment_id)
+    values
+        (?, ?, ?, ?)
+Hibernate:
+    insert
+    into
+        mclass_subject
+        (id, create_time, update_time, content, error_count, error_percent, examination_id, exercise_id, right_count, right_percent, score)
+    values
+        (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate:
+    insert
+    into
+        mclass_choice
+        (choice_id)
+    values
+        (?)
+Hibernate:
+    insert
+    into
+        mclass_option
+        (id, create_time, update_time, content, is_correct, count, name)
+    values
+        (null, ?, ?, ?, ?, ?, ?)
+Hibernate:
+    insert
+    into
+        mclass_option
+        (id, create_time, update_time, content, is_correct, count, name)
+    values
+        (null, ?, ?, ?, ?, ?, ?)
+Hibernate:
+    insert
+    into
+        mclass_option
+        (id, create_time, update_time, content, is_correct, count, name)
+    values
+        (null, ?, ?, ?, ?, ?, ?)
+Hibernate:
+    insert
+    into
+        mclass_option
+        (id, create_time, update_time, content, is_correct, count, name)
+    values
+        (null, ?, ?, ?, ?, ?, ?)
+Hibernate:
+    update
+        mclass_examination
+    set
+        update_time=?,
+        lesson_id=?,
+        name=?,
+        status=?,
+        submit_count=?
+    where
+        id=?
+Hibernate:
+    update
+        mclass_option
+    set
+        choice_id=?
+    where
+        id=?
+Hibernate:
+    update
+        mclass_option
+    set
+        choice_id=?
+    where
+        id=?
+Hibernate:
+    update
+        mclass_option
+    set
+        choice_id=?
+    where
+        id=?
+Hibernate:
+    update
+        mclass_option
+    set
+        choice_id=?
+    where
+        id=?
+Hibernate:
+    update
+        mclass_option
+    set
+        choice_id=?
+    where
+        id=?
+Hibernate:
+    update
+        mclass_option
+    set
+        choice_id=?
+    where
+        id=?
+Hibernate:
+    update
+        mclass_subject
+    set
+        examination_id=?
+    where
+        id=?
+Hibernate:
+    update
+        mclass_subject
+    set
+        examination_id=?
+    where
+        id=?
+Hibernate:
+    update
+        mclass_subject
+    set
+        examination_id=?
+    where
+        id=?
+Hibernate:
+    update
+        mclass_subject
+    set
+        examination_id=?
+    where
+        id=?
+Hibernate:
+    update
+        mclass_subject
+    set
+        examination_id=?
+    where
+        id=?
 Hibernate:
     select
         checkin0_.id as id1_2_0_,
@@ -1619,7 +1552,7 @@ Hibernate:
         mclass_check_in checkin0_
     where
         checkin0_.id=?
-02:13:36.857 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：slave2
+06:17:00.528 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：slave1
 Hibernate:
     select
         checkin0_.id as id1_2_0_,
@@ -1638,7 +1571,7 @@ Hibernate:
         mclass_check_in checkin0_
     where
         checkin0_.id=?
-02:13:36.874 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
+06:17:00.552 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
 Hibernate:
     select
         exercise0_.id as id1_8_,
@@ -1650,7 +1583,7 @@ Hibernate:
         mclass_exercise exercise0_
     where
         exercise0_.course_id=?
-02:13:36.899 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
+06:17:00.585 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
 Hibernate:
     insert
     into
@@ -1658,7 +1591,7 @@ Hibernate:
         (id, create_time, update_time, course_id, name)
     values
         (null, ?, ?, ?, ?)
-02:13:36.923 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
+06:17:00.608 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
 Hibernate:
     select
         user0_.id as id2_16_,
@@ -1674,7 +1607,7 @@ Hibernate:
         user0_.discriminator as discrimi1_16_
     from
         upms_user user0_
-02:13:36.974 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：slave1
+06:17:00.661 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：slave2
 Hibernate:
     select
         roles0_.user_id as user_id1_17_0_,
@@ -1737,7 +1670,7 @@ Hibernate:
         upms_user user0_
     where
         user0_.id=?
-02:13:37.000 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：slave1
+06:17:00.686 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：slave1
 Hibernate:
     select
         roles0_.user_id as user_id1_17_0_,
@@ -1772,7 +1705,7 @@ Hibernate:
         ?=1
     order by
         user0_.create_time desc limit ?
-02:13:37.048 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：slave1
+06:17:00.740 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：slave1
 Hibernate:
     select
         roles0_.user_id as user_id1_17_0_,
@@ -1825,13 +1758,4 @@ Hibernate:
         upms_user user0_
     where
         user0_.id=?
-02:13:37.146 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master
-02:14:21.533 INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
-Embedded Redis stopped
-02:14:21.577 INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-02:14:21.579 INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-3} closing ...
-02:14:21.579 INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-3} closed
-02:14:21.580 INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closing ...
-02:14:21.580 INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closed
-02:14:21.580 INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
-02:14:21.580 INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+06:17:00.854 INFO  edu.whut.cs.jee.mooc.common.config.DataSourceConfig - Current Datasource：master

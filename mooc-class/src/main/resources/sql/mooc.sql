@@ -307,7 +307,8 @@ CREATE TABLE `mclass_lesson` (
 -- Records of mclass_lesson
 -- ----------------------------
 BEGIN;
-INSERT INTO `mclass_lesson` VALUES (1, '2020-05-18 22:34:10', '2020-06-04 09:52:22', '2022-05-18 22:38:25', 1, '2020-05-18 22:33:53', '2020-05-18 22:35:02', 2, 1, NULL);
+-- Changed check_in_id to NULL to avoid EntityNotFound in tests
+INSERT INTO `mclass_lesson` VALUES (1, '2020-05-18 22:34:10', '2020-06-04 09:52:22', '2022-05-18 22:38:25', 1, '2020-05-18 22:33:53', '2020-05-18 22:35:02', 2, NULL, NULL);
 COMMIT;
 
 -- ----------------------------

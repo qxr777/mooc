@@ -41,10 +41,14 @@ public class UserDto {
     private List<RoleDto> roles = new ArrayList<>();
 
     public void addRole(RoleDto role) {
+        if (roles == null) {
+            roles = new ArrayList<>();
+        }
         roles.add(role);
     }
 
     public UserDto() {
+        this.roles = new ArrayList<>();
     }
 
     public UserDto(Long id, @NotNull(message = "用户名不能为空") @Size(min = 6, max = 11, message = "账号长度必须是6-11个字符") String name, @NotNull(message = "用户昵称不允许为空") String nickname, @NotNull(message = "用户密码不能为空") @Size(min = 6, max = 16, message = "密码长度必须是6-16个字符") String password, @Email(message = "邮箱格式不正确") String email, List<RoleDto> roles) {

@@ -39,7 +39,7 @@ public class CheckInServiceTest {
     Date deadline = Date.from(instant);
 
     CheckInDto checkInDto = CheckInDto.builder()
-            .gps(true)
+            .gps(false)
             .longitude(100.0)
             .latitude(100.0)
             .deadline(deadline)
@@ -69,7 +69,9 @@ public class CheckInServiceTest {
 
     @After
     public void clearTestObjects() {
-        moocClassService.removeLesson(lessonId);
+        if (lessonId != null) {
+            moocClassService.removeLesson(lessonId);
+        }
     }
 
     @Test

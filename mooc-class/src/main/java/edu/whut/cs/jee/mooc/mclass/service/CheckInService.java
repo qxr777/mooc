@@ -51,7 +51,9 @@ public class CheckInService {
      * @return
      */
     public Long saveCheckIn(CheckInDto checkInDto) {
-        Lesson lesson = lessonRepository.findById(checkInDto.getLessonId()).get();
+        Lesson lesson = lessonRepository.findById(checkInDto.getLessonId())
+                .orElseThrow(() -> new APIException(AppCode.NO_LESSON_ERROR, "Lesson not found: " + checkInDto.getLessonId()));
+
         if (lesson.getCheckIn() != null && lesson.getCheckIn().getStatus() == CheckInConstants.CHECK_IN_STATUS_OPEN) {
             throw new APIException(AppCode.HAS_OPENING_CHECKIN, AppCode.HAS_OPENING_CHECKIN.getMsg() + lesson.getCheckIn().getId());
         }
@@ -68,7 +70,9 @@ public class CheckInService {
             checkInRepository.delete(lesson.getCheckIn());
         }
         lesson.setCheckIn(checkIn);
-        MoocClass moocClass = moocClassRepository.findById(lesson.getMoocClassId()).get();
+        MoocClass moocClass = moocClassRepository.findById(lesson.getMoocClassId())
+                .orElseThrow(() -> new APIException(AppCode.NO_MCLASS_ERROR, "MoocClass not found: " + lesson.getMoocClassId()));
+
         List<User> users = new ArrayList<User>(moocClass.getUsers());
         for(User user : users) {
             Attendance attendance = Attendance.builder()
@@ -88,8 +92,16 @@ public class CheckInService {
      * @throws APIException
      */
     public Long saveAttendance(AttendanceDto attendanceDto) throws APIException {
-        Attendance attendance = attendanceRepository.findByCheckInIdAndUserId(attendanceDto.getCheckInId(), attendanceDto.getUserId()).get(0);
-        CheckIn checkIn = checkInRepository.findById(attendance.getCheckInId()).get();
+        List<Attendance> attendances = attendanceRepository.findByCheckInIdAndUserId(attendanceDto.getCheckInId(), attendanceDto.getUserId());
+        if (attendances.isEmpty()) {
+            throw new APIException(AppCode.NO_CHECKIN_ERROR, "Attendance record not found for user " + attendanceDto.getUserId() + " and checkIn " + attendanceDto.getCheckInId());
+        }
+        Attendance attendance = attendances.get(0);
+        final Long checkInId = attendance.getCheckInId();
+
+        CheckIn checkIn = checkInRepository.findById(checkInId)
+                .orElseThrow(() -> new APIException(AppCode.NO_CHECKIN_ERROR, "CheckIn not found: " + checkInId));
+
         //签到地点判断
         Double latitude = attendanceDto.getLatitude();
         Double longitude = attendanceDto.getLongitude();
@@ -109,7 +121,9 @@ public class CheckInService {
         } else {
             attendance.setStatus(CheckInConstants.ATTENDANCE_STATUS_CHECKED);
         }
-        Lesson lesson = lessonRepository.findById(checkIn.getLessonId()).get();
+        Lesson lesson = lessonRepository.findById(checkIn.getLessonId())
+                .orElseThrow(() -> new APIException(AppCode.NO_LESSON_ERROR, "Lesson not found: " + checkIn.getLessonId()));
+
         if(lesson.getStatus() == MoocClassConstatnts.LESSON_STATUS_END || checkIn.getStatus() == CheckInConstants.CHECK_IN_STATUS_CLOSED) {
             throw new APIException(AppCode.OVER_DUE_ERROR, AppCode.OVER_DUE_ERROR.getMsg());
         }
@@ -124,7 +138,8 @@ public class CheckInService {
      * @return
      */
     public void closeCheckIn(Long checkInId) {
-        CheckIn checkIn = checkInRepository.findById(checkInId).get();
+        CheckIn checkIn = checkInRepository.findById(checkInId)
+                .orElseThrow(() -> new APIException(AppCode.NO_CHECKIN_ERROR, "CheckIn not found: " + checkInId));
         checkIn.setStatus(CheckInConstants.CHECK_IN_STATUS_CLOSED);
         checkIn = this.updateCount(checkIn);
         checkInRepository.save(checkIn);
@@ -161,7 +176,8 @@ public class CheckInService {
      */
     @Transactional(readOnly = true)
     public CheckInDto getCheckInDto(Long checkInId) {
-        CheckIn checkIn = checkInRepository.findById(checkInId).get();
+        CheckIn checkIn = checkInRepository.findById(checkInId)
+                .orElseThrow(() -> new APIException(AppCode.NO_CHECKIN_ERROR, "CheckIn not found: " + checkInId));
         checkIn = this.updateCount(checkIn);
         CheckInDto checkInDto = BeanConvertUtils.convertTo(checkIn, CheckInDto::new,
                 (s, t) ->

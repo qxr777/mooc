@@ -75,7 +75,7 @@ public class UserServiceTest {
     }
 
     @Test
-    public void testSaveUser() {
+    public void testSaveAndRemoveUser() {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         TeacherDto teacher = new TeacherDto();
         teacher.setName("whut_UNIT_TEST");
@@ -90,10 +90,7 @@ public class UserServiceTest {
         teacher.addRole(adminRole);
         newUserId = userService.saveUser(teacher);
         Assert.isTrue(newUserId > 0);
-    }
 
-    @Test
-    public void testRemoveUser() {
         userService.removeUser(newUserId);
     }
 }

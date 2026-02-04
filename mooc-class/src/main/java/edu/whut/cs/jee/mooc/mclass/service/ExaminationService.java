@@ -10,6 +10,7 @@ import edu.whut.cs.jee.mooc.mclass.dto.ExaminationRecordDto;
 import edu.whut.cs.jee.mooc.mclass.model.*;
 import edu.whut.cs.jee.mooc.mclass.repository.*;
 import edu.whut.cs.jee.mooc.upms.model.User;
+import edu.whut.cs.jee.mooc.upms.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -42,6 +43,9 @@ public class ExaminationService {
 
     @Autowired
     private LessonRepository lessonRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     /**
      * 备课 - 添加活动 - 添加练习 - 从练习库导入
@@ -90,8 +94,8 @@ public class ExaminationService {
 
 //        ExaminationRecord examinationRecord = examinationRecordDto.convertTo();
         ExaminationRecord examinationRecord = BeanConvertUtils.convertTo(examinationRecordDto, ExaminationRecord::new);
-        User user = new User();
-        user.setId(examinationRecordDto.getUserId());
+        User user = userRepository.findById(examinationRecordDto.getUserId())
+                .orElseThrow(() -> new APIException(AppCode.NO_USER_ERROR, "User not found: " + examinationRecordDto.getUserId()));
         examinationRecord.setUser(user);
         List<AnswerDto> answerDtos = examinationRecordDto.getAnswerDtos();
         List<Answer> answers = new ArrayList<>();

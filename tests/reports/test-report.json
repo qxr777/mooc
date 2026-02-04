@@ -1,10 +1,10 @@
 {
-  "timestamp": "2026-02-04T02:13:37.161Z",
+  "timestamp": "2026-02-04T06:17:00.868Z",
   "summary": {
     "total": 34,
-    "passed": 34,
-    "failed": 0,
-    "passRate": "100.00%"
+    "passed": 23,
+    "failed": 11,
+    "passRate": "67.65%"
   },
   "suites": [
     {
@@ -15,15 +15,53 @@
     },
     {
       "name": "🏫 慕课堂管理测试",
-      "passed": 8,
-      "failed": 0,
-      "errors": []
+      "passed": 5,
+      "failed": 3,
+      "errors": [
+        {
+          "test": "新增慕课堂",
+          "error": "期望状态码: 200, 实际状态码: 400",
+          "response": {
+            "code": 1002,
+            "msg": "参数校验失败",
+            "data": "课程名称不允许为空"
+          }
+        },
+        {
+          "test": "更新慕课堂",
+          "error": "期望状态码: 200, 实际状态码: 500",
+          "response": {
+            "code": 1005,
+            "msg": "Request method 'PUT' not supported",
+            "data": "Request method 'PUT' not supported"
+          }
+        },
+        {
+          "test": "开始上课",
+          "error": "期望状态码: 200, 实际状态码: 400",
+          "response": {
+            "code": 2007,
+            "msg": "正在上课中",
+            "data": "正在上课中1"
+          }
+        }
+      ]
     },
     {
       "name": "📚 习题管理测试",
-      "passed": 7,
-      "failed": 0,
-      "errors": []
+      "passed": 6,
+      "failed": 1,
+      "errors": [
+        {
+          "test": "新增填空题",
+          "error": "期望状态码: 200, 实际状态码: 400",
+          "response": {
+            "code": 1002,
+            "msg": "参数校验失败",
+            "data": "must not be null"
+          }
+        }
+      ]
     },
     {
       "name": "📝 考试管理测试",
@@ -33,9 +71,28 @@
     },
     {
       "name": "✅ 签到管理测试",
-      "passed": 2,
-      "failed": 0,
-      "errors": []
+      "passed": 0,
+      "failed": 2,
+      "errors": [
+        {
+          "test": "获取签到信息",
+          "error": "期望状态码: 200, 实际状态码: 400",
+          "response": {
+            "code": 2014,
+            "msg": "签到不存在",
+            "data": "CheckIn not found: 1"
+          }
+        },
+        {
+          "test": "关闭签到活动",
+          "error": "期望状态码: 200, 实际状态码: 400",
+          "response": {
+            "code": 2014,
+            "msg": "签到不存在",
+            "data": "CheckIn not found: 1"
+          }
+        }
+      ]
     },
     {
       "name": "📖 练习库管理测试",
@@ -45,16 +102,163 @@
     },
     {
       "name": "🔐 认证管理测试",
-      "passed": 2,
-      "failed": 0,
-      "errors": []
+      "passed": 0,
+      "failed": 2,
+      "errors": [
+        {
+          "test": "刷新令牌",
+          "error": "期望状态码: 200, 实际状态码: 500",
+          "response": {
+            "code": 1005,
+            "msg": "Request method 'POST' not supported",
+            "data": "Request method 'POST' not supported"
+          }
+        },
+        {
+          "test": "注册新用户",
+          "error": "期望状态码: 200, 实际状态码: 500",
+          "response": {
+            "code": 1005,
+            "msg": "JSON parse error: Cannot deserialize value of type `java.lang.Long` from String \"STUDENT\": not a valid Long value; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.lang.Long` from String \"STUDENT\": not a valid Long value\n at [Source: (PushbackInputStream); line: 1, column: 114] (through reference chain: edu.whut.cs.jee.mooc.upms.vo.UserSignUpVo[\"role\"])",
+            "data": "JSON parse error: Cannot deserialize value of type `java.lang.Long` from String \"STUDENT\": not a valid Long value; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.lang.Long` from String \"STUDENT\": not a valid Long value\n at [Source: (PushbackInputStream); line: 1, column: 114] (through reference chain: edu.whut.cs.jee.mooc.upms.vo.UserSignUpVo[\"role\"])"
+          }
+        }
+      ]
     },
     {
       "name": "👥 用户管理测试（需要ADMIN权限）",
-      "passed": 6,
-      "failed": 0,
-      "errors": []
+      "passed": 3,
+      "failed": 3,
+      "errors": [
+        {
+          "test": "新增学生用户",
+          "error": "期望状态码: 200, 实际状态码: 400",
+          "response": {
+            "code": 1002,
+            "msg": "参数校验失败",
+            "data": "账号长度必须是6-11个字符"
+          }
+        },
+        {
+          "test": "新增教师用户",
+          "error": "期望状态码: 200, 实际状态码: 400",
+          "response": {
+            "code": 1002,
+            "msg": "参数校验失败",
+            "data": "账号长度必须是6-11个字符"
+          }
+        },
+        {
+          "test": "删除用户",
+          "error": "期望状态码: 200, 实际状态码: 400",
+          "response": {
+            "code": 2003,
+            "msg": "用户不存在",
+            "data": "用户不存在999"
+          }
+        }
+      ]
     }
   ],
-  "errors": []
+  "errors": [
+    {
+      "test": "新增慕课堂",
+      "error": "期望状态码: 200, 实际状态码: 400",
+      "response": {
+        "code": 1002,
+        "msg": "参数校验失败",
+        "data": "课程名称不允许为空"
+      }
+    },
+    {
+      "test": "更新慕课堂",
+      "error": "期望状态码: 200, 实际状态码: 500",
+      "response": {
+        "code": 1005,
+        "msg": "Request method 'PUT' not supported",
+        "data": "Request method 'PUT' not supported"
+      }
+    },
+    {
+      "test": "开始上课",
+      "error": "期望状态码: 200, 实际状态码: 400",
+      "response": {
+        "code": 2007,
+        "msg": "正在上课中",
+        "data": "正在上课中1"
+      }
+    },
+    {
+      "test": "新增填空题",
+      "error": "期望状态码: 200, 实际状态码: 400",
+      "response": {
+        "code": 1002,
+        "msg": "参数校验失败",
+        "data": "must not be null"
+      }
+    },
+    {
+      "test": "获取签到信息",
+      "error": "期望状态码: 200, 实际状态码: 400",
+      "response": {
+        "code": 2014,
+        "msg": "签到不存在",
+        "data": "CheckIn not found: 1"
+      }
+    },
+    {
+      "test": "关闭签到活动",
+      "error": "期望状态码: 200, 实际状态码: 400",
+      "response": {
+        "code": 2014,
+        "msg": "签到不存在",
+        "data": "CheckIn not found: 1"
+      }
+    },
+    {
+      "test": "刷新令牌",
+      "error": "期望状态码: 200, 实际状态码: 500",
+      "response": {
+        "code": 1005,
+        "msg": "Request method 'POST' not supported",
+        "data": "Request method 'POST' not supported"
+      }
+    },
+    {
+      "test": "注册新用户",
+      "error": "期望状态码: 200, 实际状态码: 500",
+      "response": {
+        "code": 1005,
+        "msg": "JSON parse error: Cannot deserialize value of type `java.lang.Long` from String \"STUDENT\": not a valid Long value; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.lang.Long` from String \"STUDENT\": not a valid Long value\n at [Source: (PushbackInputStream); line: 1, column: 114] (through reference chain: edu.whut.cs.jee.mooc.upms.vo.UserSignUpVo[\"role\"])",
+        "data": "JSON parse error: Cannot deserialize value of type `java.lang.Long` from String \"STUDENT\": not a valid Long value; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.lang.Long` from String \"STUDENT\": not a valid Long value\n at [Source: (PushbackInputStream); line: 1, column: 114] (through reference chain: edu.whut.cs.jee.mooc.upms.vo.UserSignUpVo[\"role\"])"
+      }
+    },
+    {
+      "test": "新增学生用户",
+      "error": "期望状态码: 200, 实际状态码: 400",
+      "response": {
+        "code": 1002,
+        "msg": "参数校验失败",
+        "data": "账号长度必须是6-11个字符"
+      }
+    },
+    {
+      "test": "新增教师用户",
+      "error": "期望状态码: 200, 实际状态码: 400",
+      "response": {
+        "code": 1002,
+        "msg": "参数校验失败",
+        "data": "账号长度必须是6-11个字符"
+      }
+    },
+    {
+      "test": "删除用户",
+      "error": "期望状态码: 200, 实际状态码: 400",
+      "response": {
+        "code": 2003,
+        "msg": "用户不存在",
+        "data": "用户不存在999"
+      }
+    }
+  ]
 }

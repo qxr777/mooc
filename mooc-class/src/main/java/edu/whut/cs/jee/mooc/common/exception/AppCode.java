@@ -18,7 +18,9 @@ public enum  AppCode implements StatusCode {
     EXAMINATION_STATUS_ERROR(2010, "此随堂测试状态异常"),
     NO_MCLASS_ERROR(2011, "慕课堂不存在"),
     NO_COURSE_ERROR(2012, "课程不存在"),
-    NO_USER_ERROR(2003, "用户不存在");
+    NO_USER_ERROR(2003, "用户不存在"),
+    NO_LESSON_ERROR(2013, "课时不存在"),
+    NO_CHECKIN_ERROR(2014, "签到不存在");
 
     private int code;
     private String msg;
