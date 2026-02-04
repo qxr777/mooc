@@ -1,11 +1,8 @@
 version: '2'
 services:
   mooc-redis:
-    image: bitnami/redis:4.0
-    environment:
-      #            - REDIS_PASSWORD=
-      - ALLOW_EMPTY_PASSWORD=yes
-    #        volumes:
-    #            - ./data/redis/data:/bitnami
+    image: redis:alpine
+    # environment:
+      # - ALLOW_EMPTY_PASSWORD=yes
     ports:
       - 6379:6379

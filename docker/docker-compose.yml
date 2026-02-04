@@ -19,15 +19,15 @@ services:
         aliases:
           - REDIS_SERVER
         ipv4_address: 172.25.0.3
-  mooc-monitor:
-    extends:
-      file: monitor.yml
-      service: mooc-monitor
-    networks:
-      mooc-net:
-        aliases:
-          - MONITOR_SERVER
-        ipv4_address: 172.25.0.4
+  # mooc-monitor:
+  #   extends:
+  #     file: monitor.yml
+  #     service: mooc-monitor
+  #   networks:
+  #     mooc-net:
+  #       aliases:
+  #         - MONITOR_SERVER
+  #       ipv4_address: 172.25.0.4
 networks:
     mooc-net:
       #name: mooc-net
