@@ -1,0 +1,110 @@
+name: MOOC API Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: mooc
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+      
+      redis:
+        image: redis:6.2
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd="redis-cli ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 8
+        uses: actions/setup-java@v3
+        with:
+          java-version: '8'
+          distribution: 'temurin'
+          cache: 'maven'
+
+      - name: Build project
+        run: mvn clean install -DskipTests
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'npm'
+          cache-dependency-path: tests/package-lock.json
+
+      - name: Install test dependencies
+        run: |
+          cd tests
+          npm install
+
+      - name: Start application
+        run: |
+          cd mooc-class
+          mvn spring-boot:run &
+          sleep 30
+
+      - name: Run API tests
+        run: |
+          cd tests
+          npm test
+        continue-on-error: false
+
+      - name: Upload test reports
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-reports
+          path: tests/reports/
+          retention-days: 30
+
+      - name: Comment test results on PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs');
+            const reportPath = 'tests/reports/test-report.json';
+            
+            if (fs.existsSync(reportPath)) {
+              const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+              const comment = `## 🧪 API测试结果
+              
+              - **总请求数**: ${report.summary.total}
+              - **成功请求数**: ${report.summary.passed}
+              - **失败请求数**: ${report.summary.failed}
+              - **测试通过率**: ${report.summary.passRate}
+              
+              ${report.errors.length > 0 ? '### ❌ 失败的测试\n' + report.errors.map(e => `- ${e.item}: ${e.error}`).join('\n') : '✅ 所有测试通过！'}
+              
+              [查看详细报告](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId})`;
+              
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: comment
+              });
+            }

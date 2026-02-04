@@ -1,0 +1,60 @@
+{
+  "timestamp": "2026-02-04T01:51:47.387Z",
+  "summary": {
+    "total": 34,
+    "passed": 34,
+    "failed": 0,
+    "passRate": "100.00%"
+  },
+  "suites": [
+    {
+      "name": "📋 基础功能测试",
+      "passed": 4,
+      "failed": 0,
+      "errors": []
+    },
+    {
+      "name": "🏫 慕课堂管理测试",
+      "passed": 8,
+      "failed": 0,
+      "errors": []
+    },
+    {
+      "name": "📚 习题管理测试",
+      "passed": 7,
+      "failed": 0,
+      "errors": []
+    },
+    {
+      "name": "📝 考试管理测试",
+      "passed": 3,
+      "failed": 0,
+      "errors": []
+    },
+    {
+      "name": "✅ 签到管理测试",
+      "passed": 2,
+      "failed": 0,
+      "errors": []
+    },
+    {
+      "name": "📖 练习库管理测试",
+      "passed": 2,
+      "failed": 0,
+      "errors": []
+    },
+    {
+      "name": "🔐 认证管理测试",
+      "passed": 2,
+      "failed": 0,
+      "errors": []
+    },
+    {
+      "name": "👥 用户管理测试（需要ADMIN权限）",
+      "passed": 6,
+      "failed": 0,
+      "errors": []
+    }
+  ],
+  "errors": []
+}

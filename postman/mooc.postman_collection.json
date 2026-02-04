@@ -1,0 +1,1506 @@
+{
+  "info": {
+    "_postman_id": "28fcda3c-075c-40ad-b1b8-6059809f2dfe",
+    "name": "mooc",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "2988524",
+    "_collection_link": "https://go.postman.co/collection/2988524-28fcda3c-075c-40ad-b1b8-6059809f2dfe?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://{{host}}:{{port}}/health",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "health"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "swagger",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://{{host}}:{{port}}/swagger-ui.html",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "swagger-ui.html"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "注册学生用户",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"role\":3,\n  \"email\": \"student11@qq.com\",\n  \"name\": \"student11\",\n  \"nickname\": \"sss3332223\",\n  \"password\": \"123456\",\n  \"salaryNo\": \"966303\"\n}"
+        },
+        "url": {
+          "raw": "http://{{host}}:{{port}}/auth/register",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "学生申请令牌",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var token = JSON.parse(responseBody).data;",
+              "console.log(token);",
+              "// 提取token（去掉\"Bearer \"前缀）",
+              "var token = responseJson.replace(\"Bearer \", \"\");",
+              "pm.environment.set(\"token\", token);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "packages": {},
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"xes1\",\n  \"password\": \"123456\"\n}"
+        },
+        "url": {
+          "raw": "http://{{host}}:{{port}}/auth",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "auth"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "教师/管理员申请令牌",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var token = JSON.parse(responseBody).data;",
+              "console.log(token);",
+              "pm.environment.set(\"token\", token);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"whut\",\n  \"password\": \"123456\"\n}"
+        },
+        "url": {
+          "raw": "http://{{host}}:{{port}}/auth",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "auth"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "刷新令牌",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var token = JSON.parse(responseBody).data;",
+              "console.log(token);",
+              "pm.environment.set(\"token\", token);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://{{host}}:{{port}}/auth/refresh",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "auth",
+            "refresh"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "所有用户列表",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://{{host}}:{{port}}/user",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "user"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "获取用户详细信息",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://{{host}}:{{port}}/user/1",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "user",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "新增或更新教师",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Authorization",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"actor\": \"\",\n  \"email\": \"teacher@qq.com\",\n  \"id\": 0,\n  \"name\": \"whut13\",\n  \"nickname\": \"teacherLi\",\n  \"password\": \"123456\",\n  \"salaryNo\": \"923300\",\n  \"title\": \"讲师\",\n   \"roles\": [\n    {\n      \"id\": 1\n    },\n    {\n    \t\"id\":2\n    }\n  ]\n}"
+        },
+        "url": {
+          "raw": "http://{{host}}:{{port}}/user/saveTeacher",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "user",
+            "saveTeacher"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "新增或更新学生",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Authorization",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"student3@qq.com\",\n  \"id\": 0,\n  \"name\": \"student13\",\n  \"nickname\": \"sss3332223\",\n  \"password\": \"123456\",\n  \"studentNo\": \"966303\"\n}"
+        },
+        "url": {
+          "raw": "http://{{host}}:{{port}}/user/saveStudent",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "user",
+            "saveStudent"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "删除用户",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://{{host}}:{{port}}/user/5",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "user",
+            "5"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "分页获取用户列表",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://{{host}}:{{port}}/user/page?name=&nickname=&pageNum=0&pageSize=10&sort=createTime&order=acs",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "user",
+            "page"
+          ],
+          "query": [
+            {
+              "key": "name",
+              "value": "",
+              "description": "用户名"
+            },
+            {
+              "key": "nickname",
+              "value": "",
+              "description": "昵称"
+            },
+            {
+              "key": "pageNum",
+              "value": "0",
+              "description": "页序号"
+            },
+            {
+              "key": "pageSize",
+              "value": "10",
+              "description": "每页记录数"
+            },
+            {
+              "key": "sort",
+              "value": "createTime",
+              "description": "\b排序属性"
+            },
+            {
+              "key": "order",
+              "value": "acs",
+              "description": "升降序"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "新增独立线下慕课堂",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Authorization",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": 0,\n  \"name\": \"计算机数值分析课堂_UNIT_TEST\",\n  \"offlineCourse\": \"计算机数值分析线下课程_UNIT_TEST\",\n  \"semester\": \"春季\",\n  \"weekday\": \"周三/周五\",\n  \"teacherId\": 1,\n  \"year\": \"2020\"\n}"
+        },
+        "url": {
+          "raw": "http://{{host}}:{{port}}/mclass",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "mclass"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "向现有课程添加慕课堂",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "type": "text",
+            "value": "{{token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"courseId\": 1,\n  \"name\": \"计算机数值分析课堂_UNIT_TEST\",\n  \"semester\": \"春季\",\n  \"weekday\": \"周三/周五\",\n  \"year\": \"2020\"\n}"
+        },
+        "url": {
+          "raw": "http://{{host}}:{{port}}/mclass/add",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "mclass",
+            "add"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "获取\b教师的慕课堂列表",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "type": "text",
+            "value": "{{token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://{{host}}:{{port}}/mclass/own?teacherId=1",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "mclass",
+            "own"
+          ],
+          "query": [
+            {
+              "key": "teacherId",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "获取\b学生的慕课堂列表",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "type": "text",
+            "value": "{{token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://{{host}}:{{port}}/mclass/join?userId=2",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "mclass",
+            "join"
+          ],
+          "query": [
+            {
+              "key": "userId",
+              "value": "2"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": " 编辑慕课堂基本信息",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Authorization",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": 1,\n  \"name\": \"Java企业版202课堂_UNIT_TEST\",\n  \"semester\": \"春季\",\n  \"weekday\": \"周三/周五\",\n  \"year\": \"2020\"\n}"
+        },
+        "url": {
+          "raw": "http://{{host}}:{{port}}/mclass",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "mclass"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "获取慕课堂详细信息",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://{{host}}:{{port}}/mclass/1",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "mclass",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "获取慕课堂的学生",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://{{host}}:{{port}}/mclass/1/users",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "mclass",
+            "1",
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "获取慕课堂的上课记录",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://{{host}}:{{port}}/mclass/1/lessons",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "mclass",
+            "1",
+            "lessons"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "加入慕课堂",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Authorization",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"moocClassCode\": \"R4MOLF\",\n  \"userId\": 6\n}"
+        },
+        "url": {
+          "raw": "http://{{host}}:{{port}}/mclass/join",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "mclass",
+            "join"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "获取课程的所有练习",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://{{host}}:{{port}}/exercise?courseId=1",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "exercise"
+          ],
+          "query": [
+            {
+              "key": "courseId",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "获取指定练习库的习题用于编辑",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://{{host}}:{{port}}/subject/exercise?exerciseId=1",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "subject",
+            "exercise"
+          ],
+          "query": [
+            {
+              "key": "exerciseId",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "新增练习",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Authorization",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"courseId\": 1,\n  \"id\": 0,\n  \"name\": \"第一章练习\"\n}"
+        },
+        "url": {
+          "raw": "http://{{host}}:{{port}}/exercise",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "exercise"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "新增/保存判断题",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "type": "text",
+            "value": "{{token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\":0,\n  \"content\": \"判断题题干_答案_false_UNIT_TEST\",\n  \"exerciseId\": 4,\n  \"result\": false,\n  \"score\": 10\n}"
+        },
+        "url": {
+          "raw": "http://{{host}}:{{port}}/subject/saveJudgment",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "subject",
+            "saveJudgment"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "新增/保存文本填空题",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Authorization",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": 0,\n  \"content\": \"填空题题干_答案_加油武汉_UNIT_TEST\",\n  \"exerciseId\": 4,\n  \"keyType\": 2,\n  \"matchType\": 1,\n  \"score\": 10,\n  \"textKey\": \"加油武汉\",\n  \"unique\": true\n}"
+        },
+        "url": {
+          "raw": "http://{{host}}:{{port}}/subject/saveFill",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "subject",
+            "saveFill"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "新增/保存数值填空题",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "type": "text",
+            "value": "{{token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": 0,\n  \"content\": \"填空题题干_答案_123456_UNIT_TEST\",\n  \"decimalKey\": \"123456\",\n  \"exerciseId\": 4,\n  \"keyType\": 1,\n  \"matchType\": 1,\n  \"score\": 10,\n  \"unique\": true\n}"
+        },
+        "url": {
+          "raw": "http://{{host}}:{{port}}/subject/saveFill",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "subject",
+            "saveFill"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "新建/保存单项选择题",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Authorization",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"content\": \"单项选择题题干_答案_D_UNIT_TEST\",\n  \"exerciseId\": 4,\n  \"id\": 0,\n  \"options\": [\n    {\n      \"content\": \"选项A_UNIT_TEST\",\n      \"correct\": false,\n      \"name\": \"A\"\n    },\n    {\n      \"content\": \"选项B_UNIT_TEST\",\n      \"correct\": false,\n      \"name\": \"B\"\n    },\n    {\n      \"content\": \"选项C_UNIT_TEST\",\n      \"correct\": true,\n      \"name\": \"C\"\n    },\n    {\n      \"content\": \"选项D_UNIT_TEST\",\n      \"correct\": false,\n      \"name\": \"D\"\n    }\n  ],\n  \"score\": 10\n}"
+        },
+        "url": {
+          "raw": "http://{{host}}:{{port}}/subject/saveChoice",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "subject",
+            "saveChoice"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "新增/保存多项选择题",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "type": "text",
+            "value": "{{token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"content\": \"多项选择题题干_答案_A,B_UNIT_TEST\",\n  \"exerciseId\": 4,\n  \"id\": 0,\n  \"options\": [\n    {\n    \t\"id\": 0,\n      \"content\": \"选项A_UNIT_TEST\",\n      \"correct\": false,\n      \"name\": \"A\"\n    },\n    {\n    \t\"id\": 0,\n      \"content\": \"选项B_UNIT_TEST\",\n      \"correct\": true,\n      \"name\": \"B\"\n    },\n    {\n    \t\"id\": 0,\n      \"content\": \"选项C_UNIT_TEST\",\n      \"correct\": true,\n      \"name\": \"C\"\n    },\n    {\n    \t\"id\": 0,\n      \"content\": \"选项D_UNIT_TEST\",\n      \"correct\": false,\n      \"name\": \"D\"\n    }\n  ],\n  \"score\": 10\n}"
+        },
+        "url": {
+          "raw": "http://{{host}}:{{port}}/subject/saveChoice",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "subject",
+            "saveChoice"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "添加备课",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Authorization",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"moocClassId\": 1,\n  \"serviceDate\": \"2020-06-31\"\n}"
+        },
+        "url": {
+          "raw": "http://{{host}}:{{port}}/mclass/prepare",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "mclass",
+            "prepare"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "从练习库导入随堂测试",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://{{host}}:{{port}}/examination/importFromExercise?exerciseId=4&lessonId=28",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "examination",
+            "importFromExercise"
+          ],
+          "query": [
+            {
+              "key": "exerciseId",
+              "value": "4"
+            },
+            {
+              "key": "lessonId",
+              "value": "28"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "获取指定随堂测试的习题用于编辑",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://{{host}}:{{port}}/subject/examination?examinationId=1",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "subject",
+            "examination"
+          ],
+          "query": [
+            {
+              "key": "examinationId",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "开始上课",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://{{host}}:{{port}}/mclass/1/start",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "mclass",
+            "1",
+            "start"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "新建签到活动",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Authorization",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"deadline\": \"2022-06-09T11:42:43.874Z\",\n  \"gps\": true,\n  \"id\": 0,\n  \"latitude\": 100,\n  \"lessonId\": 1,\n  \"longitude\": 200\n}"
+        },
+        "url": {
+          "raw": "http://{{host}}:{{port}}/checkin",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "checkin"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "学生签到",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Authorization",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"checkInId\": 1,\n  \"longitude\": 200,\n  \"latitude\": 100,  \n  \"userId\": 3\n}"
+        },
+        "url": {
+          "raw": "http://{{host}}:{{port}}/checkin/attend",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "checkin",
+            "attend"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "获取签到详细信息",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://{{host}}:{{port}}/checkin/1",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "checkin",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "关闭签到活动",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://{{host}}:{{port}}/checkin/1/close",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "checkin",
+            "1",
+            "close"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "获取慕课堂未公开的随堂测试",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://{{host}}:{{port}}/examination/privates?moocClassId=1",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "examination",
+            "privates"
+          ],
+          "query": [
+            {
+              "key": "moocClassId",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": " 发布随堂测试",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://{{host}}:{{port}}/examination/publish?lessonId=29&examinationId=17",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "examination",
+            "publish"
+          ],
+          "query": [
+            {
+              "key": "lessonId",
+              "value": "29"
+            },
+            {
+              "key": "examinationId",
+              "value": "17"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "获取随堂测试题",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://{{host}}:{{port}}/subject/exam?examinationId=1",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "subject",
+            "exam"
+          ],
+          "query": [
+            {
+              "key": "examinationId",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "提交随堂测试答题卡",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Authorization",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"answerDtos\": [\n    {\n      \"answer\": \"填空题答案_UNIT_TEST\",\n      \"subjectId\": 4\n    },\n    {\n      \"answer\": \"A,B\",\n      \"subjectId\": 5\n    },\n    {\n      \"answer\": \"false\",\n      \"subjectId\": 6\n    }\n  ],\n  \"examinationId\": 1,\n  \"userId\": 2\n}"
+        },
+        "url": {
+          "raw": "http://{{host}}:{{port}}/examination/submit",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "examination",
+            "submit"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "获取随堂测试所有答题结果",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://{{host}}:{{port}}/examination/17/record",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "examination",
+            "17",
+            "record"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "获取随堂测试的答题统计",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "type": "text",
+            "value": "{{token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://{{host}}:{{port}}/subject/statistic?examinationId=17",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "subject",
+            "statistic"
+          ],
+          "query": [
+            {
+              "key": "examinationId",
+              "value": "17"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "结束上课",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://{{host}}:{{port}}/mclass/lesson/1/end",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "mclass",
+            "lesson",
+            "1",
+            "end"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "host",
+      "value": ""
+    },
+    {
+      "key": "port",
+      "value": "",
+      "type": "default"
+    }
+  ]
+}
