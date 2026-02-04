@@ -27,7 +27,7 @@ public class UserServiceTest {
     public void testSaveThreeUsers() {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         TeacherDto teacher = new TeacherDto();
-        teacher.setName("whut_UNIT_TEST");
+        teacher.setName("whut_ut");
         teacher.setNickname("李工大");
         teacher.setTitle("教师");
         teacher.setEmail("123@qq.com");
@@ -78,7 +78,7 @@ public class UserServiceTest {
     public void testSaveUser() {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         TeacherDto teacher = new TeacherDto();
-        teacher.setName("whut_UNIT_TEST");
+        teacher.setName("whut_ut");
         teacher.setNickname("李工大");
         teacher.setTitle("教师");
         teacher.setEmail("123@qq.com");

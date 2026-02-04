@@ -77,11 +77,15 @@ public class CheckInServiceTest {
         AttendanceDto attendanceDto = AttendanceDto.builder()
                 .userId(studentId1)
                 .checkInId(checkInId)
+                .longitude(100.0)
+                .latitude(100.0)
                 .build();
         checkInService.saveAttendance(attendanceDto);
         attendanceDto = AttendanceDto.builder()
                 .userId(studentId2)
                 .checkInId(checkInId)
+                .longitude(100.0)
+                .latitude(100.0)
                 .build();
         checkInService.saveAttendance(attendanceDto);
 
