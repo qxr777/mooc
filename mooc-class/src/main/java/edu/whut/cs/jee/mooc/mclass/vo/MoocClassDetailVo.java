@@ -31,4 +31,9 @@ public class MoocClassDetailVo {
 
     private String teacherName;
 
+    /**
+     * 课堂码
+     */
+    private String code;
+
 }

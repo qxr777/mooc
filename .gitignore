@@ -1,3 +1,5 @@
 target/
 logs/
 docker/data/
+tests/reports/test-report.html
+tests/reports/test-report.json

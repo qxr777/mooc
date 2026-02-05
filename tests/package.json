@@ -1,18 +1,16 @@
 {
   "name": "mooc-api-tests",
-  "version": "1.0.0",
-  "description": "MOOC API 自动化测试套件",
+  "version": "3.0.0",
+  "description": "MOOC API Comprehensive Test Suite",
+  "main": "comprehensive-test-runner.js",
   "scripts": {
-    "test": "node simple-test-runner.js",
-    "test:smart": "node smart-test-runner.js",
-    "test:postman": "node postman-test-runner.js"
+    "test": "node comprehensive-test-runner.js"
   },
-  "dependencies": {},
-  "devDependencies": {},
   "keywords": [
     "api",
-    "testing"
+    "testing",
+    "comprehensive"
   ],
-  "author": "MOOC Team",
+  "author": "Antigravity Team",
   "license": "MIT"
 }

@@ -1,60 +1,53 @@
 {
-  "timestamp": "2026-02-04T01:51:47.387Z",
-  "summary": {
-    "total": 34,
-    "passed": 34,
-    "failed": 0,
-    "passRate": "100.00%"
-  },
+  "passed": 10,
+  "failed": 3,
+  "errors": [],
   "suites": [
     {
-      "name": "📋 基础功能测试",
+      "name": "🔑 认证与权限 (Auth & Permissions)",
+      "passed": 5,
+      "failed": 0,
+      "errors": []
+    },
+    {
+      "name": "🏫 核心业务链路 (Main Business Flow)",
+      "passed": 1,
+      "failed": 3,
+      "errors": [
+        {
+          "test": "教师获取课堂详情获取Code",
+          "error": "Code: 1005, Msg: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: \"null\"",
+          "response": {
+            "code": 1005,
+            "msg": "Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: \"null\"",
+            "data": "Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: \"null\""
+          }
+        },
+        {
+          "test": "学生加入课堂",
+          "error": "Code: 2011, Msg: 慕课堂不存在",
+          "response": {
+            "code": 2011,
+            "msg": "慕课堂不存在",
+            "data": "null慕课堂不存在"
+          }
+        },
+        {
+          "test": "教师开启上课",
+          "error": "Code: 1005, Msg: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: \"null\"",
+          "response": {
+            "code": 1005,
+            "msg": "Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: \"null\"",
+            "data": "Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: \"null\""
+          }
+        }
+      ]
+    },
+    {
+      "name": "📚 题库与随堂测试 (Examination)",
       "passed": 4,
       "failed": 0,
       "errors": []
-    },
-    {
-      "name": "🏫 慕课堂管理测试",
-      "passed": 8,
-      "failed": 0,
-      "errors": []
-    },
-    {
-      "name": "📚 习题管理测试",
-      "passed": 7,
-      "failed": 0,
-      "errors": []
-    },
-    {
-      "name": "📝 考试管理测试",
-      "passed": 3,
-      "failed": 0,
-      "errors": []
-    },
-    {
-      "name": "✅ 签到管理测试",
-      "passed": 2,
-      "failed": 0,
-      "errors": []
-    },
-    {
-      "name": "📖 练习库管理测试",
-      "passed": 2,
-      "failed": 0,
-      "errors": []
-    },
-    {
-      "name": "🔐 认证管理测试",
-      "passed": 2,
-      "failed": 0,
-      "errors": []
-    },
-    {
-      "name": "👥 用户管理测试（需要ADMIN权限）",
-      "passed": 6,
-      "failed": 0,
-      "errors": []
     }
-  ],
-  "errors": []
+  ]
 }
