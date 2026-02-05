@@ -22,7 +22,7 @@
                         <path>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
-                            <version>${lombok.versoin}</version>
+                            <version>${lombok.version}</version>
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
@@ -65,11 +65,11 @@
     <properties>
         <java.version>1.8</java.version>
         <spring-boot.version>2.1.2.RELEASE</spring-boot.version>
-        <lombok.versoin>1.18.30</lombok.versoin>
+        <lombok.version>1.18.30</lombok.version>
         <mysql.connector.version>8.0.33</mysql.connector.version>
         <swagger.version>2.9.2</swagger.version>
         <druid.version>1.1.17</druid.version>
-        <maven.test.skip>true</maven.test.skip>
+        <maven.test.skip>false</maven.test.skip>
     </properties>
 
     <dependencies>
@@ -82,7 +82,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>${lombok.versoin}</version>
+            <version>${lombok.version}</version>
             <optional>true</optional>
             <scope>provided</scope>
         </dependency>
