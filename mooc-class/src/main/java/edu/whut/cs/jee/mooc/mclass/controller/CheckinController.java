@@ -29,28 +29,27 @@ public class CheckinController {
     @PostMapping("")
     @ApiOperation(value = "新增签到活动")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "checkInSaveVo", value = "签到基本信息", dataType = "CheckInSaveVo")
+            @ApiImplicitParam(name = "checkInSaveVo", value = "签到基本信息", dataTypeClass = CheckInSaveVo.class)
     })
     @PreAuthorize("hasRole('TEACHER')")
     public Long save(@RequestBody @Valid CheckInSaveVo checkInSaveVo) {
-        return checkInService.saveCheckIn(BeanConvertUtils.convertTo(checkInSaveVo, CheckInDto::new));
+        return checkInService.saveCheckIn(toDto(checkInSaveVo));
     }
 
     @PostMapping("attend")
     @ApiOperation(value = "学生签到")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "attendanceSaveVo", value = "签到DTO", dataType = "AttendanceSaveVo")
+            @ApiImplicitParam(name = "attendanceSaveVo", value = "签到DTO", dataTypeClass = AttendanceSaveVo.class)
     })
     public Long attend(@RequestBody @Valid AttendanceSaveVo attendanceSaveVo) {
-        return checkInService.saveAttendance(BeanConvertUtils.convertTo(attendanceSaveVo, AttendanceDto::new));
+        return checkInService.saveAttendance(toDto(attendanceSaveVo));
     }
 
     @ApiOperation(value = "关闭签到活动", notes = "路径参数ID")
     @PostMapping(value = "{id}/close")
     @PreAuthorize("hasRole('TEACHER')")
-    public String close(@PathVariable Long id) {
+    public void close(@PathVariable Long id) {
         checkInService.closeCheckIn(id);
-        return "success";
     }
 
     @ApiOperation(value = "获取签到详细信息", notes = "路径参数ID")
@@ -58,5 +57,14 @@ public class CheckinController {
     @PreAuthorize("hasRole('TEACHER')")
     public CheckInDto detail(@PathVariable Long id) {
         return checkInService.getCheckInDto(id);
+    }
+
+    // DTO 转换辅助方法
+    private CheckInDto toDto(CheckInSaveVo vo) {
+        return BeanConvertUtils.convertTo(vo, CheckInDto::new);
+    }
+
+    private AttendanceDto toDto(AttendanceSaveVo vo) {
+        return BeanConvertUtils.convertTo(vo, AttendanceDto::new);
     }
 }
